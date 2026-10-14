@@ -430,6 +430,27 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 .sc-fb{margin:1rem 0;padding:.8rem 1rem;border-radius:.8rem;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
 .sc-fb b{color:var(--ok)}.sc-fb.ng b{color:var(--ng)}
 .sc-fb .ph{font-size:1.15rem}
+
+.sc-quick{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:0 0 1rem}
+.sc-quick button{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;padding:.75rem .85rem;border-radius:.8rem;background:var(--ink);color:var(--on-ink);text-align:left}
+.sc-quick button:nth-child(n+2){background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.sc-quick .k{font-size:.8125rem;font-weight:700}
+.sc-quick .v{font-size:1.25rem;font-weight:700}
+.sc-quick .v.sm{font-size:.75rem;font-weight:400;opacity:.8}
+.sc-quick .v small{font-size:.75rem;font-weight:400}
+.sc-rc{font-size:.6875rem;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:.4rem;padding:0 .35rem}
+.sc-flags{position:absolute;right:.35rem;top:.7rem;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.sc-flags .sc-ck{position:static}
+.sc-mi{font-style:normal;font-size:.625rem;font-weight:700;color:var(--ng);border:1px solid var(--ng);border-radius:.3rem;padding:0 .2rem}
+.sc-fv{color:var(--cons);display:grid}
+.sc-fv .ic{width:1.1rem;height:1.1rem}
+.sc-ra .sc-favb.on{color:var(--cons);border-color:var(--cons)}
+.sc-favb.sm{align-self:flex-start;display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:.35rem .7rem;border-radius:.6rem;border:1px solid var(--line);background:var(--bg);font-size:.8125rem}
+.sc-favb.sm.on{color:var(--cons);border-color:var(--cons)}
+.sc-favb .ic{width:1rem;height:1rem}
+.sc-opt.big.sm{font-size:.95rem;padding:.9rem .4rem}
+.sc-empty{color:var(--ink2);font-size:.9rem;line-height:1.7;text-align:center;padding:1.5rem 0}
+.sc-fb small{color:var(--ink3);font-weight:400}
 </style>
 </head>
 <body data-view="map">
@@ -1874,20 +1895,52 @@ const STRESS=new Set(["stress","rhythm"]);
 SC.forEach(c=>{c.list=c.items.trim().split("\n").map(l=>{const [raw,ear,ja,ud]=l.split("|");return {raw,ear,ja,ud:ud||"",text:raw.replace(/[\[\]·]/g,"").replace(/\s+/g," ").trim()}})});
 const scById=id=>SC.find(c=>c.id===id);
 const dk=id=>"sc_"+id;
+const kOf=(c,w)=>c.id+"|"+w.text;
+function fromKey(k){const i=k.indexOf("|"),c=scById(k.slice(0,i));if(!c)return null;const w=c.list.find(x=>x.text===k.slice(i+1));return w?{c,w}:null}
 let scCur=null,scOpen=null,scMode="list",SQ=null;
 const scRec={mr:null,url:null,text:null,timer:null};
+const EXTRA={today:"今日の5文",mix:"ミックス練習",miss:"苦手復習",fav:"お気に入り"};
+
+/* ---------- storage ---------- */
+function st(){S.scMiss=S.scMiss||{};S.scFav=S.scFav||[];S.scBest=S.scBest||{};return S}
+function missN(){return Object.keys(st().scMiss).filter(fromKey).length}
+function favN(){return st().scFav.filter(fromKey).length}
+function isFav(k){return st().scFav.includes(k)}
+function togFav(k){const s=st();s.scFav=isFav(k)?s.scFav.filter(x=>x!==k):s.scFav.concat(k);save()}
+function addMiss(k){const s=st();s.scMiss[k]=Math.min(3,(s.scMiss[k]||0)+1);save()}
+function subMiss(k,all){const s=st();if(!s.scMiss[k])return;s.scMiss[k]=all?0:s.scMiss[k]-1;if(s.scMiss[k]<=0)delete s.scMiss[k];save()}
+
+/* ---------- lists ---------- */
+function dayKey(){const d=new Date();return d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate()}
+function seeded(seed){let s=seed%2147483647;if(s<=0)s+=2147483646;return()=>(s=s*16807%2147483647)/2147483647}
+function todayList(){const all=SC.flatMap(c=>c.list.map(w=>({c,w}))),r=seeded(dayKey()),out=[],used=new Set();
+  while(out.length<5){const x=all[Math.floor(r()*all.length)];if(used.has(x.c.id))continue;used.add(x.c.id);out.push(x)}return out}
+function curList(){
+  if(scCur==="today")return todayList();
+  if(scCur==="miss")return Object.keys(st().scMiss).map(fromKey).filter(Boolean);
+  if(scCur==="fav")return st().scFav.map(fromKey).filter(Boolean);
+  const c=scById(scCur);return c?c.list.map(w=>({c,w})):[];
+}
 
 function mark(raw,cat){const cls=STRESS.has(cat)?"sc-st":"hl";return esc(raw).replace(/\[(.+?)\]/g,`<b class="${cls}">$1</b>`)}
-function earHTML(e,cat){return esc(e).replace(/\[(.+?)\]/g,'<b class="sc-st">$1</b>')}
+function earHTML(e){return esc(e).replace(/\[(.+?)\]/g,'<b class="sc-st">$1</b>')}
 function cnt(c){return doneList(dk(c.id)).length}
+const STAR=on=>`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg>`;
 
+/* ---------- list page ---------- */
 function listHTML(){
   const tot=SC.reduce((a,c)=>a+c.list.length,0),dn=SC.reduce((a,c)=>a+cnt(c),0);
-  let h=`<p class="sc-lead">英語は、つづりどおりには読まれません。音がつながる・消える・変わるルールを知ると、聞き取れる量が増えます。${SC.length}分類・${tot}例、クリア ${dn}。</p><div class="sc-cards">`;
+  const td=todayList().filter(x=>isDone(dk(x.c.id),x.w.text)).length;
+  let h=`<p class="sc-lead">英語は、つづりどおりには読まれません。音がつながる・消える・変わるルールを知ると、聞き取れる量が増えます。${SC.length}分類・${tot}例、クリア ${dn}。</p>`;
+  h+=`<div class="sc-quick">
+<button data-act="scopen" data-id="today"><span class="k">今日の5文</span><span class="v">${td}<small>/5</small></span></button>
+<button data-act="scopen" data-id="mix"><span class="k">ミックス練習</span><span class="v sm">全分類から10問</span></button>
+<button data-act="scopen" data-id="miss"><span class="k">苦手復習</span><span class="v">${missN()}<small>件</small></span></button>
+<button data-act="scopen" data-id="fav"><span class="k">お気に入り</span><span class="v">${favN()}<small>件</small></span></button></div><div class="sc-cards">`;
   SC.forEach((c,i)=>{const n=cnt(c),t=c.list.length;
     h+=`<button class="sc-card" data-act="scopen" data-id="${c.id}" style="--c:${c.c};--p:${(n/t).toFixed(3)}"><span class="sc-no">${i+1}</span><span class="sc-cb"><span class="sc-cn">${esc(c.name)}</span><span class="sc-ce">${esc(c.en)}</span><span class="sc-cs">${esc(c.sum)}</span></span><span class="sc-cp">${n}<small>/${t}</small></span><i class="sc-bar"></i></button>`});
   h+=`<button class="sc-card" data-act="scopen" data-id="ind" style="--c:var(--ink2);--p:0"><span class="sc-no">${SC.length+1}</span><span class="sc-cb"><span class="sc-cn">個別の音</span><span class="sc-ce">L / R・th・F / V ほか</span><span class="sc-cs">聞き分けのコツと鏡で見るポイント</span></span><span class="sc-cp">${ic("chevR")}</span></button></div>`;
-  h+=`<p class="sc-note">お手本はブラウザの読み上げ音声です。フラップTや飲み込むTなどは、声の種類によって再現されないことがあります。カタカナの「聞こえ方」はめやすです。</p>`;
+  h+=`<p class="sc-note">お手本はブラウザの読み上げ音声です。フラップTや飲み込むTなどは、声の種類によって再現されないことがあります。カタカナの「聞こえ方」はめやすです。苦手・お気に入り・クリアの記録はこのブラウザに保存され、設定の「書き出し」に含まれます。</p>`;
   return h;
 }
 
@@ -1897,21 +1950,33 @@ function indHTML(){
   return h;
 }
 
-function rowHTML(c,w,i){
-  const d=isDone(dk(c.id),w.text),open=scOpen===i,recOn=scRec.mr&&scRec.mr.state==="recording"&&scRec.text===w.text,hasS=scRec.url&&scRec.text===w.text;
-  let h=`<div class="sc-row ${open?"open":""}"><button class="sc-rh" data-act="scrow" data-i="${i}" aria-expanded="${open}"><span class="sc-rt ph">${mark(w.raw,c.id)}</span><span class="sc-re">${earHTML(w.ear,c.id)}</span><span class="sc-rj">${esc(w.ja)}</span>${d?`<svg class="sc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</button>`;
-  if(open)h+=`<div class="sc-ra"><button data-act="scsay" data-i="${i}">${ic("play")}お手本</button><button data-act="scslow" data-i="${i}">${ic("slow")}ゆっくり</button><button class="${recOn?"rec on":"rec"}" data-act="screc" data-i="${i}">${recOn?ic("stop")+"停止":ic("mic")+"録音"}</button><button data-act="scself" ${hasS?"":"disabled"}>${ic("play")}自分の声</button><button data-act="sccmp" data-i="${i}" ${hasS?"":"disabled"}>聞き比べ</button><button class="sc-done ${d?"on":""}" data-act="scdone" data-i="${i}">${d?"クリア済み":"できた"}</button></div>`;
+function rowHTML(x,i,showCat){
+  const {c,w}=x,k=kOf(c,w),d=isDone(dk(c.id),w.text),open=scOpen===i,recOn=scRec.mr&&scRec.mr.state==="recording"&&scRec.text===w.text,hasS=scRec.url&&scRec.text===w.text,f=isFav(k),m=st().scMiss[k];
+  let h=`<div class="sc-row ${open?"open":""}" style="--c:${c.c}"><button class="sc-rh" data-act="scrow" data-i="${i}" aria-expanded="${open}">${showCat?`<span class="sc-rc">${esc(c.name)}</span>`:""}<span class="sc-rt ph">${mark(w.raw,c.id)}</span><span class="sc-re">${earHTML(w.ear)}</span><span class="sc-rj">${esc(w.ja)}</span><span class="sc-flags">${m?`<i class="sc-mi" aria-label="苦手">苦手</i>`:""}${f?`<i class="sc-fv" aria-label="お気に入り">${STAR(true)}</i>`:""}${d?`<svg class="sc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</span></button>`;
+  if(open)h+=`<div class="sc-ra"><button data-act="scsay" data-i="${i}">${ic("play")}お手本</button><button data-act="scslow" data-i="${i}">${ic("slow")}ゆっくり</button><button class="${recOn?"rec on":"rec"}" data-act="screc" data-i="${i}">${recOn?ic("stop")+"停止":ic("mic")+"録音"}</button><button data-act="scself" ${hasS?"":"disabled"}>${ic("play")}自分の声</button><button data-act="sccmp" data-i="${i}" ${hasS?"":"disabled"}>聞き比べ</button><button class="sc-done ${d?"on":""}" data-act="scdone" data-i="${i}">${d?"クリア済み":"できた"}</button><button class="sc-favb ${f?"on":""}" data-act="scfav" data-i="${i}">${STAR(f)}${f?"お気に入り済み":"お気に入り"}</button>${m?`<button data-act="scunmiss" data-i="${i}">苦手から外す</button>`:`<button data-act="scaddmiss" data-i="${i}">苦手に入れる</button>`}</div>`;
   return h+`</div>`;
 }
+function rowsHTML(list,showCat){return list.map((x,i)=>rowHTML(x,i,showCat)).join("")}
+function toolbar(leg){return `<div class="sc-tb"><button class="btn-line" data-act="scall">${playAll?ic("stop")+"停止":ic("loop")+"連続再生"}</button><span class="sc-leg">${leg}</span></div>`}
+function segHTML(n){return `<div class="seg sc-seg"><button class="${scMode==="list"?"on":""}" data-act="scmode" data-v="list">例文 ${n}</button><button class="${scMode==="quiz"?"on":""}" data-act="scmode" data-v="quiz">クイズ</button></div>`}
 
-function detailHTML(c){
-  if(c==="ind")return indHTML();
-  let h=`<section class="sc-exp" style="--c:${c.c}"><h2>しくみ</h2><p>${esc(c.how)}</p><h2>コツ</h2><p>${esc(c.tip)}</p><h2>よくあるミス</h2><p>${esc(c.miss)}</p></section>`;
-  h+=`<div class="seg sc-seg"><button class="${scMode==="list"?"on":""}" data-act="scmode" data-v="list">例文 ${c.list.length}</button><button class="${scMode==="quiz"?"on":""}" data-act="scmode" data-v="quiz">クイズ</button></div>`;
-  if(scMode==="list"){
-    h+=`<div class="sc-tb"><button class="btn-line" data-act="scall">${playAll?ic("stop")+"停止":ic("loop")+"連続再生"}</button><span class="sc-leg">${STRESS.has(c.id)?"大きい文字＝強く読む":c.id==="inton"?"↗上げる ↘下げる":"色の部分＝音が変わる所"}</span></div>`;
-    h+=c.list.map((w,i)=>rowHTML(c,w,i)).join("");
-  }else h+=quizHTML(c);
+function detailHTML(){
+  if(scCur==="ind")return indHTML();
+  if(scCur==="mix")return quizHTML();
+  if(EXTRA[scCur]){
+    const l=curList();
+    const desc={today:"毎日日付で入れ替わる5文。分類がかぶらないように選んでいます。聞いて、録音して、できたら「できた」。",miss:"クイズで間違えた例が自動で入ります。苦手復習のクイズで正解すると外れます（通常のクイズでも、正解するたびに苦手度が下がります）。",fav:"例文を開いて「お気に入り」を押すと入ります。"}[scCur];
+    let h=`<section class="sc-exp"><p>${desc}</p></section>`;
+    if(SQ&&SQ.src===scCur&&scMode==="quiz")return h+segHTML(l.length)+quizHTML();
+    if(!l.length)return h+`<p class="sc-empty">${scCur==="miss"?"まだ苦手はありません。各分類やミックス練習のクイズで間違えると、ここに入ります。":"まだお気に入りはありません。"}</p>`;
+    if(scCur==="today")return h+toolbar("色の部分＝音が変わる所")+rowsHTML(l,true);
+    h+=segHTML(l.length);
+    return h+(scMode==="list"?toolbar(`${l.length}件`)+rowsHTML(l,true):quizHTML());
+  }
+  const c=scById(scCur);
+  let h=`<section class="sc-exp" style="--c:${c.c}"><h2>しくみ</h2><p>${esc(c.how)}</p><h2>コツ</h2><p>${esc(c.tip)}</p><h2>よくあるミス</h2><p>${esc(c.miss)}</p></section>`+segHTML(c.list.length);
+  if(scMode==="list")h+=toolbar(STRESS.has(c.id)?"大きい文字＝強く読む":c.id==="inton"?"↗上げる ↘下げる":"色の部分＝音が変わる所")+rowsHTML(curList(),false);
+  else h+=quizHTML();
   return h;
 }
 
@@ -1920,51 +1985,69 @@ function tokens(w){
   const r=w.raw.replace(/[.?!,]/g,"");
   let parts;
   if(r.includes("·"))parts=r.split("·");
-  else if(!/\s/.test(r.trim())){ // 1語：文字ごと（括弧は1かたまり）
-    parts=[];let m;const re=/\[[^\]]+\]|[^\[]/g;while((m=re.exec(r)))parts.push(m[0]);
-  }else parts=r.split(/\s+/);
+  else if(!/\s/.test(r.trim())){parts=[];let m;const re=/\[[^\]]+\]|[^\[]/g;while((m=re.exec(r)))parts.push(m[0])}
+  else parts=r.split(/\s+/);
   return parts.filter(Boolean).map(p=>({t:p.replace(/[\[\]]/g,""),ok:/\[/.test(p)}));
 }
 function spotOK(w){return /\[/.test(w.raw)&&tokens(w).some(t=>!t.ok)}
-function qTypes(c){return c.id==="inton"?[["listen","聞き取り"],["ud","上げ下げ"]]:[["listen","聞き取り"],["spot","変わる所"]]}
-function startQuiz(c,type){
-  const pool=type==="spot"?c.list.filter(spotOK):c.list;
-  const qs=shuffle(pool).slice(0,10).map(w=>{
-    if(type==="listen"){const others=shuffle(c.list.filter(x=>x.text!==w.text)).slice(0,3);return {w,ch:shuffle([w,...others])}}
-    return {w};
-  });
-  SQ={cat:c.id,type,qs,i:0,score:0,ans:null,hist:[]};
+function mkQ(x,type){
+  const {c,w}=x;
+  if(type==="listen"){const others=shuffle(c.list.filter(y=>y.text!==w.text)).slice(0,3);return {c,w,type,ch:shuffle([w,...others])}}
+  if(type==="rule"){const others=shuffle(SC.filter(y=>y.id!==c.id)).slice(0,3);return {c,w,type,ch:shuffle([c,...others])}}
+  if(type==="spot"&&!spotOK(w))return mkQ(x,"listen");
+  if(type==="ud"&&!w.ud)return mkQ(x,"listen");
+  return {c,w,type};
 }
-function quizHTML(c){
-  if(!SQ||SQ.cat!==c.id){
-    const best=(S.scBest&&S.scBest[c.id])||0;
-    return `<section class="sc-qs"><p class="sc-qd">10問。「聞き取り」は流れた文を4つから選ぶ。${c.id==="inton"?"「上げ下げ」は文末が上がるか下がるかを選ぶ。":"「変わる所」は音が変化・脱落する部分をタップする。"}</p>${best?`<p class="sc-qbest">最高 ${best} / 10</p>`:""}<div class="sc-qbtn">${qTypes(c).map(([k,l])=>`<button class="btn-main" data-act="scqstart" data-v="${k}">${ic("play")}${l}</button>`).join("")}</div></section>`;
+function qTypes(){
+  if(scCur==="inton")return [["listen","聞き取り"],["ud","上げ下げ"]];
+  if(scCur==="miss"||scCur==="fav")return [["listen","聞き取り"],["mixed","いろいろ"]];
+  return [["listen","聞き取り"],["spot","変わる所"]];
+}
+function startQuiz(type){
+  let pool=curList();
+  if(scCur==="mix")pool=SC.flatMap(c=>c.list.map(w=>({c,w})));
+  if(type==="spot")pool=pool.filter(x=>spotOK(x.w));
+  const qs=shuffle(pool).slice(0,10).map((x,i)=>{
+    if(type==="mixed"){const t=x.c.id==="inton"?(i%2?"ud":"listen"):["listen","spot","rule"][i%3];return mkQ(x,t)}
+    return mkQ(x,type)});
+  SQ={src:scCur,qs,i:0,score:0,ans:null,hist:[]};
+}
+function quizHTML(){
+  if(!SQ||SQ.src!==scCur){
+    if(scCur==="mix")return `<section class="sc-exp"><p>全11分類からランダムに10問。どのルールかを当てる「ルール当て」、流れた文を選ぶ「聞き取り」、音が変わる所を選ぶ「変わる所」が混ざって出ます。間違えた例は苦手復習に入ります。</p></section><section class="sc-qs">${S.scBest&&S.scBest.mix?`<p class="sc-qbest">最高 ${S.scBest.mix} / 10</p>`:""}<div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="mixed">${ic("play")}始める</button></div></section>`;
+    const best=(S.scBest&&S.scBest[scCur])||0;
+    return `<section class="sc-qs"><p class="sc-qd">最大10問。「聞き取り」は流れた文を4つから選ぶ。${scCur==="inton"?"「上げ下げ」は文末が上がるか下がるかを選ぶ。":scCur==="miss"||scCur==="fav"?"「いろいろ」は聞き取り・変わる所・ルール当てが混ざる。":"「変わる所」は音が変化・脱落する部分をタップする。"}${scCur==="miss"?"正解した例は苦手から外れる。":"間違えた例は苦手復習に入る。"}</p>${best?`<p class="sc-qbest">最高 ${best}</p>`:""}<div class="sc-qbtn">${qTypes().map(([k,l])=>`<button class="btn-main" data-act="scqstart" data-v="${k}">${ic("play")}${l}</button>`).join("")}</div></section>`;
   }
   const n=SQ.qs.length;
-  if(SQ.i>=n)return `<section class="sc-qs"><div class="q-dots">${SQ.hist.map(x=>`<i class="${x?"ok":"ng"}"></i>`).join("")}</div><p class="q-score">${SQ.score}<small> / ${n}問</small></p><div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="${SQ.type}">もう一度</button><button class="btn-sub" data-act="scqback">やめる</button></div></section>`;
-  const q=SQ.qs[SQ.i],w=q.w;
+  if(SQ.i>=n)return `<section class="sc-qs"><div class="q-dots">${SQ.hist.map(x=>`<i class="${x?"ok":"ng"}"></i>`).join("")}</div><p class="q-score">${SQ.score}<small> / ${n}問</small></p>${SQ.hist.some(x=>!x)&&scCur!=="miss"?`<p class="sc-qd" style="text-align:center">間違えた例を苦手復習に入れました</p>`:""}<div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="${SQ.type0}">もう一度</button><button class="btn-sub" data-act="scqback">やめる</button></div></section>`;
+  const q=SQ.qs[SQ.i],{c,w}=q;
   let h=`<div class="sc-qbar"><span>${SQ.i+1} / ${n}</span><button class="linkbtn" data-act="scqback">やめる</button></div>`;
-  if(SQ.type==="listen"){
-    h+=`<div class="q-stage"><button class="q-play" data-act="scqplay" aria-label="もう一度聞く">${ic("play")}</button><button class="q-slow" data-act="scqslow">ゆっくり聞く</button></div><div class="sc-qch">`;
+  if(q.type==="listen"){
+    h+=`<p class="sc-qd">流れた文はどれ？</p><div class="q-stage"><button class="q-play" data-act="scqplay" aria-label="もう一度聞く">${ic("play")}</button><button class="q-slow" data-act="scqslow">ゆっくり聞く</button></div><div class="sc-qch">`;
     h+=q.ch.map((x,k)=>{
       if(SQ.ans===null)return `<button class="sc-opt" data-act="scqans" data-k="${k}"><span class="ph">${esc(x.text)}</span></button>`;
       const cl=x===w?"right":(k===SQ.ans?"wrong":"");
-      return `<div class="sc-opt ${cl}"><span class="ph">${mark(x.raw,c.id)}</span><span class="sc-oe">${earHTML(x.ear,c.id)}</span><button class="hear" data-act="scqhear" data-k="${k}">${ic("play")}</button></div>`}).join("")+`</div>`;
-  }else if(SQ.type==="ud"){
-    h+=`<div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${esc(w.text)}</p></div><div class="sc-qch two">`;
+      return `<div class="sc-opt ${cl}"><span class="ph">${mark(x.raw,c.id)}</span><span class="sc-oe">${earHTML(x.ear)}</span><button class="hear" data-act="scqhear" data-k="${k}" aria-label="聞く">${ic("play")}</button></div>`}).join("")+`</div>`;
+  }else if(q.type==="rule"){
+    h+=`<p class="sc-qd">この文で起きている音の変化は？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${SQ.ans===null?esc(w.text):mark(w.raw,c.id)}</p></div><div class="sc-qch two">`;
+    h+=q.ch.map((x,k)=>{
+      if(SQ.ans===null)return `<button class="sc-opt big sm" data-act="scqans" data-k="${k}">${esc(x.name)}</button>`;
+      return `<div class="sc-opt big sm ${x===c?"right":(k===SQ.ans?"wrong":"")}">${esc(x.name)}</div>`}).join("")+`</div>`;
+  }else if(q.type==="ud"){
+    h+=`<p class="sc-qd">文末は上がる？下がる？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${esc(w.text)}</p></div><div class="sc-qch two">`;
     h+=[["u","↗ 上がる"],["d","↘ 下がる"]].map(([v,l])=>{
       if(SQ.ans===null)return `<button class="sc-opt big" data-act="scqans" data-k="${v}">${l}</button>`;
       return `<div class="sc-opt big ${v===w.ud?"right":(v===SQ.ans?"wrong":"")}">${l}</div>`}).join("")+`</div>`;
   }else{
     const tk=tokens(w);
-    h+=`<p class="sc-qd">音が変化する・消える・強くなる所はどこ？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button></div><div class="sc-tok">`;
+    h+=`<p class="sc-qd">${scCur==="mix"||scCur==="miss"||scCur==="fav"?`【${esc(c.name)}】`:""}音が変化する・消える・強くなる所はどこ？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button></div><div class="sc-tok">`;
     h+=tk.map((t,k)=>{
       if(SQ.ans===null)return `<button class="ph" data-act="scqans" data-k="${k}">${esc(t.t)}</button>`;
       return `<span class="ph ${t.ok?"right":(k===SQ.ans?"wrong":"")}">${esc(t.t)}</span>`}).join("")+`</div>`;
   }
   if(SQ.ans!==null){
-    const ok=SQ.hist[SQ.hist.length-1];
-    h+=`<div class="sc-fb ${ok?"ok":"ng"}"><b>${ok?"正解":"不正解"}</b><span class="ph">${mark(w.raw,c.id)}</span><span>${earHTML(w.ear,c.id)}　${esc(w.ja)}</span></div><button class="btn-main" data-act="scqnext">${SQ.i+1<n?"次へ":"結果を見る"}</button>`;
+    const ok=SQ.hist[SQ.hist.length-1],k=kOf(c,w),f=isFav(k);
+    h+=`<div class="sc-fb ${ok?"ok":"ng"}"><b>${ok?"正解":"不正解"}　<small>${esc(c.name)}</small></b><span class="ph">${mark(w.raw,c.id)}</span><span>${earHTML(w.ear)}　${esc(w.ja)}</span><button class="sc-favb sm ${f?"on":""}" data-act="scqfav">${STAR(f)}${f?"お気に入り済み":"お気に入り"}</button></div><button class="btn-main" data-act="scqnext">${SQ.i+1<n?"次へ":"結果を見る"}</button>`;
   }
   return h;
 }
@@ -1974,60 +2057,68 @@ async function recToggle(text){
   if(scRec.mr&&scRec.mr.state==="recording"){scRec.mr.stop();return}
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){toast("この環境では録音できません");return}
   stopPlayAll();try{speechSynthesis.cancel()}catch(e){}
-  let st;try{st=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){toast("マイクを使えません。ブラウザのマイク許可を確認してください");return}
-  const ch=[],mr=new MediaRecorder(st);
+  let sm;try{sm=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){toast("マイクを使えません。ブラウザのマイク許可を確認してください");return}
+  const ch=[],mr=new MediaRecorder(sm);
   mr.ondataavailable=e=>{if(e.data&&e.data.size)ch.push(e.data)};
-  mr.onstop=()=>{st.getTracks().forEach(t=>t.stop());clearTimeout(scRec.timer);if(scRec.url)URL.revokeObjectURL(scRec.url);scRec.url=URL.createObjectURL(new Blob(ch,{type:mr.mimeType||"audio/webm"}));scRec.mr=null;rerender();if(S.set.autoCmp)cmp(text)};
+  mr.onstop=()=>{sm.getTracks().forEach(t=>t.stop());clearTimeout(scRec.timer);if(scRec.url)URL.revokeObjectURL(scRec.url);scRec.url=URL.createObjectURL(new Blob(ch,{type:mr.mimeType||"audio/webm"}));scRec.mr=null;rerender();if(S.set.autoCmp)cmp(text)};
   mr.start();scRec.mr=mr;scRec.text=text;scRec.timer=setTimeout(()=>{if(mr.state==="recording")mr.stop()},Math.max(5,S.set.recSec)*1000);rerender();
 }
 function self(cb){if(!scRec.url){if(cb)cb();return}const a=new Audio(scRec.url);if(cb){a.onended=cb;a.onerror=cb}a.play().catch(()=>{if(cb)cb()})}
 function cmp(text){stopPlayAll();speak(text,false,()=>setTimeout(()=>self(),300))}
 
 /* ---------- view ---------- */
-function curC(){return scCur==="ind"?"ind":scById(scCur)}
 function rerender(){if(view==="sc"||view==="scd"){const y=window.scrollY;render();window.scrollTo(0,y)}}
+function titleOf(){if(scCur==="ind")return "個別の音";if(EXTRA[scCur])return EXTRA[scCur];return scById(scCur).name}
 const _render=render;
 render=function(){
-  if(view!=="sc"&&view!=="scd"){document.querySelector('.nav button[data-tab="sc"]').classList.remove("on");return _render()}
+  if(view!=="sc"&&view!=="scd"){return _render()}
   document.body.dataset.view=view;document.body.style.removeProperty("--c");
   document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab==="sc"));
   if(view==="sc"){$top.innerHTML=`<h1>音の変化</h1>`;$main.innerHTML=listHTML()}
-  else{const c=curC(),nm=c==="ind"?"個別の音":c.name;
-    $top.innerHTML=`<button class="back" data-act="scback" aria-label="一覧に戻る">${ic("chevL")}</button><h1>${esc(nm)}</h1>${c!=="ind"?`<span class="meta">${cnt(c)} / ${c.list.length}</span>`:""}`;
-    $main.innerHTML=detailHTML(c)}
+  else{const c=scById(scCur);
+    $top.innerHTML=`<button class="back" data-act="scback" aria-label="一覧に戻る">${ic("chevL")}</button><h1>${esc(titleOf())}</h1>${c?`<span class="meta">${cnt(c)} / ${c.list.length}</span>`:""}`;
+    $main.innerHTML=detailHTML()}
   renderSheet();
 };
-const textOf=b=>curC().list[+b.dataset.i].text;
+const itemOf=b=>curList()[+b.dataset.i];
+const textOf=b=>itemOf(b).w.text;
 Object.assign(ACT,{
   scopen(b){stopPlayAll();scCur=b.dataset.id;scOpen=null;scMode="list";SQ=null;view="scd";history.pushState({v:"scd"},"");render();window.scrollTo(0,0)},
   scback(){if(history.state&&history.state.v==="scd")history.back();else{stopPlayAll();view="sc";render()}},
   scgo(b){openPhon(b.dataset.id,true)},
-  scrow(b){const i=+b.dataset.i;scOpen=scOpen===i?null:i;rerender();if(scOpen===i)speak(curC().list[i].text,false)},
+  scrow(b){const i=+b.dataset.i;scOpen=scOpen===i?null:i;rerender();if(scOpen===i)speak(curList()[i].w.text,false)},
   scsay(b){stopPlayAll();speak(textOf(b),false)},
   scslow(b){stopPlayAll();speak(textOf(b),true)},
   screc(b){recToggle(textOf(b))},
   scself(){stopPlayAll();self()},
   sccmp(b){cmp(textOf(b))},
-  scdone(b){const c=curC(),t=textOf(b);setDone(dk(c.id),t,!isDone(dk(c.id),t));rerender()},
+  scdone(b){const {c,w}=itemOf(b);setDone(dk(c.id),w.text,!isDone(dk(c.id),w.text));rerender()},
+  scfav(b){const {c,w}=itemOf(b),k=kOf(c,w),was=isFav(k);togFav(k);if(scCur==="fav"&&was)scOpen=null;toast(was?"お気に入りから外しました":"お気に入りに入れました");rerender()},
+  scaddmiss(b){const {c,w}=itemOf(b);addMiss(kOf(c,w));toast("苦手に入れました");rerender()},
+  scunmiss(b){const {c,w}=itemOf(b);subMiss(kOf(c,w),true);if(scCur==="miss")scOpen=null;toast("苦手から外しました");rerender()},
   scmode(b){stopPlayAll();scMode=b.dataset.v;SQ=null;render()},
-  scall(){if(playAll){stopPlayAll();rerender();return}const l=curC().list.map(w=>({text:w.text,ja:w.ja}));startPlayAll(l);rerender()},
-  scqstart(b){startQuiz(curC(),b.dataset.v);render();window.scrollTo(0,0);speak(SQ.qs[0].w.text,false)},
+  scall(){if(playAll){stopPlayAll();rerender();return}const l=curList().map(x=>({text:x.w.text,ja:x.w.ja}));if(!l.length)return;startPlayAll(l);rerender()},
+  scqstart(b){startQuiz(b.dataset.v);SQ.type0=b.dataset.v;if(!SQ.qs.length){SQ=null;toast("出題できる例がありません");return}render();window.scrollTo(0,0);speak(SQ.qs[0].w.text,false)},
   scqplay(){speak(SQ.qs[SQ.i].w.text,false)},
   scqslow(){speak(SQ.qs[SQ.i].w.text,true)},
   scqhear(b){speak(SQ.qs[SQ.i].ch[+b.dataset.k].text,false)},
   scqans(b){if(SQ.ans!==null)return;const q=SQ.qs[SQ.i];let ok;
-    if(SQ.type==="listen"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.w}
-    else if(SQ.type==="ud"){SQ.ans=b.dataset.k;ok=SQ.ans===q.w.ud}
+    if(q.type==="listen"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.w}
+    else if(q.type==="rule"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.c}
+    else if(q.type==="ud"){SQ.ans=b.dataset.k;ok=SQ.ans===q.w.ud}
     else{SQ.ans=+b.dataset.k;ok=tokens(q.w)[SQ.ans].ok}
-    if(ok)SQ.score++;SQ.hist.push(ok);rerender()},
-  scqnext(){SQ.i++;SQ.ans=null;if(SQ.i>=SQ.qs.length){S.scBest=S.scBest||{};S.scBest[SQ.cat]=Math.max(S.scBest[SQ.cat]||0,SQ.score);save();render()}else{render();speak(SQ.qs[SQ.i].w.text,false)}window.scrollTo(0,0)},
+    const k=kOf(q.c,q.w);if(ok){SQ.score++;subMiss(k,scCur==="miss")}else addMiss(k);
+    SQ.hist.push(ok);rerender()},
+  scqfav(){const q=SQ.qs[SQ.i];togFav(kOf(q.c,q.w));rerender()},
+  scqnext(){SQ.i++;SQ.ans=null;if(SQ.i>=SQ.qs.length){if(scCur!=="miss"&&scCur!=="fav"){st().scBest[scCur]=Math.max(S.scBest[scCur]||0,SQ.score);save()}render()}else{render();speak(SQ.qs[SQ.i].w.text,false)}window.scrollTo(0,0)},
   scqback(){SQ=null;render()}
 });
 const _tab=ACT.tab;ACT.tab=function(b,e){if(b.dataset.tab==="sc"){stopPlayAll();view="sc";render();window.scrollTo(0,0);return}_tab(b,e)};
+const _reset=ACT.reset;ACT.reset=function(b,e){const was=b.dataset.armed==="1";_reset(b,e);if(was){S.scMiss={};S.scFav=[];S.scBest={};save()}};
 window.addEventListener("popstate",()=>{if(view==="scd"){stopPlayAll();view="sc";render()}});
-/* 学習記録の書き出し・読み込みでクイズ最高点も保持 */
-const _norm=normalizeState;normalizeState=function(s){const o=_norm(s);if(s&&s.scBest&&typeof s.scBest==="object")o.scBest=s.scBest;return o};
-try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw&&raw.scBest)S.scBest=raw.scBest}catch(e){}
+/* 書き出し・読み込みで苦手・お気に入り・最高点も保持 */
+const _norm=normalizeState;normalizeState=function(s){const o=_norm(s);if(s&&typeof s==="object"){if(s.scBest&&typeof s.scBest==="object")o.scBest=s.scBest;if(s.scMiss&&typeof s.scMiss==="object")o.scMiss=s.scMiss;if(Array.isArray(s.scFav))o.scFav=s.scFav.filter(x=>typeof x==="string")}return o};
+try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw){if(raw.scBest)S.scBest=raw.scBest;if(raw.scMiss)S.scMiss=raw.scMiss;if(Array.isArray(raw.scFav))S.scFav=raw.scFav}}catch(e){}
 })();
 </script>
 </body>
