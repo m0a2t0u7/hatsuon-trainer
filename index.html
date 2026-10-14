@@ -366,6 +366,71 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<style>
+/*SOUND CHANGES*/
+.sc-lead{color:var(--ink2);font-size:.9375rem;line-height:1.7;margin:.5rem 0 1rem}
+.sc-cards{display:grid;gap:.6rem}
+.sc-card{position:relative;display:flex;align-items:center;gap:.8rem;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.85rem .9rem 1rem;text-align:left;overflow:hidden}
+.sc-no{flex:none;width:1.9rem;height:1.9rem;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--on-ink);font-weight:700;font-size:.875rem}
+.sc-cb{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}
+.sc-cn{font-weight:700;font-size:1rem}
+.sc-ce{font-size:.75rem;color:var(--ink3)}
+.sc-cs{font-size:.8125rem;color:var(--ink2)}
+.sc-cp{flex:none;font-weight:700;font-size:1rem;color:var(--ink2)}
+.sc-cp small{font-weight:400;font-size:.75rem}
+.sc-bar{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--p)*100%);background:var(--c)}
+.sc-note{font-size:.75rem;color:var(--ink3);line-height:1.6;margin:1.2rem 0 1.5rem}
+.sc-exp{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--ink2));border-radius:.8rem;padding:.4rem 1rem .9rem;margin:.5rem 0 1rem}
+.sc-exp h2{font-size:.8125rem;color:var(--ink2);margin:.8rem 0 .2rem}
+.sc-exp p{margin:0;font-size:.9375rem;line-height:1.7}
+.sc-seg{margin:1rem 0 .6rem}
+.sc-tb{display:flex;align-items:center;gap:.7rem;margin:.4rem 0 .5rem;flex-wrap:wrap}
+.sc-tb .btn-line{display:inline-flex;align-items:center;gap:.3rem}
+.sc-tb .ic{width:1.1rem;height:1.1rem}
+.sc-leg{font-size:.75rem;color:var(--ink3)}
+.sc-row{border-bottom:1px solid var(--line)}
+.sc-rh{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;width:100%;padding:.65rem 2rem .65rem .25rem;text-align:left}
+.sc-row.open .sc-rh{background:var(--sunk);border-radius:.5rem .5rem 0 0}
+.sc-rt{font-size:1.2rem;line-height:1.35}
+.sc-rt .hl{color:var(--c,var(--short));font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.sc-st{font-size:1.25em;font-weight:800;color:var(--c,var(--short))}
+.sc-re{font-size:.9375rem;color:var(--ink)}
+.sc-re .sc-st{font-size:1.15em}
+.sc-rj{font-size:.8125rem;color:var(--ink3)}
+.sc-ck{position:absolute;right:.4rem;top:.8rem;width:1.2rem;height:1.2rem;color:var(--ok)}
+.sc-ra{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.5rem .25rem .8rem;background:var(--sunk);border-radius:0 0 .5rem .5rem}
+.sc-ra button{display:flex;align-items:center;justify-content:center;gap:.3rem;padding:.55rem .2rem;border-radius:.6rem;background:var(--surface);border:1px solid var(--line);font-size:.8125rem}
+.sc-ra button:disabled{opacity:.4}
+.sc-ra .ic{width:1rem;height:1rem}
+.sc-ra .rec.on{background:var(--ng);color:#fff;border-color:var(--ng)}
+.sc-ra .sc-done.on{background:var(--ok);color:var(--on-ink);border-color:var(--ok)}
+.sc-ind{background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:.2rem 1rem 1rem;margin-bottom:.8rem}
+.sc-ind h2{font-size:1.05rem;margin:.8rem 0 .4rem}
+.sc-ind dl{margin:0}
+.sc-ind dt{font-size:.75rem;color:var(--ink3);margin-top:.5rem}
+.sc-ind dd{margin:.1rem 0 0;font-size:.9rem;line-height:1.65}
+.sc-indb{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.sc-qs{text-align:center;padding:1rem 0}
+.sc-qd{font-size:.875rem;color:var(--ink2);line-height:1.7;text-align:left}
+.sc-qbest{font-weight:700}
+.sc-qbtn{display:flex;flex-direction:column;gap:.6rem;margin-top:1rem}
+.sc-qbar{display:flex;justify-content:space-between;align-items:center;font-size:.875rem;color:var(--ink2);margin:.5rem 0}
+.sc-qt{font-size:1.3rem;margin:.6rem 0 0;text-align:center}
+.sc-qch{display:grid;gap:.5rem;margin-top:1rem}
+.sc-qch.two{grid-template-columns:1fr 1fr}
+.sc-opt{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;background:var(--surface);border:1.5px solid var(--line);border-radius:.8rem;padding:.8rem 2.8rem .8rem .9rem;text-align:left;font-size:1.05rem;width:100%}
+.sc-opt.big{align-items:center;padding:1.1rem .5rem;font-size:1.15rem;font-weight:700}
+.sc-opt .sc-oe{font-size:.8125rem;color:var(--ink2)}
+.sc-opt .hear{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;background:var(--sunk)}
+.sc-opt .hear .ic{width:1rem;height:1rem}
+.sc-opt.right,.sc-tok .right{border-color:var(--ok);box-shadow:inset 0 0 0 1.5px var(--ok)}
+.sc-opt.wrong,.sc-tok .wrong{border-color:var(--ng);box-shadow:inset 0 0 0 1.5px var(--ng)}
+.sc-tok{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin:1rem 0}
+.sc-tok>*{font-size:1.25rem;padding:.45rem .75rem;border-radius:.6rem;border:1.5px solid var(--line);background:var(--surface);min-width:2.4rem;text-align:center}
+.sc-fb{margin:1rem 0;padding:.8rem 1rem;border-radius:.8rem;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
+.sc-fb b{color:var(--ok)}.sc-fb.ng b{color:var(--ng)}
+.sc-fb .ph{font-size:1.15rem}
+</style>
 </head>
 <body data-view="map">
 <header class="top" id="top"></header>
@@ -373,6 +438,7 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 <div id="sheet" hidden></div>
 <nav class="nav" aria-label="画面切り替え"><div>
   <button data-act="tab" data-tab="map" class="on"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 5h18v14H8.5z"/><circle cx="13" cy="11" r="1.6" fill="currentColor" stroke="none"/></svg>練習</button>
+  <button data-act="tab" data-tab="sc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2M21 12h0"/></svg>音の変化</button>
   <button data-act="tab" data-tab="quiz"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="7.5" height="12" rx="2"/><rect x="13.5" y="6" width="7.5" height="12" rx="2"/></svg>聞き分け</button>
   <button data-act="tab" data-tab="settings"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></svg>設定</button>
 </div></nav>
@@ -1403,6 +1469,566 @@ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",applyLook);
 let dlNS=null;
 try{if(window.claude&&typeof window.claude.use==="function")window.claude.use("downloads").then(ns=>{dlNS=ns}).catch(()=>{})}catch(e){}
 applyLook();render();
+</script>
+<script>
+/*SOUND CHANGES DATA*/
+const SC=[
+{id:"silent",name:"サイレントレター",en:"Silent letters",c:"var(--short)",
+sum:"書いてあるのに読まない文字",
+how:"綴りの中に、発音しない文字がある。昔は読んでいた音が、時代とともに消えて文字だけ残った。kn の k、wr の w、mb の b、alk の l などはパターンで覚えられる。",
+tip:"[ ] で囲んだ文字は読まない。綴りを見て音を作るのではなく、音を聞いて単語を覚え直す。",
+miss:"knife を「クナイフ」、listen を「リッスン」と、ローマ字読みで t や k を入れてしまう。",
+items:`[k]now|ノウ|知っている
+[k]nife|ナイフ|ナイフ
+[k]nee|ニー|ひざ
+[k]nock|ナック|ノックする
+[w]rite|ライト|書く
+[w]rong|ローング|間違った
+[w]rap|ラップ|包む
+lis[t]en|リスン|聞く
+cas[t]le|キャソー|城
+whis[t]le|ウィソー|口笛
+ha[l]f|ハーフ|半分
+ta[l]k|トーク|話す
+wa[l]k|ウォーク|歩く
+ca[l]m|カーム|落ち着いた
+cou[l]d|クッド|できた
+shou[l]d|シュッド|〜すべき
+wou[l]d|ウッド|〜だろう
+clim[b]|クライム|登る
+com[b]|コウム|くし
+thum[b]|サム|親指
+dou[b]t|ダウト|疑う
+de[b]t|デット|借金
+[h]our|アワー|1時間
+[h]onest|アネスト|正直な
+[h]onor|アナー|名誉
+i[s]land|アイランド|島
+autum[n]|オータム|秋
+colum[n]|カラム|列、コラム
+forei[g]n|フォーリン|外国の
+We[d]nesday|ウェンズデイ|水曜日`},
+{id:"contr",name:"短縮形",en:"Contractions",c:"var(--long)",
+sum:"2語がくっついて1語になる",
+how:"I will が I'll、do not が don't のように、2つの語が縮まって1つになる。会話ではほぼ必ず短縮形で話されるので、元の形で待っていると聞き逃す。",
+tip:"'ll は「ル」、'd は小さい「ド」、'v は「ヴ」がかすかに聞こえるだけ。主語の直後の小さな音を拾う。",
+miss:"I'll と I、I'd と I を聞き分けられず、時制や意味を取り違える。can't と can も特に間違えやすい。",
+items:`I['m]|アイム|私は〜だ
+I['ll]|アイル|私は〜するつもり
+I['ve]|アイヴ|私は〜したことがある
+I['d]|アイド|私は〜するだろう／〜した
+you['re]|ユア|あなたは〜だ
+you['ll]|ユール|あなたは〜するだろう
+you['ve]|ユーヴ|あなたは〜した
+he['s]|ヒーズ|彼は〜だ／〜した
+she['ll]|シール|彼女は〜するだろう
+it['s]|イッツ|それは〜だ
+we['re]|ウィア|私たちは〜だ
+they['re]|ゼア|彼らは〜だ
+they['ve]|ゼイヴ|彼らは〜した
+that['s]|ザッツ|それは〜だ
+there['s]|ゼアズ|〜がある
+what['s]|ワッツ|何が〜か
+let['s]|レッツ|〜しよう
+is[n't]|イズント|〜ではない
+are[n't]|アーント|〜ではない
+was[n't]|ワズント|〜ではなかった
+do[n't]|ドウント|〜しない
+does[n't]|ダズント|〜しない（三単現）
+did[n't]|ディドゥント|〜しなかった
+ca[n't]|キャーント|〜できない
+[won't]|ウォウント|〜しないだろう
+could[n't]|クドゥント|〜できなかった
+should[n't]|シュドゥント|〜すべきでない
+should['ve]|シュダヴ|〜すべきだった
+would['ve]|ウダヴ|〜しただろうに
+could['ve]|クダヴ|〜できただろうに`},
+{id:"stress",name:"単語の強勢",en:"Word stress",c:"var(--diph)",
+sum:"単語のどこを強く読むか",
+how:"英語の単語には強く・高く・長く読む音節が1か所ある。強勢の位置を間違えると、発音が正しくても通じない。品詞で強勢が移る単語もある（名詞は前、動詞は後ろ）。",
+tip:"大きい文字の音節を強く長く。それ以外は力を抜いて短く、あいまいに読む。",
+miss:"日本語は高さで区別するので、全部の音節を同じ強さで読みがち。hotel を「ホテル」と前に置くと通じにくい。",
+items:`[pho]·to|[フォウ]トウ|写真
+pho·[tog]·ra·pher|フ[タ]グラファー|写真家
+pho·to·[graph]·ic|フォウト[グラ]フィック|写真の
+ba·[na]·na|バ[ナァ]ナ|バナナ
+ho·[tel]|ホウ[テル]|ホテル
+[cof]·fee|[カー]フィー|コーヒー
+[en]·er·gy|[エ]ナジー|エネルギー
+[al]·co·hol|[アル]カホール|アルコール
+[choc]·o·late|[チャ]クレット|チョコレート
+[vi]·ta·min|[ヴァイ]タミン|ビタミン
+i·[de]·a|アイ[ディー]ア|考え
+mu·[se]·um|ミュー[ズィー]アム|博物館
+gui·[tar]|ギ[ター]|ギター
+ca·[reer]|カ[リア]|経歴
+[cal]·en·dar|[キャ]レンダー|カレンダー
+[in]·ter·est·ing|[イン]タレスティング|面白い
+e·[con]·o·my|イ[カ]ナミー|経済
+ec·o·[nom]·ic|エカ[ナ]ミック|経済の
+[pol]·i·tics|[パ]リティクス|政治
+po·[lit]·i·cal|パ[リ]ティカル|政治の
+[pres]·ent|[プレ]ズント|贈り物（名詞）
+pre·[sent]|プリ[ゼント]|贈る（動詞）
+[rec]·ord|[レ]カード|記録（名詞）
+re·[cord]|リ[コード]|記録する（動詞）
+[des]·ert|[デ]ザート|砂漠
+des·[sert]|ディ[ザート]|デザート
+Ja·[pan]|ジャ[パン]|日本
+Jap·a·[nese]|ジャパ[ニーズ]|日本語、日本人
+ad·[vice]|アド[ヴァイス]|助言
+[man]·a·ger|[マ]ニジャー|管理者`},
+{id:"assim",name:"同化",en:"Assimilation",c:"var(--r)",
+sum:"隣の音と混ざって別の音になる",
+how:"語末の音と次の語頭の音が影響し合い、別の音に変わる。t＋y は「チュ」、d＋y は「ジュ」、s＋y は「シュ」に。n は次の p・b の前で m に近くなる。",
+tip:"「〜ジュ」「〜チュ」が聞こえたら、d you / t you を疑う。自分で言うときも無理に切らず、つなげて言う。",
+miss:"did you を「ディド ユー」と1語ずつ区切って待っているので、「ディジュ」を聞いて別の単語だと思ってしまう。",
+items:`di[d y]ou|ディジュ|〜したの？
+woul[d y]ou|ウッジュ|〜してくれますか
+coul[d y]ou|クッジュ|〜してもらえますか
+nee[d y]ou|ニージュ|あなたが必要だ
+an[d y]ou|アンジュ|そしてあなたは
+mee[t y]ou|ミーチュ|あなたに会う
+ge[t y]ou|ゲッチュ|あなたに〜を取ってくる
+le[t y]ou|レッチュ|あなたに〜させる
+go[t y]ou|ガッチュ|つかまえた、わかった
+wha[t y]ou|ワッチュ|あなたが〜すること
+bu[t y]ou|バッチュ|でもあなたは
+tha[t y]ou|ザッチュ|あなたが〜ということ
+don'[t y]ou|ドンチュ|〜しないの？
+won'[t y]ou|ウォンチュ|〜しませんか
+can'[t y]ou|キャンチュ|〜できないの？
+didn'[t y]ou|ディドゥンチュ|〜しなかったの？
+mi[ss y]ou|ミシュ|会いたい
+ble[ss y]ou|ブレシュ|お大事に
+thi[s y]ear|ディシア|今年
+a[s y]ou know|アジュノウ|ご存じのとおり
+how'[s y]our day|ハウジュアデイ|今日はどう？
+gree[n p]ark|グリームパーク|緑の公園
+te[n b]oys|テムボイズ|10人の男の子
+i[n p]ublic|イムパブリック|人前で
+i[n c]ase|イングケイス|〜の場合に備えて
+goo[d b]oy|グッボイ|いい子
+ha[d t]o|ハットゥ|〜しなければならなかった
+ha[s t]o|ハストゥ|〜しなければならない
+ha[ve t]o|ハフトゥ|〜しなければならない
+use[d t]o|ユーストゥ|以前は〜だった`},
+{id:"flap",name:"フラップT",en:"Flap T",c:"var(--cons)",
+sum:"母音にはさまれた t がラ行に",
+how:"アメリカ英語では、母音（と r）にはさまれた t や tt が、舌先で上の歯ぐきを一瞬はじく音になる。日本語のラ行や軽いダ行に聞こえる。単語の中だけでなく、get it のように語と語の間でも起きる。",
+tip:"舌先を上の歯の裏の歯ぐきにポンと1回当てるだけ。「ト」と息を出さない。",
+miss:"water を「ウォーター」とはっきり t で言う。聞くときも「ワーラー」が water だと結びつかない。",
+items:`wa[t]er|ワーラー|水
+be[tt]er|ベラー|より良い
+ci[t]y|シリー|都市
+pre[tt]y|プリリー|かなり、かわいい
+ma[tt]er|マラー|問題
+li[tt]le|リロー|少し、小さい
+bu[tt]er|バラー|バター
+le[tt]er|レラー|手紙
+compu[t]er|コンピューラー|コンピューター
+par[t]y|パーリー|パーティー
+thir[t]y|サーリー|30
+for[t]y|フォーリー|40
+beau[t]iful|ビューリフォー|美しい
+hea[t]er|ヒーラー|暖房器具
+wri[t]er|ライラー|作家
+ea[t]ing|イーリング|食べている
+mee[t]ing|ミーリング|会議
+a lo[t] of|アラーラヴ|たくさんの
+ge[t] up|ゲラップ|起きる
+ge[t] it|ゲリッ|手に入れる、わかる
+pu[t] it on|プリロン|それを着る
+wha[t] is|ワリズ|何が〜か
+wha[t] about|ワラバウト|〜はどう？
+shu[t] up|シャラップ|黙れ
+ou[t] of|アウラヴ|〜から外へ
+no[t] at all|ナラローゥ|まったく〜ない
+le[t] it go|レリゴウ|放っておく
+a bi[t] of|アビラヴ|少しの
+I go[t] it|アイガリッ|わかった
+wai[t] a minute|ウェイラミニッ|ちょっと待って`},
+{id:"drop",name:"脱落・未破裂",en:"Elision",c:"var(--short)",
+sum:"子音が消える、言いかけで止まる",
+how:"子音が3つ続く、または同じ・似た子音が続くと、間の子音（特に t・d）が落ちる。p・b・t・d・k・g が語末に来て次も子音のときは、口の形だけ作って息を破裂させない（未破裂）。",
+tip:"消える音の分だけ、ほんの少し間があく。その「間」を聞き取る。",
+miss:"last night の t を探して聞くので「ラスナイ」が分からない。good morning を「グッド モーニング」と全部の音を出す。",
+items:`las[t] night|ラスナイ|昨夜
+nex[t] day|ネクスデイ|翌日
+nex[t] week|ネクスウィーク|来週
+mus[t] be|マスビー|〜に違いない
+jus[t] now|ジャスナウ|たった今
+I don'[t] know|アイドンノウ|わからない
+han[d]bag|ハンバッグ|ハンドバッグ
+san[d]wich|サンウィッチ|サンドイッチ
+frien[d]ship|フレンシップ|友情
+gran[d]mother|グランマザー|祖母
+blin[d] man|ブラインマン|目の見えない男性
+col[d] coffee|コウルカーフィー|冷たいコーヒー
+ol[d] man|オウルマン|おじいさん
+goo[d] morning|グッモーニン|おはよう
+goo[d] night|グッナイ|おやすみ
+ba[d] guy|バッガイ|悪いやつ
+ho[t] dog|ハッドッグ|ホットドッグ
+bi[g] game|ビッゲイム|大事な試合
+sto[p] by|スタッバイ|立ち寄る
+bla[ck] coffee|ブラッカーフィー|ブラックコーヒー
+ta[ke] care|テイケア|気をつけて
+sof[t] drink|ソフドリンク|清涼飲料
+firs[t] time|ファースタイム|初めて
+bes[t] friend|ベスフレンド|親友
+wen[t] to|ウェントゥ|〜へ行った
+lef[t] side|レフサイド|左側
+pos[t]card|ポウスカード|はがき
+mos[t] people|モウスピーポー|ほとんどの人
+hel[p] me|ヘルミー|助けて
+aske[d] me|アスクミー|私に尋ねた`},
+{id:"weak",name:"弱形",en:"Weak forms",c:"var(--long)",
+sum:"前置詞・助動詞などが弱く短くなる",
+how:"of, and, to, for, can, do, him など文法の働きをする短い語は、文の中では母音があいまいな「ア」になり、子音も落ちる。of は「ア」、and は「ン」、to は「タ」、him は「イム」まで縮む。",
+tip:"弱形は文の途中でだけ起きる。文末や強調するときは元の強い形に戻る（Yes, I can.）。",
+miss:"cup of tea の of を「オブ」で待っていて「カッパ」に気づかない。can と can't も、弱形の can（クン）を知らないと区別できない。",
+items:`cup [of] tea|カッパティー|紅茶1杯
+a lot [of]|アラーラ|たくさんの
+kind [of]|カインダ|ちょっと、なんとなく
+sort [of]|ソーラ|まあ、いくぶん
+out [of] time|アウラタイム|時間切れ
+rock [and] roll|ロックンロウル|ロックンロール
+you [and] me|ユーンミー|あなたと私
+black [and] white|ブラッケンワイト|白黒
+bread [and] butter|ブレッドゥンバラー|バターを塗ったパン
+I [can] swim.|アイクンスウィム|私は泳げる
+Yes, I can.|イエス、アイキャン|ええ、できます（文末は強形）
+want [to]|ワナ|〜したい
+going [to]|ゴナ|〜するつもり
+got [to]|ガラ|〜しなければ
+need [to] go|ニードゥゴウ|行かなきゃ
+go [to] school|ゴウタスクール|学校へ行く
+[for] you|ファユー|あなたのために
+wait [for] me|ウェイファミー|待って
+stay [at] home|ステイアトホウム|家にいる
+look [at] this|ルカディス|これを見て
+[from] Japan|フラムジャパン|日本から
+tell [him]|テリム|彼に言う
+ask [her]|アスカー|彼女に聞く
+call [them]|コーレム|彼らに電話する
+[Do] you know?|ジュノウ|知ってる？
+What [do] you think?|ワダユシンク|どう思う？
+It [was] fun.|イッワズファン|楽しかった
+They [were] late.|ゼイワレイト|彼らは遅れた
+I['ve] been there.|アイヴビンゼア|そこへ行ったことがある
+taller [than] me|トーラーザンミー|私より背が高い`},
+{id:"link",name:"連結",en:"Linking",c:"var(--diph)",
+sum:"前の語の最後と次の語の最初がつながる",
+how:"子音で終わる語の次が母音で始まると、2語が1語のようにつながる。母音どうしの間には、軽い「w」や「y」の音がはさまる（go away → ゴウワウェイ）。",
+tip:"文字の区切りではなく、音のかたまりで聞く。check it out は「チェキラウト」という1つのかたまり。",
+miss:"1語ずつ区切って読むので、ネイティブの速さについていけない。聞くときも単語の切れ目が分からなくなる。",
+items:`chec[k i]t out|チェキラウト|調べてみて
+pic[k i]t up|ピキラップ|拾い上げる
+ta[ke i]t easy|テイキリーズィー|気楽にね
+a[n a]pple|アナポー|りんご1個
+a[n o]range|アノーレンジ|オレンジ1個
+a[n e]gg|アネッグ|卵1個
+a[n h]our|アナワー|1時間
+tur[n o]ff|ターノフ|消す
+tur[n o]n|ターノン|つける
+co[me o]n|カモン|さあ、いいかげんにして
+loo[k a]t|ルカット|見る
+thin[k a]bout|シンカバウト|〜について考える
+fi[ll i]n|フィリン|記入する
+cal[l u]s|コーラス|私たちに電話して
+wor[k o]ut|ワーカウト|運動する、うまくいく
+fin[d o]ut|ファインダウト|見つけ出す
+stan[d u]p|スタンダップ|立ち上がる
+pu[sh i]t|プシット|それを押して
+i[s i]t?|イズィット|そうなの？
+a[s a]n example|アザニグザンポー|例として
+fo[r a] while|フォラワイル|しばらく
+fa[r a]way|ファーラウェイ|遠くに
+the[re i]s|ゼアリズ|〜がある
+afte[r a]ll|アフタロール|結局
+mo[re a]nd more|モアランモア|ますます
+g[o a]way|ゴウワウェイ|あっちへ行って
+d[o i]t|ドゥーウィット|それをやる
+s[ee i]t|スィーイット|それを見る
+th[e e]nd|ズィーエンド|終わり
+s[ay i]t|セイイット|言って`},
+{id:"heldt",name:"飲み込むT",en:"Held T / Glottal T",c:"var(--r)",
+sum:"t を息を止めるだけで済ませる",
+how:"tn の組み合わせ（button, important）では、t でのどを一瞬止め、そのまま n を鼻から出す。語末や子音の前の t も、舌を当てて止めるだけで破裂させないことが多い。",
+tip:"t の場所で「ッ」と息を止める。button は「バッン」。舌は離さない。",
+miss:"important を「インポータント」とはっきり t を出す。聞くときは「インポーッン」が important だと気づかない。",
+items:`impor[t]ant|インポーッンッ|重要な
+bu[tt]on|バッン|ボタン
+co[tt]on|カッン|綿
+moun[t]ain|マウンッン|山
+cer[t]ain|サーッン|確かな
+cur[t]ain|カーッン|カーテン
+wri[tt]en|リッン|書かれた
+forgo[tt]en|フォガッン|忘れられた
+ki[tt]en|キッン|子猫
+mi[tt]en|ミッン|ミトン（手袋）
+Bri[t]ain|ブリッン|イギリス
+ea[t]en|イーッン|食べられた
+tha[t]|ザッ|あれ、それ
+wha[t]|ワッ|何
+no[t]|ナッ|〜ない
+bu[t]|バッ|しかし
+ho[t]|ハッ|熱い、暑い
+grea[t]|グレイッ|すごい
+ca[t]|キャッ|猫
+I can'[t].|アイキャーン|できない
+ge[t] back|ゲッバック|戻る
+wha[t] time|ワッタイム|何時
+tha[t] guy|ザッガイ|あの人
+no[t] bad|ナッバッ|悪くない
+a bi[t] more|アビッモア|もう少し
+I'm no[t] sure.|アイムナッシュア|よく分からない
+si[t] down|スィッダウン|座って
+wai[t] here|ウェイッヒア|ここで待って
+ou[t]side|アウッサイド|外
+foo[t]ball|フッボール|サッカー、アメフト`},
+{id:"rhythm",name:"文の強弱・リズム",en:"Sentence stress",c:"var(--cons)",
+sum:"大事な語を強く、それ以外は弱く速く",
+how:"英語は強く読む語（名詞・動詞・形容詞・疑問詞・否定語など内容を運ぶ語）が、ほぼ一定の間隔で来るリズムで話す。間にはさまる弱い語は、何語あっても詰め込んで速く読む。",
+tip:"大きい文字の語だけ手をたたきながら読む。弱い語は手拍子の間に押し込む。",
+miss:"全部の単語を同じ強さ・同じ長さで読むので、カタコトに聞こえる。聞くときも弱い語を拾おうとして強い語を聞き逃す。",
+items:`I [want] to [go] [home].|アイ[ワ]ナ[ゴウ][ホウム]|家に帰りたい
+[What] do you [want] to [eat]?|[ワ]ダユ[ワ]ナ[イート]|何が食べたい？
+I [went] to the [park] [yesterday].|アイ[ウェン]タダ[パーク][イェ]スタデイ|昨日公園へ行った
+[Thank] you for [coming].|[センキュ]ファ[カ]ミング|来てくれてありがとう
+I'd [like] a [cup] of [coffee].|アイ[ライ]カ[カッ]パ[カー]フィー|コーヒーを1杯ください
+Can I [have] the [bill]?|クナイ[ハヴ]ダ[ビル]|お会計をお願いします
+[Where] are you [from]?|[ウェ]ア ユ[フラム]|どこの出身ですか
+I'm [looking] for the [station].|アイム[ル]キンファダ[ステイ]ション|駅を探しています
+She [lives] in [Osaka].|シ[リヴ]ズィン オウ[サ]カ|彼女は大阪に住んでいる
+He's [good] at [cooking].|ヒズ[グッ]ダッ[ク]キング|彼は料理が得意だ
+It's [nice] to [meet] you.|イッツ[ナイ]ス タ[ミー]チュ|はじめまして
+[How] [long] does it [take]?|[ハウ][ローン]ダズィッ[テイク]|どれくらいかかりますか
+I [don't] [think] so.|アイ[ドウン][シン]ク ソウ|そうは思わない
+Let's [have] [lunch] [together].|レッツ[ハヴ][ランチ]タ[ゲ]ザー|一緒にお昼を食べよう
+[Turn] [left] at the [corner].|[ターン][レフ]タダ[コー]ナー|角を左に曲がって
+I [got] up at [six].|アイ[ガ]ラッパッ[スィックス]|6時に起きた
+We [had] a [great] [time].|ウィ[ハ]ダ[グレイッ][タイム]|とても楽しかった
+Could you [help] me?|クジュ[ヘル]プミー|手伝ってもらえますか
+I'm [sorry] I'm [late].|アイム[サ]リー アイム[レイト]|遅れてごめんなさい
+[Call] me when you [get] [home].|[コー]ルミ ウェニュ[ゲッ][ホウム]|家に着いたら電話して
+The [train] was [crowded].|ダ[トレイン]ワズ[クラウ]ディッド|電車が混んでいた
+I [need] to [buy] some [milk].|アイ[ニー]ドゥ[バイ]サム[ミルク]|牛乳を買わなきゃ
+[What] [time] is it?|[ワッ][タイ]ミズィッ|今何時？
+It [depends] on the [weather].|イッディ[ペン]ズォンダ[ウェ]ザー|天気しだいだ
+I [forgot] my [umbrella].|アイファ[ガッ]マイアム[ブレ]ラ|傘を忘れた
+[See] you [tomorrow].|[スィー]ユ タ[マ]ロウ|また明日
+My [son] [loves] [trains].|マイ[サン][ラヴ]ズ[トレインズ]|息子は電車が大好きだ
+I'll [be] there in [five] [minutes].|アイル[ビー]ゼアリン[ファイヴ][ミ]ニッツ|5分で着きます
+Do you [have] any [questions]?|ジュ[ハ]ヴェニ[クエス]チョンズ|質問はありますか
+It was a [lot] of [fun].|イッワザ[ラー]ラ[ファン]|すごく楽しかった`},
+{id:"inton",name:"イントネーション",en:"Intonation",c:"var(--short)",
+sum:"文末を上げるか下げるかで意味が変わる",
+how:"Yes/No で答える質問や聞き返しは文末を上げる（↗）。疑問詞（What, Where など）で始まる質問、平叙文、あいさつ、命令は文末を下げる（↘）。同じ語でも上げ下げで意味が変わる。",
+tip:"文の最後の強い語から音程を動かす。上げるときは驚いたように、下げるときは言い切るように。",
+miss:"疑問文はすべて上げると思い込み、What's your name? まで上げてしまう。聞くときも Really?↗ と Really.↘ の違いに気づかない。",
+items:`[Really]?|リアリー↗|ほんとに？（驚き）|u
+[Really].|リアリー↘|へえ、そうなんだ（納得）|d
+Are you [ready]?|アユレディ↗|準備できた？|u
+Is this [yours]?|イズディスユアズ↗|これはあなたの？|u
+Do you like [sushi]?|ジュライクスシ↗|寿司は好き？|u
+Can you [help] me?|キャニュヘルプミー↗|手伝ってくれる？|u
+Have you been to [Kyoto]?|ハヴユビントゥキョウト↗|京都に行ったことある？|u
+Is it [raining]?|イズィットレイニング↗|雨降ってる？|u
+Excuse [me]?|イクスキューズミー↗|何とおっしゃいました？（聞き返し）|u
+[Sorry]?|ソーリー↗|え、何て？（聞き返し）|u
+What's your [name]?|ワッツユアネイム↘|お名前は？|d
+Where do you [live]?|ウェアドゥユリヴ↘|どこに住んでるの？|d
+How was your [day]?|ハウワズユアデイ↘|今日はどうだった？|d
+What time [is] it?|ワッタイミズィッ↘|今何時？|d
+Why [not]?|ワイナッ↘|もちろん、いいよ|d
+Who [called]?|フーコールド↘|誰から電話？|d
+I'm from [Osaka].|アイムフラムオウサカ↘|大阪出身です|d
+It's cold [today].|イッツコウルドトゥデイ↘|今日は寒い|d
+Thank [you].|センキュー↘|ありがとう|d
+Good [morning].|グッモーニン↘|おはよう|d
+Coffee or [tea]?|カーフィー↗オアティー↘|コーヒーと紅茶どっち？（選択）|d
+You're [coming]?|ユアカミング↗|来るんだよね？（確認）|u
+You're [coming].|ユアカミング↘|来るんだね（断定）|d
+[Tea]?|ティー↗|紅茶にする？（すすめる）|u
+[Tea].|ティー↘|紅茶をください|d
+[Right]?|ライッ↗|だよね？（念押し）|u
+It's nice, [isn't] it?|イッツナイス、イズニッ↘|いいよね（同意を求める）|d
+You're Ken, [aren't] you?|ユアケン、アーンチュ↗|ケンさんですよね？（確認）|u
+[Sorry].|ソーリー↘|ごめんなさい（謝罪）|d
+[Hello]?|ハロウ↗|もしもし？聞こえてる？|u`}
+];
+/* 個別の音（既存の練習画面へ） */
+const SC_IND=[
+{t:"L と R",ids:["c_l","c_r"],ear:"L は舌先が上の歯ぐきに付いたまま。R は舌先がどこにも付かず、奥へ丸める。聞き分けは、R のほうがこもって「ウ」が混ざったように聞こえる。",mir:"L は鏡で舌先が上の前歯の裏に見える。R は唇が少し丸まり、舌先は見えない。"},
+{t:"th（θ と ð）",ids:["c_th","c_dh","c_s","c_z"],ear:"th は s・z より音が弱く、息がやわらかく抜ける。think と sink は、s のほうが鋭い「スー」になる。",mir:"鏡で舌先が上下の歯の間から少し見えていれば正解。見えなければ s になっている。"},
+{t:"F と V（と B）",ids:["c_f","c_v","c_b"],ear:"v はのどが震えたまま、f は息だけ。b は唇を閉じてから開くので、v より一瞬はじける音。",mir:"鏡で上の前歯が下唇に軽く乗っていれば f・v。唇どうしが閉じていれば b。"},
+{t:"S と SH",ids:["c_s","c_sh"],ear:"see と she。sh は唇を丸めて前に出すので、こもった「シュ」になる。日本語の「シ」は sh に近い。",mir:"sh は鏡で唇が前に突き出ている。s は口角が横に引かれている。"},
+{t:"W と Y",ids:["c_w","c_y"],ear:"wood と would、year と ear。w は唇を強くすぼめてから開く、y は舌を上あごに近づけてから開く。",mir:"w は鏡で唇が小さく丸まってから開く。ear と year の y は舌の動きなので、口の形はほぼ同じ。"}
+];
+
+/*SOUND CHANGES APP*/
+(function(){
+const STRESS=new Set(["stress","rhythm"]);
+SC.forEach(c=>{c.list=c.items.trim().split("\n").map(l=>{const [raw,ear,ja,ud]=l.split("|");return {raw,ear,ja,ud:ud||"",text:raw.replace(/[\[\]·]/g,"").replace(/\s+/g," ").trim()}})});
+const scById=id=>SC.find(c=>c.id===id);
+const dk=id=>"sc_"+id;
+let scCur=null,scOpen=null,scMode="list",SQ=null;
+const scRec={mr:null,url:null,text:null,timer:null};
+
+function mark(raw,cat){const cls=STRESS.has(cat)?"sc-st":"hl";return esc(raw).replace(/\[(.+?)\]/g,`<b class="${cls}">$1</b>`)}
+function earHTML(e,cat){return esc(e).replace(/\[(.+?)\]/g,'<b class="sc-st">$1</b>')}
+function cnt(c){return doneList(dk(c.id)).length}
+
+function listHTML(){
+  const tot=SC.reduce((a,c)=>a+c.list.length,0),dn=SC.reduce((a,c)=>a+cnt(c),0);
+  let h=`<p class="sc-lead">英語は、つづりどおりには読まれません。音がつながる・消える・変わるルールを知ると、聞き取れる量が増えます。${SC.length}分類・${tot}例、クリア ${dn}。</p><div class="sc-cards">`;
+  SC.forEach((c,i)=>{const n=cnt(c),t=c.list.length;
+    h+=`<button class="sc-card" data-act="scopen" data-id="${c.id}" style="--c:${c.c};--p:${(n/t).toFixed(3)}"><span class="sc-no">${i+1}</span><span class="sc-cb"><span class="sc-cn">${esc(c.name)}</span><span class="sc-ce">${esc(c.en)}</span><span class="sc-cs">${esc(c.sum)}</span></span><span class="sc-cp">${n}<small>/${t}</small></span><i class="sc-bar"></i></button>`});
+  h+=`<button class="sc-card" data-act="scopen" data-id="ind" style="--c:var(--ink2);--p:0"><span class="sc-no">${SC.length+1}</span><span class="sc-cb"><span class="sc-cn">個別の音</span><span class="sc-ce">L / R・th・F / V ほか</span><span class="sc-cs">聞き分けのコツと鏡で見るポイント</span></span><span class="sc-cp">${ic("chevR")}</span></button></div>`;
+  h+=`<p class="sc-note">お手本はブラウザの読み上げ音声です。フラップTや飲み込むTなどは、声の種類によって再現されないことがあります。カタカナの「聞こえ方」はめやすです。</p>`;
+  return h;
+}
+
+function indHTML(){
+  let h=`<section class="sc-exp"><p>母音・子音の1音ずつの練習は「練習」タブにあります。日本人が特に間違えやすい組み合わせを、聞き分けのコツと鏡で確認するポイントにまとめました。</p></section>`;
+  SC_IND.forEach(x=>{h+=`<section class="sc-ind"><h2>${esc(x.t)}</h2><dl><dt>聞き分けのコツ</dt><dd>${esc(x.ear)}</dd><dt>鏡で確認</dt><dd>${esc(x.mir)}</dd></dl><div class="sc-indb">${x.ids.filter(byId).map(id=>{const p=byId(id);return `<button class="btn-line" data-act="scgo" data-id="${id}"><span class="ph">/${p.ipa}/</span> ${esc(p.key)} を練習</button>`}).join("")}</div></section>`});
+  return h;
+}
+
+function rowHTML(c,w,i){
+  const d=isDone(dk(c.id),w.text),open=scOpen===i,recOn=scRec.mr&&scRec.mr.state==="recording"&&scRec.text===w.text,hasS=scRec.url&&scRec.text===w.text;
+  let h=`<div class="sc-row ${open?"open":""}"><button class="sc-rh" data-act="scrow" data-i="${i}" aria-expanded="${open}"><span class="sc-rt ph">${mark(w.raw,c.id)}</span><span class="sc-re">${earHTML(w.ear,c.id)}</span><span class="sc-rj">${esc(w.ja)}</span>${d?`<svg class="sc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</button>`;
+  if(open)h+=`<div class="sc-ra"><button data-act="scsay" data-i="${i}">${ic("play")}お手本</button><button data-act="scslow" data-i="${i}">${ic("slow")}ゆっくり</button><button class="${recOn?"rec on":"rec"}" data-act="screc" data-i="${i}">${recOn?ic("stop")+"停止":ic("mic")+"録音"}</button><button data-act="scself" ${hasS?"":"disabled"}>${ic("play")}自分の声</button><button data-act="sccmp" data-i="${i}" ${hasS?"":"disabled"}>聞き比べ</button><button class="sc-done ${d?"on":""}" data-act="scdone" data-i="${i}">${d?"クリア済み":"できた"}</button></div>`;
+  return h+`</div>`;
+}
+
+function detailHTML(c){
+  if(c==="ind")return indHTML();
+  let h=`<section class="sc-exp" style="--c:${c.c}"><h2>しくみ</h2><p>${esc(c.how)}</p><h2>コツ</h2><p>${esc(c.tip)}</p><h2>よくあるミス</h2><p>${esc(c.miss)}</p></section>`;
+  h+=`<div class="seg sc-seg"><button class="${scMode==="list"?"on":""}" data-act="scmode" data-v="list">例文 ${c.list.length}</button><button class="${scMode==="quiz"?"on":""}" data-act="scmode" data-v="quiz">クイズ</button></div>`;
+  if(scMode==="list"){
+    h+=`<div class="sc-tb"><button class="btn-line" data-act="scall">${playAll?ic("stop")+"停止":ic("loop")+"連続再生"}</button><span class="sc-leg">${STRESS.has(c.id)?"大きい文字＝強く読む":c.id==="inton"?"↗上げる ↘下げる":"色の部分＝音が変わる所"}</span></div>`;
+    h+=c.list.map((w,i)=>rowHTML(c,w,i)).join("");
+  }else h+=quizHTML(c);
+  return h;
+}
+
+/* ---------- quiz ---------- */
+function tokens(w){
+  const r=w.raw.replace(/[.?!,]/g,"");
+  let parts;
+  if(r.includes("·"))parts=r.split("·");
+  else if(!/\s/.test(r.trim())){ // 1語：文字ごと（括弧は1かたまり）
+    parts=[];let m;const re=/\[[^\]]+\]|[^\[]/g;while((m=re.exec(r)))parts.push(m[0]);
+  }else parts=r.split(/\s+/);
+  return parts.filter(Boolean).map(p=>({t:p.replace(/[\[\]]/g,""),ok:/\[/.test(p)}));
+}
+function spotOK(w){return /\[/.test(w.raw)&&tokens(w).some(t=>!t.ok)}
+function qTypes(c){return c.id==="inton"?[["listen","聞き取り"],["ud","上げ下げ"]]:[["listen","聞き取り"],["spot","変わる所"]]}
+function startQuiz(c,type){
+  const pool=type==="spot"?c.list.filter(spotOK):c.list;
+  const qs=shuffle(pool).slice(0,10).map(w=>{
+    if(type==="listen"){const others=shuffle(c.list.filter(x=>x.text!==w.text)).slice(0,3);return {w,ch:shuffle([w,...others])}}
+    return {w};
+  });
+  SQ={cat:c.id,type,qs,i:0,score:0,ans:null,hist:[]};
+}
+function quizHTML(c){
+  if(!SQ||SQ.cat!==c.id){
+    const best=(S.scBest&&S.scBest[c.id])||0;
+    return `<section class="sc-qs"><p class="sc-qd">10問。「聞き取り」は流れた文を4つから選ぶ。${c.id==="inton"?"「上げ下げ」は文末が上がるか下がるかを選ぶ。":"「変わる所」は音が変化・脱落する部分をタップする。"}</p>${best?`<p class="sc-qbest">最高 ${best} / 10</p>`:""}<div class="sc-qbtn">${qTypes(c).map(([k,l])=>`<button class="btn-main" data-act="scqstart" data-v="${k}">${ic("play")}${l}</button>`).join("")}</div></section>`;
+  }
+  const n=SQ.qs.length;
+  if(SQ.i>=n)return `<section class="sc-qs"><div class="q-dots">${SQ.hist.map(x=>`<i class="${x?"ok":"ng"}"></i>`).join("")}</div><p class="q-score">${SQ.score}<small> / ${n}問</small></p><div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="${SQ.type}">もう一度</button><button class="btn-sub" data-act="scqback">やめる</button></div></section>`;
+  const q=SQ.qs[SQ.i],w=q.w;
+  let h=`<div class="sc-qbar"><span>${SQ.i+1} / ${n}</span><button class="linkbtn" data-act="scqback">やめる</button></div>`;
+  if(SQ.type==="listen"){
+    h+=`<div class="q-stage"><button class="q-play" data-act="scqplay" aria-label="もう一度聞く">${ic("play")}</button><button class="q-slow" data-act="scqslow">ゆっくり聞く</button></div><div class="sc-qch">`;
+    h+=q.ch.map((x,k)=>{
+      if(SQ.ans===null)return `<button class="sc-opt" data-act="scqans" data-k="${k}"><span class="ph">${esc(x.text)}</span></button>`;
+      const cl=x===w?"right":(k===SQ.ans?"wrong":"");
+      return `<div class="sc-opt ${cl}"><span class="ph">${mark(x.raw,c.id)}</span><span class="sc-oe">${earHTML(x.ear,c.id)}</span><button class="hear" data-act="scqhear" data-k="${k}">${ic("play")}</button></div>`}).join("")+`</div>`;
+  }else if(SQ.type==="ud"){
+    h+=`<div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${esc(w.text)}</p></div><div class="sc-qch two">`;
+    h+=[["u","↗ 上がる"],["d","↘ 下がる"]].map(([v,l])=>{
+      if(SQ.ans===null)return `<button class="sc-opt big" data-act="scqans" data-k="${v}">${l}</button>`;
+      return `<div class="sc-opt big ${v===w.ud?"right":(v===SQ.ans?"wrong":"")}">${l}</div>`}).join("")+`</div>`;
+  }else{
+    const tk=tokens(w);
+    h+=`<p class="sc-qd">音が変化する・消える・強くなる所はどこ？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button></div><div class="sc-tok">`;
+    h+=tk.map((t,k)=>{
+      if(SQ.ans===null)return `<button class="ph" data-act="scqans" data-k="${k}">${esc(t.t)}</button>`;
+      return `<span class="ph ${t.ok?"right":(k===SQ.ans?"wrong":"")}">${esc(t.t)}</span>`}).join("")+`</div>`;
+  }
+  if(SQ.ans!==null){
+    const ok=SQ.hist[SQ.hist.length-1];
+    h+=`<div class="sc-fb ${ok?"ok":"ng"}"><b>${ok?"正解":"不正解"}</b><span class="ph">${mark(w.raw,c.id)}</span><span>${earHTML(w.ear,c.id)}　${esc(w.ja)}</span></div><button class="btn-main" data-act="scqnext">${SQ.i+1<n?"次へ":"結果を見る"}</button>`;
+  }
+  return h;
+}
+
+/* ---------- recording ---------- */
+async function recToggle(text){
+  if(scRec.mr&&scRec.mr.state==="recording"){scRec.mr.stop();return}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){toast("この環境では録音できません");return}
+  stopPlayAll();try{speechSynthesis.cancel()}catch(e){}
+  let st;try{st=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){toast("マイクを使えません。ブラウザのマイク許可を確認してください");return}
+  const ch=[],mr=new MediaRecorder(st);
+  mr.ondataavailable=e=>{if(e.data&&e.data.size)ch.push(e.data)};
+  mr.onstop=()=>{st.getTracks().forEach(t=>t.stop());clearTimeout(scRec.timer);if(scRec.url)URL.revokeObjectURL(scRec.url);scRec.url=URL.createObjectURL(new Blob(ch,{type:mr.mimeType||"audio/webm"}));scRec.mr=null;rerender();if(S.set.autoCmp)cmp(text)};
+  mr.start();scRec.mr=mr;scRec.text=text;scRec.timer=setTimeout(()=>{if(mr.state==="recording")mr.stop()},Math.max(5,S.set.recSec)*1000);rerender();
+}
+function self(cb){if(!scRec.url){if(cb)cb();return}const a=new Audio(scRec.url);if(cb){a.onended=cb;a.onerror=cb}a.play().catch(()=>{if(cb)cb()})}
+function cmp(text){stopPlayAll();speak(text,false,()=>setTimeout(()=>self(),300))}
+
+/* ---------- view ---------- */
+function curC(){return scCur==="ind"?"ind":scById(scCur)}
+function rerender(){if(view==="sc"||view==="scd"){const y=window.scrollY;render();window.scrollTo(0,y)}}
+const _render=render;
+render=function(){
+  if(view!=="sc"&&view!=="scd"){document.querySelector('.nav button[data-tab="sc"]').classList.remove("on");return _render()}
+  document.body.dataset.view=view;document.body.style.removeProperty("--c");
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab==="sc"));
+  if(view==="sc"){$top.innerHTML=`<h1>音の変化</h1>`;$main.innerHTML=listHTML()}
+  else{const c=curC(),nm=c==="ind"?"個別の音":c.name;
+    $top.innerHTML=`<button class="back" data-act="scback" aria-label="一覧に戻る">${ic("chevL")}</button><h1>${esc(nm)}</h1>${c!=="ind"?`<span class="meta">${cnt(c)} / ${c.list.length}</span>`:""}`;
+    $main.innerHTML=detailHTML(c)}
+  renderSheet();
+};
+const textOf=b=>curC().list[+b.dataset.i].text;
+Object.assign(ACT,{
+  scopen(b){stopPlayAll();scCur=b.dataset.id;scOpen=null;scMode="list";SQ=null;view="scd";history.pushState({v:"scd"},"");render();window.scrollTo(0,0)},
+  scback(){if(history.state&&history.state.v==="scd")history.back();else{stopPlayAll();view="sc";render()}},
+  scgo(b){openPhon(b.dataset.id,true)},
+  scrow(b){const i=+b.dataset.i;scOpen=scOpen===i?null:i;rerender();if(scOpen===i)speak(curC().list[i].text,false)},
+  scsay(b){stopPlayAll();speak(textOf(b),false)},
+  scslow(b){stopPlayAll();speak(textOf(b),true)},
+  screc(b){recToggle(textOf(b))},
+  scself(){stopPlayAll();self()},
+  sccmp(b){cmp(textOf(b))},
+  scdone(b){const c=curC(),t=textOf(b);setDone(dk(c.id),t,!isDone(dk(c.id),t));rerender()},
+  scmode(b){stopPlayAll();scMode=b.dataset.v;SQ=null;render()},
+  scall(){if(playAll){stopPlayAll();rerender();return}const l=curC().list.map(w=>({text:w.text,ja:w.ja}));startPlayAll(l);rerender()},
+  scqstart(b){startQuiz(curC(),b.dataset.v);render();window.scrollTo(0,0);speak(SQ.qs[0].w.text,false)},
+  scqplay(){speak(SQ.qs[SQ.i].w.text,false)},
+  scqslow(){speak(SQ.qs[SQ.i].w.text,true)},
+  scqhear(b){speak(SQ.qs[SQ.i].ch[+b.dataset.k].text,false)},
+  scqans(b){if(SQ.ans!==null)return;const q=SQ.qs[SQ.i];let ok;
+    if(SQ.type==="listen"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.w}
+    else if(SQ.type==="ud"){SQ.ans=b.dataset.k;ok=SQ.ans===q.w.ud}
+    else{SQ.ans=+b.dataset.k;ok=tokens(q.w)[SQ.ans].ok}
+    if(ok)SQ.score++;SQ.hist.push(ok);rerender()},
+  scqnext(){SQ.i++;SQ.ans=null;if(SQ.i>=SQ.qs.length){S.scBest=S.scBest||{};S.scBest[SQ.cat]=Math.max(S.scBest[SQ.cat]||0,SQ.score);save();render()}else{render();speak(SQ.qs[SQ.i].w.text,false)}window.scrollTo(0,0)},
+  scqback(){SQ=null;render()}
+});
+const _tab=ACT.tab;ACT.tab=function(b,e){if(b.dataset.tab==="sc"){stopPlayAll();view="sc";render();window.scrollTo(0,0);return}_tab(b,e)};
+window.addEventListener("popstate",()=>{if(view==="scd"){stopPlayAll();view="sc";render()}});
+/* 学習記録の書き出し・読み込みでクイズ最高点も保持 */
+const _norm=normalizeState;normalizeState=function(s){const o=_norm(s);if(s&&s.scBest&&typeof s.scBest==="object")o.scBest=s.scBest;return o};
+try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw&&raw.scBest)S.scBest=raw.scBest}catch(e){}
+})();
 </script>
 </body>
 </html>
