@@ -365,6 +365,7 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 #toast{position:fixed;left:50%;bottom:5.5rem;transform:translate(-50%,8px);background:var(--ink);color:var(--on-ink);padding:.6rem 1rem;border-radius:.75rem;font-size:.875rem;z-index:50;max-width:calc(100% - 2rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.learn-guide{padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;margin:.6rem 0 1rem}.learn-guide p{font-size:.875rem;line-height:1.7;color:var(--ink2);margin:.5rem 0}.learn-guide .btnrow{flex-wrap:wrap}.lesson-step{font-size:.8rem;color:var(--ink2);padding:.5rem 0}.lesson-step span{display:block;margin-top:.2rem}.play-summary{padding:.35rem 0}.play-summary .linkbtn{font-size:.8rem;text-align:left;min-height:2.5rem}.play-options{padding:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:.8rem;max-height:45vh;overflow:auto}.play-options label{display:block;font-size:.85rem;margin-bottom:.7rem}.play-options select{display:block;width:100%;min-height:2.8rem;padding:.5rem;margin-top:.3rem;background:var(--bg);border:1px solid var(--line);border-radius:.5rem}.play-options .follow-label{display:flex;gap:.5rem;align-items:center;min-height:2.5rem}.follow-label input{width:1.2rem;height:1.2rem;flex:none}.play-options p{font-size:.75rem;line-height:1.6;color:var(--ink2);margin:0}.now-playing{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.75rem;padding:.25rem 0 .5rem}.now-playing b{font-family:var(--f-ph);font-size:1rem}.now-playing .linkbtn{white-space:nowrap;font-size:.75rem;min-height:2.5rem}
 </style>
 <style>
 /*SOUND CHANGES*/
@@ -958,7 +959,7 @@ function fmtRate(r){return Number(r).toFixed(2).replace(/0$/,"")}
 let view="map",curP=null,curW=null,lvF=0,speedOpen=false,Q=null;
 /* ---------- storage ---------- */
 const KEY="hatsuon_trainer_v1";
-const DEF={cMode:"fig",rate:1,slow:0.6,gap:0.6,repeat:1,readJa:false,accent:"us",voice:"",recSec:5,autoCmp:true,srLang:"en-US",font:"m",theme:"auto",order:"spell",qCount:10,qPairs:null,showIpa:true,showJa:true,mapMode:"chart",mapKind:"v"};
+const DEF={cMode:"fig",rate:1,slow:0.6,gap:0.6,repeat:1,playMode:"next",followPlay:false,readJa:false,accent:"us",voice:"",recSec:5,autoCmp:true,srLang:"en-US",font:"m",theme:"auto",order:"spell",qCount:10,qPairs:null,showIpa:true,showJa:true,mapMode:"chart",mapKind:"v"};
 let S={last:null,done:{},quizBest:0,set:{}};
 function normalizeState(s){
   const o={last:null,done:{},quizBest:0,set:{}};
@@ -969,6 +970,9 @@ function normalizeState(s){
     o.set=Object.assign({},DEF,(s.set&&typeof s.set==="object")?s.set:{});
     if(s.voice&&!o.set.voice)o.set.voice=s.voice;
   }else o.set=Object.assign({},DEF);
+  if(![1,2,3,5].includes(Number(o.set.repeat)))o.set.repeat=1;
+  if(!["once","sound","next","all"].includes(o.set.playMode))o.set.playMode="next";
+  o.set.followPlay=o.set.followPlay===true;
   return o;
 }
 try{S=normalizeState(JSON.parse(localStorage.getItem(KEY)))}catch(e){S=normalizeState(null)}
@@ -998,7 +1002,9 @@ function pickVoice(){
   return pool.find(v=>/google/i.test(v.name))||pool[0]||null;
 }
 function jaVoice(){const j=allVoices.filter(v=>vlang(v).startsWith("ja"));return j.find(v=>/google/i.test(v.name))||j[0]||null}
+let speechGeneration=0;
 function speak(text,slow,onend,opt){
+  const generation=++speechGeneration;
   opt=opt||{};
   if(!("speechSynthesis" in window)){toast("このブラウザは読み上げに対応していません");if(onend)onend();return}
   try{speechSynthesis.cancel()}catch(e){}
@@ -1006,36 +1012,71 @@ function speak(text,slow,onend,opt){
   const v=opt.ja?jaVoice():pickVoice();
   if(v){u.voice=v;u.lang=v.lang}else u.lang=opt.ja?"ja-JP":(S.set.accent==="gb"?"en-GB":"en-US");
   u.rate=opt.rate||(opt.ja?1.05:(slow?S.set.slow:S.set.rate));
-  if(onend){let f=false;const d=()=>{if(f)return;f=true;onend()};u.onend=d;u.onerror=d;setTimeout(d,2500+text.length*420/u.rate)}
-  setTimeout(()=>{try{speechSynthesis.speak(u)}catch(e){}},60);
+  if(onend){let f=false;const d=()=>{if(f||generation!==speechGeneration)return;f=true;onend()};u.onend=d;u.onerror=d;setTimeout(d,2500+text.length*420/u.rate)}
+  setTimeout(()=>{if(generation!==speechGeneration)return;try{speechSynthesis.speak(u)}catch(e){if(onend)onend()}},60);
 }
 let playAll=null;
+let playOptionsOpen=false;
 function startPlayAll(list){
-  stopPlayAll();const tok={stop:false};playAll=tok;renderToolbar();
+  stopPlayAll();
+  if(!list.length)return;
+  if(!("speechSynthesis" in window)){toast("このブラウザは読み上げに対応していません");return}
+  const tok={stop:false,phon:view==="phon",word:null,i:0,rep:0};playAll=tok;renderToolbar();
   let i=0,rep=0;
   const step=()=>{
-    if(tok.stop)return;
-    if(i>=list.length){stopPlayAll();return}
-    const w=list[i];markPlaying(w.text);
+    if(tok.stop||playAll!==tok)return;
+    if(i>=list.length){
+      if(tok.phon&&S.set.playMode!=="once"){
+        if(S.set.playMode!=="sound"){
+          const ids=order(),at=ids.indexOf(curP);
+          if(at===ids.length-1&&S.set.playMode==="next"){stopPlayAll();toast("最後の音まで再生しました");return}
+          let found=false;
+          for(let n=1;n<=ids.length;n++){
+            const ni=at+n;if(ni>=ids.length&&S.set.playMode==="next")break;
+            const id=ids[ni%ids.length],nextList=viewList(byId(id));
+            if(nextList.length){
+              const y=window.scrollY;curP=id;curW=null;S.last=id;S.set.mapKind=byId(id).cat==="cons"?"c":"v";save();
+              list=nextList;openG[id]=openG[id]||new Set([0]);
+              if(S.set.followPlay)viewGroups(byId(id)).forEach(g=>openG[id].add(g.i));
+              render();window.scrollTo(0,S.set.followPlay?0:y);centerStrip(false);found=true;break;
+            }
+          }
+          if(!found){stopPlayAll();toast("このレベルの単語がある音を再生し終えました");return}
+        }
+        i=0;
+      }else{stopPlayAll();return}
+    }
+    const w=list[i];tok.word=w.text;tok.i=i;tok.rep=rep+1;tok.total=list.length;
+    if(tok.phon&&S.set.followPlay){const g=viewGroups(byId(curP)).find(g=>g.words.some(x=>x.text===w.text));if(g&&g.i!==-1&&!openG[curP].has(g.i)){openG[curP].add(g.i);const y=window.scrollY;render();window.scrollTo(0,y)}}
+    markPlaying(w.text);renderToolbar();
     speak(w.text,false,()=>{
-      if(tok.stop)return;
+      if(tok.stop||playAll!==tok)return;
       rep++;if(rep<S.set.repeat){setTimeout(step,350);return}
       rep=0;
-      const next=()=>{if(tok.stop)return;i++;setTimeout(step,S.set.gap*1000)};
-      if(S.set.readJa)setTimeout(()=>{if(!tok.stop)speak(w.ja,false,next,{ja:true})},250);else next();
+      const next=()=>{if(tok.stop||playAll!==tok)return;i++;setTimeout(step,S.set.gap*1000)};
+      if(S.set.readJa&&w.ja)setTimeout(()=>{if(!tok.stop&&playAll===tok)speak(w.ja,false,next,{ja:true})},250);else next();
     });
   };
   step();
 }
 function stopPlayAll(){
   const was=!!playAll;
-  if(playAll){playAll.stop=true;playAll=null;try{speechSynthesis.cancel()}catch(e){}}
+  if(playAll){speechGeneration++;playAll.stop=true;playAll=null;try{speechSynthesis.cancel()}catch(e){}}
   markPlaying(null);if(was)renderToolbar();
+}
+function showPlaying(){
+  if(!playAll||!playAll.word)return;
+  if(view==="phon"){
+    const p=byId(curP),g=viewGroups(p).find(g=>g.words.some(w=>w.text===playAll.word));
+    if(g&&g.i!==-1&&!openG[p.id].has(g.i)){openG[p.id].add(g.i);const y=window.scrollY;render();window.scrollTo(0,y)}
+  }
+  const r=[...document.querySelectorAll(".wrow")].find(r=>r.dataset.w===playAll.word);
+  if(r)r.scrollIntoView({block:"center",behavior:"smooth"});
 }
 function markPlaying(text){
   document.querySelectorAll(".wrow").forEach(r=>{
     const on=text!==null&&r.dataset.w===text;r.classList.toggle("playing",on);
-    if(on){const top=r.getBoundingClientRect().top;if(top<140||top>innerHeight-120)r.scrollIntoView({block:"center",behavior:"smooth"})}
+    if(on&&S.set.followPlay){const top=r.getBoundingClientRect().top;if(top<180||top>innerHeight-120)r.scrollIntoView({block:"center",behavior:"smooth"})}
   });
 }
 
@@ -1148,7 +1189,7 @@ function centerStrip(smooth){const s=document.getElementById("strip"),on=s&&s.qu
 
 /* map */
 function mapHTML(){
-  let h="";
+  let h=`<section class="learn-guide"><strong>迷ったら、この順番で</strong><p>① 母音 → ② 子音 → ③ 聞き分け<br>口の形を見る → 聞く → まねる。好きな音からでもOKです。</p><div class="btnrow"><button class="btn-line" data-act="open" data-id="${order()[0]}">① 母音から始める</button><button class="btn-line" data-act="open" data-id="${order().find(id=>byId(id).cat==="cons")}">② 子音から始める</button><button class="btn-line" data-act="tab" data-tab="quiz">③ 聞き分け</button></div></section>`;
   const lp=S.last&&byId(S.last);
   if(lp)h+=`<button class="resume" data-act="open" data-id="${lp.id}" style="--c:${CATC[lp.cat]}"><span class="resume-l"><span class="resume-k">前回の続き</span><span class="resume-w"><span class="ph resume-ipa">${sl(lp.ipa)}</span><span class="ph">${lp.key}</span></span></span><span class="resume-n">${doneList(lp.id).length} / ${totalN(lp)}</span>${ic("chevR")}</button>`;
   else h+=`<p class="intro">練習したい音をタップします。単語ごとに聞く、まねて録音、判定の順に進めます。</p>`;
@@ -1225,7 +1266,7 @@ function phonHTML(p){
   if(f.cons){const q=PARTNER[p.id]&&byId(PARTNER[p.id]);if(q){const lab=CPOS[q.id][0]===CPOS[p.id][0]&&CPOS[q.id][1]===CPOS[p.id][1]?(CPOS[q.id][2]?"声ありのペア":"声なしのペア"):"聞き分けたい音";pbtn=`<button class="partner" data-act="open" data-id="${q.id}"><span class="pk">${lab}</span><span class="pw"><span class="pi">${sl(q.ipa)}</span><span class="pe">${q.key}</span></span></button>`}side=mouthMini(p)}
   else side=miniChart(p);
   const facts=f.cons?`<div><dt>音を作る場所</dt><dd>${f.place}</dd></div><div><dt>声</dt><dd>${f.voice}</dd></div><div><dt>息の出し方</dt><dd>${f.manner}</dd></div>`:`<div><dt>舌の位置</dt><dd>${f.t}</dd></div><div><dt>口の開き</dt><dd>${f.o}</dd></div><div><dt>唇</dt><dd>${LIPS[p.id]}</dd></div>`;
-  let h=stripHTML(p)+`<section class="hero"><div><div class="hero-ipa ph">${sl(p.ipa)}</div><div class="hero-sp">つづり<div class="sps">${sp}</div></div></div>${side}
+  let h=`<div class="lesson-step">${p.cat==="cons"?"② 子音":"① 母音"} · 音 ${order().indexOf(p.id)+1} / ${order().length}<span>口の形 → 聞く → まねる</span></div>`+stripHTML(p)+`<section class="hero"><div><div class="hero-ipa ph">${sl(p.ipa)}</div><div class="hero-sp">つづり<div class="sps">${sp}</div></div></div>${side}
 <dl class="facts">${facts}</dl>
 <div class="hero-act"><button class="keyplay" data-act="play" data-w="${esc(p.key)}">${ic("play")}<span class="ph">${esc(p.key)}</span>を聞く</button>${pbtn}</div></section>
 <section class="advice"><div class="adv"><h3>口の形</h3><p>${esc(p.tip)}</p></div><div class="adv miss"><h3>よくあるミス</h3><p>${esc(p.miss)}</p></div></section>
@@ -1251,6 +1292,9 @@ function toolbarInner(){
 <button class="tb-speed ${speedOpen?"on":""}" data-act="speed" aria-expanded="${speedOpen}"><span class="tb-k">速度</span><span class="tb-v" id="tbrate">${fmtRate(r)}×</span></button><span class="grow"></span>
 <button class="tb-tog ${S.set.showIpa?"":"off"}" data-act="togIpa" aria-pressed="${S.set.showIpa}"><span class="lbl">記号</span></button>
 <button class="tb-tog ${S.set.showJa?"":"off"}" data-act="togJa" aria-pressed="${S.set.showJa}"><span class="lbl">意味</span></button></div>`;
+  h+=`<div class="play-summary"><button class="linkbtn" data-act="playOptions" aria-expanded="${playOptionsOpen}">再生設定 · 各${S.set.repeat}回 · ${{once:"この音で停止",sound:"この音をループ",next:"次の音へ",all:"全てループ"}[S.set.playMode]} ▾</button></div>`;
+  if(playAll&&playAll.phon)h+=`<div class="now-playing" role="status"><span>再生中 <b>${esc(playAll.word||"準備中")}</b> ${playAll.i+1}/${playAll.total||"–"}語 · ${playAll.rep}/${S.set.repeat}回</span><button class="linkbtn" data-act="playing">再生中へ</button></div>`;
+  if(playOptionsOpen)h+=`<div class="play-options"><label>各単語の回数<select data-play="repeat">${[1,2,3,5].map(n=>`<option value="${n}" ${S.set.repeat==n?"selected":""}>${n}回ずつ</option>`).join("")}</select></label><label>この音を再生したら<select data-play="playMode">${[["once","この音で停止"],["sound","この音だけエンドレス"],["next","次の音へ進む（最後で停止）"],["all","次の音へ進む（全体ループ）"]].map(([v,l])=>`<option value="${v}" ${S.set.playMode===v?"selected":""}>${l}</option>`).join("")}</select></label><label class="follow-label"><input type="checkbox" data-play="followPlay" ${S.set.followPlay?"checked":""}> 再生中の単語へ画面を自動移動</label><p>OFFなら口の形や説明を見たまま聞けます。次の音に進むと説明も切り替わります。</p></div>`;
   if(speedOpen)h+=`<div class="speedpanel"><div class="sp-row"><input type="range" id="rateRange" min="0.5" max="1.5" step="0.05" value="${r}" aria-label="再生速度"><span class="sp-val" id="spval">${fmtRate(r)}×</span></div><div class="sp-pre">${[0.6,0.8,1,1.2].map(v=>`<button class="${Math.abs(r-v)<.001?"on":""}" data-act="rate" data-v="${v}">${fmtRate(v)}×</button>`).join("")}</div></div>`;
   return h;
 }
@@ -1333,7 +1377,8 @@ function setHTML(){
 ${rng("rate","再生速度",0.5,1.5,0.05,"×","お手本と連続再生の速さ")}
 ${rng("slow","ゆっくりボタンの速度",0.4,0.9,0.05,"×")}
 ${rng("gap","連続再生の間隔",0.3,2,0.1,"秒")}
-<div class="srow"><span class="lab">連続再生で1語を繰り返す回数</span>${seg("repeat",[[1,"1回"],[2,"2回"],[3,"3回"]])}</div>
+<div class="srow"><span class="lab">連続再生で1語を繰り返す回数</span>${seg("repeat",[[1,"1回"],[2,"2回"],[3,"3回"],[5,"5回"]])}</div>
+${sw("followPlay","再生中の単語へ画面を自動移動","OFFなら説明を見たまま再生できます。音の画面の再生設定からも変更できます")}
 ${sw("readJa","連続再生で日本語の意味も読む",ja?"":"日本語の音声が見つからないため、端末の既定の声で読みます")}
 </div>
 <h2 class="set-h">お手本の声</h2><div class="card">
@@ -1423,9 +1468,11 @@ const ACT={
   all(){
     if(playAll){stopPlayAll();return}
     const p=byId(curP),gs=viewGroups(p),list=gs.flatMap(g=>g.words);if(!list.length)return;
-    gs.forEach(g=>{if(g.i!==-1)openG[p.id].add(g.i)});curW=null;$main.innerHTML=phonHTML(p);renderSheet();
+    const y=window.scrollY;if(S.set.followPlay)gs.forEach(g=>{if(g.i!==-1)openG[p.id].add(g.i)});curW=null;$main.innerHTML=phonHTML(p);renderSheet();window.scrollTo(0,y);
     startPlayAll(list);
   },
+  playOptions(){playOptionsOpen=!playOptionsOpen;renderToolbar()},
+  playing(){showPlaying()},
   speed(){speedOpen=!speedOpen;renderToolbar()},
   rate(b){S.set.rate=+b.dataset.v;save();renderToolbar();if(curW)speak(curW.text,false)},
   togIpa(){S.set.showIpa=!S.set.showIpa;save();const p=byId(curP);$main.innerHTML=phonHTML(p);renderSheet();stickCheck()},
@@ -1469,6 +1516,7 @@ document.addEventListener("input",e=>{
 });
 document.addEventListener("change",e=>{
   const t=e.target;
+  if(t.dataset.play){const k=t.dataset.play;S.set[k]=k==="repeat"?+t.value:k==="followPlay"?t.checked:t.value;save();if(k==="followPlay"&&t.checked&&playAll)showPlaying();renderToolbar()}
   if(t.id==="rateRange"){save();if(curW)speak(curW.text,false)}
   if(t.dataset.set){save();if(t.dataset.set==="rate")speak("This is the new speed.",false);if(t.dataset.set==="slow")speak("This is the slow speed.",true)}
   if(t.id==="vsel"){S.set.voice=t.value;save();speak("Hello.",false)}
@@ -2123,3 +2171,4 @@ try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw){if(raw.scBest)S.scBe
 </script>
 </body>
 </html>
+
