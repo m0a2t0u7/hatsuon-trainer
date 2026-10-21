@@ -1,0 +1,514 @@
+[
+ {
+  "word": "live",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "women",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "red",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "present",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "heavy",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "capital",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "Sunday",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "son",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "come",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "good",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "sugar",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "pudding",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "bush",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "attend",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "mother",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "three",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "feel",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "read",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "increase",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "too",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "project",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "contract",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "turn",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "wait",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "price",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "site",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "file",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "climate",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "sound",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "close",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "photo",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "total",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "boat",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "snow",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "slow",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "grow",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "near",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "dear",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "year",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "clear",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "fear",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "tear",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "serious",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "pier",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "weird",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "air",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "airport",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "stairs",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "care",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "share",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "square",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "wear",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "their",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "parent",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "very",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "vary",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "far",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "card",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "park",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "depart",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "target",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "cargo",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "horse",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "morning",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "north",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "organize",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "form",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "door",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "floor",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "four",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "course",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "pour",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "expect",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "captain",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "keep",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "branch",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "rabbit",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "November",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "neighbor",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "club",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "web",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "rub",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "cab",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "grab",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "tube",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "bulb",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "Saturday",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "data",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "dog",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "desk",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "drink",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "deadline",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "delivery",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "record",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "key",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "kitchen",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "queen",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "quick",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "baker",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "pocket",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "stomach",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "tiger",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "forget",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "baggage",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "flag",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "office",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "different",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "vegetable",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "view",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "vendor",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "every",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "math",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "magazine",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "television",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "much",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "which",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "teach",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "switch",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "jacket",
+  "reason": "認識結果が一致しない"
+ },
+ {
+  "word": "gentle",
+  "reason": "隣の単語が未認識で境界が不確実"
+ },
+ {
+  "word": "minute",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "king",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "ring",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "lead",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ },
+ {
+  "word": "win",
+  "reason": "十分な無音の境界がない"
+ },
+ {
+  "word": "twelve",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "quality",
+  "reason": "音声認識の確度不足"
+ },
+ {
+  "word": "use",
+  "reason": "同じつづりで発音が複数あるため要確認"
+ }
+]

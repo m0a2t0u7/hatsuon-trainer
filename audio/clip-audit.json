@@ -1,0 +1,4862 @@
+[
+ {
+  "word": "sit",
+  "start": 0,
+  "end": 0.7984,
+  "source": "exact"
+ },
+ {
+  "word": "big",
+  "start": 0.7984,
+  "end": 1.6548,
+  "source": "exact"
+ },
+ {
+  "word": "fish",
+  "start": 1.6548,
+  "end": 2.5786,
+  "source": "exact"
+ },
+ {
+  "word": "milk",
+  "start": 2.5786,
+  "end": 3.4435,
+  "source": "exact"
+ },
+ {
+  "word": "this",
+  "start": 3.4435,
+  "end": 4.3967,
+  "source": "exact"
+ },
+ {
+  "word": "give",
+  "start": 5.2819,
+  "end": 6.1479,
+  "source": "exact"
+ },
+ {
+  "word": "dinner",
+  "start": 6.1479,
+  "end": 6.9333,
+  "source": "exact"
+ },
+ {
+  "word": "listen",
+  "start": 6.9333,
+  "end": 7.8454,
+  "source": "exact"
+ },
+ {
+  "word": "visit",
+  "start": 7.8454,
+  "end": 8.7382,
+  "source": "exact"
+ },
+ {
+  "word": "finish",
+  "start": 8.7382,
+  "end": 9.7253,
+  "source": "exact"
+ },
+ {
+  "word": "ship",
+  "start": 9.7253,
+  "end": 10.5517,
+  "source": "exact"
+ },
+ {
+  "word": "city",
+  "start": 10.5517,
+  "end": 11.4218,
+  "source": "exact"
+ },
+ {
+  "word": "issue",
+  "start": 11.4218,
+  "end": 12.2886,
+  "source": "exact"
+ },
+ {
+  "word": "invoice",
+  "start": 12.2886,
+  "end": 13.3041,
+  "source": "exact"
+ },
+ {
+  "word": "shipping",
+  "start": 13.3041,
+  "end": 14.2395,
+  "source": "exact"
+ },
+ {
+  "word": "gym",
+  "start": 14.2395,
+  "end": 15.0559,
+  "source": "exact"
+ },
+ {
+  "word": "system",
+  "start": 15.0559,
+  "end": 16.0103,
+  "source": "exact"
+ },
+ {
+  "word": "symbol",
+  "start": 16.0103,
+  "end": 16.9455,
+  "source": "exact"
+ },
+ {
+  "word": "typical",
+  "start": 16.9455,
+  "end": 17.8216,
+  "source": "exact"
+ },
+ {
+  "word": "rhythm",
+  "start": 17.8216,
+  "end": 18.7066,
+  "source": "exact"
+ },
+ {
+  "word": "build",
+  "start": 18.7066,
+  "end": 19.5942,
+  "source": "exact"
+ },
+ {
+  "word": "building",
+  "start": 19.5942,
+  "end": 20.4665,
+  "source": "exact"
+ },
+ {
+  "word": "guilty",
+  "start": 20.4665,
+  "end": 21.3892,
+  "source": "exact"
+ },
+ {
+  "word": "English",
+  "start": 21.3892,
+  "end": 22.3289,
+  "source": "exact"
+ },
+ {
+  "word": "pretty",
+  "start": 22.3289,
+  "end": 23.0096,
+  "source": "exact"
+ },
+ {
+  "word": "business",
+  "start": 23.9263,
+  "end": 24.871,
+  "source": "exact"
+ },
+ {
+  "word": "message",
+  "start": 24.871,
+  "end": 25.8358,
+  "source": "exact"
+ },
+ {
+  "word": "village",
+  "start": 25.8358,
+  "end": 26.7623,
+  "source": "exact"
+ },
+ {
+  "word": "package",
+  "start": 26.7623,
+  "end": 27.6904,
+  "source": "exact"
+ },
+ {
+  "word": "bed",
+  "start": 27.6904,
+  "end": 28.4647,
+  "source": "exact"
+ },
+ {
+  "word": "ten",
+  "start": 29.2623,
+  "end": 30.0597,
+  "source": "exact"
+ },
+ {
+  "word": "pen",
+  "start": 30.0597,
+  "end": 30.8627,
+  "source": "exact"
+ },
+ {
+  "word": "leg",
+  "start": 30.8627,
+  "end": 31.6837,
+  "source": "exact"
+ },
+ {
+  "word": "egg",
+  "start": 31.6837,
+  "end": 32.4114,
+  "source": "exact"
+ },
+ {
+  "word": "help",
+  "start": 32.4114,
+  "end": 33.1591,
+  "source": "first-pass"
+ },
+ {
+  "word": "send",
+  "start": 33.1591,
+  "end": 34.0555,
+  "source": "exact"
+ },
+ {
+  "word": "best",
+  "start": 34.0555,
+  "end": 34.9171,
+  "source": "exact"
+ },
+ {
+  "word": "test",
+  "start": 34.9171,
+  "end": 35.7502,
+  "source": "exact"
+ },
+ {
+  "word": "member",
+  "start": 36.6159,
+  "end": 37.4475,
+  "source": "exact"
+ },
+ {
+  "word": "schedule",
+  "start": 37.4475,
+  "end": 38.3641,
+  "source": "exact"
+ },
+ {
+  "word": "agenda",
+  "start": 38.3641,
+  "end": 39.2788,
+  "source": "exact"
+ },
+ {
+  "word": "expense",
+  "start": 39.2788,
+  "end": 40.3053,
+  "source": "exact"
+ },
+ {
+  "word": "head",
+  "start": 40.3053,
+  "end": 41.0236,
+  "source": "exact"
+ },
+ {
+  "word": "bread",
+  "start": 41.0236,
+  "end": 41.8387,
+  "source": "exact"
+ },
+ {
+  "word": "breakfast",
+  "start": 41.8387,
+  "end": 42.804,
+  "source": "exact"
+ },
+ {
+  "word": "weather",
+  "start": 42.804,
+  "end": 43.5267,
+  "source": "exact"
+ },
+ {
+  "word": "ready",
+  "start": 44.386,
+  "end": 45.1492,
+  "source": "exact"
+ },
+ {
+  "word": "health",
+  "start": 45.1492,
+  "end": 45.9587,
+  "source": "exact"
+ },
+ {
+  "word": "measure",
+  "start": 45.9587,
+  "end": 46.7832,
+  "source": "exact"
+ },
+ {
+  "word": "threat",
+  "start": 46.7832,
+  "end": 47.6047,
+  "source": "exact"
+ },
+ {
+  "word": "said",
+  "start": 47.6047,
+  "end": 48.3954,
+  "source": "exact"
+ },
+ {
+  "word": "again",
+  "start": 48.3954,
+  "end": 49.2146,
+  "source": "exact"
+ },
+ {
+  "word": "says",
+  "start": 49.2146,
+  "end": 50.1337,
+  "source": "exact"
+ },
+ {
+  "word": "any",
+  "start": 50.1337,
+  "end": 50.8282,
+  "source": "exact"
+ },
+ {
+  "word": "many",
+  "start": 50.8282,
+  "end": 51.605,
+  "source": "exact"
+ },
+ {
+  "word": "friend",
+  "start": 51.605,
+  "end": 52.4638,
+  "source": "exact"
+ },
+ {
+  "word": "bury",
+  "start": 52.4638,
+  "end": 53.3037,
+  "source": "homophone"
+ },
+ {
+  "word": "cat",
+  "start": 53.3037,
+  "end": 54.0691,
+  "source": "exact"
+ },
+ {
+  "word": "bag",
+  "start": 54.0691,
+  "end": 54.8862,
+  "source": "exact"
+ },
+ {
+  "word": "hat",
+  "start": 54.8862,
+  "end": 55.6411,
+  "source": "exact"
+ },
+ {
+  "word": "map",
+  "start": 55.6411,
+  "end": 56.4287,
+  "source": "exact"
+ },
+ {
+  "word": "hand",
+  "start": 56.4287,
+  "end": 57.2622,
+  "source": "exact"
+ },
+ {
+  "word": "back",
+  "start": 57.2622,
+  "end": 58.0592,
+  "source": "exact"
+ },
+ {
+  "word": "black",
+  "start": 58.0592,
+  "end": 58.8422,
+  "source": "exact"
+ },
+ {
+  "word": "thank",
+  "start": 58.8422,
+  "end": 59.6456,
+  "source": "exact"
+ },
+ {
+  "word": "plan",
+  "start": 59.6456,
+  "end": 60.4695,
+  "source": "exact"
+ },
+ {
+  "word": "apple",
+  "start": 60.4695,
+  "end": 61.2199,
+  "source": "exact"
+ },
+ {
+  "word": "happy",
+  "start": 61.2199,
+  "end": 62.0269,
+  "source": "exact"
+ },
+ {
+  "word": "family",
+  "start": 62.0269,
+  "end": 62.9567,
+  "source": "exact"
+ },
+ {
+  "word": "actually",
+  "start": 62.9567,
+  "end": 63.8794,
+  "source": "exact"
+ },
+ {
+  "word": "traffic",
+  "start": 63.8794,
+  "end": 64.779,
+  "source": "exact"
+ },
+ {
+  "word": "challenge",
+  "start": 64.779,
+  "end": 65.6969,
+  "source": "exact"
+ },
+ {
+  "word": "standard",
+  "start": 66.5248,
+  "end": 67.4755,
+  "source": "exact"
+ },
+ {
+  "word": "manager",
+  "start": 67.4755,
+  "end": 68.3678,
+  "source": "exact"
+ },
+ {
+  "word": "cancel",
+  "start": 68.3678,
+  "end": 69.2268,
+  "source": "exact"
+ },
+ {
+  "word": "annual",
+  "start": 69.2268,
+  "end": 70.0435,
+  "source": "exact"
+ },
+ {
+  "word": "analysis",
+  "start": 70.0435,
+  "end": 71.1409,
+  "source": "exact"
+ },
+ {
+  "word": "candidate",
+  "start": 71.1409,
+  "end": 72.0322,
+  "source": "exact"
+ },
+ {
+  "word": "balance",
+  "start": 72.0322,
+  "end": 72.9889,
+  "source": "exact"
+ },
+ {
+  "word": "ask",
+  "start": 72.9889,
+  "end": 73.776,
+  "source": "exact"
+ },
+ {
+  "word": "glass",
+  "start": 73.776,
+  "end": 74.657,
+  "source": "exact"
+ },
+ {
+  "word": "last",
+  "start": 74.657,
+  "end": 75.5191,
+  "source": "exact"
+ },
+ {
+  "word": "can't",
+  "start": 75.5191,
+  "end": 76.2861,
+  "source": "exact"
+ },
+ {
+  "word": "dance",
+  "start": 76.2861,
+  "end": 77.1964,
+  "source": "exact"
+ },
+ {
+  "word": "answer",
+  "start": 77.1964,
+  "end": 77.9991,
+  "source": "exact"
+ },
+ {
+  "word": "laugh",
+  "start": 77.9991,
+  "end": 78.825,
+  "source": "exact"
+ },
+ {
+  "word": "aunt",
+  "start": 78.825,
+  "end": 79.5383,
+  "source": "homophone"
+ },
+ {
+  "word": "cup",
+  "start": 79.5383,
+  "end": 80.2232,
+  "source": "exact"
+ },
+ {
+  "word": "bus",
+  "start": 80.2232,
+  "end": 81.0607,
+  "source": "exact"
+ },
+ {
+  "word": "run",
+  "start": 81.0607,
+  "end": 81.8377,
+  "source": "exact"
+ },
+ {
+  "word": "sun",
+  "start": 81.8377,
+  "end": 82.6809,
+  "source": "exact"
+ },
+ {
+  "word": "fun",
+  "start": 82.6809,
+  "end": 83.4878,
+  "source": "exact"
+ },
+ {
+  "word": "jump",
+  "start": 83.4878,
+  "end": 84.2575,
+  "source": "exact"
+ },
+ {
+  "word": "lunch",
+  "start": 84.2575,
+  "end": 85.1065,
+  "source": "exact"
+ },
+ {
+  "word": "must",
+  "start": 85.1065,
+  "end": 85.9436,
+  "source": "exact"
+ },
+ {
+  "word": "number",
+  "start": 85.9436,
+  "end": 86.7591,
+  "source": "exact"
+ },
+ {
+  "word": "subject",
+  "start": 87.6439,
+  "end": 88.5893,
+  "source": "first-pass"
+ },
+ {
+  "word": "function",
+  "start": 88.5893,
+  "end": 89.4931,
+  "source": "exact"
+ },
+ {
+  "word": "budget",
+  "start": 89.4931,
+  "end": 90.3158,
+  "source": "exact"
+ },
+ {
+  "word": "some",
+  "start": 91.9073,
+  "end": 92.7352,
+  "source": "exact"
+ },
+ {
+  "word": "love",
+  "start": 92.7352,
+  "end": 93.5671,
+  "source": "exact"
+ },
+ {
+  "word": "Monday",
+  "start": 93.5671,
+  "end": 94.4349,
+  "source": "exact"
+ },
+ {
+  "word": "money",
+  "start": 94.4349,
+  "end": 95.1947,
+  "source": "exact"
+ },
+ {
+  "word": "month",
+  "start": 95.1947,
+  "end": 96.0196,
+  "source": "exact"
+ },
+ {
+  "word": "other",
+  "start": 96.0196,
+  "end": 96.721,
+  "source": "exact"
+ },
+ {
+  "word": "above",
+  "start": 96.721,
+  "end": 97.574,
+  "source": "exact"
+ },
+ {
+  "word": "company",
+  "start": 97.574,
+  "end": 98.4138,
+  "source": "exact"
+ },
+ {
+  "word": "wonder",
+  "start": 98.4138,
+  "end": 99.293,
+  "source": "exact"
+ },
+ {
+  "word": "country",
+  "start": 99.293,
+  "end": 100.135,
+  "source": "exact"
+ },
+ {
+  "word": "young",
+  "start": 100.135,
+  "end": 100.899,
+  "source": "exact"
+ },
+ {
+  "word": "double",
+  "start": 100.899,
+  "end": 101.6735,
+  "source": "exact"
+ },
+ {
+  "word": "enough",
+  "start": 101.6735,
+  "end": 102.5155,
+  "source": "exact"
+ },
+ {
+  "word": "touch",
+  "start": 102.5155,
+  "end": 103.277,
+  "source": "first-pass"
+ },
+ {
+  "word": "does",
+  "start": 103.277,
+  "end": 104.134,
+  "source": "exact"
+ },
+ {
+  "word": "blood",
+  "start": 104.134,
+  "end": 104.9285,
+  "source": "exact"
+ },
+ {
+  "word": "flood",
+  "start": 104.9285,
+  "end": 105.76,
+  "source": "exact"
+ },
+ {
+  "word": "book",
+  "start": 105.76,
+  "end": 106.4705,
+  "source": "exact"
+ },
+ {
+  "word": "look",
+  "start": 106.4705,
+  "end": 107.1945,
+  "source": "exact"
+ },
+ {
+  "word": "cook",
+  "start": 107.1945,
+  "end": 107.8575,
+  "source": "exact"
+ },
+ {
+  "word": "wood",
+  "start": 108.636,
+  "end": 109.375,
+  "source": "exact"
+ },
+ {
+  "word": "foot",
+  "start": 109.375,
+  "end": 110.1065,
+  "source": "exact"
+ },
+ {
+  "word": "stood",
+  "start": 110.1065,
+  "end": 110.945,
+  "source": "exact"
+ },
+ {
+  "word": "took",
+  "start": 110.945,
+  "end": 111.6275,
+  "source": "exact"
+ },
+ {
+  "word": "shook",
+  "start": 111.6275,
+  "end": 112.4125,
+  "source": "exact"
+ },
+ {
+  "word": "wool",
+  "start": 112.4125,
+  "end": 113.177,
+  "source": "exact"
+ },
+ {
+  "word": "hook",
+  "start": 113.177,
+  "end": 113.8815,
+  "source": "exact"
+ },
+ {
+  "word": "put",
+  "start": 113.8815,
+  "end": 114.556,
+  "source": "exact"
+ },
+ {
+  "word": "pull",
+  "start": 114.556,
+  "end": 115.252,
+  "source": "exact"
+ },
+ {
+  "word": "push",
+  "start": 115.252,
+  "end": 116.019,
+  "source": "exact"
+ },
+ {
+  "word": "full",
+  "start": 116.019,
+  "end": 116.758,
+  "source": "exact"
+ },
+ {
+  "word": "could",
+  "start": 119.0715,
+  "end": 119.754,
+  "source": "exact"
+ },
+ {
+  "word": "would",
+  "start": 119.754,
+  "end": 120.46,
+  "source": "exact"
+ },
+ {
+  "word": "should",
+  "start": 120.46,
+  "end": 121.2325,
+  "source": "exact"
+ },
+ {
+  "word": "woman",
+  "start": 121.2325,
+  "end": 122.0275,
+  "source": "exact"
+ },
+ {
+  "word": "wolf",
+  "start": 122.0275,
+  "end": 122.8365,
+  "source": "exact"
+ },
+ {
+  "word": "about",
+  "start": 122.8365,
+  "end": 123.6495,
+  "source": "exact"
+ },
+ {
+  "word": "ago",
+  "start": 123.6495,
+  "end": 124.446,
+  "source": "exact"
+ },
+ {
+  "word": "away",
+  "start": 124.446,
+  "end": 125.263,
+  "source": "exact"
+ },
+ {
+  "word": "banana",
+  "start": 125.263,
+  "end": 126.1155,
+  "source": "exact"
+ },
+ {
+  "word": "Japan",
+  "start": 126.1155,
+  "end": 127.0195,
+  "source": "exact"
+ },
+ {
+  "word": "sofa",
+  "start": 127.0195,
+  "end": 127.8615,
+  "source": "exact"
+ },
+ {
+  "word": "pizza",
+  "start": 127.8615,
+  "end": 128.663,
+  "source": "exact"
+ },
+ {
+  "word": "idea",
+  "start": 128.663,
+  "end": 129.472,
+  "source": "exact"
+ },
+ {
+  "word": "available",
+  "start": 130.3435,
+  "end": 131.2815,
+  "source": "exact"
+ },
+ {
+  "word": "account",
+  "start": 131.2815,
+  "end": 132.1195,
+  "source": "exact"
+ },
+ {
+  "word": "lemon",
+  "start": 132.1195,
+  "end": 132.906,
+  "source": "exact"
+ },
+ {
+  "word": "second",
+  "start": 132.906,
+  "end": 133.7835,
+  "source": "exact"
+ },
+ {
+  "word": "computer",
+  "start": 133.7835,
+  "end": 134.6795,
+  "source": "exact"
+ },
+ {
+  "word": "today",
+  "start": 134.6795,
+  "end": 135.4675,
+  "source": "exact"
+ },
+ {
+  "word": "person",
+  "start": 135.4675,
+  "end": 136.294,
+  "source": "exact"
+ },
+ {
+  "word": "season",
+  "start": 136.294,
+  "end": 137.165,
+  "source": "exact"
+ },
+ {
+  "word": "collect",
+  "start": 137.165,
+  "end": 137.9995,
+  "source": "exact"
+ },
+ {
+  "word": "position",
+  "start": 137.9995,
+  "end": 138.8885,
+  "source": "exact"
+ },
+ {
+  "word": "confirm",
+  "start": 138.8885,
+  "end": 139.8245,
+  "source": "exact"
+ },
+ {
+  "word": "problem",
+  "start": 139.8245,
+  "end": 140.6905,
+  "source": "exact"
+ },
+ {
+  "word": "moment",
+  "start": 140.6905,
+  "end": 141.533,
+  "source": "exact"
+ },
+ {
+  "word": "children",
+  "start": 141.533,
+  "end": 142.3765,
+  "source": "exact"
+ },
+ {
+  "word": "garden",
+  "start": 142.3765,
+  "end": 143.1705,
+  "source": "exact"
+ },
+ {
+  "word": "support",
+  "start": 143.1705,
+  "end": 144.064,
+  "source": "exact"
+ },
+ {
+  "word": "suppose",
+  "start": 144.064,
+  "end": 145.0585,
+  "source": "exact"
+ },
+ {
+  "word": "success",
+  "start": 145.0585,
+  "end": 146.043,
+  "source": "exact"
+ },
+ {
+  "word": "circus",
+  "start": 146.043,
+  "end": 146.9985,
+  "source": "exact"
+ },
+ {
+  "word": "famous",
+  "start": 146.9985,
+  "end": 147.9525,
+  "source": "exact"
+ },
+ {
+  "word": "dangerous",
+  "start": 147.9525,
+  "end": 148.9855,
+  "source": "exact"
+ },
+ {
+  "word": "pencil",
+  "start": 148.9855,
+  "end": 149.781,
+  "source": "exact"
+ },
+ {
+  "word": "possible",
+  "start": 149.781,
+  "end": 150.65,
+  "source": "first-pass"
+ },
+ {
+  "word": "teacher",
+  "start": 150.65,
+  "end": 151.431,
+  "source": "exact"
+ },
+ {
+  "word": "butter",
+  "start": 151.431,
+  "end": 152.149,
+  "source": "exact"
+ },
+ {
+  "word": "water",
+  "start": 152.149,
+  "end": 152.933,
+  "source": "exact"
+ },
+ {
+  "word": "father",
+  "start": 152.933,
+  "end": 153.668,
+  "source": "exact"
+ },
+ {
+  "word": "sister",
+  "start": 154.5065,
+  "end": 155.371,
+  "source": "exact"
+ },
+ {
+  "word": "player",
+  "start": 155.371,
+  "end": 156.1385,
+  "source": "exact"
+ },
+ {
+  "word": "leader",
+  "start": 156.1385,
+  "end": 156.88,
+  "source": "exact"
+ },
+ {
+  "word": "speaker",
+  "start": 156.88,
+  "end": 157.7655,
+  "source": "exact"
+ },
+ {
+  "word": "over",
+  "start": 157.7655,
+  "end": 158.493,
+  "source": "exact"
+ },
+ {
+  "word": "after",
+  "start": 158.493,
+  "end": 159.297,
+  "source": "exact"
+ },
+ {
+  "word": "under",
+  "start": 159.297,
+  "end": 160.0345,
+  "source": "exact"
+ },
+ {
+  "word": "order",
+  "start": 160.0345,
+  "end": 160.7515,
+  "source": "exact"
+ },
+ {
+  "word": "paper",
+  "start": 160.7515,
+  "end": 161.488,
+  "source": "exact"
+ },
+ {
+  "word": "customer",
+  "start": 161.488,
+  "end": 162.355,
+  "source": "first-pass"
+ },
+ {
+  "word": "deliver",
+  "start": 162.355,
+  "end": 163.17,
+  "source": "exact"
+ },
+ {
+  "word": "doctor",
+  "start": 163.17,
+  "end": 163.998,
+  "source": "exact"
+ },
+ {
+  "word": "actor",
+  "start": 163.998,
+  "end": 164.775,
+  "source": "exact"
+ },
+ {
+  "word": "visitor",
+  "start": 164.775,
+  "end": 165.5935,
+  "source": "exact"
+ },
+ {
+  "word": "color",
+  "start": 165.5935,
+  "end": 166.305,
+  "source": "exact"
+ },
+ {
+  "word": "favorite",
+  "start": 166.305,
+  "end": 167.217,
+  "source": "first-pass"
+ },
+ {
+  "word": "elevator",
+  "start": 167.217,
+  "end": 168.1145,
+  "source": "exact"
+ },
+ {
+  "word": "director",
+  "start": 168.1145,
+  "end": 168.989,
+  "source": "exact"
+ },
+ {
+  "word": "dollar",
+  "start": 168.989,
+  "end": 169.766,
+  "source": "exact"
+ },
+ {
+  "word": "popular",
+  "start": 169.766,
+  "end": 170.6065,
+  "source": "exact"
+ },
+ {
+  "word": "calendar",
+  "start": 170.6065,
+  "end": 171.482,
+  "source": "exact"
+ },
+ {
+  "word": "regular",
+  "start": 171.482,
+  "end": 172.339,
+  "source": "exact"
+ },
+ {
+  "word": "picture",
+  "start": 172.339,
+  "end": 173.1235,
+  "source": "exact"
+ },
+ {
+  "word": "nature",
+  "start": 173.1235,
+  "end": 173.9635,
+  "source": "exact"
+ },
+ {
+  "word": "future",
+  "start": 173.9635,
+  "end": 174.822,
+  "source": "exact"
+ },
+ {
+  "word": "see",
+  "start": 174.822,
+  "end": 175.5705,
+  "source": "exact"
+ },
+ {
+  "word": "tree",
+  "start": 175.5705,
+  "end": 176.3185,
+  "source": "exact"
+ },
+ {
+  "word": "meet",
+  "start": 177.901,
+  "end": 178.6205,
+  "source": "exact"
+ },
+ {
+  "word": "sheep",
+  "start": 178.6205,
+  "end": 179.395,
+  "source": "exact"
+ },
+ {
+  "word": "week",
+  "start": 179.395,
+  "end": 180.1265,
+  "source": "homophone"
+ },
+ {
+  "word": "need",
+  "start": 180.1265,
+  "end": 180.8895,
+  "source": "exact"
+ },
+ {
+  "word": "sleep",
+  "start": 180.8895,
+  "end": 181.7095,
+  "source": "exact"
+ },
+ {
+  "word": "green",
+  "start": 181.7095,
+  "end": 182.5225,
+  "source": "exact"
+ },
+ {
+  "word": "fee",
+  "start": 182.5225,
+  "end": 183.271,
+  "source": "exact"
+ },
+ {
+  "word": "employee",
+  "start": 183.271,
+  "end": 184.249,
+  "source": "exact"
+ },
+ {
+  "word": "eat",
+  "start": 184.249,
+  "end": 184.909,
+  "source": "exact"
+ },
+ {
+  "word": "tea",
+  "start": 184.909,
+  "end": 185.623,
+  "source": "exact"
+ },
+ {
+  "word": "sea",
+  "start": 185.623,
+  "end": 186.421,
+  "source": "homophone"
+ },
+ {
+  "word": "team",
+  "start": 187.1895,
+  "end": 187.9585,
+  "source": "exact"
+ },
+ {
+  "word": "clean",
+  "start": 187.9585,
+  "end": 188.762,
+  "source": "exact"
+ },
+ {
+  "word": "leave",
+  "start": 188.762,
+  "end": 189.5915,
+  "source": "exact"
+ },
+ {
+  "word": "lease",
+  "start": 190.5415,
+  "end": 191.3475,
+  "source": "exact"
+ },
+ {
+  "word": "me",
+  "start": 191.3475,
+  "end": 192.056,
+  "source": "exact"
+ },
+ {
+  "word": "we",
+  "start": 192.056,
+  "end": 192.7465,
+  "source": "exact"
+ },
+ {
+  "word": "complete",
+  "start": 192.7465,
+  "end": 193.671,
+  "source": "exact"
+ },
+ {
+  "word": "piece",
+  "start": 193.671,
+  "end": 194.4585,
+  "source": "homophone"
+ },
+ {
+  "word": "believe",
+  "start": 194.4585,
+  "end": 195.334,
+  "source": "exact"
+ },
+ {
+  "word": "police",
+  "start": 195.334,
+  "end": 196.1965,
+  "source": "exact"
+ },
+ {
+  "word": "people",
+  "start": 196.1965,
+  "end": 196.9365,
+  "source": "exact"
+ },
+ {
+  "word": "receive",
+  "start": 196.9365,
+  "end": 197.866,
+  "source": "exact"
+ },
+ {
+  "word": "machine",
+  "start": 197.866,
+  "end": 198.765,
+  "source": "exact"
+ },
+ {
+  "word": "receipt",
+  "start": 198.765,
+  "end": 199.597,
+  "source": "exact"
+ },
+ {
+  "word": "food",
+  "start": 199.597,
+  "end": 200.381,
+  "source": "exact"
+ },
+ {
+  "word": "moon",
+  "start": 200.381,
+  "end": 201.156,
+  "source": "exact"
+ },
+ {
+  "word": "soon",
+  "start": 201.156,
+  "end": 201.988,
+  "source": "exact"
+ },
+ {
+  "word": "room",
+  "start": 201.988,
+  "end": 202.753,
+  "source": "exact"
+ },
+ {
+  "word": "school",
+  "start": 202.753,
+  "end": 203.6085,
+  "source": "exact"
+ },
+ {
+  "word": "cool",
+  "start": 203.6085,
+  "end": 204.3455,
+  "source": "exact"
+ },
+ {
+  "word": "zoo",
+  "start": 205.057,
+  "end": 205.815,
+  "source": "exact"
+ },
+ {
+  "word": "pool",
+  "start": 205.815,
+  "end": 206.5215,
+  "source": "exact"
+ },
+ {
+  "word": "tooth",
+  "start": 206.5215,
+  "end": 207.271,
+  "source": "exact"
+ },
+ {
+  "word": "rule",
+  "start": 207.271,
+  "end": 208.0085,
+  "source": "exact"
+ },
+ {
+  "word": "June",
+  "start": 208.0085,
+  "end": 208.8185,
+  "source": "exact"
+ },
+ {
+  "word": "flu",
+  "start": 208.8185,
+  "end": 209.601,
+  "source": "homophone"
+ },
+ {
+  "word": "student",
+  "start": 209.601,
+  "end": 210.472,
+  "source": "exact"
+ },
+ {
+  "word": "super",
+  "start": 210.472,
+  "end": 211.294,
+  "source": "exact"
+ },
+ {
+  "word": "blue",
+  "start": 211.294,
+  "end": 212.0315,
+  "source": "exact"
+ },
+ {
+  "word": "true",
+  "start": 212.0315,
+  "end": 212.7775,
+  "source": "exact"
+ },
+ {
+  "word": "due",
+  "start": 212.7775,
+  "end": 213.505,
+  "source": "homophone"
+ },
+ {
+  "word": "new",
+  "start": 213.505,
+  "end": 214.2265,
+  "source": "exact"
+ },
+ {
+  "word": "flew",
+  "start": 214.2265,
+  "end": 215.01,
+  "source": "homophone"
+ },
+ {
+  "word": "crew",
+  "start": 215.01,
+  "end": 215.7315,
+  "source": "exact"
+ },
+ {
+  "word": "do",
+  "start": 215.7315,
+  "end": 216.4545,
+  "source": "exact"
+ },
+ {
+  "word": "two",
+  "start": 216.4545,
+  "end": 217.1465,
+  "source": "homophone"
+ },
+ {
+  "word": "move",
+  "start": 217.1465,
+  "end": 217.9435,
+  "source": "exact"
+ },
+ {
+  "word": "who",
+  "start": 217.9435,
+  "end": 218.616,
+  "source": "exact"
+ },
+ {
+  "word": "group",
+  "start": 218.616,
+  "end": 219.3425,
+  "source": "exact"
+ },
+ {
+  "word": "soup",
+  "start": 219.3425,
+  "end": 220.0855,
+  "source": "exact"
+ },
+ {
+  "word": "you",
+  "start": 220.0855,
+  "end": 220.7815,
+  "source": "exact"
+ },
+ {
+  "word": "fruit",
+  "start": 220.7815,
+  "end": 221.5605,
+  "source": "exact"
+ },
+ {
+  "word": "juice",
+  "start": 221.5605,
+  "end": 222.3825,
+  "source": "exact"
+ },
+ {
+  "word": "hot",
+  "start": 222.3825,
+  "end": 223.0745,
+  "source": "exact"
+ },
+ {
+  "word": "stop",
+  "start": 223.0745,
+  "end": 223.867,
+  "source": "exact"
+ },
+ {
+  "word": "box",
+  "start": 223.867,
+  "end": 224.688,
+  "source": "exact"
+ },
+ {
+  "word": "top",
+  "start": 224.688,
+  "end": 225.3635,
+  "source": "exact"
+ },
+ {
+  "word": "job",
+  "start": 225.3635,
+  "end": 226.1275,
+  "source": "exact"
+ },
+ {
+  "word": "clock",
+  "start": 226.1275,
+  "end": 226.8455,
+  "source": "exact"
+ },
+ {
+  "word": "shop",
+  "start": 226.8455,
+  "end": 227.5835,
+  "source": "first-pass"
+ },
+ {
+  "word": "not",
+  "start": 227.5835,
+  "end": 228.3335,
+  "source": "exact"
+ },
+ {
+  "word": "lot",
+  "start": 228.3335,
+  "end": 229.0645,
+  "source": "exact"
+ },
+ {
+  "word": "got",
+  "start": 229.0645,
+  "end": 229.785,
+  "source": "exact"
+ },
+ {
+  "word": "rock",
+  "start": 229.785,
+  "end": 230.506,
+  "source": "exact"
+ },
+ {
+  "word": "bottle",
+  "start": 230.506,
+  "end": 231.2435,
+  "source": "exact"
+ },
+ {
+  "word": "hobby",
+  "start": 231.2435,
+  "end": 231.98,
+  "source": "exact"
+ },
+ {
+  "word": "copy",
+  "start": 231.98,
+  "end": 232.7195,
+  "source": "exact"
+ },
+ {
+  "word": "college",
+  "start": 232.7195,
+  "end": 233.5585,
+  "source": "exact"
+ },
+ {
+  "word": "sorry",
+  "start": 233.5585,
+  "end": 234.3775,
+  "source": "exact"
+ },
+ {
+  "word": "option",
+  "start": 234.3775,
+  "end": 235.176,
+  "source": "exact"
+ },
+ {
+  "word": "watch",
+  "start": 236.961,
+  "end": 237.7205,
+  "source": "exact"
+ },
+ {
+  "word": "want",
+  "start": 237.7205,
+  "end": 238.465,
+  "source": "exact"
+ },
+ {
+  "word": "what",
+  "start": 238.465,
+  "end": 239.153,
+  "source": "exact"
+ },
+ {
+  "word": "drama",
+  "start": 239.153,
+  "end": 239.9525,
+  "source": "exact"
+ },
+ {
+  "word": "pasta",
+  "start": 239.9525,
+  "end": 240.749,
+  "source": "exact"
+ },
+ {
+  "word": "pajamas",
+  "start": 240.749,
+  "end": 241.7255,
+  "source": "exact"
+ },
+ {
+  "word": "calm",
+  "start": 241.7255,
+  "end": 242.473,
+  "source": "exact"
+ },
+ {
+  "word": "palm",
+  "start": 242.473,
+  "end": 243.217,
+  "source": "exact"
+ },
+ {
+  "word": "spa",
+  "start": 243.217,
+  "end": 244.011,
+  "source": "exact"
+ },
+ {
+  "word": "knowledge",
+  "start": 244.011,
+  "end": 244.8745,
+  "source": "exact"
+ },
+ {
+  "word": "saw",
+  "start": 244.8745,
+  "end": 245.627,
+  "source": "exact"
+ },
+ {
+  "word": "draw",
+  "start": 245.627,
+  "end": 246.3645,
+  "source": "exact"
+ },
+ {
+  "word": "straw",
+  "start": 246.3645,
+  "end": 247.196,
+  "source": "exact"
+ },
+ {
+  "word": "law",
+  "start": 247.196,
+  "end": 247.9085,
+  "source": "exact"
+ },
+ {
+  "word": "awful",
+  "start": 247.9085,
+  "end": 248.6505,
+  "source": "exact"
+ },
+ {
+  "word": "caught",
+  "start": 248.6505,
+  "end": 249.3335,
+  "source": "exact"
+ },
+ {
+  "word": "taught",
+  "start": 249.3335,
+  "end": 250.083,
+  "source": "exact"
+ },
+ {
+  "word": "daughter",
+  "start": 250.083,
+  "end": 250.834,
+  "source": "exact"
+ },
+ {
+  "word": "August",
+  "start": 250.834,
+  "end": 251.653,
+  "source": "exact"
+ },
+ {
+  "word": "because",
+  "start": 251.653,
+  "end": 252.5305,
+  "source": "exact"
+ },
+ {
+  "word": "autumn",
+  "start": 252.5305,
+  "end": 253.235,
+  "source": "exact"
+ },
+ {
+  "word": "author",
+  "start": 253.235,
+  "end": 253.9765,
+  "source": "exact"
+ },
+ {
+  "word": "audit",
+  "start": 253.9765,
+  "end": 254.6955,
+  "source": "exact"
+ },
+ {
+  "word": "thought",
+  "start": 254.6955,
+  "end": 255.44,
+  "source": "exact"
+ },
+ {
+  "word": "bought",
+  "start": 255.44,
+  "end": 256.155,
+  "source": "exact"
+ },
+ {
+  "word": "brought",
+  "start": 256.155,
+  "end": 256.884,
+  "source": "exact"
+ },
+ {
+  "word": "walk",
+  "start": 256.884,
+  "end": 257.5965,
+  "source": "exact"
+ },
+ {
+  "word": "talk",
+  "start": 257.5965,
+  "end": 258.32,
+  "source": "exact"
+ },
+ {
+  "word": "all",
+  "start": 258.32,
+  "end": 258.981,
+  "source": "exact"
+ },
+ {
+  "word": "ball",
+  "start": 258.981,
+  "end": 259.692,
+  "source": "exact"
+ },
+ {
+  "word": "call",
+  "start": 259.692,
+  "end": 260.4,
+  "source": "exact"
+ },
+ {
+  "word": "small",
+  "start": 260.4,
+  "end": 261.2185,
+  "source": "exact"
+ },
+ {
+  "word": "also",
+  "start": 261.2185,
+  "end": 262.0275,
+  "source": "exact"
+ },
+ {
+  "word": "always",
+  "start": 262.0275,
+  "end": 262.8925,
+  "source": "exact"
+ },
+ {
+  "word": "long",
+  "start": 262.8925,
+  "end": 263.633,
+  "source": "exact"
+ },
+ {
+  "word": "song",
+  "start": 263.633,
+  "end": 264.43,
+  "source": "exact"
+ },
+ {
+  "word": "strong",
+  "start": 264.43,
+  "end": 265.3045,
+  "source": "exact"
+ },
+ {
+  "word": "coffee",
+  "start": 265.3045,
+  "end": 266.086,
+  "source": "exact"
+ },
+ {
+  "word": "often",
+  "start": 266.086,
+  "end": 266.862,
+  "source": "exact"
+ },
+ {
+  "word": "loss",
+  "start": 266.862,
+  "end": 267.6625,
+  "source": "exact"
+ },
+ {
+  "word": "bird",
+  "start": 267.6625,
+  "end": 268.3725,
+  "source": "exact"
+ },
+ {
+  "word": "girl",
+  "start": 268.3725,
+  "end": 269.0855,
+  "source": "exact"
+ },
+ {
+  "word": "first",
+  "start": 269.0855,
+  "end": 269.8965,
+  "source": "exact"
+ },
+ {
+  "word": "shirt",
+  "start": 269.8965,
+  "end": 270.6425,
+  "source": "exact"
+ },
+ {
+  "word": "third",
+  "start": 270.6425,
+  "end": 271.409,
+  "source": "exact"
+ },
+ {
+  "word": "thirsty",
+  "start": 271.409,
+  "end": 272.277,
+  "source": "exact"
+ },
+ {
+  "word": "birthday",
+  "start": 272.277,
+  "end": 273.1395,
+  "source": "exact"
+ },
+ {
+  "word": "firm",
+  "start": 273.1395,
+  "end": 273.9415,
+  "source": "exact"
+ },
+ {
+  "word": "her",
+  "start": 273.9415,
+  "end": 274.5825,
+  "source": "exact"
+ },
+ {
+  "word": "service",
+  "start": 274.5825,
+  "end": 275.5005,
+  "source": "exact"
+ },
+ {
+  "word": "serve",
+  "start": 275.5005,
+  "end": 276.3315,
+  "source": "exact"
+ },
+ {
+  "word": "term",
+  "start": 276.3315,
+  "end": 277.056,
+  "source": "exact"
+ },
+ {
+  "word": "refer",
+  "start": 277.056,
+  "end": 277.858,
+  "source": "exact"
+ },
+ {
+  "word": "version",
+  "start": 277.858,
+  "end": 278.686,
+  "source": "exact"
+ },
+ {
+  "word": "nurse",
+  "start": 279.4565,
+  "end": 280.2435,
+  "source": "first-pass"
+ },
+ {
+  "word": "hurt",
+  "start": 280.2435,
+  "end": 280.941,
+  "source": "first-pass"
+ },
+ {
+  "word": "Thursday",
+  "start": 280.941,
+  "end": 281.862,
+  "source": "exact"
+ },
+ {
+  "word": "purple",
+  "start": 281.862,
+  "end": 282.558,
+  "source": "exact"
+ },
+ {
+  "word": "church",
+  "start": 282.558,
+  "end": 283.4025,
+  "source": "exact"
+ },
+ {
+  "word": "purchase",
+  "start": 283.4025,
+  "end": 284.4085,
+  "source": "first-pass"
+ },
+ {
+  "word": "work",
+  "start": 284.4085,
+  "end": 285.1975,
+  "source": "exact"
+ },
+ {
+  "word": "word",
+  "start": 285.1975,
+  "end": 286.052,
+  "source": "exact"
+ },
+ {
+  "word": "world",
+  "start": 286.052,
+  "end": 286.94,
+  "source": "exact"
+ },
+ {
+  "word": "worse",
+  "start": 286.94,
+  "end": 287.8095,
+  "source": "exact"
+ },
+ {
+  "word": "learn",
+  "start": 287.8095,
+  "end": 288.631,
+  "source": "exact"
+ },
+ {
+  "word": "early",
+  "start": 288.631,
+  "end": 289.4215,
+  "source": "exact"
+ },
+ {
+  "word": "research",
+  "start": 289.4215,
+  "end": 290.4005,
+  "source": "exact"
+ },
+ {
+  "word": "journey",
+  "start": 290.4005,
+  "end": 291.264,
+  "source": "first-pass"
+ },
+ {
+  "word": "cake",
+  "start": 291.264,
+  "end": 291.985,
+  "source": "exact"
+ },
+ {
+  "word": "name",
+  "start": 291.985,
+  "end": 292.786,
+  "source": "exact"
+ },
+ {
+  "word": "make",
+  "start": 292.786,
+  "end": 293.561,
+  "source": "exact"
+ },
+ {
+  "word": "game",
+  "start": 293.561,
+  "end": 294.373,
+  "source": "exact"
+ },
+ {
+  "word": "plane",
+  "start": 294.373,
+  "end": 295.158,
+  "source": "homophone"
+ },
+ {
+  "word": "same",
+  "start": 295.158,
+  "end": 295.985,
+  "source": "exact"
+ },
+ {
+  "word": "date",
+  "start": 295.985,
+  "end": 296.746,
+  "source": "exact"
+ },
+ {
+  "word": "rate",
+  "start": 296.746,
+  "end": 297.506,
+  "source": "exact"
+ },
+ {
+  "word": "table",
+  "start": 297.506,
+  "end": 298.287,
+  "source": "exact"
+ },
+ {
+  "word": "baby",
+  "start": 298.287,
+  "end": 299.105,
+  "source": "exact"
+ },
+ {
+  "word": "station",
+  "start": 299.105,
+  "end": 300.018,
+  "source": "exact"
+ },
+ {
+  "word": "location",
+  "start": 300.018,
+  "end": 300.957,
+  "source": "exact"
+ },
+ {
+  "word": "agent",
+  "start": 300.957,
+  "end": 301.794,
+  "source": "exact"
+ },
+ {
+  "word": "rain",
+  "start": 301.794,
+  "end": 302.5625,
+  "source": "exact"
+ },
+ {
+  "word": "train",
+  "start": 302.5625,
+  "end": 303.405,
+  "source": "exact"
+ },
+ {
+  "word": "mail",
+  "start": 304.1345,
+  "end": 304.8815,
+  "source": "exact"
+ },
+ {
+  "word": "day",
+  "start": 304.8815,
+  "end": 305.64,
+  "source": "exact"
+ },
+ {
+  "word": "play",
+  "start": 305.64,
+  "end": 306.361,
+  "source": "exact"
+ },
+ {
+  "word": "say",
+  "start": 306.361,
+  "end": 307.1405,
+  "source": "exact"
+ },
+ {
+  "word": "paid",
+  "start": 307.1405,
+  "end": 307.866,
+  "source": "exact"
+ },
+ {
+  "word": "display",
+  "start": 307.866,
+  "end": 308.766,
+  "source": "exact"
+ },
+ {
+  "word": "delay",
+  "start": 308.766,
+  "end": 309.571,
+  "source": "exact"
+ },
+ {
+  "word": "eight",
+  "start": 309.571,
+  "end": 310.226,
+  "source": "exact"
+ },
+ {
+  "word": "they",
+  "start": 310.226,
+  "end": 310.934,
+  "source": "exact"
+ },
+ {
+  "word": "break",
+  "start": 310.934,
+  "end": 311.696,
+  "source": "exact"
+ },
+ {
+  "word": "great",
+  "start": 311.696,
+  "end": 312.4695,
+  "source": "exact"
+ },
+ {
+  "word": "weight",
+  "start": 312.4695,
+  "end": 313.178,
+  "source": "exact"
+ },
+ {
+  "word": "survey",
+  "start": 313.178,
+  "end": 314.052,
+  "source": "exact"
+ },
+ {
+  "word": "time",
+  "start": 314.052,
+  "end": 314.824,
+  "source": "exact"
+ },
+ {
+  "word": "like",
+  "start": 314.824,
+  "end": 315.5415,
+  "source": "exact"
+ },
+ {
+  "word": "five",
+  "start": 315.5415,
+  "end": 316.382,
+  "source": "exact"
+ },
+ {
+  "word": "nice",
+  "start": 316.382,
+  "end": 317.183,
+  "source": "exact"
+ },
+ {
+  "word": "write",
+  "start": 317.183,
+  "end": 317.9105,
+  "source": "homophone"
+ },
+ {
+  "word": "white",
+  "start": 317.9105,
+  "end": 318.6315,
+  "source": "exact"
+ },
+ {
+  "word": "life",
+  "start": 318.6315,
+  "end": 319.397,
+  "source": "exact"
+ },
+ {
+  "word": "kind",
+  "start": 321.6805,
+  "end": 322.4465,
+  "source": "exact"
+ },
+ {
+  "word": "find",
+  "start": 322.4465,
+  "end": 323.262,
+  "source": "exact"
+ },
+ {
+  "word": "child",
+  "start": 323.262,
+  "end": 324.0615,
+  "source": "exact"
+ },
+ {
+  "word": "mind",
+  "start": 324.0615,
+  "end": 324.8415,
+  "source": "exact"
+ },
+ {
+  "word": "client",
+  "start": 325.656,
+  "end": 326.466,
+  "source": "exact"
+ },
+ {
+  "word": "night",
+  "start": 326.466,
+  "end": 327.1735,
+  "source": "exact"
+ },
+ {
+  "word": "light",
+  "start": 327.1735,
+  "end": 327.885,
+  "source": "exact"
+ },
+ {
+  "word": "right",
+  "start": 327.885,
+  "end": 328.6025,
+  "source": "exact"
+ },
+ {
+  "word": "high",
+  "start": 328.6025,
+  "end": 329.273,
+  "source": "exact"
+ },
+ {
+  "word": "flight",
+  "start": 329.273,
+  "end": 330.0365,
+  "source": "exact"
+ },
+ {
+  "word": "my",
+  "start": 330.0365,
+  "end": 330.704,
+  "source": "exact"
+ },
+ {
+  "word": "fly",
+  "start": 330.704,
+  "end": 331.45,
+  "source": "exact"
+ },
+ {
+  "word": "why",
+  "start": 331.45,
+  "end": 332.14,
+  "source": "exact"
+ },
+ {
+  "word": "try",
+  "start": 332.14,
+  "end": 332.8865,
+  "source": "exact"
+ },
+ {
+  "word": "pie",
+  "start": 332.8865,
+  "end": 333.5925,
+  "source": "exact"
+ },
+ {
+  "word": "tie",
+  "start": 333.5925,
+  "end": 334.29,
+  "source": "exact"
+ },
+ {
+  "word": "buy",
+  "start": 334.29,
+  "end": 335.0065,
+  "source": "exact"
+ },
+ {
+  "word": "eye",
+  "start": 335.0065,
+  "end": 335.622,
+  "source": "homophone"
+ },
+ {
+  "word": "supply",
+  "start": 335.622,
+  "end": 336.4795,
+  "source": "exact"
+ },
+ {
+  "word": "boy",
+  "start": 336.4795,
+  "end": 337.163,
+  "source": "exact"
+ },
+ {
+  "word": "toy",
+  "start": 337.163,
+  "end": 337.8315,
+  "source": "exact"
+ },
+ {
+  "word": "enjoy",
+  "start": 337.8315,
+  "end": 338.6535,
+  "source": "exact"
+ },
+ {
+  "word": "joy",
+  "start": 338.6535,
+  "end": 339.335,
+  "source": "exact"
+ },
+ {
+  "word": "annoy",
+  "start": 339.335,
+  "end": 340.0565,
+  "source": "exact"
+ },
+ {
+  "word": "destroy",
+  "start": 340.0565,
+  "end": 340.8965,
+  "source": "exact"
+ },
+ {
+  "word": "loyal",
+  "start": 340.8965,
+  "end": 341.5955,
+  "source": "exact"
+ },
+ {
+  "word": "royal",
+  "start": 341.5955,
+  "end": 342.2825,
+  "source": "exact"
+ },
+ {
+  "word": "employ",
+  "start": 342.2825,
+  "end": 343.064,
+  "source": "exact"
+ },
+ {
+  "word": "employment",
+  "start": 343.064,
+  "end": 343.96,
+  "source": "exact"
+ },
+ {
+  "word": "oil",
+  "start": 343.96,
+  "end": 344.5695,
+  "source": "exact"
+ },
+ {
+  "word": "coin",
+  "start": 344.5695,
+  "end": 345.218,
+  "source": "exact"
+ },
+ {
+  "word": "voice",
+  "start": 345.218,
+  "end": 345.9545,
+  "source": "exact"
+ },
+ {
+  "word": "noise",
+  "start": 345.9545,
+  "end": 346.6785,
+  "source": "exact"
+ },
+ {
+  "word": "point",
+  "start": 346.6785,
+  "end": 347.286,
+  "source": "exact"
+ },
+ {
+  "word": "join",
+  "start": 347.286,
+  "end": 347.9755,
+  "source": "exact"
+ },
+ {
+  "word": "boil",
+  "start": 347.9755,
+  "end": 348.611,
+  "source": "exact"
+ },
+ {
+  "word": "toilet",
+  "start": 348.611,
+  "end": 349.2915,
+  "source": "exact"
+ },
+ {
+  "word": "choice",
+  "start": 349.2915,
+  "end": 349.998,
+  "source": "exact"
+ },
+ {
+  "word": "avoid",
+  "start": 349.998,
+  "end": 350.6555,
+  "source": "exact"
+ },
+ {
+  "word": "appointment",
+  "start": 350.6555,
+  "end": 351.4305,
+  "source": "exact"
+ },
+ {
+  "word": "house",
+  "start": 351.4305,
+  "end": 352.11,
+  "source": "exact"
+ },
+ {
+  "word": "out",
+  "start": 352.11,
+  "end": 352.6325,
+  "source": "exact"
+ },
+ {
+  "word": "mouth",
+  "start": 352.6325,
+  "end": 353.2745,
+  "source": "exact"
+ },
+ {
+  "word": "round",
+  "start": 353.9795,
+  "end": 354.643,
+  "source": "exact"
+ },
+ {
+  "word": "ground",
+  "start": 354.643,
+  "end": 355.337,
+  "source": "exact"
+ },
+ {
+  "word": "loud",
+  "start": 355.337,
+  "end": 355.943,
+  "source": "exact"
+ },
+ {
+  "word": "cloud",
+  "start": 355.943,
+  "end": 356.571,
+  "source": "exact"
+ },
+ {
+  "word": "hour",
+  "start": 356.571,
+  "end": 357.121,
+  "source": "exact"
+ },
+ {
+  "word": "south",
+  "start": 357.121,
+  "end": 357.7835,
+  "source": "exact"
+ },
+ {
+  "word": "thousand",
+  "start": 357.7835,
+  "end": 358.529,
+  "source": "first-pass"
+ },
+ {
+  "word": "mountain",
+  "start": 358.529,
+  "end": 359.2245,
+  "source": "exact"
+ },
+ {
+  "word": "count",
+  "start": 359.2245,
+  "end": 359.806,
+  "source": "exact"
+ },
+ {
+  "word": "amount",
+  "start": 359.806,
+  "end": 360.4525,
+  "source": "exact"
+ },
+ {
+  "word": "announce",
+  "start": 360.4525,
+  "end": 361.1725,
+  "source": "exact"
+ },
+ {
+  "word": "discount",
+  "start": 361.1725,
+  "end": 361.9135,
+  "source": "exact"
+ },
+ {
+  "word": "now",
+  "start": 361.9135,
+  "end": 362.4825,
+  "source": "exact"
+ },
+ {
+  "word": "how",
+  "start": 362.4825,
+  "end": 363.056,
+  "source": "exact"
+ },
+ {
+  "word": "cow",
+  "start": 363.056,
+  "end": 363.643,
+  "source": "exact"
+ },
+ {
+  "word": "down",
+  "start": 363.643,
+  "end": 364.2715,
+  "source": "exact"
+ },
+ {
+  "word": "town",
+  "start": 364.2715,
+  "end": 364.8845,
+  "source": "exact"
+ },
+ {
+  "word": "brown",
+  "start": 364.8845,
+  "end": 365.5245,
+  "source": "exact"
+ },
+ {
+  "word": "flower",
+  "start": 365.5245,
+  "end": 366.1925,
+  "source": "first-pass"
+ },
+ {
+  "word": "towel",
+  "start": 366.1925,
+  "end": 366.7875,
+  "source": "exact"
+ },
+ {
+  "word": "shower",
+  "start": 366.7875,
+  "end": 367.4595,
+  "source": "exact"
+ },
+ {
+  "word": "allow",
+  "start": 367.4595,
+  "end": 368.076,
+  "source": "exact"
+ },
+ {
+  "word": "crowd",
+  "start": 368.076,
+  "end": 368.705,
+  "source": "exact"
+ },
+ {
+  "word": "power",
+  "start": 368.705,
+  "end": 369.291,
+  "source": "exact"
+ },
+ {
+  "word": "go",
+  "start": 369.291,
+  "end": 369.823,
+  "source": "exact"
+ },
+ {
+  "word": "no",
+  "start": 369.823,
+  "end": 370.36,
+  "source": "homophone"
+ },
+ {
+  "word": "so",
+  "start": 370.36,
+  "end": 370.9685,
+  "source": "homophone"
+ },
+ {
+  "word": "home",
+  "start": 370.9685,
+  "end": 371.541,
+  "source": "exact"
+ },
+ {
+  "word": "hope",
+  "start": 371.541,
+  "end": 372.0345,
+  "source": "exact"
+ },
+ {
+  "word": "note",
+  "start": 372.0345,
+  "end": 372.5965,
+  "source": "exact"
+ },
+ {
+  "word": "phone",
+  "start": 372.5965,
+  "end": 373.224,
+  "source": "exact"
+ },
+ {
+  "word": "open",
+  "start": 373.8985,
+  "end": 374.456,
+  "source": "exact"
+ },
+ {
+  "word": "only",
+  "start": 374.456,
+  "end": 375.016,
+  "source": "exact"
+ },
+ {
+  "word": "cold",
+  "start": 375.016,
+  "end": 375.6285,
+  "source": "exact"
+ },
+ {
+  "word": "old",
+  "start": 375.6285,
+  "end": 376.1705,
+  "source": "exact"
+ },
+ {
+  "word": "hotel",
+  "start": 376.1705,
+  "end": 376.835,
+  "source": "exact"
+ },
+ {
+  "word": "road",
+  "start": 378.6075,
+  "end": 379.2055,
+  "source": "exact"
+ },
+ {
+  "word": "coat",
+  "start": 379.2055,
+  "end": 379.7365,
+  "source": "exact"
+ },
+ {
+  "word": "soap",
+  "start": 379.7365,
+  "end": 380.329,
+  "source": "exact"
+ },
+ {
+  "word": "approach",
+  "start": 380.329,
+  "end": 381.068,
+  "source": "exact"
+ },
+ {
+  "word": "loan",
+  "start": 381.068,
+  "end": 381.6605,
+  "source": "exact"
+ },
+ {
+  "word": "know",
+  "start": 381.6605,
+  "end": 382.191,
+  "source": "homophone"
+ },
+ {
+  "word": "show",
+  "start": 382.191,
+  "end": 382.8035,
+  "source": "exact"
+ },
+ {
+  "word": "own",
+  "start": 384.755,
+  "end": 385.2615,
+  "source": "exact"
+ },
+ {
+  "word": "follow",
+  "start": 385.2615,
+  "end": 385.9215,
+  "source": "first-pass"
+ },
+ {
+  "word": "toe",
+  "start": 385.9215,
+  "end": 386.449,
+  "source": "exact"
+ },
+ {
+  "word": "shoulder",
+  "start": 386.449,
+  "end": 387.1365,
+  "source": "exact"
+ },
+ {
+  "word": "though",
+  "start": 387.1365,
+  "end": 387.6985,
+  "source": "exact"
+ },
+ {
+  "word": "ear",
+  "start": 388.258,
+  "end": 388.7355,
+  "source": "exact"
+ },
+ {
+  "word": "hear",
+  "start": 388.7355,
+  "end": 389.281,
+  "source": "exact"
+ },
+ {
+  "word": "appear",
+  "start": 392.136,
+  "end": 392.7795,
+  "source": "exact"
+ },
+ {
+  "word": "beard",
+  "start": 392.7795,
+  "end": 393.3645,
+  "source": "exact"
+ },
+ {
+  "word": "beer",
+  "start": 393.3645,
+  "end": 393.9215,
+  "source": "exact"
+ },
+ {
+  "word": "deer",
+  "start": 393.9215,
+  "end": 394.484,
+  "source": "exact"
+ },
+ {
+  "word": "cheer",
+  "start": 394.484,
+  "end": 395.0465,
+  "source": "exact"
+ },
+ {
+  "word": "career",
+  "start": 395.0465,
+  "end": 395.693,
+  "source": "exact"
+ },
+ {
+  "word": "engineer",
+  "start": 395.693,
+  "end": 396.4235,
+  "source": "exact"
+ },
+ {
+  "word": "volunteer",
+  "start": 396.4235,
+  "end": 397.285,
+  "source": "exact"
+ },
+ {
+  "word": "here",
+  "start": 397.285,
+  "end": 397.814,
+  "source": "homophone"
+ },
+ {
+  "word": "period",
+  "start": 397.814,
+  "end": 398.455,
+  "source": "exact"
+ },
+ {
+  "word": "experience",
+  "start": 398.455,
+  "end": 399.422,
+  "source": "exact"
+ },
+ {
+  "word": "material",
+  "start": 401.365,
+  "end": 402.116,
+  "source": "exact"
+ },
+ {
+  "word": "hair",
+  "start": 402.116,
+  "end": 402.6415,
+  "source": "exact"
+ },
+ {
+  "word": "chair",
+  "start": 402.6415,
+  "end": 403.2115,
+  "source": "exact"
+ },
+ {
+  "word": "fair",
+  "start": 405.1465,
+  "end": 405.7335,
+  "source": "exact"
+ },
+ {
+  "word": "pair",
+  "start": 405.7335,
+  "end": 406.2525,
+  "source": "exact"
+ },
+ {
+  "word": "affair",
+  "start": 406.2525,
+  "end": 406.8955,
+  "source": "exact"
+ },
+ {
+  "word": "repair",
+  "start": 406.8955,
+  "end": 407.5455,
+  "source": "exact"
+ },
+ {
+  "word": "careful",
+  "start": 409.348,
+  "end": 409.976,
+  "source": "exact"
+ },
+ {
+  "word": "scared",
+  "start": 409.976,
+  "end": 410.6575,
+  "source": "exact"
+ },
+ {
+  "word": "compare",
+  "start": 410.6575,
+  "end": 411.335,
+  "source": "exact"
+ },
+ {
+  "word": "prepare",
+  "start": 411.335,
+  "end": 411.9875,
+  "source": "exact"
+ },
+ {
+  "word": "aware",
+  "start": 411.9875,
+  "end": 412.57,
+  "source": "exact"
+ },
+ {
+  "word": "fare",
+  "start": 412.57,
+  "end": 413.17,
+  "source": "homophone"
+ },
+ {
+  "word": "bear",
+  "start": 413.17,
+  "end": 413.7325,
+  "source": "exact"
+ },
+ {
+  "word": "pear",
+  "start": 414.2845,
+  "end": 414.8115,
+  "source": "homophone"
+ },
+ {
+  "word": "there",
+  "start": 414.8115,
+  "end": 415.3705,
+  "source": "exact"
+ },
+ {
+  "word": "where",
+  "start": 415.3705,
+  "end": 415.9195,
+  "source": "exact"
+ },
+ {
+  "word": "America",
+  "start": 417.716,
+  "end": 418.471,
+  "source": "exact"
+ },
+ {
+  "word": "car",
+  "start": 419.0845,
+  "end": 419.6175,
+  "source": "exact"
+ },
+ {
+  "word": "star",
+  "start": 419.6175,
+  "end": 420.277,
+  "source": "exact"
+ },
+ {
+  "word": "dark",
+  "start": 421.8255,
+  "end": 422.4015,
+  "source": "exact"
+ },
+ {
+  "word": "hard",
+  "start": 422.4015,
+  "end": 423.1585,
+  "source": "exact"
+ },
+ {
+  "word": "arm",
+  "start": 423.1585,
+  "end": 423.668,
+  "source": "exact"
+ },
+ {
+  "word": "farm",
+  "start": 423.668,
+  "end": 424.3055,
+  "source": "exact"
+ },
+ {
+  "word": "start",
+  "start": 424.3055,
+  "end": 424.9695,
+  "source": "exact"
+ },
+ {
+  "word": "part",
+  "start": 424.9695,
+  "end": 425.496,
+  "source": "exact"
+ },
+ {
+  "word": "smart",
+  "start": 425.496,
+  "end": 426.172,
+  "source": "exact"
+ },
+ {
+  "word": "March",
+  "start": 426.172,
+  "end": 426.547,
+  "source": "exact"
+ },
+ {
+  "word": "scarf",
+  "start": 426.547,
+  "end": 427.53,
+  "source": "exact"
+ },
+ {
+  "word": "charge",
+  "start": 427.53,
+  "end": 428.2235,
+  "source": "exact"
+ },
+ {
+  "word": "party",
+  "start": 428.2235,
+  "end": 428.7535,
+  "source": "exact"
+ },
+ {
+  "word": "market",
+  "start": 428.7535,
+  "end": 429.4225,
+  "source": "exact"
+ },
+ {
+  "word": "artist",
+  "start": 429.4225,
+  "end": 430.058,
+  "source": "exact"
+ },
+ {
+  "word": "apartment",
+  "start": 430.058,
+  "end": 430.818,
+  "source": "exact"
+ },
+ {
+  "word": "department",
+  "start": 430.818,
+  "end": 431.614,
+  "source": "exact"
+ },
+ {
+  "word": "heart",
+  "start": 433.559,
+  "end": 433.9225,
+  "source": "exact"
+ },
+ {
+  "word": "guard",
+  "start": 433.9225,
+  "end": 434.674,
+  "source": "exact"
+ },
+ {
+  "word": "for",
+  "start": 434.674,
+  "end": 435.252,
+  "source": "homophone"
+ },
+ {
+  "word": "short",
+  "start": 435.252,
+  "end": 435.8895,
+  "source": "exact"
+ },
+ {
+  "word": "sport",
+  "start": 435.8895,
+  "end": 436.5805,
+  "source": "exact"
+ },
+ {
+  "word": "fork",
+  "start": 438.4265,
+  "end": 438.8655,
+  "source": "exact"
+ },
+ {
+  "word": "important",
+  "start": 438.8655,
+  "end": 439.7895,
+  "source": "exact"
+ },
+ {
+  "word": "report",
+  "start": 439.7895,
+  "end": 440.464,
+  "source": "exact"
+ },
+ {
+  "word": "forward",
+  "start": 441.838,
+  "end": 442.5575,
+  "source": "exact"
+ },
+ {
+  "word": "more",
+  "start": 442.5575,
+  "end": 443.112,
+  "source": "exact"
+ },
+ {
+  "word": "store",
+  "start": 443.112,
+  "end": 443.7755,
+  "source": "exact"
+ },
+ {
+  "word": "before",
+  "start": 443.7755,
+  "end": 444.419,
+  "source": "exact"
+ },
+ {
+  "word": "score",
+  "start": 444.419,
+  "end": 445.079,
+  "source": "exact"
+ },
+ {
+  "word": "board",
+  "start": 447.9905,
+  "end": 448.5765,
+  "source": "exact"
+ },
+ {
+  "word": "warm",
+  "start": 448.5765,
+  "end": 449.205,
+  "source": "exact"
+ },
+ {
+  "word": "war",
+  "start": 449.205,
+  "end": 449.7825,
+  "source": "exact"
+ },
+ {
+  "word": "quarter",
+  "start": 449.7825,
+  "end": 450.3605,
+  "source": "exact"
+ },
+ {
+  "word": "warning",
+  "start": 450.3605,
+  "end": 451.013,
+  "source": "exact"
+ },
+ {
+  "word": "award",
+  "start": 451.013,
+  "end": 451.672,
+  "source": "exact"
+ },
+ {
+  "word": "pay",
+  "start": 451.672,
+  "end": 452.179,
+  "source": "exact"
+ },
+ {
+  "word": "place",
+  "start": 452.179,
+  "end": 452.812,
+  "source": "exact"
+ },
+ {
+  "word": "post",
+  "start": 452.812,
+  "end": 453.4195,
+  "source": "exact"
+ },
+ {
+  "word": "policy",
+  "start": 453.4195,
+  "end": 454.1095,
+  "source": "exact"
+ },
+ {
+  "word": "shopping",
+  "start": 454.1095,
+  "end": 454.7975,
+  "source": "exact"
+ },
+ {
+  "word": "trip",
+  "start": 456.5165,
+  "end": 457.05,
+  "source": "exact"
+ },
+ {
+  "word": "step",
+  "start": 457.05,
+  "end": 457.6715,
+  "source": "exact"
+ },
+ {
+  "word": "brother",
+  "start": 457.6715,
+  "end": 458.403,
+  "source": "exact"
+ },
+ {
+  "word": "bill",
+  "start": 458.403,
+  "end": 458.936,
+  "source": "exact"
+ },
+ {
+  "word": "rubber",
+  "start": 460.973,
+  "end": 461.531,
+  "source": "exact"
+ },
+ {
+  "word": "tub",
+  "start": 464.296,
+  "end": 464.8045,
+  "source": "exact"
+ },
+ {
+  "word": "describe",
+  "start": 466.5465,
+  "end": 467.2965,
+  "source": "exact"
+ },
+ {
+  "word": "subscribe",
+  "start": 467.2965,
+  "end": 468.138,
+  "source": "exact"
+ },
+ {
+  "word": "ticket",
+  "start": 468.138,
+  "end": 468.713,
+  "source": "exact"
+ },
+ {
+  "word": "tax",
+  "start": 468.713,
+  "end": 469.073,
+  "source": "exact"
+ },
+ {
+  "word": "letter",
+  "start": 469.073,
+  "end": 469.861,
+  "source": "exact"
+ },
+ {
+  "word": "hospital",
+  "start": 469.861,
+  "end": 470.55,
+  "source": "exact"
+ },
+ {
+  "word": "interesting",
+  "start": 470.55,
+  "end": 471.279,
+  "source": "exact"
+ },
+ {
+  "word": "get",
+  "start": 472.571,
+  "end": 473.1105,
+  "source": "exact"
+ },
+ {
+  "word": "asked",
+  "start": 473.1105,
+  "end": 473.7155,
+  "source": "exact"
+ },
+ {
+  "word": "looked",
+  "start": 473.7155,
+  "end": 474.2535,
+  "source": "exact"
+ },
+ {
+  "word": "middle",
+  "start": 477.3735,
+  "end": 477.8985,
+  "source": "exact"
+ },
+ {
+  "word": "window",
+  "start": 477.8985,
+  "end": 478.5165,
+  "source": "exact"
+ },
+ {
+  "word": "body",
+  "start": 478.5165,
+  "end": 479.0865,
+  "source": "exact"
+ },
+ {
+  "word": "ladder",
+  "start": 479.0865,
+  "end": 479.654,
+  "source": "exact"
+ },
+ {
+  "word": "wedding",
+  "start": 479.654,
+  "end": 480.2105,
+  "source": "exact"
+ },
+ {
+  "word": "played",
+  "start": 480.2105,
+  "end": 480.7785,
+  "source": "exact"
+ },
+ {
+  "word": "called",
+  "start": 480.7785,
+  "end": 481.355,
+  "source": "exact"
+ },
+ {
+  "word": "backpack",
+  "start": 485.215,
+  "end": 485.9785,
+  "source": "exact"
+ },
+ {
+  "word": "weekend",
+  "start": 485.9785,
+  "end": 486.7715,
+  "source": "exact"
+ },
+ {
+  "word": "rocket",
+  "start": 486.7715,
+  "end": 487.433,
+  "source": "exact"
+ },
+ {
+  "word": "think",
+  "start": 487.433,
+  "end": 487.991,
+  "source": "exact"
+ },
+ {
+  "word": "check",
+  "start": 487.991,
+  "end": 488.373,
+  "source": "exact"
+ },
+ {
+  "word": "bank",
+  "start": 488.373,
+  "end": 489.074,
+  "source": "exact"
+ },
+ {
+  "word": "guess",
+  "start": 489.7435,
+  "end": 490.3615,
+  "source": "exact"
+ },
+ {
+  "word": "guitar",
+  "start": 490.3615,
+  "end": 491.0085,
+  "source": "exact"
+ },
+ {
+  "word": "goal",
+  "start": 491.0085,
+  "end": 491.5625,
+  "source": "exact"
+ },
+ {
+  "word": "guarantee",
+  "start": 491.5625,
+  "end": 492.3765,
+  "source": "exact"
+ },
+ {
+  "word": "bigger",
+  "start": 492.3765,
+  "end": 492.922,
+  "source": "exact"
+ },
+ {
+  "word": "language",
+  "start": 494.0295,
+  "end": 494.907,
+  "source": "first-pass"
+ },
+ {
+  "word": "hug",
+  "start": 496.2465,
+  "end": 496.762,
+  "source": "exact"
+ },
+ {
+  "word": "drug",
+  "start": 496.762,
+  "end": 497.3515,
+  "source": "exact"
+ },
+ {
+  "word": "dialogue",
+  "start": 497.3515,
+  "end": 498.0895,
+  "source": "exact"
+ },
+ {
+  "word": "catalog",
+  "start": 498.0895,
+  "end": 498.8155,
+  "source": "exact"
+ },
+ {
+  "word": "telephone",
+  "start": 500.1155,
+  "end": 500.8395,
+  "source": "exact"
+ },
+ {
+  "word": "perfect",
+  "start": 500.8395,
+  "end": 501.497,
+  "source": "exact"
+ },
+ {
+  "word": "profit",
+  "start": 501.497,
+  "end": 501.999,
+  "source": "exact"
+ },
+ {
+  "word": "if",
+  "start": 501.999,
+  "end": 502.635,
+  "source": "exact"
+ },
+ {
+  "word": "off",
+  "start": 502.635,
+  "end": 503.169,
+  "source": "exact"
+ },
+ {
+  "word": "half",
+  "start": 503.169,
+  "end": 503.761,
+  "source": "exact"
+ },
+ {
+  "word": "knife",
+  "start": 503.761,
+  "end": 504.3685,
+  "source": "exact"
+ },
+ {
+  "word": "leaf",
+  "start": 504.3685,
+  "end": 504.936,
+  "source": "exact"
+ },
+ {
+  "word": "chief",
+  "start": 504.936,
+  "end": 505.5105,
+  "source": "exact"
+ },
+ {
+  "word": "staff",
+  "start": 505.5105,
+  "end": 506.2275,
+  "source": "exact"
+ },
+ {
+  "word": "vacation",
+  "start": 507.508,
+  "end": 508.3145,
+  "source": "exact"
+ },
+ {
+  "word": "video",
+  "start": 508.3145,
+  "end": 508.961,
+  "source": "exact"
+ },
+ {
+  "word": "value",
+  "start": 508.961,
+  "end": 509.637,
+  "source": "first-pass"
+ },
+ {
+  "word": "never",
+  "start": 510.81,
+  "end": 511.3855,
+  "source": "exact"
+ },
+ {
+  "word": "evening",
+  "start": 511.3855,
+  "end": 511.9715,
+  "source": "exact"
+ },
+ {
+  "word": "river",
+  "start": 511.9715,
+  "end": 512.599,
+  "source": "exact"
+ },
+ {
+  "word": "travel",
+  "start": 512.599,
+  "end": 513.467,
+  "source": "exact"
+ },
+ {
+  "word": "lovely",
+  "start": 513.467,
+  "end": 514.6385,
+  "source": "exact"
+ },
+ {
+  "word": "eleven",
+  "start": 514.6385,
+  "end": 515.601,
+  "source": "exact"
+ },
+ {
+  "word": "advice",
+  "start": 515.601,
+  "end": 516.6845,
+  "source": "exact"
+ },
+ {
+  "word": "have",
+  "start": 516.6845,
+  "end": 517.624,
+  "source": "exact"
+ },
+ {
+  "word": "drive",
+  "start": 517.624,
+  "end": 518.623,
+  "source": "exact"
+ },
+ {
+  "word": "arrive",
+  "start": 518.623,
+  "end": 519.597,
+  "source": "exact"
+ },
+ {
+  "word": "thing",
+  "start": 519.597,
+  "end": 520.4795,
+  "source": "exact"
+ },
+ {
+  "word": "thirty",
+  "start": 520.4795,
+  "end": 521.327,
+  "source": "exact"
+ },
+ {
+  "word": "thin",
+  "start": 521.327,
+  "end": 522.176,
+  "source": "exact"
+ },
+ {
+  "word": "theater",
+  "start": 522.176,
+  "end": 523.086,
+  "source": "exact"
+ },
+ {
+  "word": "throat",
+  "start": 523.086,
+  "end": 523.987,
+  "source": "exact"
+ },
+ {
+  "word": "theme",
+  "start": 523.987,
+  "end": 524.9195,
+  "source": "exact"
+ },
+ {
+  "word": "nothing",
+  "start": 524.9195,
+  "end": 525.803,
+  "source": "exact"
+ },
+ {
+  "word": "something",
+  "start": 525.803,
+  "end": 526.762,
+  "source": "exact"
+ },
+ {
+  "word": "anything",
+  "start": 526.762,
+  "end": 527.733,
+  "source": "exact"
+ },
+ {
+  "word": "everything",
+  "start": 527.733,
+  "end": 528.776,
+  "source": "exact"
+ },
+ {
+  "word": "healthy",
+  "start": 528.776,
+  "end": 529.645,
+  "source": "exact"
+ },
+ {
+  "word": "method",
+  "start": 529.645,
+  "end": 530.495,
+  "source": "exact"
+ },
+ {
+  "word": "mathematics",
+  "start": 530.495,
+  "end": 531.6015,
+  "source": "exact"
+ },
+ {
+  "word": "both",
+  "start": 532.457,
+  "end": 533.262,
+  "source": "exact"
+ },
+ {
+  "word": "bath",
+  "start": 533.262,
+  "end": 534.1205,
+  "source": "exact"
+ },
+ {
+  "word": "worth",
+  "start": 534.1205,
+  "end": 534.951,
+  "source": "exact"
+ },
+ {
+  "word": "growth",
+  "start": 534.951,
+  "end": 535.8135,
+  "source": "exact"
+ },
+ {
+  "word": "that",
+  "start": 535.8135,
+  "end": 536.61,
+  "source": "exact"
+ },
+ {
+  "word": "the",
+  "start": 536.61,
+  "end": 537.327,
+  "source": "exact"
+ },
+ {
+  "word": "then",
+  "start": 537.327,
+  "end": 538.126,
+  "source": "exact"
+ },
+ {
+  "word": "these",
+  "start": 538.126,
+  "end": 538.9715,
+  "source": "exact"
+ },
+ {
+  "word": "those",
+  "start": 538.9715,
+  "end": 539.815,
+  "source": "exact"
+ },
+ {
+  "word": "than",
+  "start": 539.815,
+  "end": 540.6085,
+  "source": "exact"
+ },
+ {
+  "word": "them",
+  "start": 540.6085,
+  "end": 541.3475,
+  "source": "exact"
+ },
+ {
+  "word": "thus",
+  "start": 541.3475,
+  "end": 542.169,
+  "source": "exact"
+ },
+ {
+  "word": "together",
+  "start": 542.169,
+  "end": 543.0195,
+  "source": "exact"
+ },
+ {
+  "word": "without",
+  "start": 543.0195,
+  "end": 543.8695,
+  "source": "exact"
+ },
+ {
+  "word": "either",
+  "start": 543.8695,
+  "end": 544.6175,
+  "source": "exact"
+ },
+ {
+  "word": "neither",
+  "start": 544.6175,
+  "end": 545.427,
+  "source": "exact"
+ },
+ {
+  "word": "rather",
+  "start": 545.427,
+  "end": 546.206,
+  "source": "exact"
+ },
+ {
+  "word": "further",
+  "start": 546.206,
+  "end": 547.0395,
+  "source": "exact"
+ },
+ {
+  "word": "with",
+  "start": 547.0395,
+  "end": 547.7525,
+  "source": "exact"
+ },
+ {
+  "word": "breathe",
+  "start": 547.7525,
+  "end": 548.629,
+  "source": "exact"
+ },
+ {
+  "word": "clothe",
+  "start": 548.629,
+  "end": 549.433,
+  "source": "exact"
+ },
+ {
+  "word": "smooth",
+  "start": 549.433,
+  "end": 550.319,
+  "source": "exact"
+ },
+ {
+  "word": "bathe",
+  "start": 550.319,
+  "end": 551.168,
+  "source": "exact"
+ },
+ {
+  "word": "six",
+  "start": 551.168,
+  "end": 552.0215,
+  "source": "exact"
+ },
+ {
+  "word": "center",
+  "start": 552.0215,
+  "end": 552.9045,
+  "source": "exact"
+ },
+ {
+  "word": "science",
+  "start": 552.9045,
+  "end": 553.832,
+  "source": "exact"
+ },
+ {
+  "word": "sales",
+  "start": 553.832,
+  "end": 554.6995,
+  "source": "first-pass"
+ },
+ {
+  "word": "sign",
+  "start": 554.6995,
+  "end": 555.505,
+  "source": "first-pass"
+ },
+ {
+  "word": "basket",
+  "start": 555.505,
+  "end": 556.401,
+  "source": "exact"
+ },
+ {
+  "word": "lesson",
+  "start": 556.401,
+  "end": 557.184,
+  "source": "exact"
+ },
+ {
+  "word": "glasses",
+  "start": 557.184,
+  "end": 558.097,
+  "source": "exact"
+ },
+ {
+  "word": "decide",
+  "start": 558.097,
+  "end": 558.9485,
+  "source": "exact"
+ },
+ {
+  "word": "baseball",
+  "start": 558.9485,
+  "end": 559.834,
+  "source": "exact"
+ },
+ {
+  "word": "inside",
+  "start": 559.834,
+  "end": 560.6895,
+  "source": "exact"
+ },
+ {
+  "word": "assist",
+  "start": 560.6895,
+  "end": 561.5145,
+  "source": "exact"
+ },
+ {
+  "word": "yes",
+  "start": 561.5145,
+  "end": 562.263,
+  "source": "exact"
+ },
+ {
+  "word": "class",
+  "start": 562.263,
+  "end": 563.066,
+  "source": "exact"
+ },
+ {
+  "word": "miss",
+  "start": 563.066,
+  "end": 563.7685,
+  "source": "exact"
+ },
+ {
+  "word": "rice",
+  "start": 563.7685,
+  "end": 564.5315,
+  "source": "exact"
+ },
+ {
+  "word": "books",
+  "start": 564.5315,
+  "end": 565.272,
+  "source": "exact"
+ },
+ {
+  "word": "zero",
+  "start": 565.272,
+  "end": 566.043,
+  "source": "first-pass"
+ },
+ {
+  "word": "zebra",
+  "start": 566.043,
+  "end": 566.7955,
+  "source": "exact"
+ },
+ {
+  "word": "zone",
+  "start": 566.7955,
+  "end": 567.545,
+  "source": "exact"
+ },
+ {
+  "word": "zip",
+  "start": 567.545,
+  "end": 568.1635,
+  "source": "exact"
+ },
+ {
+  "word": "easy",
+  "start": 568.1635,
+  "end": 568.8695,
+  "source": "exact"
+ },
+ {
+  "word": "busy",
+  "start": 568.8695,
+  "end": 569.554,
+  "source": "exact"
+ },
+ {
+  "word": "music",
+  "start": 569.554,
+  "end": 570.331,
+  "source": "exact"
+ },
+ {
+  "word": "crazy",
+  "start": 570.331,
+  "end": 571.1345,
+  "source": "exact"
+ },
+ {
+  "word": "lazy",
+  "start": 571.1345,
+  "end": 571.905,
+  "source": "exact"
+ },
+ {
+  "word": "puzzle",
+  "start": 572.776,
+  "end": 573.4165,
+  "source": "exact"
+ },
+ {
+  "word": "Tuesday",
+  "start": 573.4165,
+  "end": 574.212,
+  "source": "exact"
+ },
+ {
+  "word": "example",
+  "start": 574.212,
+  "end": 575.04,
+  "source": "exact"
+ },
+ {
+  "word": "design",
+  "start": 575.04,
+  "end": 575.8115,
+  "source": "exact"
+ },
+ {
+  "word": "result",
+  "start": 575.8115,
+  "end": 576.559,
+  "source": "exact"
+ },
+ {
+  "word": "is",
+  "start": 576.559,
+  "end": 577.199,
+  "source": "exact"
+ },
+ {
+  "word": "has",
+  "start": 577.199,
+  "end": 577.9115,
+  "source": "exact"
+ },
+ {
+  "word": "was",
+  "start": 577.9115,
+  "end": 578.6215,
+  "source": "exact"
+ },
+ {
+  "word": "please",
+  "start": 578.6215,
+  "end": 579.377,
+  "source": "exact"
+ },
+ {
+  "word": "nose",
+  "start": 579.377,
+  "end": 580.1225,
+  "source": "homophone"
+ },
+ {
+  "word": "rose",
+  "start": 580.1225,
+  "end": 580.8395,
+  "source": "homophone"
+ },
+ {
+  "word": "size",
+  "start": 580.8395,
+  "end": 581.629,
+  "source": "exact"
+ },
+ {
+  "word": "dogs",
+  "start": 581.629,
+  "end": 582.394,
+  "source": "exact"
+ },
+ {
+  "word": "prize",
+  "start": 582.394,
+  "end": 583.1405,
+  "source": "exact"
+ },
+ {
+  "word": "she",
+  "start": 583.1405,
+  "end": 583.751,
+  "source": "exact"
+ },
+ {
+  "word": "shoe",
+  "start": 583.751,
+  "end": 584.3855,
+  "source": "exact"
+ },
+ {
+  "word": "sure",
+  "start": 584.3855,
+  "end": 585.052,
+  "source": "exact"
+ },
+ {
+  "word": "shift",
+  "start": 585.052,
+  "end": 585.7375,
+  "source": "exact"
+ },
+ {
+  "word": "special",
+  "start": 585.7375,
+  "end": 586.5225,
+  "source": "first-pass"
+ },
+ {
+  "word": "ocean",
+  "start": 586.5225,
+  "end": 587.18,
+  "source": "exact"
+ },
+ {
+  "word": "washing",
+  "start": 587.18,
+  "end": 587.9025,
+  "source": "exact"
+ },
+ {
+  "word": "information",
+  "start": 587.9025,
+  "end": 588.832,
+  "source": "exact"
+ },
+ {
+  "word": "nation",
+  "start": 588.832,
+  "end": 589.529,
+  "source": "exact"
+ },
+ {
+  "word": "fashion",
+  "start": 589.529,
+  "end": 590.2865,
+  "source": "exact"
+ },
+ {
+  "word": "pressure",
+  "start": 590.2865,
+  "end": 590.9345,
+  "source": "exact"
+ },
+ {
+  "word": "official",
+  "start": 590.9345,
+  "end": 591.6515,
+  "source": "exact"
+ },
+ {
+  "word": "insurance",
+  "start": 591.6515,
+  "end": 592.569,
+  "source": "exact"
+ },
+ {
+  "word": "wash",
+  "start": 592.569,
+  "end": 593.2175,
+  "source": "exact"
+ },
+ {
+  "word": "dish",
+  "start": 593.2175,
+  "end": 593.8485,
+  "source": "exact"
+ },
+ {
+  "word": "brush",
+  "start": 593.8485,
+  "end": 594.5165,
+  "source": "exact"
+ },
+ {
+  "word": "cash",
+  "start": 594.5165,
+  "end": 595.18,
+  "source": "exact"
+ },
+ {
+  "word": "fresh",
+  "start": 595.18,
+  "end": 595.8695,
+  "source": "exact"
+ },
+ {
+  "word": "usual",
+  "start": 595.8695,
+  "end": 596.5975,
+  "source": "exact"
+ },
+ {
+  "word": "usually",
+  "start": 596.5975,
+  "end": 597.395,
+  "source": "first-pass"
+ },
+ {
+  "word": "treasure",
+  "start": 598.21,
+  "end": 598.876,
+  "source": "exact"
+ },
+ {
+  "word": "Asia",
+  "start": 598.876,
+  "end": 599.4735,
+  "source": "exact"
+ },
+ {
+  "word": "pleasure",
+  "start": 599.4735,
+  "end": 600.127,
+  "source": "exact"
+ },
+ {
+  "word": "leisure",
+  "start": 600.127,
+  "end": 600.7925,
+  "source": "exact"
+ },
+ {
+  "word": "vision",
+  "start": 600.7925,
+  "end": 601.4585,
+  "source": "exact"
+ },
+ {
+  "word": "decision",
+  "start": 601.4585,
+  "end": 602.213,
+  "source": "exact"
+ },
+ {
+  "word": "occasion",
+  "start": 602.213,
+  "end": 603.0065,
+  "source": "exact"
+ },
+ {
+  "word": "casual",
+  "start": 603.0065,
+  "end": 603.7195,
+  "source": "exact"
+ },
+ {
+  "word": "conclusion",
+  "start": 603.7195,
+  "end": 604.575,
+  "source": "exact"
+ },
+ {
+  "word": "revision",
+  "start": 604.575,
+  "end": 605.319,
+  "source": "exact"
+ },
+ {
+  "word": "garage",
+  "start": 605.319,
+  "end": 606.1005,
+  "source": "exact"
+ },
+ {
+  "word": "beige",
+  "start": 606.1005,
+  "end": 606.783,
+  "source": "exact"
+ },
+ {
+  "word": "massage",
+  "start": 606.783,
+  "end": 607.573,
+  "source": "exact"
+ },
+ {
+  "word": "holiday",
+  "start": 607.573,
+  "end": 608.286,
+  "source": "exact"
+ },
+ {
+  "word": "whole",
+  "start": 608.286,
+  "end": 608.887,
+  "source": "exact"
+ },
+ {
+  "word": "human",
+  "start": 608.887,
+  "end": 609.5445,
+  "source": "exact"
+ },
+ {
+  "word": "hire",
+  "start": 609.5445,
+  "end": 610.1785,
+  "source": "homophone"
+ },
+ {
+  "word": "headquarters",
+  "start": 610.1785,
+  "end": 611.0685,
+  "source": "exact"
+ },
+ {
+  "word": "behind",
+  "start": 611.0685,
+  "end": 611.8085,
+  "source": "exact"
+ },
+ {
+  "word": "unhappy",
+  "start": 611.8085,
+  "end": 612.58,
+  "source": "exact"
+ },
+ {
+  "word": "ahead",
+  "start": 612.58,
+  "end": 613.1865,
+  "source": "exact"
+ },
+ {
+  "word": "perhaps",
+  "start": 613.1865,
+  "end": 613.6785,
+  "source": "exact"
+ },
+ {
+  "word": "behave",
+  "start": 613.6785,
+  "end": 614.7305,
+  "source": "exact"
+ },
+ {
+  "word": "rehearsal",
+  "start": 614.7305,
+  "end": 615.4685,
+  "source": "exact"
+ },
+ {
+  "word": "somehow",
+  "start": 615.4685,
+  "end": 616.248,
+  "source": "first-pass"
+ },
+ {
+  "word": "neighborhood",
+  "start": 616.248,
+  "end": 617.009,
+  "source": "exact"
+ },
+ {
+  "word": "childhood",
+  "start": 617.009,
+  "end": 617.7965,
+  "source": "exact"
+ },
+ {
+  "word": "warehouse",
+  "start": 617.7965,
+  "end": 618.6495,
+  "source": "exact"
+ },
+ {
+  "word": "cheese",
+  "start": 618.6495,
+  "end": 619.34,
+  "source": "exact"
+ },
+ {
+  "word": "chicken",
+  "start": 619.34,
+  "end": 619.9535,
+  "source": "exact"
+ },
+ {
+  "word": "cheap",
+  "start": 619.9535,
+  "end": 620.5005,
+  "source": "exact"
+ },
+ {
+  "word": "change",
+  "start": 620.5005,
+  "end": 621.232,
+  "source": "exact"
+ },
+ {
+  "word": "choose",
+  "start": 621.232,
+  "end": 621.9385,
+  "source": "exact"
+ },
+ {
+  "word": "chocolate",
+  "start": 621.9385,
+  "end": 622.643,
+  "source": "exact"
+ },
+ {
+  "word": "chance",
+  "start": 622.643,
+  "end": 623.3465,
+  "source": "exact"
+ },
+ {
+  "word": "question",
+  "start": 623.3465,
+  "end": 624.0455,
+  "source": "exact"
+ },
+ {
+  "word": "furniture",
+  "start": 624.0455,
+  "end": 624.8085,
+  "source": "exact"
+ },
+ {
+  "word": "catch",
+  "start": 626.4165,
+  "end": 627.0495,
+  "source": "exact"
+ },
+ {
+  "word": "beach",
+  "start": 627.0495,
+  "end": 627.6805,
+  "source": "exact"
+ },
+ {
+  "word": "giant",
+  "start": 630.058,
+  "end": 630.781,
+  "source": "exact"
+ },
+ {
+  "word": "magic",
+  "start": 630.781,
+  "end": 631.3415,
+  "source": "exact"
+ },
+ {
+  "word": "energy",
+  "start": 631.3415,
+  "end": 632.1585,
+  "source": "exact"
+ },
+ {
+  "word": "major",
+  "start": 632.1585,
+  "end": 632.855,
+  "source": "exact"
+ },
+ {
+  "word": "imagine",
+  "start": 632.855,
+  "end": 633.6495,
+  "source": "first-pass"
+ },
+ {
+  "word": "page",
+  "start": 633.6495,
+  "end": 634.298,
+  "source": "exact"
+ },
+ {
+  "word": "age",
+  "start": 634.298,
+  "end": 634.915,
+  "source": "exact"
+ },
+ {
+  "word": "large",
+  "start": 634.915,
+  "end": 635.6305,
+  "source": "exact"
+ },
+ {
+  "word": "orange",
+  "start": 635.6305,
+  "end": 636.2725,
+  "source": "exact"
+ },
+ {
+  "word": "bridge",
+  "start": 636.2725,
+  "end": 636.937,
+  "source": "exact"
+ },
+ {
+  "word": "edge",
+  "start": 636.937,
+  "end": 637.4965,
+  "source": "exact"
+ },
+ {
+  "word": "man",
+  "start": 637.4965,
+  "end": 638.131,
+  "source": "exact"
+ },
+ {
+  "word": "meeting",
+  "start": 638.131,
+  "end": 638.76,
+  "source": "exact"
+ },
+ {
+  "word": "summer",
+  "start": 638.76,
+  "end": 639.3935,
+  "source": "exact"
+ },
+ {
+  "word": "camera",
+  "start": 639.3935,
+  "end": 640.007,
+  "source": "exact"
+ },
+ {
+  "word": "animal",
+  "start": 640.007,
+  "end": 640.614,
+  "source": "exact"
+ },
+ {
+  "word": "remember",
+  "start": 640.614,
+  "end": 641.331,
+  "source": "exact"
+ },
+ {
+  "word": "hammer",
+  "start": 641.331,
+  "end": 641.945,
+  "source": "exact"
+ },
+ {
+  "word": "committee",
+  "start": 641.945,
+  "end": 642.571,
+  "source": "exact"
+ },
+ {
+  "word": "dream",
+  "start": 642.571,
+  "end": 643.2485,
+  "source": "exact"
+ },
+ {
+  "word": "climb",
+  "start": 643.2485,
+  "end": 643.9335,
+  "source": "exact"
+ },
+ {
+  "word": "item",
+  "start": 643.9335,
+  "end": 644.614,
+  "source": "first-pass"
+ },
+ {
+  "word": "nine",
+  "start": 644.614,
+  "end": 645.38,
+  "source": "exact"
+ },
+ {
+  "word": "notice",
+  "start": 645.38,
+  "end": 646.215,
+  "source": "first-pass"
+ },
+ {
+  "word": "negotiate",
+  "start": 646.215,
+  "end": 647.1215,
+  "source": "exact"
+ },
+ {
+  "word": "January",
+  "start": 647.1215,
+  "end": 648.005,
+  "source": "exact"
+ },
+ {
+  "word": "finally",
+  "start": 648.005,
+  "end": 648.803,
+  "source": "exact"
+ },
+ {
+  "word": "tennis",
+  "start": 648.803,
+  "end": 649.498,
+  "source": "exact"
+ },
+ {
+  "word": "honest",
+  "start": 650.129,
+  "end": 650.822,
+  "source": "exact"
+ },
+ {
+  "word": "planet",
+  "start": 650.822,
+  "end": 651.5055,
+  "source": "exact"
+ },
+ {
+  "word": "can",
+  "start": 651.5055,
+  "end": 652.125,
+  "source": "exact"
+ },
+ {
+  "word": "one",
+  "start": 652.125,
+  "end": 652.7165,
+  "source": "exact"
+ },
+ {
+  "word": "sing",
+  "start": 652.7165,
+  "end": 653.3935,
+  "source": "exact"
+ },
+ {
+  "word": "wrong",
+  "start": 654.6195,
+  "end": 655.2605,
+  "source": "exact"
+ },
+ {
+  "word": "singing",
+  "start": 655.2605,
+  "end": 655.9575,
+  "source": "exact"
+ },
+ {
+  "word": "hanger",
+  "start": 655.9575,
+  "end": 656.571,
+  "source": "exact"
+ },
+ {
+  "word": "ringing",
+  "start": 656.571,
+  "end": 657.207,
+  "source": "exact"
+ },
+ {
+  "word": "Washington",
+  "start": 657.207,
+  "end": 658.043,
+  "source": "exact"
+ },
+ {
+  "word": "singer",
+  "start": 658.043,
+  "end": 658.6885,
+  "source": "first-pass"
+ },
+ {
+  "word": "kingdom",
+  "start": 658.6885,
+  "end": 659.3405,
+  "source": "exact"
+ },
+ {
+  "word": "length",
+  "start": 659.3405,
+  "end": 659.994,
+  "source": "exact"
+ },
+ {
+  "word": "pink",
+  "start": 659.994,
+  "end": 660.545,
+  "source": "exact"
+ },
+ {
+  "word": "uncle",
+  "start": 660.545,
+  "end": 661.1005,
+  "source": "exact"
+ },
+ {
+  "word": "finger",
+  "start": 661.1005,
+  "end": 661.7885,
+  "source": "exact"
+ },
+ {
+  "word": "hungry",
+  "start": 661.7885,
+  "end": 662.4715,
+  "source": "exact"
+ },
+ {
+  "word": "angry",
+  "start": 662.4715,
+  "end": 663.1315,
+  "source": "exact"
+ },
+ {
+  "word": "left",
+  "start": 663.1315,
+  "end": 663.7655,
+  "source": "exact"
+ },
+ {
+  "word": "local",
+  "start": 664.3705,
+  "end": 665.023,
+  "source": "exact"
+ },
+ {
+  "word": "hello",
+  "start": 665.023,
+  "end": 665.6445,
+  "source": "first-pass"
+ },
+ {
+  "word": "yellow",
+  "start": 665.6445,
+  "end": 666.2945,
+  "source": "exact"
+ },
+ {
+  "word": "tell",
+  "start": 666.2945,
+  "end": 666.8575,
+  "source": "exact"
+ },
+ {
+  "word": "email",
+  "start": 666.8575,
+  "end": 667.489,
+  "source": "exact"
+ },
+ {
+  "word": "cry",
+  "start": 667.489,
+  "end": 668.142,
+  "source": "exact"
+ },
+ {
+  "word": "fry",
+  "start": 668.142,
+  "end": 668.84,
+  "source": "exact"
+ },
+ {
+  "word": "carry",
+  "start": 668.84,
+  "end": 669.461,
+  "source": "exact"
+ },
+ {
+  "word": "around",
+  "start": 669.461,
+  "end": 670.1815,
+  "source": "exact"
+ },
+ {
+  "word": "hurry",
+  "start": 670.1815,
+  "end": 670.729,
+  "source": "exact"
+ },
+ {
+  "word": "tomorrow",
+  "start": 670.729,
+  "end": 671.4475,
+  "source": "exact"
+ },
+ {
+  "word": "correct",
+  "start": 671.4475,
+  "end": 672.143,
+  "source": "exact"
+ },
+ {
+  "word": "warranty",
+  "start": 672.722,
+  "end": 673.5215,
+  "source": "exact"
+ },
+ {
+  "word": "when",
+  "start": 673.5215,
+  "end": 674.12,
+  "source": "exact"
+ },
+ {
+  "word": "swim",
+  "start": 674.12,
+  "end": 674.9015,
+  "source": "exact"
+ },
+ {
+  "word": "between",
+  "start": 675.6725,
+  "end": 676.4765,
+  "source": "exact"
+ },
+ {
+  "word": "sandwich",
+  "start": 676.4765,
+  "end": 677.3335,
+  "source": "exact"
+ },
+ {
+  "word": "yesterday",
+  "start": 678.0215,
+  "end": 678.826,
+  "source": "exact"
+ },
+ {
+  "word": "yet",
+  "start": 678.826,
+  "end": 679.421,
+  "source": "exact"
+ },
+ {
+  "word": "yoga",
+  "start": 679.421,
+  "end": 680.0615,
+  "source": "exact"
+ },
+ {
+  "word": "yogurt",
+  "start": 680.0615,
+  "end": 680.7645,
+  "source": "exact"
+ },
+ {
+  "word": "yard",
+  "start": 680.7645,
+  "end": 681.3855,
+  "source": "exact"
+ },
+ {
+  "word": "cute",
+  "start": 682.069,
+  "end": 682.6765,
+  "source": "exact"
+ },
+ {
+  "word": "uniform",
+  "start": 682.6765,
+  "end": 683.5125,
+  "source": "exact"
+ },
+ {
+  "word": "university",
+  "start": 683.5125,
+  "end": 684.441,
+  "source": "exact"
+ },
+ {
+  "word": "menu",
+  "start": 684.441,
+  "end": 685.121,
+  "source": "exact"
+ },
+ {
+  "word": "few",
+  "start": 685.121,
+  "end": 685.7675,
+  "source": "exact"
+ },
+ {
+  "word": "huge",
+  "start": 685.7675,
+  "end": 686.5365,
+  "source": "exact"
+ },
+ {
+  "word": "onion",
+  "start": 686.5365,
+  "end": 687.139,
+  "source": "exact"
+ },
+ {
+  "word": "million",
+  "start": 687.139,
+  "end": 687.863,
+  "source": "exact"
+ },
+ {
+  "word": "familiar",
+  "start": 687.863,
+  "end": 688.68,
+  "source": "exact"
+ },
+ {
+  "word": "beauty",
+  "start": 688.68,
+  "end": 689.45,
+  "source": "exact"
+ }
+]
