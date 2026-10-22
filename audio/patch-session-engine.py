@@ -1,7 +1,7 @@
 from pathlib import Path
 
 D=Path(__file__).parent.parent
-sources=['audio/jessica-padded.mp3','audio/jessica-extra-20261022.mp3']
+sources=['audio/jessica-padded.mp3','audio/jessica-extra-20261022.mp3','audio/jessica-isolated-20261023.mp3']
 for name in ['index.html','expand-base.html']:
     p=D/name;s=p.read_text()
     if 'const REC_AUDIO_SOURCES=' in s:
@@ -11,7 +11,7 @@ for name in ['index.html','expand-base.html']:
     s=s.replace('if(recordedAudio){try{recordedAudio.pause()}catch(e){}}',
         'for(const a of recordedAudioPool.values()){try{a.pause()}catch(e){}}')
     s=s.replace('fetch("audio/jessica-map.json?v=2",{signal:c.signal})',
-        'fetch("audio/jessica-map.json?v=20261022-2",{signal:c.signal})')
+        'fetch("audio/jessica-map.json?v=20261023-1",{signal:c.signal})')
     s=s.replace('if(!m.clips||m.audio!=="audio/jessica-padded.mp3")throw Error("map");return m',
         'if(!m.clips||m.audio!==REC_AUDIO_SOURCES[0])throw Error("map");m.sources=m.sources||[m.audio];if(!Array.isArray(m.sources)||m.sources.some(x=>!REC_AUDIO_SOURCES.includes(x)))throw Error("sources");return m')
     s=s.replace('function recordedReady(generation){\n  if(!recordedAudio){recordedAudio=new Audio("audio/jessica-padded.mp3");recordedAudio.preload="auto";recordedAudio.preservesPitch=true;recordedAudio.load()}\n  const a=recordedAudio;',

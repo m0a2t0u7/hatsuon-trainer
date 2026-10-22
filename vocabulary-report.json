@@ -4,6 +4,14 @@
  "new": 562,
  "recorded": 1489,
  "pending": 11,
+ "audioCoverage": {
+  "original": 810,
+  "new": 679,
+  "newWord": 678,
+  "newSentence": 1,
+  "pending": 11,
+  "isolatedReplacement20261023": 18
+ },
  "counts": [
   {
    "id": "v_i",
@@ -358,12 +366,5 @@
   "within",
   "youth",
   "zoom"
- ],
- "audioCoverage": {
-  "original": 810,
-  "new": 679,
-  "newWord": 660,
-  "newSentence": 19,
-  "pending": 11
- }
+ ]
 }

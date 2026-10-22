@@ -1,0 +1,395 @@
+{
+ "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-23T02_32_38_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+ "accepted": [
+  {
+   "word": "live",
+   "start": 0,
+   "end": 0.668889,
+   "previousClip": [
+    0.0,
+    1.28808,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "I live here.",
+    "target": "live",
+    "part": 1
+   },
+   "outputRange": [
+    0.0,
+    0.89887,
+    2
+   ]
+  },
+  {
+   "word": "present",
+   "start": 0.99372,
+   "end": 1.7749700000000002,
+   "previousClip": [
+    52.11425,
+    53.60883,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "A birthday present.",
+    "target": "present",
+    "part": 1
+   },
+   "outputRange": [
+    1.16888,
+    2.18012,
+    2
+   ]
+  },
+  {
+   "word": "adult",
+   "start": 3.21658,
+   "end": 3.95084,
+   "previousClip": [
+    135.96704,
+    137.01004,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "An adult.",
+    "target": "adult",
+    "part": 2
+   },
+   "outputRange": [
+    2.45012,
+    3.41438,
+    2
+   ]
+  },
+  {
+   "word": "read",
+   "start": 4.2888399999999995,
+   "end": 4.96751,
+   "previousClip": [
+    168.16004,
+    170.08783,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "I read books every day.",
+    "target": "read",
+    "part": 2
+   },
+   "outputRange": [
+    3.68438,
+    4.59304,
+    2
+   ]
+  },
+  {
+   "word": "increase",
+   "start": 5.26429,
+   "end": 6.17293,
+   "previousClip": [
+    170.35783,
+    172.17196,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "Prices will increase.",
+    "target": "increase",
+    "part": 2
+   },
+   "outputRange": [
+    4.86304,
+    6.00167,
+    2
+   ]
+  },
+  {
+   "word": "project",
+   "start": 6.4356,
+   "end": 7.2620000000000005,
+   "previousClip": [
+    195.13646,
+    196.61754,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "My school project.",
+    "target": "project",
+    "part": 3
+   },
+   "outputRange": [
+    6.27167,
+    7.32808,
+    2
+   ]
+  },
+  {
+   "word": "contract",
+   "start": 7.54005,
+   "end": 8.43576,
+   "previousClip": [
+    196.88754,
+    198.47975,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "Sign a contract.",
+    "target": "contract",
+    "part": 3
+   },
+   "outputRange": [
+    7.59808,
+    8.72379,
+    2
+   ]
+  },
+  {
+   "word": "close",
+   "start": 8.67567,
+   "end": 9.46154,
+   "previousClip": [
+    288.68058,
+    290.02129,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "Please close the door.",
+    "target": "close",
+    "part": 4
+   },
+   "outputRange": [
+    8.99379,
+    10.00967,
+    2
+   ]
+  },
+  {
+   "word": "total",
+   "start": 9.79508,
+   "end": 10.4914,
+   "previousClip": [
+    291.50437,
+    293.00729,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "The total amount.",
+    "target": "total",
+    "part": 4
+   },
+   "outputRange": [
+    10.27967,
+    11.206,
+    2
+   ]
+  },
+  {
+   "word": "tear",
+   "start": 10.83,
+   "end": 11.5091,
+   "previousClip": [
+    314.86846,
+    316.33717,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "She shed a tear.",
+    "target": "tear",
+    "part": 4
+   },
+   "outputRange": [
+    11.476,
+    12.38508,
+    2
+   ]
+  },
+  {
+   "word": "record",
+   "start": 11.8112,
+   "end": 12.5839,
+   "previousClip": [
+    497.30313,
+    499.14683,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "A world record.",
+    "target": "record",
+    "part": 6
+   },
+   "outputRange": [
+    12.65508,
+    13.65779,
+    2
+   ]
+  },
+  {
+   "word": "address",
+   "start": 12.8471,
+   "end": 13.6963,
+   "previousClip": [
+    499.41683,
+    500.99813,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "My home address.",
+    "target": "address",
+    "part": 6
+   },
+   "outputRange": [
+    13.92779,
+    15.007,
+    2
+   ]
+  },
+  {
+   "word": "document",
+   "start": 13.9538,
+   "end": 14.81,
+   "previousClip": [
+    501.26812,
+    503.201,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "A useful document.",
+    "target": "document",
+    "part": 6
+   },
+   "outputRange": [
+    15.277,
+    16.36321,
+    2
+   ]
+  },
+  {
+   "word": "minute",
+   "start": 15.0938,
+   "end": 15.7827,
+   "previousClip": [
+    797.15179,
+    798.47492,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "One minute.",
+    "target": "minute",
+    "part": 9
+   },
+   "outputRange": [
+    16.63321,
+    17.55213,
+    2
+   ]
+  },
+  {
+   "word": "lead",
+   "start": 16.035400000000003,
+   "end": 16.725099999999998,
+   "previousClip": [
+    819.21808,
+    820.8365,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "Please lead the way.",
+    "target": "lead",
+    "part": 9
+   },
+   "outputRange": [
+    17.82212,
+    18.74179,
+    2
+   ]
+  },
+  {
+   "word": "row",
+   "start": 16.974,
+   "end": 17.6204,
+   "previousClip": [
+    900.23033,
+    902.20067,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "A row of chairs.",
+    "target": "row",
+    "part": 10
+   },
+   "outputRange": [
+    19.01179,
+    19.88821,
+    2
+   ]
+  },
+  {
+   "word": "wind",
+   "start": 17.9068,
+   "end": 18.642899999999997,
+   "previousClip": [
+    929.54208,
+    931.384,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "A strong wind.",
+    "target": "wind",
+    "part": 10
+   },
+   "outputRange": [
+    20.15821,
+    21.12433,
+    2
+   ]
+  },
+  {
+   "word": "use",
+   "start": 18.907700000000002,
+   "end": 19.6663,
+   "previousClip": [
+    940.52413,
+    942.2,
+    1
+   ],
+   "previousMetadata": {
+    "clipKind": "sentence",
+    "utterance": "Please use this.",
+    "target": "use",
+    "part": 10
+   },
+   "outputRange": [
+    21.39433,
+    22.38292,
+    2
+   ]
+  }
+ ],
+ "count": 18,
+ "spriteBytes": 136461,
+ "spriteSha256": "a86a270793a07ee7acafa1f8f51b4878eceebdc424d16161f2ebb32fd2706390",
+ "duration": 22.652916666666666,
+ "coverage": {
+  "original": 810,
+  "new": 679,
+  "newWord": 678,
+  "newSentence": 1,
+  "pending": 11,
+  "isolatedReplacement20261023": 18
+ }
+}

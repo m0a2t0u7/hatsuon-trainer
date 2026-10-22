@@ -1005,7 +1005,7 @@ function pickVoice(){
 }
 function jaVoice(){const j=allVoices.filter(v=>vlang(v).startsWith("ja"));return j.find(v=>/google/i.test(v.name))||j[0]||null}
 let speechGeneration=0;
-const REC_AUDIO_SOURCES=["audio/jessica-padded.mp3", "audio/jessica-extra-20261022.mp3"];
+const REC_AUDIO_SOURCES=["audio/jessica-padded.mp3", "audio/jessica-extra-20261022.mp3", "audio/jessica-isolated-20261023.mp3"];
 let recordedAudio=null,recordedMapPromise=null,recordedCancel=null,lastAudioSource="",lastAudioUtterance="";
 const recordedAudioPool=new Map();
 function stopRecordedAudio(){
@@ -1015,7 +1015,7 @@ function stopRecordedAudio(){
 function recordedMap(){
   if(!recordedMapPromise)recordedMapPromise=(async()=>{
     const c=new AbortController(),timer=setTimeout(()=>c.abort(),8000);
-    try{const r=await fetch("audio/jessica-map.json?v=20261022-2",{signal:c.signal});if(!r.ok)throw Error("map");const m=await r.json();if(!m.clips||m.audio!==REC_AUDIO_SOURCES[0])throw Error("map");m.sources=m.sources||[m.audio];if(!Array.isArray(m.sources)||m.sources.some(x=>!REC_AUDIO_SOURCES.includes(x)))throw Error("sources");return m}
+    try{const r=await fetch("audio/jessica-map.json?v=20261023-1",{signal:c.signal});if(!r.ok)throw Error("map");const m=await r.json();if(!m.clips||m.audio!==REC_AUDIO_SOURCES[0])throw Error("map");m.sources=m.sources||[m.audio];if(!Array.isArray(m.sources)||m.sources.some(x=>!REC_AUDIO_SOURCES.includes(x)))throw Error("sources");return m}
     finally{clearTimeout(timer)}
   })().catch(e=>{recordedMapPromise=null;throw e});
   return recordedMapPromise;

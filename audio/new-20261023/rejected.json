@@ -1,0 +1,6 @@
+[
+ {
+  "word": "desert",
+  "reason": "ASR recognized Dessert; preserve existing sentence until pronunciation verified"
+ }
+]

@@ -8,7 +8,8 @@ groups, 44 have at least 30 entries. `/ʒ/` has 20 entries: uncommon spellings w
 not added just to meet a numerical quota.
 
 Jessica audio covers 1,489 headwords: the unchanged original 810 plus 679 from
-the ten user-supplied recordings (660 isolated words and 19 example sentences).
+the ten user-supplied recordings. A further recording replaces 18 sentence clips;
+coverage now uses 1,488 isolated words and one example sentence (`desert`).
 The 11 uncertain words remain on device speech and in the pending recording list.
 
 ## Recording

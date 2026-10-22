@@ -1,0 +1,126 @@
+[
+ {
+  "text": " Live. Present. Dessert. Adult. Read. Increase. Project. Contract. Close. Total. Tear. Record.",
+  "words": [
+   {
+    "word": " Live.",
+    "start": 0.0,
+    "end": 0.48,
+    "probability": 0.49462753534317017
+   },
+   {
+    "word": " Present.",
+    "start": 0.96,
+    "end": 1.42,
+    "probability": 0.9767266511917114
+   },
+   {
+    "word": " Dessert.",
+    "start": 2.28,
+    "end": 2.52,
+    "probability": 0.7534075677394867
+   },
+   {
+    "word": " Adult.",
+    "start": 3.22,
+    "end": 3.6,
+    "probability": 0.9905368685722351
+   },
+   {
+    "word": " Read.",
+    "start": 4.38,
+    "end": 4.64,
+    "probability": 0.9937713742256165
+   },
+   {
+    "word": " Increase.",
+    "start": 5.34,
+    "end": 5.76,
+    "probability": 0.9919548630714417
+   },
+   {
+    "word": " Project.",
+    "start": 6.42,
+    "end": 6.78,
+    "probability": 0.9889485836029053
+   },
+   {
+    "word": " Contract.",
+    "start": 7.54,
+    "end": 8.06,
+    "probability": 0.9898183941841125
+   },
+   {
+    "word": " Close.",
+    "start": 8.88,
+    "end": 9.08,
+    "probability": 0.9771296381950378
+   },
+   {
+    "word": " Total.",
+    "start": 9.9,
+    "end": 10.12,
+    "probability": 0.9958946704864502
+   },
+   {
+    "word": " Tear.",
+    "start": 11.08,
+    "end": 11.28,
+    "probability": 0.8851481080055237
+   },
+   {
+    "word": " Record.",
+    "start": 11.98,
+    "end": 12.16,
+    "probability": 0.9913721084594727
+   }
+  ]
+ },
+ {
+  "text": " Address. Document. Minute. Lead. Row. Wind. Use.",
+  "words": [
+   {
+    "word": " Address.",
+    "start": 13.0,
+    "end": 13.28,
+    "probability": 0.9822929501533508
+   },
+   {
+    "word": " Document.",
+    "start": 14.46,
+    "end": 14.46,
+    "probability": 0.9778960943222046
+   },
+   {
+    "word": " Minute.",
+    "start": 15.52,
+    "end": 15.52,
+    "probability": 0.9825513958930969
+   },
+   {
+    "word": " Lead.",
+    "start": 16.12,
+    "end": 16.44,
+    "probability": 0.9720378518104553
+   },
+   {
+    "word": " Row.",
+    "start": 17.24,
+    "end": 17.32,
+    "probability": 0.9243237972259521
+   },
+   {
+    "word": " Wind.",
+    "start": 18.06,
+    "end": 18.3,
+    "probability": 0.9766130447387695
+   },
+   {
+    "word": " Use.",
+    "start": 18.98,
+    "end": 19.3,
+    "probability": 0.9805177450180054
+   }
+  ]
+ }
+]
