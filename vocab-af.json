@@ -1,0 +1,1602 @@
+[
+  {
+    "word": "able",
+    "ipa": "ˈeɪbəl",
+    "ja": "できる",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "[a]ble"
+  },
+  {
+    "word": "absent",
+    "ipa": "ˈæbsənt",
+    "ja": "欠席している",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]bsent"
+  },
+  {
+    "word": "accept",
+    "ipa": "əkˈsept",
+    "ja": "受け入れる",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "acc[e]pt"
+  },
+  {
+    "word": "accident",
+    "ipa": "ˈæksədənt",
+    "ja": "事故",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]ccident"
+  },
+  {
+    "word": "ache",
+    "ipa": "eɪk",
+    "ja": "痛み",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "[a]che"
+  },
+  {
+    "word": "across",
+    "ipa": "əˈkrɔːs",
+    "ja": "横切って",
+    "level": 1,
+    "phonId": "c_r",
+    "marked": "ac[r]oss"
+  },
+  {
+    "word": "act",
+    "ipa": "ækt",
+    "ja": "行動する",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]ct"
+  },
+  {
+    "word": "action",
+    "ipa": "ˈækʃən",
+    "ja": "行動",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]ction"
+  },
+  {
+    "word": "active",
+    "ipa": "ˈæktɪv",
+    "ja": "活動的な",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]ctive"
+  },
+  {
+    "word": "activity",
+    "ipa": "ækˈtɪvəti",
+    "ja": "活動",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "act[i]vity"
+  },
+  {
+    "word": "add",
+    "ipa": "æd",
+    "ja": "加える",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]dd"
+  },
+  {
+    "word": "address",
+    "ipa": "ˈædres",
+    "ja": "住所",
+    "level": 1,
+    "phonId": "c_d",
+    "marked": "a[dd]ress"
+  },
+  {
+    "word": "adult",
+    "ipa": "əˈdʌlt",
+    "ja": "大人",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "ad[u]lt"
+  },
+  {
+    "word": "advance",
+    "ipa": "ədˈvæns",
+    "ja": "進歩",
+    "level": 2,
+    "phonId": "v_ae",
+    "marked": "adv[a]nce"
+  },
+  {
+    "word": "advantage",
+    "ipa": "ədˈvæntɪdʒ",
+    "ja": "利点",
+    "level": 2,
+    "phonId": "v_ae",
+    "marked": "adv[a]ntage"
+  },
+  {
+    "word": "adventure",
+    "ipa": "ədˈventʃɚ",
+    "ja": "冒険",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "adv[e]nture"
+  },
+  {
+    "word": "advertise",
+    "ipa": "ˈædvɚtaɪz",
+    "ja": "広告を出す",
+    "level": 2,
+    "phonId": "v_ae",
+    "marked": "[a]dvertise"
+  },
+  {
+    "word": "afraid",
+    "ipa": "əˈfreɪd",
+    "ja": "恐れている",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "afr[ai]d"
+  },
+  {
+    "word": "afternoon",
+    "ipa": "ˌæftɚˈnuːn",
+    "ja": "午後",
+    "level": 1,
+    "phonId": "v_uu",
+    "marked": "aftern[oo]n"
+  },
+  {
+    "word": "agree",
+    "ipa": "əˈɡriː",
+    "ja": "賛成する",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "agr[ee]"
+  },
+  {
+    "word": "agreement",
+    "ipa": "əˈɡriːmənt",
+    "ja": "合意",
+    "level": 2,
+    "phonId": "v_ii",
+    "marked": "agr[ee]ment"
+  },
+  {
+    "word": "aid",
+    "ipa": "eɪd",
+    "ja": "援助",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "[ai]d"
+  },
+  {
+    "word": "aim",
+    "ipa": "eɪm",
+    "ja": "目標",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "[ai]m"
+  },
+  {
+    "word": "alarm",
+    "ipa": "əˈlɑːrm",
+    "ja": "警報",
+    "level": 1,
+    "phonId": "v_ar",
+    "marked": "al[ar]m"
+  },
+  {
+    "word": "album",
+    "ipa": "ˈælbəm",
+    "ja": "アルバム",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]lbum"
+  },
+  {
+    "word": "alive",
+    "ipa": "əˈlaɪv",
+    "ja": "生きている",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "al[i]ve"
+  },
+  {
+    "word": "alone",
+    "ipa": "əˈloʊn",
+    "ja": "ひとりで",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "al[o]ne"
+  },
+  {
+    "word": "along",
+    "ipa": "əˈlɔːŋ",
+    "ja": "沿って",
+    "level": 1,
+    "phonId": "c_ng",
+    "marked": "alo[ng]"
+  },
+  {
+    "word": "aloud",
+    "ipa": "əˈlaʊd",
+    "ja": "声を出して",
+    "level": 1,
+    "phonId": "v_au",
+    "marked": "al[ou]d"
+  },
+  {
+    "word": "already",
+    "ipa": "ɔːlˈredi",
+    "ja": "すでに",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "alr[ea]dy"
+  },
+  {
+    "word": "although",
+    "ipa": "ɔːlˈðoʊ",
+    "ja": "〜だけれども",
+    "level": 2,
+    "phonId": "c_dh",
+    "marked": "al[th]ough"
+  },
+  {
+    "word": "amazing",
+    "ipa": "əˈmeɪzɪŋ",
+    "ja": "驚くほどの",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "am[a]zing"
+  },
+  {
+    "word": "among",
+    "ipa": "əˈmʌŋ",
+    "ja": "〜の間に",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "am[o]ng"
+  },
+  {
+    "word": "ankle",
+    "ipa": "ˈæŋkəl",
+    "ja": "足首",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "[a]nkle"
+  },
+  {
+    "word": "another",
+    "ipa": "əˈnʌðɚ",
+    "ja": "もうひとつの",
+    "level": 1,
+    "phonId": "c_dh",
+    "marked": "ano[th]er"
+  },
+  {
+    "word": "apologize",
+    "ipa": "əˈpɑːlədʒaɪz",
+    "ja": "謝る",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "apolog[i]ze"
+  },
+  {
+    "word": "apply",
+    "ipa": "əˈplaɪ",
+    "ja": "応募する",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "appl[y]"
+  },
+  {
+    "word": "area",
+    "ipa": "ˈeriə",
+    "ja": "地域",
+    "level": 1,
+    "phonId": "v_er",
+    "marked": "[ar]ea"
+  },
+  {
+    "word": "argue",
+    "ipa": "ˈɑːrɡjuː",
+    "ja": "言い争う",
+    "level": 2,
+    "phonId": "v_ar",
+    "marked": "[ar]gue"
+  },
+  {
+    "word": "art",
+    "ipa": "ɑːrt",
+    "ja": "美術",
+    "level": 1,
+    "phonId": "v_ar",
+    "marked": "[ar]t"
+  },
+  {
+    "word": "bacon",
+    "ipa": "ˈbeɪkən",
+    "ja": "ベーコン",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "b[a]con"
+  },
+  {
+    "word": "bake",
+    "ipa": "beɪk",
+    "ja": "焼く",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "b[a]ke"
+  },
+  {
+    "word": "balloon",
+    "ipa": "bəˈluːn",
+    "ja": "風船",
+    "level": 1,
+    "phonId": "v_uu",
+    "marked": "ball[oo]n"
+  },
+  {
+    "word": "band",
+    "ipa": "bænd",
+    "ja": "バンド",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "b[a]nd"
+  },
+  {
+    "word": "basic",
+    "ipa": "ˈbeɪsɪk",
+    "ja": "基本的な",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "b[a]sic"
+  },
+  {
+    "word": "bathroom",
+    "ipa": "ˈbæθruːm",
+    "ja": "浴室・トイレ",
+    "level": 1,
+    "phonId": "c_th",
+    "marked": "ba[th]room"
+  },
+  {
+    "word": "battery",
+    "ipa": "ˈbætɚi",
+    "ja": "電池",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "b[a]ttery"
+  },
+  {
+    "word": "bean",
+    "ipa": "biːn",
+    "ja": "豆",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "b[ea]n"
+  },
+  {
+    "word": "beautiful",
+    "ipa": "ˈbjuːtəfəl",
+    "ja": "美しい",
+    "level": 1,
+    "phonId": "c_y",
+    "marked": "b[eau]tiful"
+  },
+  {
+    "word": "become",
+    "ipa": "bɪˈkʌm",
+    "ja": "〜になる",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "bec[o]me"
+  },
+  {
+    "word": "bedroom",
+    "ipa": "ˈbedruːm",
+    "ja": "寝室",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "b[e]droom"
+  },
+  {
+    "word": "beef",
+    "ipa": "biːf",
+    "ja": "牛肉",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "b[ee]f"
+  },
+  {
+    "word": "begin",
+    "ipa": "bɪˈɡɪn",
+    "ja": "始める",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "beg[i]n"
+  },
+  {
+    "word": "beginning",
+    "ipa": "bɪˈɡɪnɪŋ",
+    "ja": "始まり",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "beg[i]nning"
+  },
+  {
+    "word": "benefit",
+    "ipa": "ˈbenəfɪt",
+    "ja": "利益",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "b[e]nefit"
+  },
+  {
+    "word": "beside",
+    "ipa": "bɪˈsaɪd",
+    "ja": "〜のそばに",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "bes[i]de"
+  },
+  {
+    "word": "better",
+    "ipa": "ˈbetɚ",
+    "ja": "よりよい",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "b[e]tter"
+  },
+  {
+    "word": "bicycle",
+    "ipa": "ˈbaɪsɪkəl",
+    "ja": "自転車",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "b[i]cycle"
+  },
+  {
+    "word": "bike",
+    "ipa": "baɪk",
+    "ja": "自転車",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "b[i]ke"
+  },
+  {
+    "word": "biology",
+    "ipa": "baɪˈɑːlədʒi",
+    "ja": "生物学",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "b[i]ology"
+  },
+  {
+    "word": "bite",
+    "ipa": "baɪt",
+    "ja": "かむ",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "b[i]te"
+  },
+  {
+    "word": "blame",
+    "ipa": "bleɪm",
+    "ja": "責める",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "bl[a]me"
+  },
+  {
+    "word": "blanket",
+    "ipa": "ˈblæŋkət",
+    "ja": "毛布",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "bl[a]nket"
+  },
+  {
+    "word": "blind",
+    "ipa": "blaɪnd",
+    "ja": "目が見えない",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "bl[i]nd"
+  },
+  {
+    "word": "block",
+    "ipa": "blɑːk",
+    "ja": "区画・妨げる",
+    "level": 1,
+    "phonId": "c_b",
+    "marked": "[b]lock"
+  },
+  {
+    "word": "blouse",
+    "ipa": "blaʊs",
+    "ja": "ブラウス",
+    "level": 1,
+    "phonId": "v_au",
+    "marked": "bl[ou]se"
+  },
+  {
+    "word": "blow",
+    "ipa": "bloʊ",
+    "ja": "吹く",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "bl[ow]"
+  },
+  {
+    "word": "bone",
+    "ipa": "boʊn",
+    "ja": "骨",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "b[o]ne"
+  },
+  {
+    "word": "boring",
+    "ipa": "ˈbɔːrɪŋ",
+    "ja": "退屈な",
+    "level": 1,
+    "phonId": "v_or",
+    "marked": "b[or]ing"
+  },
+  {
+    "word": "borrow",
+    "ipa": "ˈbɑːroʊ",
+    "ja": "借りる",
+    "level": 1,
+    "phonId": "c_b",
+    "marked": "[b]orrow"
+  },
+  {
+    "word": "boss",
+    "ipa": "bɑːs",
+    "ja": "上司",
+    "level": 1,
+    "phonId": "c_b",
+    "marked": "[b]oss"
+  },
+  {
+    "word": "bottom",
+    "ipa": "ˈbɑːtəm",
+    "ja": "底",
+    "level": 1,
+    "phonId": "c_b",
+    "marked": "[b]ottom"
+  },
+  {
+    "word": "bowl",
+    "ipa": "boʊl",
+    "ja": "ボウル",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "b[ow]l"
+  },
+  {
+    "word": "brain",
+    "ipa": "breɪn",
+    "ja": "脳",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "br[ai]n"
+  },
+  {
+    "word": "brave",
+    "ipa": "breɪv",
+    "ja": "勇敢な",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "br[a]ve"
+  },
+  {
+    "word": "breath",
+    "ipa": "breθ",
+    "ja": "息",
+    "level": 2,
+    "phonId": "c_th",
+    "marked": "brea[th]"
+  },
+  {
+    "word": "brick",
+    "ipa": "brɪk",
+    "ja": "れんが",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "br[i]ck"
+  },
+  {
+    "word": "bright",
+    "ipa": "braɪt",
+    "ja": "明るい",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "br[igh]t"
+  },
+  {
+    "word": "bring",
+    "ipa": "brɪŋ",
+    "ja": "持ってくる",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "br[i]ng"
+  },
+  {
+    "word": "button",
+    "ipa": "ˈbʌtən",
+    "ja": "ボタン",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "b[u]tton"
+  },
+  {
+    "word": "cabbage",
+    "ipa": "ˈkæbɪdʒ",
+    "ja": "キャベツ",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]bbage"
+  },
+  {
+    "word": "cafe",
+    "ipa": "kəˈfeɪ",
+    "ja": "カフェ",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "caf[e]"
+  },
+  {
+    "word": "cage",
+    "ipa": "keɪdʒ",
+    "ja": "かご",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "c[a]ge"
+  },
+  {
+    "word": "camp",
+    "ipa": "kæmp",
+    "ja": "キャンプ",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]mp"
+  },
+  {
+    "word": "candle",
+    "ipa": "ˈkændəl",
+    "ja": "ろうそく",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]ndle"
+  },
+  {
+    "word": "candy",
+    "ipa": "ˈkændi",
+    "ja": "あめ",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]ndy"
+  },
+  {
+    "word": "carrot",
+    "ipa": "ˈkærət",
+    "ja": "にんじん",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]rrot"
+  },
+  {
+    "word": "case",
+    "ipa": "keɪs",
+    "ja": "場合",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "c[a]se"
+  },
+  {
+    "word": "castle",
+    "ipa": "ˈkæsəl",
+    "ja": "城",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "c[a]stle"
+  },
+  {
+    "word": "ceiling",
+    "ipa": "ˈsiːlɪŋ",
+    "ja": "天井",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "c[ei]ling"
+  },
+  {
+    "word": "celebrate",
+    "ipa": "ˈseləbreɪt",
+    "ja": "祝う",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "c[e]lebrate"
+  },
+  {
+    "word": "century",
+    "ipa": "ˈsentʃɚi",
+    "ja": "世紀",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "c[e]ntury"
+  },
+  {
+    "word": "cereal",
+    "ipa": "ˈsɪriəl",
+    "ja": "シリアル",
+    "level": 1,
+    "phonId": "v_ir",
+    "marked": "c[er]eal"
+  },
+  {
+    "word": "certain",
+    "ipa": "ˈsɝːtən",
+    "ja": "確かな",
+    "level": 2,
+    "phonId": "v_er_strong",
+    "marked": "c[er]tain"
+  },
+  {
+    "word": "chain",
+    "ipa": "tʃeɪn",
+    "ja": "鎖",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "ch[ai]n"
+  },
+  {
+    "word": "character",
+    "ipa": "ˈkerɪktɚ",
+    "ja": "性格・登場人物",
+    "level": 2,
+    "phonId": "v_er",
+    "marked": "ch[ar]acter"
+  },
+  {
+    "word": "cherry",
+    "ipa": "ˈtʃeri",
+    "ja": "さくらんぼ",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "ch[e]rry"
+  },
+  {
+    "word": "chest",
+    "ipa": "tʃest",
+    "ja": "胸",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "ch[e]st"
+  },
+  {
+    "word": "chew",
+    "ipa": "tʃuː",
+    "ja": "かむ",
+    "level": 2,
+    "phonId": "v_uu",
+    "marked": "ch[ew]"
+  },
+  {
+    "word": "chop",
+    "ipa": "tʃɑːp",
+    "ja": "刻む",
+    "level": 2,
+    "phonId": "c_ch",
+    "marked": "[ch]op"
+  },
+  {
+    "word": "cinema",
+    "ipa": "ˈsɪnəmə",
+    "ja": "映画館",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "c[i]nema"
+  },
+  {
+    "word": "circle",
+    "ipa": "ˈsɝːkəl",
+    "ja": "円",
+    "level": 1,
+    "phonId": "v_er_strong",
+    "marked": "c[ir]cle"
+  },
+  {
+    "word": "citizen",
+    "ipa": "ˈsɪtəzən",
+    "ja": "市民",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "c[i]tizen"
+  },
+  {
+    "word": "clever",
+    "ipa": "ˈklevɚ",
+    "ja": "賢い",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "cl[e]ver"
+  },
+  {
+    "word": "click",
+    "ipa": "klɪk",
+    "ja": "クリックする",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "cl[i]ck"
+  },
+  {
+    "word": "cloth",
+    "ipa": "klɔːθ",
+    "ja": "布",
+    "level": 2,
+    "phonId": "c_th",
+    "marked": "clo[th]"
+  },
+  {
+    "word": "clothes",
+    "ipa": "kloʊðz",
+    "ja": "衣服",
+    "level": 1,
+    "phonId": "c_dh",
+    "marked": "clo[th]es"
+  },
+  {
+    "word": "coast",
+    "ipa": "koʊst",
+    "ja": "海岸",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "c[oa]st"
+  },
+  {
+    "word": "coconut",
+    "ipa": "ˈkoʊkənʌt",
+    "ja": "ココナッツ",
+    "level": 1,
+    "phonId": "v_ou",
+    "marked": "c[o]conut"
+  },
+  {
+    "word": "code",
+    "ipa": "koʊd",
+    "ja": "コード",
+    "level": 2,
+    "phonId": "v_ou",
+    "marked": "c[o]de"
+  },
+  {
+    "word": "comfort",
+    "ipa": "ˈkʌmfɚt",
+    "ja": "心地よさ",
+    "level": 2,
+    "phonId": "v_uh",
+    "marked": "c[o]mfort"
+  },
+  {
+    "word": "common",
+    "ipa": "ˈkɑːmən",
+    "ja": "共通の・よくある",
+    "level": 1,
+    "phonId": "c_k",
+    "marked": "[c]ommon"
+  },
+  {
+    "word": "communicate",
+    "ipa": "kəˈmjuːnəkeɪt",
+    "ja": "伝え合う",
+    "level": 2,
+    "phonId": "c_y",
+    "marked": "comm[u]nicate"
+  },
+  {
+    "word": "community",
+    "ipa": "kəˈmjuːnəti",
+    "ja": "地域社会",
+    "level": 2,
+    "phonId": "c_y",
+    "marked": "comm[u]nity"
+  },
+  {
+    "word": "complain",
+    "ipa": "kəmˈpleɪn",
+    "ja": "不満を言う",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "compl[ai]n"
+  },
+  {
+    "word": "condition",
+    "ipa": "kənˈdɪʃən",
+    "ja": "状態",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "cond[i]tion"
+  },
+  {
+    "word": "connect",
+    "ipa": "kəˈnekt",
+    "ja": "つなぐ",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "conn[e]ct"
+  },
+  {
+    "word": "consider",
+    "ipa": "kənˈsɪdɚ",
+    "ja": "よく考える",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "cons[i]der"
+  },
+  {
+    "word": "contact",
+    "ipa": "ˈkɑːntækt",
+    "ja": "連絡する",
+    "level": 2,
+    "phonId": "v_ae",
+    "marked": "cont[a]ct"
+  },
+  {
+    "word": "contain",
+    "ipa": "kənˈteɪn",
+    "ja": "含む",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "cont[ai]n"
+  },
+  {
+    "word": "continue",
+    "ipa": "kənˈtɪnjuː",
+    "ja": "続ける",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "cont[i]nue"
+  },
+  {
+    "word": "control",
+    "ipa": "kənˈtroʊl",
+    "ja": "管理する",
+    "level": 2,
+    "phonId": "v_ou",
+    "marked": "contr[o]l"
+  },
+  {
+    "word": "conversation",
+    "ipa": "ˌkɑːnvɚˈseɪʃən",
+    "ja": "会話",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "convers[a]tion"
+  },
+  {
+    "word": "corner",
+    "ipa": "ˈkɔːrnɚ",
+    "ja": "角",
+    "level": 1,
+    "phonId": "v_or",
+    "marked": "c[or]ner"
+  },
+  {
+    "word": "cost",
+    "ipa": "kɑːst",
+    "ja": "費用",
+    "level": 1,
+    "phonId": "c_k",
+    "marked": "[c]ost"
+  },
+  {
+    "word": "daily",
+    "ipa": "ˈdeɪli",
+    "ja": "毎日の",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "d[ai]ly"
+  },
+  {
+    "word": "damage",
+    "ipa": "ˈdæmɪdʒ",
+    "ja": "損害",
+    "level": 2,
+    "phonId": "v_ae",
+    "marked": "d[a]mage"
+  },
+  {
+    "word": "danger",
+    "ipa": "ˈdeɪndʒɚ",
+    "ja": "危険",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "d[a]nger"
+  },
+  {
+    "word": "dead",
+    "ipa": "ded",
+    "ja": "死んでいる",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "d[ea]d"
+  },
+  {
+    "word": "deal",
+    "ipa": "diːl",
+    "ja": "取引",
+    "level": 2,
+    "phonId": "v_ii",
+    "marked": "d[ea]l"
+  },
+  {
+    "word": "deep",
+    "ipa": "diːp",
+    "ja": "深い",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "d[ee]p"
+  },
+  {
+    "word": "degree",
+    "ipa": "dɪˈɡriː",
+    "ja": "程度・学位",
+    "level": 2,
+    "phonId": "v_ii",
+    "marked": "degr[ee]"
+  },
+  {
+    "word": "delicious",
+    "ipa": "dɪˈlɪʃəs",
+    "ja": "おいしい",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "del[i]cious"
+  },
+  {
+    "word": "dentist",
+    "ipa": "ˈdentɪst",
+    "ja": "歯科医",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "d[e]ntist"
+  },
+  {
+    "word": "deny",
+    "ipa": "dɪˈnaɪ",
+    "ja": "否定する",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "den[y]"
+  },
+  {
+    "word": "depend",
+    "ipa": "dɪˈpend",
+    "ja": "頼る",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "dep[e]nd"
+  },
+  {
+    "word": "desert",
+    "ipa": "ˈdezɚt",
+    "ja": "砂漠",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "d[e]sert"
+  },
+  {
+    "word": "detail",
+    "ipa": "ˈdiːteɪl",
+    "ja": "詳細",
+    "level": 2,
+    "phonId": "v_ii",
+    "marked": "d[e]tail"
+  },
+  {
+    "word": "develop",
+    "ipa": "dɪˈveləp",
+    "ja": "発展させる",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "dev[e]lop"
+  },
+  {
+    "word": "diary",
+    "ipa": "ˈdaɪɚi",
+    "ja": "日記",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "d[i]ary"
+  },
+  {
+    "word": "dictionary",
+    "ipa": "ˈdɪkʃəneri",
+    "ja": "辞書",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "d[i]ctionary"
+  },
+  {
+    "word": "die",
+    "ipa": "daɪ",
+    "ja": "死ぬ",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "d[ie]"
+  },
+  {
+    "word": "difference",
+    "ipa": "ˈdɪfɚəns",
+    "ja": "違い",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "d[i]fference"
+  },
+  {
+    "word": "difficult",
+    "ipa": "ˈdɪfɪkəlt",
+    "ja": "難しい",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "d[i]fficult"
+  },
+  {
+    "word": "dig",
+    "ipa": "dɪɡ",
+    "ja": "掘る",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "d[i]g"
+  },
+  {
+    "word": "direction",
+    "ipa": "dɪˈrekʃən",
+    "ja": "方向",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "dir[e]ction"
+  },
+  {
+    "word": "dirty",
+    "ipa": "ˈdɝːti",
+    "ja": "汚れた",
+    "level": 1,
+    "phonId": "v_er_strong",
+    "marked": "d[ir]ty"
+  },
+  {
+    "word": "discuss",
+    "ipa": "dɪˈskʌs",
+    "ja": "話し合う",
+    "level": 2,
+    "phonId": "v_uh",
+    "marked": "disc[u]ss"
+  },
+  {
+    "word": "disease",
+    "ipa": "dɪˈziːz",
+    "ja": "病気",
+    "level": 2,
+    "phonId": "v_ii",
+    "marked": "dis[ea]se"
+  },
+  {
+    "word": "distance",
+    "ipa": "ˈdɪstəns",
+    "ja": "距離",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "d[i]stance"
+  },
+  {
+    "word": "divide",
+    "ipa": "dɪˈvaɪd",
+    "ja": "分ける",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "div[i]de"
+  },
+  {
+    "word": "document",
+    "ipa": "ˈdɑːkjəmənt",
+    "ja": "書類",
+    "level": 2,
+    "phonId": "c_d",
+    "marked": "[d]ocument"
+  },
+  {
+    "word": "dolphin",
+    "ipa": "ˈdɑːlfɪn",
+    "ja": "イルカ",
+    "level": 1,
+    "phonId": "c_d",
+    "marked": "[d]olphin"
+  },
+  {
+    "word": "doubt",
+    "ipa": "daʊt",
+    "ja": "疑い",
+    "level": 2,
+    "phonId": "v_au",
+    "marked": "d[ou]bt"
+  },
+  {
+    "word": "dozen",
+    "ipa": "ˈdʌzən",
+    "ja": "12個",
+    "level": 2,
+    "phonId": "v_uh",
+    "marked": "d[o]zen"
+  },
+  {
+    "word": "dress",
+    "ipa": "dres",
+    "ja": "ドレス・服を着る",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "dr[e]ss"
+  },
+  {
+    "word": "dry",
+    "ipa": "draɪ",
+    "ja": "乾いた",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "dr[y]"
+  },
+  {
+    "word": "duck",
+    "ipa": "dʌk",
+    "ja": "アヒル",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "d[u]ck"
+  },
+  {
+    "word": "dust",
+    "ipa": "dʌst",
+    "ja": "ほこり",
+    "level": 1,
+    "phonId": "v_uh",
+    "marked": "d[u]st"
+  },
+  {
+    "word": "duty",
+    "ipa": "ˈduːti",
+    "ja": "義務・仕事",
+    "level": 2,
+    "phonId": "v_uu",
+    "marked": "d[u]ty"
+  },
+  {
+    "word": "each",
+    "ipa": "iːtʃ",
+    "ja": "それぞれの",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "[ea]ch"
+  },
+  {
+    "word": "eagle",
+    "ipa": "ˈiːɡəl",
+    "ja": "ワシ",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "[ea]gle"
+  },
+  {
+    "word": "earth",
+    "ipa": "ɝːθ",
+    "ja": "地球",
+    "level": 1,
+    "phonId": "v_er_strong",
+    "marked": "[ear]th"
+  },
+  {
+    "word": "east",
+    "ipa": "iːst",
+    "ja": "東",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "[ea]st"
+  },
+  {
+    "word": "education",
+    "ipa": "ˌedʒəˈkeɪʃən",
+    "ja": "教育",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "[e]ducation"
+  },
+  {
+    "word": "effect",
+    "ipa": "ɪˈfekt",
+    "ja": "影響",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "eff[e]ct"
+  },
+  {
+    "word": "effort",
+    "ipa": "ˈefɚt",
+    "ja": "努力",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "[e]ffort"
+  },
+  {
+    "word": "eighteen",
+    "ipa": "eɪˈtiːn",
+    "ja": "18",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "[eigh]teen"
+  },
+  {
+    "word": "eighty",
+    "ipa": "ˈeɪti",
+    "ja": "80",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "[eigh]ty"
+  },
+  {
+    "word": "elbow",
+    "ipa": "ˈelboʊ",
+    "ja": "ひじ",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]lbow"
+  },
+  {
+    "word": "electric",
+    "ipa": "ɪˈlektrɪk",
+    "ja": "電気の",
+    "level": 2,
+    "phonId": "v_e",
+    "marked": "el[e]ctric"
+  },
+  {
+    "word": "electricity",
+    "ipa": "ɪˌlekˈtrɪsəti",
+    "ja": "電気",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "electr[i]city"
+  },
+  {
+    "word": "elephant",
+    "ipa": "ˈeləfənt",
+    "ja": "ゾウ",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]lephant"
+  },
+  {
+    "word": "else",
+    "ipa": "els",
+    "ja": "ほかの",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]lse"
+  },
+  {
+    "word": "emergency",
+    "ipa": "ɪˈmɝːdʒənsi",
+    "ja": "緊急事態",
+    "level": 2,
+    "phonId": "v_er_strong",
+    "marked": "em[er]gency"
+  },
+  {
+    "word": "empty",
+    "ipa": "ˈempti",
+    "ja": "空の",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]mpty"
+  },
+  {
+    "word": "end",
+    "ipa": "end",
+    "ja": "終わり",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]nd"
+  },
+  {
+    "word": "enemy",
+    "ipa": "ˈenəmi",
+    "ja": "敵",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]nemy"
+  },
+  {
+    "word": "engine",
+    "ipa": "ˈendʒən",
+    "ja": "エンジン",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]ngine"
+  },
+  {
+    "word": "enter",
+    "ipa": "ˈentɚ",
+    "ja": "入る",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "[e]nter"
+  },
+  {
+    "word": "face",
+    "ipa": "feɪs",
+    "ja": "顔",
+    "level": 1,
+    "phonId": "v_ei",
+    "marked": "f[a]ce"
+  },
+  {
+    "word": "fact",
+    "ipa": "fækt",
+    "ja": "事実",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "f[a]ct"
+  },
+  {
+    "word": "factory",
+    "ipa": "ˈfæktɚi",
+    "ja": "工場",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "f[a]ctory"
+  },
+  {
+    "word": "fail",
+    "ipa": "feɪl",
+    "ja": "失敗する",
+    "level": 2,
+    "phonId": "v_ei",
+    "marked": "f[ai]l"
+  },
+  {
+    "word": "false",
+    "ipa": "fɔːls",
+    "ja": "誤った",
+    "level": 2,
+    "phonId": "c_f",
+    "marked": "[f]alse"
+  },
+  {
+    "word": "fan",
+    "ipa": "fæn",
+    "ja": "扇風機・ファン",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "f[a]n"
+  },
+  {
+    "word": "fast",
+    "ipa": "fæst",
+    "ja": "速い",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "f[a]st"
+  },
+  {
+    "word": "fat",
+    "ipa": "fæt",
+    "ja": "太った",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "f[a]t"
+  },
+  {
+    "word": "fault",
+    "ipa": "fɔːlt",
+    "ja": "欠点・責任",
+    "level": 2,
+    "phonId": "c_f",
+    "marked": "[f]ault"
+  },
+  {
+    "word": "fence",
+    "ipa": "fens",
+    "ja": "フェンス",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "f[e]nce"
+  },
+  {
+    "word": "festival",
+    "ipa": "ˈfestəvəl",
+    "ja": "祭り",
+    "level": 1,
+    "phonId": "v_e",
+    "marked": "f[e]stival"
+  },
+  {
+    "word": "fever",
+    "ipa": "ˈfiːvɚ",
+    "ja": "熱",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "f[e]ver"
+  },
+  {
+    "word": "fight",
+    "ipa": "faɪt",
+    "ja": "戦う",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "f[igh]t"
+  },
+  {
+    "word": "fill",
+    "ipa": "fɪl",
+    "ja": "満たす",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "f[i]ll"
+  },
+  {
+    "word": "film",
+    "ipa": "fɪlm",
+    "ja": "映画・フィルム",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "f[i]lm"
+  },
+  {
+    "word": "fire",
+    "ipa": "faɪɚ",
+    "ja": "火",
+    "level": 1,
+    "phonId": "v_ai",
+    "marked": "f[i]re"
+  },
+  {
+    "word": "fix",
+    "ipa": "fɪks",
+    "ja": "直す",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "f[i]x"
+  },
+  {
+    "word": "flat",
+    "ipa": "flæt",
+    "ja": "平らな",
+    "level": 1,
+    "phonId": "v_ae",
+    "marked": "fl[a]t"
+  },
+  {
+    "word": "fog",
+    "ipa": "fɑːɡ",
+    "ja": "霧",
+    "level": 1,
+    "phonId": "c_f",
+    "marked": "[f]og"
+  },
+  {
+    "word": "free",
+    "ipa": "friː",
+    "ja": "自由な・無料の",
+    "level": 1,
+    "phonId": "v_ii",
+    "marked": "fr[ee]"
+  }
+]

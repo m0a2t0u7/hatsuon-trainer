@@ -1,0 +1,2229 @@
+<!doctype html>
+<html lang="ja" data-font="m">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>発音トレーナー</title>
+<meta name="description" content="英語の母音と子音を、お手本・録音・判定・聞き分けで練習する">
+<meta name="theme-color" content="#F3F5F8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5F8;--surface:#FFFFFF;--sunk:#E9EDF2;--ink:#1B222C;--ink2:#566070;--ink3:#8B95A3;--line:#DCE1E8;
+  --short:#C9463C;--long:#2B66D6;--diph:#0F7D59;--r:#7547CC;
+  --cons:#A4570C;--consfill:#F5E3CF;--ok:#0F7D59;--ng:#C23A33;--on-ink:#FFFFFF;
+  --seg-on:#FFFFFF;
+  --f-ui:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Noto Sans CJK JP",Roboto,sans-serif;
+  --f-ph:"Gentium Book Plus","Gentium Plus","Charis SIL","Noto Serif",Georgia,serif;
+  --shadow:0 -8px 28px rgba(16,28,44,.14);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151B;--surface:#1A2028;--sunk:#232B35;--ink:#E7EBF0;--ink2:#A3ADBA;--ink3:#727D8B;--line:#2B3440;
+    --short:#F2867A;--long:#79A5F5;--diph:#45C495;--r:#AE92F0;--cons:#E9A15A;--consfill:#5A3D22;--ok:#45C495;--ng:#F2867A;--on-ink:#11151B;
+    --shadow:0 -8px 28px rgba(0,0,0,.5);--seg-on:#3A4654;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151B;--surface:#1A2028;--sunk:#232B35;--ink:#E7EBF0;--ink2:#A3ADBA;--ink3:#727D8B;--line:#2B3440;
+  --short:#F2867A;--long:#79A5F5;--diph:#45C495;--r:#AE92F0;--cons:#E9A15A;--consfill:#5A3D22;--ok:#45C495;--ng:#F2867A;--on-ink:#11151B;
+  --shadow:0 -8px 28px rgba(0,0,0,.5);--seg-on:#3A4654;color-scheme:dark;
+}
+html{font-size:16px}
+html[data-font="s"]{font-size:14.5px}
+html[data-font="l"]{font-size:17.5px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:1rem;line-height:1.6;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+button:disabled{opacity:.35;cursor:default}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:8px}
+.ph{font-family:var(--f-ph)}
+.sl{color:var(--ink3);font-weight:400;opacity:.7;padding:0 .04em}
+.ic{width:1.25rem;height:1.25rem;flex:none;display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:var(--bg);display:flex;align-items:center;gap:.5rem;height:3.5rem;padding:0 1rem;max-width:40rem;margin:0 auto}
+.top h1{font-size:1.125rem;font-weight:700;margin:0;flex:1;letter-spacing:.02em}
+.top .meta{font-size:.8125rem;color:var(--ink2);font-variant-numeric:tabular-nums}
+.top .back{width:2.5rem;height:2.5rem;margin-left:-.6rem;display:grid;place-items:center;border-radius:50%}
+.top .cat{font-size:.875rem;font-weight:700;color:var(--c)}
+.pnav{flex:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.25rem;min-width:0}
+.pn{display:flex;align-items:center;gap:.2rem;min-width:0;height:2.5rem;padding:0 .35rem;border-radius:.7rem;color:var(--ink2)}
+.pn.prev{justify-self:start}.pn.next{justify-self:end}
+.pn:active{background:var(--sunk)}
+.pn .ic{width:1rem;height:1rem;color:var(--ink3)}
+.pn .pni{font-family:var(--f-ph);font-size:1.15rem;font-weight:700;color:var(--c)}
+.pn .pnk{font-family:var(--f-ph);font-size:.8125rem;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcur{text-align:center;line-height:1.25}
+.pcur .cat{display:block}
+.pcur .meta{display:block;font-size:.6875rem}
+.strip{display:flex;gap:.35rem;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -1rem .25rem;padding:.25rem 1rem .5rem;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.sc{position:relative;flex:none;min-width:2.6rem;height:2.4rem;padding:0 .45rem;border-radius:.65rem;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;scroll-snap-align:center}
+.sc .sci{font-family:var(--f-ph);font-size:1.05rem;font-weight:700;color:var(--c);line-height:1}
+.sc .scb{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--p) * 100%);background:var(--c)}
+.sc.on{background:var(--c);border-color:var(--c)}
+.sc.on .sci{color:var(--surface)}.sc.on .scb{background:var(--surface);opacity:.6}
+.sgap{flex:none;width:1px;background:var(--line);margin:.35rem .2rem}
+.nextp{display:flex;align-items:center;gap:.75rem;width:100%;margin:1.5rem 0 .5rem;padding:.9rem 1rem;border-radius:1rem;background:var(--surface);border:1px solid var(--line);text-align:left}
+.nextp .nk{font-size:.75rem;color:var(--ink3);display:block}
+.nextp .nw{display:flex;align-items:baseline;gap:.6rem}
+.nextp .ni{font-family:var(--f-ph);font-size:1.6rem;font-weight:700;color:var(--c);line-height:1.2}
+.nextp .ne{font-family:var(--f-ph);font-size:1rem;color:var(--ink2)}
+.nextp .grow{flex:1}
+.nextp .ic{color:var(--ink3)}
+main{max-width:40rem;margin:0 auto;padding:.25rem 1rem 6rem}
+body.sheet-open main{padding-bottom:22rem}
+
+/* bottom nav */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom)}
+.nav>div{display:flex;width:100%;max-width:40rem}
+.nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:.15rem;padding:.55rem 0 .6rem;font-size:.6875rem;color:var(--ink3)}
+.nav button .ic{width:1.4rem;height:1.4rem}
+.nav button.on{color:var(--ink);font-weight:700}
+body[data-view="phon"] .nav{display:none}
+
+/* resume */
+.resume{width:100%;display:flex;align-items:center;gap:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:.8rem 1rem;text-align:left;margin:.25rem 0 1rem}
+.resume-l{flex:1;min-width:0}
+.resume-k{display:block;font-size:.75rem;color:var(--ink2)}
+.resume-w{display:flex;align-items:baseline;gap:.6rem;font-size:1.125rem}
+.resume-ipa{color:var(--c);font-size:1.5rem;line-height:1.2}
+.resume-n{font-size:.8125rem;color:var(--ink2);font-variant-numeric:tabular-nums}
+.resume .ic{color:var(--ink3)}
+.intro{font-size:.875rem;color:var(--ink2);margin:.25rem 0 1rem}
+
+/* segmented */
+.seg{display:flex;background:var(--sunk);border-radius:.75rem;padding:.2rem;gap:.2rem}
+.seg button{flex:1;padding:.45rem .4rem;border-radius:.6rem;font-size:.8125rem;color:var(--ink2);white-space:nowrap}
+.seg button.on{background:var(--seg-on);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(16,28,44,.12)}
+.seg .n{font-size:.6875rem;color:var(--ink3);margin-left:.2rem;font-weight:400}
+
+/* vowel chart */
+.chart{margin:1.25rem 0 .5rem}
+.chart-box{position:relative;margin:2.6rem 1.5rem 2.4rem 2.7rem;aspect-ratio:100/96}
+.chart-bg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tz{fill:var(--surface);stroke:var(--line);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.gl{fill:none;stroke:var(--line);stroke-width:1;stroke-dasharray:3 4;vector-effect:non-scaling-stroke}
+.ax{position:absolute;font-size:.6875rem;color:var(--ink3);white-space:nowrap;line-height:1}
+.ax.f{left:0;top:-2.05rem}.ax.b{right:0;top:-2.05rem}
+.ax.c{left:-2.5rem;top:.1rem}.ax.o{left:-2.5rem;bottom:0}
+.node{position:absolute;left:calc(var(--x) * 1%);top:calc(var(--y) * 1%);transform:translate(-50%,-50%);width:2.9rem;height:2.9rem;border-radius:50%;background:var(--surface);display:grid;place-items:center;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c) 45%,transparent)}
+.node .ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(var(--c) calc(var(--p) * 1turn),transparent 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 3px))}
+.node-ipa{font-size:1.3rem;line-height:1;color:var(--c);font-weight:700}
+.node-key{position:absolute;top:calc(100% + .3rem);left:50%;transform:translateX(-50%);font-size:.6875rem;color:var(--ink2);white-space:nowrap;line-height:1}
+.node.full{background:var(--c)}
+.node.full .node-ipa{color:var(--surface)}
+.chart-note{font-size:.75rem;color:var(--ink2);margin:0;line-height:1.7}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.75rem;color:var(--ink2);margin:.6rem 0 0}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend i{width:.6rem;height:.6rem;border-radius:50%;background:var(--c);display:inline-block}
+
+/* tiles */
+.sec-h{font-size:.9375rem;font-weight:700;margin:1.75rem 0 .7rem;display:flex;align-items:center;gap:.5rem}
+.sec-h i{width:.6rem;height:.6rem;border-radius:50%;background:var(--c)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.tile{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.7rem .7rem .9rem;text-align:left;overflow:hidden;display:flex;flex-direction:column;min-height:5.4rem}
+.tile-ipa{font-size:1.5rem;line-height:1.15;color:var(--c);font-weight:700}
+.tile-key{font-size:.9375rem;color:var(--ink)}
+.tile-n{font-size:.6875rem;color:var(--ink3);margin-top:auto;font-variant-numeric:tabular-nums}
+.tile-bar{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--p) * 100%);background:var(--c)}
+.kindseg{margin:.25rem 0 0}
+.viewtog{display:flex;justify-content:flex-end;margin:.6rem 0 -.6rem}
+.linkbtn{font-size:.8125rem;color:var(--ink2);padding:.35rem .1rem;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+/* consonant table */
+.ctab{display:grid;grid-template-columns:3.9rem repeat(5,minmax(0,1fr));column-gap:.3rem;margin:1.25rem 0 .75rem}
+.ctab .chd{font-size:.6875rem;color:var(--ink3);text-align:center;line-height:1.25;align-self:end;padding-bottom:.4rem}
+.ctab .rl,.ctab .cell{border-top:1px solid var(--line);padding:.35rem 0}
+.ctab .rl{font-size:.6875rem;color:var(--ink2);line-height:1.3;padding-top:1.3rem;padding-right:.2rem}
+.ctab .cell{display:flex;flex-direction:column;gap:.3rem}
+.cc{position:relative;height:3rem;border-radius:.6rem;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:var(--surface);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--cons) 50%,transparent);line-height:1}
+.cc.vd{background:var(--consfill)}
+.cc-ipa{font-family:var(--f-ph);font-size:1.2rem;font-weight:700;color:var(--cons)}
+.cc-key{font-family:var(--f-ph);font-size:.6875rem;color:var(--ink2);margin-top:.2rem;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 .15rem}
+.cc-bar{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--p) * 100%);background:var(--cons)}
+.cc.full{background:var(--cons)}.cc.full .cc-ipa{color:var(--surface)}.cc.full .cc-key{color:var(--surface)}
+.cleg{display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.75rem;color:var(--ink2);margin:.6rem 0 0}
+.cleg span{display:inline-flex;align-items:center;gap:.4rem}
+.cleg i{width:1.1rem;height:.8rem;border-radius:.25rem;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--cons) 50%,transparent);background:var(--surface)}
+.cleg i.vd{background:var(--consfill)}
+/* mouth cross-section */
+.hf{fill:none;stroke:var(--ink);stroke-width:.9;stroke-linecap:round;stroke-linejoin:round}
+.hl1{fill:none;stroke:var(--ink3);stroke-width:.6}
+.ht{fill:var(--surface);stroke:var(--ink2);stroke-width:.5}
+.hn{fill:var(--consfill);stroke:var(--cons);stroke-width:.8}
+.hr{fill:none;stroke:var(--ink);stroke-width:1.1;stroke-linecap:round}
+.hv{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
+.hg{fill:none;stroke:var(--ink2);stroke-width:1.2}.hg.on{stroke:var(--cons);stroke-width:1.7}
+.hw{fill:none;stroke:var(--cons);stroke-width:.8;stroke-linejoin:round}
+.ha{fill:none;stroke:var(--cons);stroke-width:.9;stroke-linecap:round;stroke-linejoin:round}
+.hp{fill:var(--cons);stroke:var(--surface);stroke-width:.6}
+.hlead{fill:none;stroke:var(--ink3);stroke-width:.35;stroke-dasharray:1 1}
+.cfig{position:relative;width:100%;aspect-ratio:100/110;margin:1.4rem 0 .4rem}
+.cfig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cfig .cc{position:absolute;width:10.5%;height:9.55%;border-radius:.55rem}
+.cfig .cc .cc-ipa{font-size:1.15rem}
+.cfig .hn{stroke-width:.6;fill:color-mix(in srgb,var(--consfill) 60%,var(--bg))}
+.cfig .clab{position:absolute;font-size:.6875rem;color:var(--ink2);line-height:1;white-space:nowrap;transform:translateY(-100%);padding-bottom:.25rem}
+.mini.mouth{width:8.5rem}
+.hero-act{grid-column:1/-1;display:flex;gap:.6rem;align-items:stretch;flex-wrap:wrap;margin-top:1rem}
+.hero-act .keyplay{margin-top:0}
+.hero-act .partner{min-width:0;flex-direction:row;align-items:center;gap:.6rem;padding:.35rem .9rem}
+.hero-act .partner .pk{font-size:.6875rem}
+.hero-act .partner .pi{font-size:1.2rem}
+.hero-act .partner .pe{font-size:.875rem}
+/* partner */
+.partner{display:flex;flex-direction:column;align-items:flex-start;gap:.1rem;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.55rem .8rem .6rem;min-width:7.5rem;text-align:left}
+.partner .pk{font-size:.6875rem;color:var(--ink3)}
+.partner .pw{display:flex;align-items:baseline;gap:.45rem}
+.partner .pi{font-family:var(--f-ph);font-size:1.5rem;font-weight:700;color:var(--c);line-height:1.15}
+.partner .pe{font-family:var(--f-ph);font-size:.9375rem;color:var(--ink2)}
+.micnote{margin:.7rem 0 0;font-size:.75rem;color:var(--ink2);text-align:center;line-height:1.6}
+.pblock+.pblock{margin-top:1rem}
+.pblock h4{margin:.6rem 0 0;font-size:.75rem;color:var(--ink3);font-weight:700}
+.qscope{margin:0 0 1.25rem}
+.soon{font-size:.8125rem;color:var(--ink3);margin:2rem 0 0;text-align:center}
+
+/* phoneme hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:.25rem 1rem;align-items:start;padding:1rem 0 1rem}
+.hero-ipa{font-size:4rem;line-height:1;color:var(--c);font-weight:700;letter-spacing:-.01em}
+.hero-sp{margin-top:.7rem;font-size:.75rem;color:var(--ink3)}
+.hero-sp .sps{display:flex;flex-wrap:wrap;gap:0 .75rem;margin-top:.05rem}
+.hero-sp b{font-family:var(--f-ph);font-size:1.15rem;color:var(--ink);font-weight:700}
+.mini{width:8.5rem;height:auto;display:block;overflow:visible}
+.mini .tz{fill:var(--surface)}
+.mini .dot{fill:var(--line)}
+.mini .tgt{fill:var(--c)}
+.mini .gld{stroke:var(--c);stroke-width:2.4;fill:none;stroke-linecap:round}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);margin:1rem 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:.6rem .5rem .6rem 0}
+.facts div+div{padding-left:.75rem;border-left:1px solid var(--line)}
+.facts dt{font-size:.6875rem;color:var(--ink3)}
+.facts dd{margin:0;font-size:.875rem;font-weight:700;line-height:1.4}
+.keyplay{grid-column:1/-1;justify-self:start;display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem;background:var(--ink);color:var(--on-ink);border-radius:2rem;padding:.6rem 1.1rem .6rem .9rem;font-size:.9375rem}
+.keyplay .ph{font-size:1.15rem}
+.advice{display:grid;gap:.9rem;margin:.5rem 0 1.5rem}
+.adv{padding-left:.9rem;border-left:3px solid var(--c)}
+.adv.miss{border-left-color:var(--ink3)}
+.adv h3{margin:0;font-size:.8125rem;color:var(--ink2);font-weight:700}
+.adv p{margin:.1rem 0 0;font-size:.9375rem;line-height:1.75}
+
+/* toolbar */
+.toolbar{position:sticky;top:calc(3.5rem + env(safe-area-inset-top,0px));z-index:12;background:var(--bg);padding:.5rem 0 .6rem;margin:0 -1rem;padding-left:1rem;padding-right:1rem;border-bottom:1px solid transparent}
+.toolbar.stuck{border-bottom-color:var(--line)}
+.tb{display:flex;gap:.5rem;align-items:stretch}
+.tb>button{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;border-radius:.75rem;padding:.55rem .75rem;font-size:.875rem;background:var(--surface);border:1px solid var(--line);white-space:nowrap}
+.tb .tb-main{background:var(--ink);color:var(--on-ink);border-color:var(--ink);font-weight:700}
+.tb .tb-speed{font-variant-numeric:tabular-nums;min-width:5.6rem}
+.tb .tb-speed.on{border-color:var(--ink)}
+.tb .tb-k{color:var(--ink2);font-size:.75rem}
+.tb .tb-v{font-weight:700}
+.tb .grow{flex:1}
+.tb .tb-tog{padding:.55rem .6rem}
+.tb .tb-tog.off{color:var(--ink3);background:var(--sunk);border-color:var(--sunk)}
+.tb .tb-tog.off .lbl{text-decoration:line-through}
+.tb>button{min-width:0}
+@media (max-width:380px){.tb{gap:.4rem}.tb>button{padding:.55rem .6rem}.tb .tb-k{display:none}.tb .tb-speed{min-width:3.6rem}}
+.speedpanel{margin-top:.6rem;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.8rem 1rem .9rem}
+.sp-row{display:flex;align-items:center;gap:.75rem}
+.sp-row input{flex:1}
+.sp-val{font-size:1.125rem;font-weight:700;font-variant-numeric:tabular-nums;min-width:3.6rem;text-align:right}
+.sp-pre{display:flex;gap:.4rem;margin-top:.6rem}
+.sp-pre button{flex:1;padding:.4rem 0;border-radius:.6rem;background:var(--sunk);font-size:.8125rem;font-variant-numeric:tabular-nums}
+.sp-pre button.on{background:var(--ink);color:var(--on-ink);font-weight:700}
+input[type=range]{accent-color:var(--ink);height:1.75rem}
+
+.levels{margin:.9rem 0 1rem}
+
+/* word groups */
+.grp{margin-bottom:1rem}
+.ghead{width:100%;display:flex;align-items:center;gap:.6rem;padding:.6rem 0;text-align:left;border-bottom:1px solid var(--line)}
+.ghead .gl{font-family:var(--f-ph);font-size:1.0625rem;font-weight:700;color:var(--c)}
+.ghead .gl.ja{font-family:var(--f-ui);font-size:.9375rem}
+.ghead .gn{font-size:.75rem;color:var(--ink3);flex:1}
+.ghead .ic{color:var(--ink3);transition:transform .2s}
+.grp.open .ghead .ic{transform:rotate(90deg)}
+.wrow{display:flex;align-items:center;gap:.75rem;padding:.55rem .25rem .55rem .25rem;border-bottom:1px solid var(--line);cursor:pointer;border-radius:.4rem}
+.wrow.sel{background:color-mix(in srgb,var(--c) 9%,transparent)}
+.wrow.playing{background:color-mix(in srgb,var(--c) 16%,transparent)}
+.wl{flex:1;min-width:0}
+.wt{font-family:var(--f-ph);font-size:1.3rem;line-height:1.3;display:flex;align-items:center;gap:.35rem}
+.hl{color:var(--c);font-weight:700}
+.ck{color:var(--ok);width:1rem;height:1rem}
+.wi{font-family:var(--f-ph);font-size:.9375rem;color:var(--ink2);line-height:1.35}
+.wr{text-align:right;max-width:44%;line-height:1.35}
+.wja{font-size:.8125rem}
+.lv{font-size:.6875rem;color:var(--ink3)}
+.mask{display:inline-block;width:3.2rem;height:.55rem;border-radius:.3rem;background:var(--sunk);vertical-align:middle}
+.play{width:2.5rem;height:2.5rem;border-radius:50%;display:grid;place-items:center;color:var(--ink);flex:none;border:1px solid var(--line);background:var(--surface)}
+.play .ic{width:1rem;height:1rem}
+.empty{font-size:.875rem;color:var(--ink2);padding:1rem 0}
+
+/* sheet */
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;pointer-events:none}
+.sh{pointer-events:auto;width:100%;max-width:40rem;background:var(--surface);border-radius:1.4rem 1.4rem 0 0;box-shadow:var(--shadow);padding:.75rem 1rem calc(1rem + env(safe-area-inset-bottom));animation:up .22s ease-out}
+@keyframes up{from{transform:translateY(24px);opacity:.4}to{transform:none;opacity:1}}
+.sh-top{display:flex;align-items:center;gap:.25rem}
+.icb{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;color:var(--ink2);flex:none}
+.icb:not(:disabled):active{background:var(--sunk)}
+.sh-word{flex:1;text-align:center;min-width:0}
+.sh-w{font-family:var(--f-ph);font-size:2.1rem;line-height:1.15}
+.sh-meta{font-size:.875rem;color:var(--ink2);display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;align-items:center;min-height:1.5rem}
+.sh-meta .ph{font-size:1.05rem}
+.reveal{font-size:.75rem;color:var(--ink2);border:1px dashed var(--ink3);border-radius:1rem;padding:.05rem .6rem}
+.sh-pos{position:absolute;font-size:.6875rem;color:var(--ink3)}
+.sh-head{position:relative}
+.sh-x{position:absolute;right:-.4rem;top:-.4rem}
+.sh-bar{display:flex;justify-content:space-between;align-items:center;margin:-.35rem -.5rem .1rem 0}
+.sh-idx{font-size:.75rem;color:var(--ink3);font-variant-numeric:tabular-nums}
+.icb.sm{width:2.3rem;height:2.3rem}
+.sh-top+.sh-row{margin-top:.9rem}
+.sh-row{display:flex;gap:.5rem;margin-top:.5rem}
+.sh-row button{flex:1;display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.75rem .25rem;border-radius:.85rem;background:var(--sunk);font-size:.875rem;white-space:nowrap}
+.sh-row .rec{color:var(--ng)}
+.sh-row .rec.on{background:var(--ng);color:#fff}
+.sh-row .primary{background:var(--ink);color:var(--on-ink);font-weight:700;flex:1.4}
+.sh-row .donebtn.on{background:var(--ok);color:#fff;font-weight:700}
+.result{margin:.6rem 0 0;font-size:.8125rem;min-height:1.3rem;text-align:center;color:var(--ink2)}
+.result.ok{color:var(--ok);font-weight:700}
+.result.ng{color:var(--ng)}
+
+/* quiz */
+.q-start{padding:.5rem 0}
+.q-title{font-size:1.5rem;font-weight:700;margin:.25rem 0 .25rem}
+.q-lead{color:var(--ink2);font-size:.9375rem;margin:0 0 1.25rem;line-height:1.75}
+.q-sum{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:1.5rem}
+.q-sum div{padding:.7rem 0}
+.q-sum div+div{padding-left:.9rem;border-left:1px solid var(--line)}
+.q-sum dt{font-size:.6875rem;color:var(--ink3)}
+.q-sum dd{margin:0;font-size:1.125rem;font-weight:700;font-variant-numeric:tabular-nums}
+.btn-main{display:flex;width:100%;align-items:center;justify-content:center;gap:.5rem;background:var(--ink);color:var(--on-ink);border-radius:1rem;padding:1rem;font-size:1.0625rem;font-weight:700}
+.btn-sub{display:flex;width:100%;justify-content:center;padding:.85rem;font-size:.9375rem;color:var(--ink2)}
+.q-head{display:flex;justify-content:space-between;font-size:.8125rem;color:var(--ink2);font-variant-numeric:tabular-nums;margin-top:.5rem}
+.q-dots{display:flex;gap:.3rem;margin:.6rem 0 0}
+.q-dots i{flex:1;height:4px;border-radius:2px;background:var(--sunk)}
+.q-dots i.ok{background:var(--ok)}.q-dots i.ng{background:var(--ng)}.q-dots i.cur{background:var(--ink3)}
+.q-stage{display:flex;flex-direction:column;align-items:center;padding:2.2rem 0 1.4rem}
+.q-play{width:6rem;height:6rem;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center}
+.q-play .ic{width:2.2rem;height:2.2rem;margin-left:.25rem}
+.q-slow{margin-top:.75rem;font-size:.875rem;color:var(--ink2);padding:.3rem .8rem}
+.q-ask{text-align:center;font-size:.875rem;color:var(--ink2);margin:0 0 .8rem}
+.q-choices{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.choice{background:var(--surface);border:1.5px solid var(--line);border-radius:1rem;padding:1.1rem .5rem;text-align:center;min-height:6.4rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem}
+.choice .cw{font-family:var(--f-ph);font-size:1.9rem;line-height:1.1}
+.choice .ci{font-family:var(--f-ph);font-size:1rem;color:var(--ink2)}
+.choice.right{border-color:var(--ok);box-shadow:inset 0 0 0 1.5px var(--ok)}
+.choice.wrong{border-color:var(--ng);box-shadow:inset 0 0 0 1.5px var(--ng)}
+.choice .hear{margin-top:.35rem;display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;color:var(--ink2);border:1px solid var(--line);border-radius:1rem;padding:.2rem .65rem}
+.choice .hear .ic{width:.8rem;height:.8rem}
+.q-fb{text-align:center;font-weight:700;margin:1.1rem 0 .9rem;font-size:1rem}
+.q-fb.ok{color:var(--ok)}.q-fb.ng{color:var(--ng)}
+.q-score{font-size:3.5rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;margin:1.5rem 0 .3rem}
+.q-score small{font-size:1.25rem;color:var(--ink3);font-weight:400}
+
+/* settings */
+.set-h{font-size:.8125rem;color:var(--ink2);font-weight:700;margin:1.6rem 0 .5rem}
+.set-h:first-child{margin-top:.5rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:1rem;overflow:hidden}
+.srow{padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+.srow:last-child{border-bottom:0}
+.srow.inline{display:flex;align-items:center;gap:1rem}
+.srow .lab{flex:1;font-size:.9375rem}
+.srow .desc{display:block;font-size:.75rem;color:var(--ink3);line-height:1.5;margin-top:.1rem}
+.srow .val{font-weight:700;font-variant-numeric:tabular-nums;font-size:.9375rem}
+.srow .rhead{display:flex;justify-content:space-between;align-items:baseline}
+.srow input[type=range]{width:100%;margin-top:.2rem}
+.srow .seg{margin-top:.5rem}
+.srow select{width:100%;margin-top:.5rem;padding:.6rem .7rem;border-radius:.6rem;border:1px solid var(--line);background:var(--bg)}
+.sw{width:3rem;height:1.8rem;border-radius:1rem;background:var(--sunk);position:relative;flex:none;transition:background .15s}
+.sw::after{content:"";position:absolute;top:.2rem;left:.2rem;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .15s}
+.sw[aria-checked="true"]{background:var(--ink)}
+.sw[aria-checked="true"]::after{transform:translateX(1.2rem)}
+.btn-line{padding:.5rem .9rem;border:1px solid var(--line);border-radius:.6rem;font-size:.875rem;background:var(--surface)}
+.btn-line.danger{color:var(--ng)}
+.btnrow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+.pgrps{margin-top:.7rem;display:grid;gap:.55rem}
+.pgrp{display:grid;grid-template-columns:4.6rem 1fr;gap:.6rem;align-items:start}
+.pgl{font-size:.9375rem;color:var(--ink2);padding-top:.3rem;white-space:nowrap}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{font-family:var(--f-ph);font-size:.9375rem;padding:.28rem .75rem;border-radius:1rem;border:1px dashed var(--line);color:var(--ink3);background:transparent;text-decoration:line-through;text-decoration-color:var(--ink3)}
+.pill.on{background:var(--sunk);border:1px solid var(--sunk);color:var(--ink);text-decoration:none}
+.pairs{display:grid;grid-template-columns:1fr 1fr;gap:.1rem .75rem;margin-top:.6rem}
+.pairs label{display:flex;align-items:center;gap:.45rem;font-size:.875rem;padding:.3rem 0}
+.pairs input{accent-color:var(--ink);width:1.05rem;height:1.05rem}
+.pairs .pl{font-family:var(--f-ph)}
+.status{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;font-size:.875rem;margin:0}
+.status dt{color:var(--ink2)}
+.status dd{margin:0;font-weight:700}
+.status dd.no{color:var(--ng)}
+
+#toast{position:fixed;left:50%;bottom:5.5rem;transform:translate(-50%,8px);background:var(--ink);color:var(--on-ink);padding:.6rem 1rem;border-radius:.75rem;font-size:.875rem;z-index:50;max-width:calc(100% - 2rem);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.learn-guide{padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;margin:.6rem 0 1rem}.learn-guide p{font-size:.875rem;line-height:1.7;color:var(--ink2);margin:.5rem 0}.learn-guide .btnrow{flex-wrap:wrap}.lesson-step{font-size:.8rem;color:var(--ink2);padding:.5rem 0}.lesson-step span{display:block;margin-top:.2rem}.play-summary{padding:.35rem 0}.play-summary .linkbtn{font-size:.8rem;text-align:left;min-height:2.5rem}.play-options{padding:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:.8rem;max-height:45vh;overflow:auto}.play-options label{display:block;font-size:.85rem;margin-bottom:.7rem}.play-options select{display:block;width:100%;min-height:2.8rem;padding:.5rem;margin-top:.3rem;background:var(--bg);border:1px solid var(--line);border-radius:.5rem}.play-options .follow-label{display:flex;gap:.5rem;align-items:center;min-height:2.5rem}.follow-label input{width:1.2rem;height:1.2rem;flex:none}.play-options p{font-size:.75rem;line-height:1.6;color:var(--ink2);margin:0}.now-playing{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.75rem;padding:.25rem 0 .5rem}.now-playing b{font-family:var(--f-ph);font-size:1rem}.now-playing .linkbtn{white-space:nowrap;font-size:.75rem;min-height:2.5rem}
+</style>
+<style>
+/*SOUND CHANGES*/
+.sc-lead{color:var(--ink2);font-size:.9375rem;line-height:1.7;margin:.5rem 0 1rem}
+.sc-cards{display:grid;gap:.6rem}
+.sc-card{position:relative;display:flex;align-items:center;gap:.8rem;background:var(--surface);border:1px solid var(--line);border-radius:.9rem;padding:.85rem .9rem 1rem;text-align:left;overflow:hidden}
+.sc-no{flex:none;width:1.9rem;height:1.9rem;border-radius:50%;display:grid;place-items:center;background:var(--c);color:var(--on-ink);font-weight:700;font-size:.875rem}
+.sc-cb{flex:1;min-width:0;display:flex;flex-direction:column;gap:.1rem}
+.sc-cn{font-weight:700;font-size:1rem}
+.sc-ce{font-size:.75rem;color:var(--ink3)}
+.sc-cs{font-size:.8125rem;color:var(--ink2)}
+.sc-cp{flex:none;font-weight:700;font-size:1rem;color:var(--ink2)}
+.sc-cp small{font-weight:400;font-size:.75rem}
+.sc-bar{position:absolute;left:0;bottom:0;height:3px;width:calc(var(--p)*100%);background:var(--c)}
+.sc-note{font-size:.75rem;color:var(--ink3);line-height:1.6;margin:1.2rem 0 1.5rem}
+.sc-exp{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--ink2));border-radius:.8rem;padding:.4rem 1rem .9rem;margin:.5rem 0 1rem}
+.sc-exp h2{font-size:.8125rem;color:var(--ink2);margin:.8rem 0 .2rem}
+.sc-exp p{margin:0;font-size:.9375rem;line-height:1.7}
+.sc-seg{margin:1rem 0 .6rem}
+.sc-tb{display:flex;align-items:center;gap:.7rem;margin:.4rem 0 .5rem;flex-wrap:wrap}
+.sc-tb .btn-line{display:inline-flex;align-items:center;gap:.3rem}
+.sc-tb .ic{width:1.1rem;height:1.1rem}
+.sc-leg{font-size:.75rem;color:var(--ink3)}
+.sc-row{border-bottom:1px solid var(--line)}
+.sc-rh{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;width:100%;padding:.65rem 2rem .65rem .25rem;text-align:left}
+.sc-row.open .sc-rh{background:var(--sunk);border-radius:.5rem .5rem 0 0}
+.sc-rt{font-size:1.2rem;line-height:1.35}
+.sc-rt .hl{color:var(--c,var(--short));font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.sc-st{font-size:1.25em;font-weight:800;color:var(--c,var(--short))}
+.sc-re{font-size:.9375rem;color:var(--ink)}
+.sc-re .sc-st{font-size:1.15em}
+.sc-rj{font-size:.8125rem;color:var(--ink3)}
+.sc-ck{position:absolute;right:.4rem;top:.8rem;width:1.2rem;height:1.2rem;color:var(--ok)}
+.sc-ra{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;padding:.5rem .25rem .8rem;background:var(--sunk);border-radius:0 0 .5rem .5rem}
+.sc-ra button{display:flex;align-items:center;justify-content:center;gap:.3rem;padding:.55rem .2rem;border-radius:.6rem;background:var(--surface);border:1px solid var(--line);font-size:.8125rem}
+.sc-ra button:disabled{opacity:.4}
+.sc-ra .ic{width:1rem;height:1rem}
+.sc-ra .rec.on{background:var(--ng);color:#fff;border-color:var(--ng)}
+.sc-ra .sc-done.on{background:var(--ok);color:var(--on-ink);border-color:var(--ok)}
+.sc-ind{background:var(--surface);border:1px solid var(--line);border-radius:.8rem;padding:.2rem 1rem 1rem;margin-bottom:.8rem}
+.sc-ind h2{font-size:1.05rem;margin:.8rem 0 .4rem}
+.sc-ind dl{margin:0}
+.sc-ind dt{font-size:.75rem;color:var(--ink3);margin-top:.5rem}
+.sc-ind dd{margin:.1rem 0 0;font-size:.9rem;line-height:1.65}
+.sc-indb{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
+.sc-qs{text-align:center;padding:1rem 0}
+.sc-qd{font-size:.875rem;color:var(--ink2);line-height:1.7;text-align:left}
+.sc-qbest{font-weight:700}
+.sc-qbtn{display:flex;flex-direction:column;gap:.6rem;margin-top:1rem}
+.sc-qbar{display:flex;justify-content:space-between;align-items:center;font-size:.875rem;color:var(--ink2);margin:.5rem 0}
+.sc-qt{font-size:1.3rem;margin:.6rem 0 0;text-align:center}
+.sc-qch{display:grid;gap:.5rem;margin-top:1rem}
+.sc-qch.two{grid-template-columns:1fr 1fr}
+.sc-opt{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;background:var(--surface);border:1.5px solid var(--line);border-radius:.8rem;padding:.8rem 2.8rem .8rem .9rem;text-align:left;font-size:1.05rem;width:100%}
+.sc-opt.big{align-items:center;padding:1.1rem .5rem;font-size:1.15rem;font-weight:700}
+.sc-opt .sc-oe{font-size:.8125rem;color:var(--ink2)}
+.sc-opt .hear{position:absolute;right:.5rem;top:50%;transform:translateY(-50%);width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;background:var(--sunk)}
+.sc-opt .hear .ic{width:1rem;height:1rem}
+.sc-opt.right,.sc-tok .right{border-color:var(--ok);box-shadow:inset 0 0 0 1.5px var(--ok)}
+.sc-opt.wrong,.sc-tok .wrong{border-color:var(--ng);box-shadow:inset 0 0 0 1.5px var(--ng)}
+.sc-tok{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin:1rem 0}
+.sc-tok>*{font-size:1.25rem;padding:.45rem .75rem;border-radius:.6rem;border:1.5px solid var(--line);background:var(--surface);min-width:2.4rem;text-align:center}
+.sc-fb{margin:1rem 0;padding:.8rem 1rem;border-radius:.8rem;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.25rem;font-size:.9rem}
+.sc-fb b{color:var(--ok)}.sc-fb.ng b{color:var(--ng)}
+.sc-fb .ph{font-size:1.15rem}
+
+.sc-quick{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:0 0 1rem}
+.sc-quick button{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem;padding:.75rem .85rem;border-radius:.8rem;background:var(--ink);color:var(--on-ink);text-align:left}
+.sc-quick button:nth-child(n+2){background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.sc-quick .k{font-size:.8125rem;font-weight:700}
+.sc-quick .v{font-size:1.25rem;font-weight:700}
+.sc-quick .v.sm{font-size:.75rem;font-weight:400;opacity:.8}
+.sc-quick .v small{font-size:.75rem;font-weight:400}
+.sc-rc{font-size:.6875rem;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:.4rem;padding:0 .35rem}
+.sc-flags{position:absolute;right:.35rem;top:.7rem;display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.sc-flags .sc-ck{position:static}
+.sc-mi{font-style:normal;font-size:.625rem;font-weight:700;color:var(--ng);border:1px solid var(--ng);border-radius:.3rem;padding:0 .2rem}
+.sc-fv{color:var(--cons);display:grid}
+.sc-fv .ic{width:1.1rem;height:1.1rem}
+.sc-ra .sc-favb.on{color:var(--cons);border-color:var(--cons)}
+.sc-favb.sm{align-self:flex-start;display:inline-flex;align-items:center;gap:.3rem;margin-top:.4rem;padding:.35rem .7rem;border-radius:.6rem;border:1px solid var(--line);background:var(--bg);font-size:.8125rem}
+.sc-favb.sm.on{color:var(--cons);border-color:var(--cons)}
+.sc-favb .ic{width:1rem;height:1rem}
+.sc-opt.big.sm{font-size:.95rem;padding:.9rem .4rem}
+.sc-empty{color:var(--ink2);font-size:.9rem;line-height:1.7;text-align:center;padding:1.5rem 0}
+.sc-fb small{color:var(--ink3);font-weight:400}
+</style>
+</head>
+<body data-view="map">
+<header class="top" id="top"></header>
+<main id="main"></main>
+<div id="sheet" hidden></div>
+<nav class="nav" aria-label="画面切り替え"><div>
+  <button data-act="tab" data-tab="map" class="on"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M3 5h18v14H8.5z"/><circle cx="13" cy="11" r="1.6" fill="currentColor" stroke="none"/></svg>練習</button>
+  <button data-act="tab" data-tab="sc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2M21 12h0"/></svg>音の変化</button>
+  <button data-act="tab" data-tab="quiz"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="6" width="7.5" height="12" rx="2"/><rect x="13.5" y="6" width="7.5" height="12" rx="2"/></svg>聞き分け</button>
+  <button data-act="tab" data-tab="settings"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></svg>設定</button>
+</div></nav>
+<input type="file" id="importFile" accept="application/json,.json" hidden>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/*DATA*/
+const CATS=[{id:"short",name:"短母音"},{id:"long",name:"長母音"},{id:"diph",name:"二重母音"},{id:"r",name:"r の母音"},{id:"cons",name:"子音"}];
+const P=[
+{id:"v_i",ipa:"ɪ",cat:"short",key:"sit",sp:"i, y, ui, e, o, u, a",
+tip:"日本語の「イ」と「エ」の中間。口と舌の力を抜いて、短く言う。",
+miss:"「イー」と伸ばすと /iː/ に聞こえる。ship が sheep になる。",
+groups:[
+["i","s[i]t|sɪt|座る|1;b[i]g|bɪɡ|大きい|1;f[i]sh|fɪʃ|魚|1;m[i]lk|mɪlk|牛乳|1;th[i]s|ðɪs|これ|1;l[i]ve|lɪv|住む|1;g[i]ve|ɡɪv|与える|1;d[i]nner|ˈdɪnɚ|夕食|1;l[i]sten|ˈlɪsən|聞く|1;v[i]sit|ˈvɪzɪt|訪れる|1;f[i]nish|ˈfɪnɪʃ|終える|1;sh[i]p|ʃɪp|船|1;c[i]ty|ˈsɪti|都市|1;[i]ssue|ˈɪʃuː|問題、発行する|3;[i]nvoice|ˈɪnvɔɪs|請求書|3;sh[i]pping|ˈʃɪpɪŋ|配送|3"],
+["y","g[y]m|dʒɪm|ジム|1;s[y]stem|ˈsɪstəm|仕組み|2;s[y]mbol|ˈsɪmbəl|記号|2;t[y]pical|ˈtɪpɪkəl|典型的な|2;rh[y]thm|ˈrɪðəm|リズム|2"],
+["ui","b[ui]ld|bɪld|建てる|1;b[ui]lding|ˈbɪldɪŋ|建物|1;g[ui]lty|ˈɡɪlti|有罪の|2"],
+["e / o / u / a（例外）","[E]nglish|ˈɪŋɡlɪʃ|英語|1;pr[e]tty|ˈprɪti|かなり、かわいい|1;w[o]men|ˈwɪmɪn|女性たち|1;b[u]siness|ˈbɪznɪs|仕事|1;mess[a]ge|ˈmesɪdʒ|伝言|1;vill[a]ge|ˈvɪlɪdʒ|村|2;pack[a]ge|ˈpækɪdʒ|小包|3"]]},
+{id:"v_e",ipa:"e",cat:"short",key:"bed",sp:"e, ea, ai, ay, a, ie, u",
+tip:"日本語の「エ」に近い。口を指1本ぶん縦に開ける。",
+miss:"口を横に引きすぎると /æ/ との差がなくなる。bed と bad を言い分ける。",
+groups:[
+["e","b[e]d|bed|ベッド|1;r[e]d|red|赤|1;t[e]n|ten|10|1;p[e]n|pen|ペン|1;l[e]g|leɡ|脚|1;[e]gg|eɡ|卵|1;h[e]lp|help|助ける|1;s[e]nd|send|送る|1;b[e]st|best|最もよい|1;t[e]st|test|テスト|1;pr[e]sent|ˈprezənt|プレゼント|1;m[e]mber|ˈmembɚ|一員|1;sch[e]dule|ˈskedʒuːl|予定|3;ag[e]nda|əˈdʒendə|議題|3;exp[e]nse|ɪkˈspens|費用|3"],
+["ea","h[ea]d|hed|頭|1;br[ea]d|bred|パン|1;br[ea]kfast|ˈbrekfəst|朝食|1;w[ea]ther|ˈweðɚ|天気|1;h[ea]vy|ˈhevi|重い|1;r[ea]dy|ˈredi|準備ができた|1;h[ea]lth|helθ|健康|2;m[ea]sure|ˈmeʒɚ|測る|2;thr[ea]t|θret|脅威|2"],
+["ai / ay","s[ai]d|sed|言った|1;ag[ai]n|əˈɡen|再び|1;s[ay]s|sez|言う（三単現）|1"],
+["a / ie / u（例外）","[a]ny|ˈeni|いくらかの|1;m[a]ny|ˈmeni|たくさんの|1;fr[ie]nd|frend|友達|1;b[u]ry|ˈberi|埋める|2"]]},
+{id:"v_ae",ipa:"æ",cat:"short",key:"cat",sp:"a, au",
+tip:"「エ」の口の形のまま「ア」と言う。口角を横に引き、あごも下げて少し長めに。",
+miss:"日本語の「ア」で言うと /ʌ/ に聞こえ、cat が cut になる。",
+groups:[
+["a（1音節）","c[a]t|kæt|猫|1;b[a]g|bæɡ|かばん|1;h[a]t|hæt|帽子|1;m[a]p|mæp|地図|1;h[a]nd|hænd|手|1;b[a]ck|bæk|後ろ|1;bl[a]ck|blæk|黒|1;th[a]nk|θæŋk|感謝する|1;pl[a]n|plæn|計画|1"],
+["a（2音節以上）","[a]pple|ˈæpəl|りんご|1;h[a]ppy|ˈhæpi|幸せな|1;f[a]mily|ˈfæməli|家族|1;[a]ctually|ˈæktʃuəli|実は|1;tr[a]ffic|ˈtræfɪk|交通|2;ch[a]llenge|ˈtʃælɪndʒ|挑戦|2;c[a]pital|ˈkæpɪtəl|首都、資本|2;st[a]ndard|ˈstændɚd|標準|2;m[a]nager|ˈmænɪdʒɚ|管理者|3;c[a]ncel|ˈkænsəl|取り消す|3;[a]nnual|ˈænjuəl|年1回の|3;an[a]lysis|əˈnæləsɪs|分析|3;c[a]ndidate|ˈkændɪdət|候補者|3;b[a]lance|ˈbæləns|残高|3"],
+["a（米音で /æ/）","[a]sk|æsk|尋ねる|1;gl[a]ss|ɡlæs|コップ|1;l[a]st|læst|最後の|1;c[a]n't|kænt|できない|1;d[a]nce|dæns|踊る|1;[a]nswer|ˈænsɚ|答え|1"],
+["au","l[au]gh|læf|笑う|1;[au]nt|ænt|おば|1"]]},
+{id:"v_uh",ipa:"ʌ",cat:"short",key:"cup",sp:"u, o, ou, oo, oe",
+tip:"口を軽く開けて、のどの奥から短く「ア」。驚いたときの「アッ」の感覚。",
+miss:"口を大きく開けすぎると /ɑː/ に、横に引くと /æ/ になる。",
+groups:[
+["u","c[u]p|kʌp|カップ|1;b[u]s|bʌs|バス|1;r[u]n|rʌn|走る|1;s[u]n|sʌn|太陽|1;f[u]n|fʌn|楽しみ|1;j[u]mp|dʒʌmp|跳ぶ|1;l[u]nch|lʌntʃ|昼食|1;m[u]st|mʌst|〜しなければならない|1;n[u]mber|ˈnʌmbɚ|数|1;S[u]nday|ˈsʌndeɪ|日曜日|1;s[u]bject|ˈsʌbdʒekt|教科、件名|1;f[u]nction|ˈfʌŋkʃən|機能|2;b[u]dget|ˈbʌdʒɪt|予算|3"],
+["o","s[o]n|sʌn|息子|1;c[o]me|kʌm|来る|1;s[o]me|sʌm|いくつかの|1;l[o]ve|lʌv|愛する|1;M[o]nday|ˈmʌndeɪ|月曜日|1;m[o]ney|ˈmʌni|お金|1;m[o]nth|mʌnθ|月|1;[o]ther|ˈʌðɚ|ほかの|1;ab[o]ve|əˈbʌv|上に|1;c[o]mpany|ˈkʌmpəni|会社|1;w[o]nder|ˈwʌndɚ|不思議に思う|2"],
+["ou","c[ou]ntry|ˈkʌntri|国|1;y[ou]ng|jʌŋ|若い|1;d[ou]ble|ˈdʌbəl|2倍の|1;en[ou]gh|ɪˈnʌf|十分な|1;t[ou]ch|tʌtʃ|触れる|1"],
+["oo / oe","d[oe]s|dʌz|する（三単現）|1;bl[oo]d|blʌd|血|2;fl[oo]d|flʌd|洪水|2"]]},
+{id:"v_u",ipa:"ʊ",cat:"short",key:"book",sp:"oo, u, ou, o",
+tip:"唇を軽く丸めて、力を抜いた短い「ウ」。「ウ」と「オ」の中間。",
+miss:"唇を突き出して伸ばすと /uː/ になる。full が fool に聞こえる。",
+groups:[
+["oo","b[oo]k|bʊk|本|1;l[oo]k|lʊk|見る|1;c[oo]k|kʊk|料理する|1;g[oo]d|ɡʊd|よい|1;w[oo]d|wʊd|木材|1;f[oo]t|fʊt|足|1;st[oo]d|stʊd|立った|1;t[oo]k|tʊk|取った|1;sh[oo]k|ʃʊk|振った|2;w[oo]l|wʊl|羊毛|2;h[oo]k|hʊk|フック|2"],
+["u","p[u]t|pʊt|置く|1;p[u]ll|pʊl|引く|1;p[u]sh|pʊʃ|押す|1;f[u]ll|fʊl|いっぱいの|1;s[u]gar|ˈʃʊɡɚ|砂糖|1;p[u]dding|ˈpʊdɪŋ|プリン|1;b[u]sh|bʊʃ|茂み|2"],
+["ou","c[ou]ld|kʊd|〜できた|1;w[ou]ld|wʊd|〜だろう|1;sh[ou]ld|ʃʊd|〜すべき|1"],
+["o","w[o]man|ˈwʊmən|女性|1;w[o]lf|wʊlf|オオカミ|2"]]},
+{id:"v_schwa",ipa:"ə",cat:"short",key:"about",sp:"a, o, e, u, ou, i",
+tip:"口・舌・唇の力を全部抜いて、短くあいまいな「ア」。アクセントのない場所にだけ出る音。",
+miss:"つづりにつられて about を「アバウト」、lemon を「レモン」とはっきり読んでしまう。",
+groups:[
+["a","[a]bout|əˈbaʊt|約、〜について|1;[a]go|əˈɡoʊ|〜前に|1;[a]way|əˈweɪ|離れて|1;b[a]nana|bəˈnænə|バナナ|1;J[a]pan|dʒəˈpæn|日本|1;sof[a]|ˈsoʊfə|ソファ|1;pizz[a]|ˈpiːtsə|ピザ|1;ide[a]|aɪˈdiːə|考え|1;[a]ttend|əˈtend|出席する|3;[a]vailable|əˈveɪləbəl|利用できる|3;[a]ccount|əˈkaʊnt|口座、アカウント|3"],
+["o","lem[o]n|ˈlemən|レモン|1;sec[o]nd|ˈsekənd|2番目の、秒|1;c[o]mputer|kəmˈpjuːtɚ|コンピューター|1;t[o]day|təˈdeɪ|今日|1;pers[o]n|ˈpɝːsən|人|1;seas[o]n|ˈsiːzən|季節|1;c[o]llect|kəˈlekt|集める|2;p[o]sition|pəˈzɪʃən|位置、職|2;c[o]nfirm|kənˈfɝːm|確認する|3"],
+["e","probl[e]m|ˈprɑːbləm|問題|1;mom[e]nt|ˈmoʊmənt|瞬間|1;childr[e]n|ˈtʃɪldrən|子どもたち|1;gard[e]n|ˈɡɑːrdən|庭|1"],
+["u","s[u]pport|səˈpɔːrt|支える|2;s[u]ppose|səˈpoʊz|思う|2;s[u]ccess|səkˈses|成功|2;circ[u]s|ˈsɝːkəs|サーカス|2"],
+["ou","fam[ou]s|ˈfeɪməs|有名な|1;danger[ou]s|ˈdeɪndʒɚəs|危険な|1"],
+["i","penc[i]l|ˈpensəl|鉛筆|1;poss[i]ble|ˈpɑːsəbəl|可能な|1"]]},
+{id:"v_er_weak",ipa:"ɚ",cat:"short",key:"teacher",sp:"er, or, ar, ure",
+tip:"舌先を少し持ち上げるか、舌全体を奥へ引いて、弱い「アー」に r の響きをのせる。アメリカ英語らしさが一番出る音。",
+miss:"「ティーチャー」のように r の響きがないまま「アー」で終わる。",
+groups:[
+["er","teach[er]|ˈtiːtʃɚ|先生|1;butt[er]|ˈbʌtɚ|バター|1;wat[er]|ˈwɑːtɚ|水|1;fath[er]|ˈfɑːðɚ|父|1;moth[er]|ˈmʌðɚ|母|1;sist[er]|ˈsɪstɚ|姉妹|1;play[er]|ˈpleɪɚ|選手|1;lead[er]|ˈliːdɚ|リーダー|1;speak[er]|ˈspiːkɚ|話し手|1;ov[er]|ˈoʊvɚ|〜を越えて|1;aft[er]|ˈæftɚ|〜のあとで|1;und[er]|ˈʌndɚ|〜の下に|1;ord[er]|ˈɔːrdɚ|注文|1;pap[er]|ˈpeɪpɚ|紙|1;custom[er]|ˈkʌstəmɚ|顧客|3;deliv[er]|dɪˈlɪvɚ|配達する|3"],
+["or","doct[or]|ˈdɑːktɚ|医者|1;act[or]|ˈæktɚ|俳優|1;visit[or]|ˈvɪzɪtɚ|訪問者|1;col[or]|ˈkʌlɚ|色|1;fav[or]ite|ˈfeɪvɚɪt|お気に入りの|1;elevat[or]|ˈeləveɪtɚ|エレベーター|2;direct[or]|dəˈrektɚ|責任者|3"],
+["ar","doll[ar]|ˈdɑːlɚ|ドル|1;popul[ar]|ˈpɑːpjəlɚ|人気のある|1;calend[ar]|ˈkæləndɚ|カレンダー|1;regul[ar]|ˈreɡjəlɚ|定期的な|2"],
+["ure","pict[ure]|ˈpɪktʃɚ|絵、写真|1;nat[ure]|ˈneɪtʃɚ|自然|1;fut[ure]|ˈfjuːtʃɚ|未来|1"]]},
+{id:"v_ii",ipa:"iː",cat:"long",key:"see",sp:"ee, ea, e, ie, ei, i, eo",
+tip:"唇を横に強く引いて、はっきり「イー」と長く。",
+miss:"短く「イ」で済ませると /ɪ/ と区別できない。sheep と ship を言い分ける。",
+groups:[
+["ee","s[ee]|siː|見る|1;tr[ee]|triː|木|1;thr[ee]|θriː|3|1;f[ee]l|fiːl|感じる|1;m[ee]t|miːt|会う|1;sh[ee]p|ʃiːp|羊|1;w[ee]k|wiːk|週|1;n[ee]d|niːd|必要とする|1;sl[ee]p|sliːp|眠る|1;gr[ee]n|ɡriːn|緑|1;f[ee]|fiː|料金|3;employ[ee]|ɪmˈplɔɪiː|従業員|3"],
+["ea","[ea]t|iːt|食べる|1;t[ea]|tiː|お茶|1;s[ea]|siː|海|1;r[ea]d|riːd|読む|1;t[ea]m|tiːm|チーム|1;cl[ea]n|kliːn|きれいな|1;l[ea]ve|liːv|去る|1;incr[ea]se|ɪnˈkriːs|増える|2;l[ea]se|liːs|賃貸契約|3"],
+["e","m[e]|miː|私を|1;w[e]|wiː|私たち|1;compl[e]te|kəmˈpliːt|完成させる|2"],
+["ie / ei / i / eo","p[ie]ce|piːs|1切れ|1;bel[ie]ve|bɪˈliːv|信じる|1;pol[i]ce|pəˈliːs|警察|1;p[eo]ple|ˈpiːpəl|人々|1;rec[ei]ve|rɪˈsiːv|受け取る|2;mach[i]ne|məˈʃiːn|機械|2;rec[ei]pt|rɪˈsiːt|領収書|3"]]},
+{id:"v_uu",ipa:"uː",cat:"long",key:"food",sp:"oo, u, ue, ew, o, ou, ui",
+tip:"唇を小さく丸めて前に突き出し、「ウー」と長く。口笛を吹くときの唇の形。",
+miss:"唇を丸めない日本語の「ウ」になる。food が「フード」の平たい音になる。",
+groups:[
+["oo","f[oo]d|fuːd|食べ物|1;m[oo]n|muːn|月|1;s[oo]n|suːn|すぐに|1;r[oo]m|ruːm|部屋|1;sch[oo]l|skuːl|学校|1;c[oo]l|kuːl|涼しい|1;t[oo]|tuː|〜も|1;z[oo]|zuː|動物園|1;p[oo]l|puːl|プール|1;t[oo]th|tuːθ|歯|1"],
+["u / ue","r[u]le|ruːl|規則|1;J[u]ne|dʒuːn|6月|1;fl[u]|fluː|インフルエンザ|1;st[u]dent|ˈstuːdənt|学生|1;s[u]per|ˈsuːpɚ|すごい|1;bl[ue]|bluː|青|1;tr[ue]|truː|本当の|1;d[ue]|duː|期限の|3"],
+["ew","n[ew]|nuː|新しい|1;fl[ew]|fluː|飛んだ|1;cr[ew]|kruː|乗組員|2"],
+["o / ou / ui","d[o]|duː|する|1;tw[o]|tuː|2|1;m[o]ve|muːv|動く|1;wh[o]|huː|誰|1;gr[ou]p|ɡruːp|グループ|1;s[ou]p|suːp|スープ|1;y[ou]|juː|あなた|1;fr[ui]t|fruːt|果物|1;j[ui]ce|dʒuːs|ジュース|1"]]},
+{id:"v_aa",ipa:"ɑː",cat:"long",key:"hot",sp:"o, a, ow",
+tip:"口を縦に大きく開けて、のどの奥から「アー」。アメリカ英語では hot も father もこの音。",
+miss:"o のつづりにつられて「オ」と読む。hot は「ホット」より「ハート」寄り。",
+groups:[
+["o","h[o]t|hɑːt|暑い|1;st[o]p|stɑːp|止まる|1;b[o]x|bɑːks|箱|1;t[o]p|tɑːp|頂上|1;j[o]b|dʒɑːb|仕事|1;cl[o]ck|klɑːk|時計|1;sh[o]p|ʃɑːp|店|1;n[o]t|nɑːt|〜でない|1;l[o]t|lɑːt|たくさん|1;g[o]t|ɡɑːt|得た|1;r[o]ck|rɑːk|岩|1;b[o]ttle|ˈbɑːtəl|ビン|1;h[o]bby|ˈhɑːbi|趣味|1;c[o]py|ˈkɑːpi|写し|1;c[o]llege|ˈkɑːlɪdʒ|大学|1;s[o]rry|ˈsɑːri|ごめんなさい|1;[o]ption|ˈɑːpʃən|選択肢|3;pr[o]ject|ˈprɑːdʒekt|計画|3;c[o]ntract|ˈkɑːntrækt|契約|3"],
+["a","f[a]ther|ˈfɑːðɚ|父|1;w[a]tch|wɑːtʃ|見る、腕時計|1;w[a]nt|wɑːnt|欲しい|1;wh[a]t|wɑːt|何|1;dr[a]ma|ˈdrɑːmə|ドラマ|1;p[a]sta|ˈpɑːstə|パスタ|1;paj[a]mas|pəˈdʒɑːməz|パジャマ|1;c[a]lm|kɑːm|落ち着いた|2;p[a]lm|pɑːm|手のひら|2;sp[a]|spɑː|温泉施設|2"],
+["ow","kn[ow]ledge|ˈnɑːlɪdʒ|知識|2"]]},
+{id:"v_oo",ipa:"ɔː",cat:"long",key:"law",sp:"aw, au, ough, a, o",
+tip:"唇を少し丸め、口を縦に大きく開けて「オー」。日本語の「オー」より口を大きく開ける。",
+miss:"アメリカでは /ɑː/ と同じ音で言う人も多い（cot と caught が同じ音）。どちらでも通じる。練習はこの口の形でそろえる。",
+groups:[
+["aw","s[aw]|sɔː|見た|1;dr[aw]|drɔː|描く|1;str[aw]|strɔː|ストロー|1;l[aw]|lɔː|法律|2;[aw]ful|ˈɔːfəl|ひどい|2"],
+["au","c[au]ght|kɔːt|捕まえた|1;t[au]ght|tɔːt|教えた|1;d[au]ghter|ˈdɔːtɚ|娘|1;[Au]gust|ˈɔːɡəst|8月|1;bec[au]se|bɪˈkɔːz|なぜなら|1;[au]tumn|ˈɔːtəm|秋|1;[au]thor|ˈɔːθɚ|著者|2;[au]dit|ˈɔːdɪt|監査|3"],
+["ough","th[ough]t|θɔːt|思った|1;b[ough]t|bɔːt|買った|1;br[ough]t|brɔːt|持ってきた|1"],
+["a（al / all）","w[a]lk|wɔːk|歩く|1;t[a]lk|tɔːk|話す|1;[a]ll|ɔːl|すべて|1;b[a]ll|bɔːl|ボール|1;c[a]ll|kɔːl|電話する|1;sm[a]ll|smɔːl|小さい|1;[a]lso|ˈɔːlsoʊ|〜も|1;[a]lways|ˈɔːlweɪz|いつも|1"],
+["o","l[o]ng|lɔːŋ|長い|1;s[o]ng|sɔːŋ|歌|1;str[o]ng|strɔːŋ|強い|1;c[o]ffee|ˈkɔːfi|コーヒー|1;[o]ften|ˈɔːfən|しばしば|1;l[o]ss|lɔːs|損失|3"]]},
+{id:"v_er_strong",ipa:"ɝː",cat:"long",key:"bird",sp:"ir, er, ur, or, ear, our",
+tip:"口はあまり開けず、舌を奥へ引いて、こもった「アー」を長く。最初から最後まで r の響きを保つ。",
+miss:"口を大きく開けると /ɑːr/ に近づき、bird が bard、work が walk に聞こえる。",
+groups:[
+["ir","b[ir]d|bɝːd|鳥|1;g[ir]l|ɡɝːl|女の子|1;f[ir]st|fɝːst|最初の|1;sh[ir]t|ʃɝːt|シャツ|1;th[ir]d|θɝːd|3番目の|1;th[ir]sty|ˈθɝːsti|のどが渇いた|1;b[ir]thday|ˈbɝːθdeɪ|誕生日|1;f[ir]m|fɝːm|会社|3;conf[ir]m|kənˈfɝːm|確認する|3"],
+["er","h[er]|hɝː|彼女の|1;s[er]vice|ˈsɝːvɪs|サービス|1;s[er]ve|sɝːv|出す、仕える|2;t[er]m|tɝːm|期間、用語|2;ref[er]|rɪˈfɝː|参照する|2;v[er]sion|ˈvɝːʒən|版|2"],
+["ur","t[ur]n|tɝːn|曲がる|1;n[ur]se|nɝːs|看護師|1;h[ur]t|hɝːt|傷つける|1;Th[ur]sday|ˈθɝːzdeɪ|木曜日|1;p[ur]ple|ˈpɝːpəl|紫|1;ch[ur]ch|tʃɝːtʃ|教会|1;p[ur]chase|ˈpɝːtʃəs|購入する|3"],
+["or（w のあと）","w[or]k|wɝːk|働く|1;w[or]d|wɝːd|単語|1;w[or]ld|wɝːld|世界|1;w[or]se|wɝːs|より悪い|2"],
+["ear / our","l[ear]n|lɝːn|学ぶ|1;[ear]ly|ˈɝːli|早い|1;res[ear]ch|ˈriːsɝːtʃ|研究|2;j[our]ney|ˈdʒɝːni|旅|2"]]},
+{id:"v_ei",ipa:"eɪ",cat:"diph",key:"day",sp:"a_e, a, ai, ay, ei, ey, ea",
+tip:"「エ」から「イ」へ口を動かす。「エ」を強く、「イ」は軽く添える。",
+miss:"「エー」と伸ばしてしまう。table は「テーブル」ではなく「テイブル」。",
+groups:[
+["a_e","c[a]ke|keɪk|ケーキ|1;n[a]me|neɪm|名前|1;m[a]ke|meɪk|作る|1;g[a]me|ɡeɪm|試合|1;pl[a]ne|pleɪn|飛行機|1;s[a]me|seɪm|同じ|1;d[a]te|deɪt|日付|1;r[a]te|reɪt|料金、割合|3"],
+["a","t[a]ble|ˈteɪbəl|テーブル|1;p[a]per|ˈpeɪpɚ|紙|1;b[a]by|ˈbeɪbi|赤ちゃん|1;st[a]tion|ˈsteɪʃən|駅|1;loc[a]tion|loʊˈkeɪʃən|場所|2;[a]gent|ˈeɪdʒənt|代理人|3"],
+["ai / ay","r[ai]n|reɪn|雨|1;tr[ai]n|treɪn|電車|1;w[ai]t|weɪt|待つ|1;m[ai]l|meɪl|郵便|1;d[ay]|deɪ|日|1;pl[ay]|pleɪ|遊ぶ|1;s[ay]|seɪ|言う|1;p[ai]d|peɪd|支払った|2;displ[ay]|dɪˈspleɪ|展示する|2;del[ay]|dɪˈleɪ|遅れ|3"],
+["ei / ey / ea","[ei]ght|eɪt|8|1;th[ey]|ðeɪ|彼ら|1;br[ea]k|breɪk|壊す、休憩|1;gr[ea]t|ɡreɪt|すばらしい|1;w[ei]ght|weɪt|重さ|2;surv[ey]|ˈsɝːveɪ|調査|3"]]},
+{id:"v_ai",ipa:"aɪ",cat:"diph",key:"time",sp:"i_e, i, igh, y, ie, uy, eye",
+tip:"「ア」から「イ」へなめらかに動かす。「ア」を強く長めに、「イ」は軽く。",
+miss:"「ア」「イ」を2つの音として同じ強さで言ってしまう。",
+groups:[
+["i_e","t[i]me|taɪm|時間|1;l[i]ke|laɪk|好き|1;f[i]ve|faɪv|5|1;n[i]ce|naɪs|すてきな|1;wr[i]te|raɪt|書く|1;wh[i]te|waɪt|白|1;l[i]fe|laɪf|生活|1;pr[i]ce|praɪs|価格|3;s[i]te|saɪt|用地、サイト|3;f[i]le|faɪl|ファイル|3"],
+["i","k[i]nd|kaɪnd|親切な|1;f[i]nd|faɪnd|見つける|1;ch[i]ld|tʃaɪld|子ども|1;m[i]nd|maɪnd|気にする|2;cl[i]mate|ˈklaɪmət|気候|2;cl[i]ent|ˈklaɪənt|顧客|3"],
+["igh","n[igh]t|naɪt|夜|1;l[igh]t|laɪt|光|1;r[igh]t|raɪt|右、正しい|1;h[igh]|haɪ|高い|1;fl[igh]t|flaɪt|航空便|1"],
+["y / ie / uy / eye","m[y]|maɪ|私の|1;fl[y]|flaɪ|飛ぶ|1;wh[y]|waɪ|なぜ|1;tr[y]|traɪ|試す|1;p[ie]|paɪ|パイ|1;t[ie]|taɪ|ネクタイ|1;b[uy]|baɪ|買う|1;[eye]|aɪ|目|1;suppl[y]|səˈplaɪ|供給|3"]]},
+{id:"v_oi",ipa:"ɔɪ",cat:"diph",key:"boy",sp:"oy, oi",
+tip:"唇を丸めた「オ」から「イ」へ。「オ」を強く、「イ」は軽く。",
+miss:"「ボーイ」のように「オー」と伸ばしてしまう。",
+groups:[
+["oy","b[oy]|bɔɪ|男の子|1;t[oy]|tɔɪ|おもちゃ|1;enj[oy]|ɪnˈdʒɔɪ|楽しむ|1;j[oy]|dʒɔɪ|喜び|2;ann[oy]|əˈnɔɪ|いらだたせる|2;destr[oy]|dɪˈstrɔɪ|破壊する|2;l[oy]al|ˈlɔɪəl|忠実な|2;r[oy]al|ˈrɔɪəl|王室の|2;empl[oy]|ɪmˈplɔɪ|雇う|3;empl[oy]ment|ɪmˈplɔɪmənt|雇用|3"],
+["oi","[oi]l|ɔɪl|油|1;c[oi]n|kɔɪn|硬貨|1;v[oi]ce|vɔɪs|声|1;n[oi]se|nɔɪz|騒音|1;p[oi]nt|pɔɪnt|点|1;j[oi]n|dʒɔɪn|参加する|1;b[oi]l|bɔɪl|ゆでる|1;t[oi]let|ˈtɔɪlət|トイレ|1;ch[oi]ce|tʃɔɪs|選択|2;av[oi]d|əˈvɔɪd|避ける|2;app[oi]ntment|əˈpɔɪntmənt|約束、予約|3"]]},
+{id:"v_au",ipa:"aʊ",cat:"diph",key:"house",sp:"ou, ow",
+tip:"大きく開けた「ア」から、唇を丸めて「ウ」へ。「ア」を強く。",
+miss:"「ウ」をはっきり言いすぎる。または「アー」と伸ばして house が「ハース」になる。",
+groups:[
+["ou","h[ou]se|haʊs|家|1;[ou]t|aʊt|外へ|1;m[ou]th|maʊθ|口|1;s[ou]nd|saʊnd|音|1;r[ou]nd|raʊnd|丸い|1;gr[ou]nd|ɡraʊnd|地面|1;l[ou]d|laʊd|うるさい|1;cl[ou]d|klaʊd|雲|1;h[ou]r|ˈaʊɚ|1時間|1;s[ou]th|saʊθ|南|1;th[ou]sand|ˈθaʊzənd|1000|1;m[ou]ntain|ˈmaʊntən|山|1;c[ou]nt|kaʊnt|数える|2;am[ou]nt|əˈmaʊnt|量、金額|3;ann[ou]nce|əˈnaʊns|発表する|3;disc[ou]nt|ˈdɪskaʊnt|割引|3"],
+["ow","n[ow]|naʊ|今|1;h[ow]|haʊ|どのように|1;c[ow]|kaʊ|牛|1;d[ow]n|daʊn|下へ|1;t[ow]n|taʊn|町|1;br[ow]n|braʊn|茶色|1;fl[ow]er|ˈflaʊɚ|花|1;t[ow]el|ˈtaʊəl|タオル|1;sh[ow]er|ˈʃaʊɚ|シャワー|1;all[ow]|əˈlaʊ|許す|2;cr[ow]d|kraʊd|群衆|2;p[ow]er|ˈpaʊɚ|力|2"]]},
+{id:"v_ou",ipa:"oʊ",cat:"diph",key:"go",sp:"o, o_e, oa, ow, oe, ou",
+tip:"「オ」から唇をすぼめて「ウ」へ動かす。日本語の「オー」と伸ばさない。",
+miss:"「オー」と伸ばすと /ɔː/ に聞こえる。boat が bought、coat が caught になる。",
+groups:[
+["o / o_e","g[o]|ɡoʊ|行く|1;n[o]|noʊ|いいえ|1;s[o]|soʊ|だから|1;h[o]me|hoʊm|家|1;h[o]pe|hoʊp|望む|1;n[o]te|noʊt|メモ|1;ph[o]ne|foʊn|電話|1;cl[o]se|kloʊz|閉める|1;[o]pen|ˈoʊpən|開ける|1;[o]nly|ˈoʊnli|〜だけ|1;c[o]ld|koʊld|寒い|1;[o]ld|oʊld|古い|1;h[o]tel|hoʊˈtel|ホテル|1;ph[o]to|ˈfoʊtoʊ|写真|1;t[o]tal|ˈtoʊtəl|合計|3"],
+["oa","b[oa]t|boʊt|ボート|1;r[oa]d|roʊd|道路|1;c[oa]t|koʊt|コート|1;s[oa]p|soʊp|石けん|1;appr[oa]ch|əˈproʊtʃ|近づく|2;l[oa]n|loʊn|ローン|3"],
+["ow","kn[ow]|noʊ|知っている|1;sh[ow]|ʃoʊ|見せる|1;sn[ow]|snoʊ|雪|1;sl[ow]|sloʊ|遅い|1;gr[ow]|ɡroʊ|育つ|1;[ow]n|oʊn|自分自身の|2;foll[ow]|ˈfɑːloʊ|ついていく|2"],
+["oe / ou","t[oe]|toʊ|足の指|1;sh[ou]lder|ˈʃoʊldɚ|肩|1;th[ou]gh|ðoʊ|〜だけれども|2"]]},
+{id:"v_ir",ipa:"ɪr",cat:"r",key:"near",sp:"ear, eer, ere, er, ier, eir",
+tip:"「イ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
+miss:"「ニア」「イヤー」と最後を「ア」で言ってしまう。",
+groups:[
+["ear","n[ear]|nɪr|近くに|1;[ear]|ɪr|耳|1;h[ear]|hɪr|聞こえる|1;d[ear]|dɪr|親愛なる|1;y[ear]|jɪr|年|1;cl[ear]|klɪr|はっきりした|1;f[ear]|fɪr|恐怖|2;t[ear]|tɪr|涙|2;app[ear]|əˈpɪr|現れる|2;b[ear]d|bɪrd|あごひげ|2"],
+["eer","b[eer]|bɪr|ビール|1;d[eer]|dɪr|シカ|1;ch[eer]|tʃɪr|応援する|2;car[eer]|kəˈrɪr|経歴|2;engin[eer]|ˌendʒɪˈnɪr|技術者|2;volunt[eer]|ˌvɑːlənˈtɪr|ボランティア|2"],
+["ere / er / ier / eir","h[ere]|hɪr|ここに|1;p[er]iod|ˈpɪriəd|期間|1;exp[er]ience|ɪkˈspɪriəns|経験|1;s[er]ious|ˈsɪriəs|深刻な|2;p[ier]|pɪr|桟橋|2;w[eir]d|wɪrd|奇妙な|2;mat[er]ial|məˈtɪriəl|材料、資料|3"]]},
+{id:"v_er",ipa:"er",cat:"r",key:"hair",sp:"air, are, ear, ere, eir, ar, er",
+tip:"「エ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
+miss:"「ヘアー」「チェアー」と「ア」を足してしまう。",
+groups:[
+["air","h[air]|her|髪|1;ch[air]|tʃer|いす|1;[air]|er|空気|1;[air]port|ˈerpɔːrt|空港|1;st[air]s|sterz|階段|1;f[air]|fer|公平な|2;p[air]|per|1組|2;aff[air]|əˈfer|出来事|2;rep[air]|rɪˈper|修理する|3"],
+["are","c[are]|ker|世話、気にかける|1;sh[are]|ʃer|共有する|1;squ[are]|skwer|正方形|1;c[are]ful|ˈkerfəl|注意深い|1;sc[are]d|skerd|怖がった|2;comp[are]|kəmˈper|比べる|2;prep[are]|prɪˈper|準備する|2;aw[are]|əˈwer|気づいている|2;f[are]|fer|運賃|3"],
+["ear / ere / eir","b[ear]|ber|クマ|1;w[ear]|wer|着ている|1;p[ear]|per|洋ナシ|1;th[ere]|ðer|そこに|1;wh[ere]|wer|どこ|1;th[eir]|ðer|彼らの|1"],
+["ar / er","p[ar]ent|ˈperənt|親|1;v[er]y|ˈveri|とても|1;Am[er]ica|əˈmerɪkə|アメリカ|1;v[ar]y|ˈveri|異なる|2"]]},
+{id:"v_ar",ipa:"ɑːr",cat:"r",key:"car",sp:"ar, ear, uar",
+tip:"口を縦に大きく開けた「アー」から、舌を奥へ引いて r で終える。",
+miss:"「カー」「スター」と r の響きがないまま終わる。",
+groups:[
+["ar（1音節）","c[ar]|kɑːr|車|1;st[ar]|stɑːr|星|1;f[ar]|fɑːr|遠い|1;c[ar]d|kɑːrd|カード|1;p[ar]k|pɑːrk|公園|1;d[ar]k|dɑːrk|暗い|1;h[ar]d|hɑːrd|難しい|1;[ar]m|ɑːrm|腕|1;f[ar]m|fɑːrm|農場|1;st[ar]t|stɑːrt|始める|1;p[ar]t|pɑːrt|部分|1;sm[ar]t|smɑːrt|賢い|1;M[ar]ch|mɑːrtʃ|3月|1;sc[ar]f|skɑːrf|マフラー|1;ch[ar]ge|tʃɑːrdʒ|料金|3"],
+["ar（2音節以上）","p[ar]ty|ˈpɑːrti|パーティー|1;m[ar]ket|ˈmɑːrkɪt|市場|1;[ar]tist|ˈɑːrtɪst|芸術家|1;ap[ar]tment|əˈpɑːrtmənt|アパート|1;dep[ar]tment|dɪˈpɑːrtmənt|部門|2;dep[ar]t|dɪˈpɑːrt|出発する|3;t[ar]get|ˈtɑːrɡɪt|目標|3;c[ar]go|ˈkɑːrɡoʊ|貨物|3"],
+["ear / uar","h[ear]t|hɑːrt|心臓、心|1;g[uar]d|ɡɑːrd|警備員|2"]]},
+{id:"v_or",ipa:"ɔːr",cat:"r",key:"more",sp:"or, ore, oor, our, oar, ar",
+tip:"唇を丸めた「オー」から、舌を奥へ引いて r で終える。",
+miss:"「モア」「ドア」と最後を「ア」で言ってしまう。",
+groups:[
+["or","f[or]|fɔːr|〜のために|1;sh[or]t|ʃɔːrt|短い|1;sp[or]t|spɔːrt|スポーツ|1;h[or]se|hɔːrs|馬|1;m[or]ning|ˈmɔːrnɪŋ|朝|1;n[or]th|nɔːrθ|北|1;f[or]k|fɔːrk|フォーク|1;[or]der|ˈɔːrdɚ|注文|1;imp[or]tant|ɪmˈpɔːrtənt|重要な|1;rep[or]t|rɪˈpɔːrt|報告|2;[or]ganize|ˈɔːrɡənaɪz|まとめる|2;f[or]m|fɔːrm|用紙|3;f[or]ward|ˈfɔːrwɚd|転送する|3"],
+["ore","m[ore]|mɔːr|もっと|1;st[ore]|stɔːr|店|1;bef[ore]|bɪˈfɔːr|〜の前に|1;sc[ore]|skɔːr|得点|2"],
+["oor / our / oar","d[oor]|dɔːr|ドア|1;fl[oor]|flɔːr|床、階|1;f[our]|fɔːr|4|1;c[our]se|kɔːrs|講座|2;p[our]|pɔːr|注ぐ|2;b[oar]d|bɔːrd|板、役員会|2"],
+["ar（w / qu のあと）","w[ar]m|wɔːrm|暖かい|1;w[ar]|wɔːr|戦争|2;qu[ar]ter|ˈkwɔːrtɚ|4分の1|2;w[ar]ning|ˈwɔːrnɪŋ|警告|2;aw[ar]d|əˈwɔːrd|賞|3"]]}
+];
+const PAIRS=[["ship","ʃɪp","sheep","ʃiːp","ɪ / iː"],["sit","sɪt","seat","siːt","ɪ / iː"],["live","lɪv","leave","liːv","ɪ / iː"],["full","fʊl","fool","fuːl","ʊ / uː"],["pull","pʊl","pool","puːl","ʊ / uː"],["cat","kæt","cut","kʌt","æ / ʌ"],["hat","hæt","hut","hʌt","æ / ʌ"],["bag","bæɡ","bug","bʌɡ","æ / ʌ"],["cap","kæp","cup","kʌp","æ / ʌ"],["hot","hɑːt","hut","hʌt","ɑː / ʌ"],["cop","kɑːp","cup","kʌp","ɑː / ʌ"],["bed","bed","bad","bæd","e / æ"],["men","men","man","mæn","e / æ"],["pen","pen","pan","pæn","e / æ"],["walk","wɔːk","work","wɝːk","ɔː / ɝː"],["heart","hɑːrt","hurt","hɝːt","ɑːr / ɝː"],["far","fɑːr","fur","fɝː","ɑːr / ɝː"],["boat","boʊt","bought","bɔːt","oʊ / ɔː"],["coat","koʊt","caught","kɔːt","oʊ / ɔː"],["wait","weɪt","wet","wet","eɪ / e"],["late","leɪt","let","let","eɪ / e"],["hear","hɪr","hair","her","ɪr / er"]];
+const PC=[
+{id:"c_p",ipa:"p",cat:"cons",key:"pen",sp:"p, pp",
+tip:"唇を閉じて息をためてから、一気にパッと離す。声は出さない。語頭では息を強めに出す。",
+miss:"日本語の「プ」のように母音「ウ」を足してしまう。cup が「カップ」になる。",
+groups:[
+["語頭","[p]en|pen|ペン|1;[p]ark|pɑːrk|公園|1;[p]eople|ˈpiːpəl|人々|1;[p]ay|peɪ|支払う|1;[p]lace|pleɪs|場所|1;[p]ost|poʊst|郵便|1;[p]ush|pʊʃ|押す|1;[p]rice|praɪs|価格|3;[p]olicy|ˈpɑːləsi|方針|3;[p]urchase|ˈpɝːtʃəs|購入する|3"],
+["語中","ha[pp]y|ˈhæpi|幸せな|1;a[pp]le|ˈæpəl|りんご|1;o[p]en|ˈoʊpən|開ける|1;pa[p]er|ˈpeɪpɚ|紙|1;com[p]uter|kəmˈpjuːtɚ|コンピューター|1;sho[pp]ing|ˈʃɑːpɪŋ|買い物|1;su[pp]ort|səˈpɔːrt|支える|2;ex[p]ect|ɪkˈspekt|予期する|2;ca[p]tain|ˈkæptən|船長|2;re[p]air|rɪˈper|修理する|3"],
+["語尾","cu[p]|kʌp|カップ|1;sto[p]|stɑːp|止まる|1;ma[p]|mæp|地図|1;hel[p]|help|助ける|1;kee[p]|kiːp|保つ|1;slee[p]|sliːp|眠る|1;jum[p]|dʒʌmp|跳ぶ|1;shi[p]|ʃɪp|船|1;tri[p]|trɪp|旅行|1;grou[p]|ɡruːp|グループ|1;ste[p]|step|段階|2"]]},
+{id:"c_b",ipa:"b",cat:"cons",key:"bag",sp:"b, bb",
+tip:"/p/ と同じ唇の形で、のどをふるわせて声を出す。",
+miss:"語尾の b に「ブ」と母音をつける。job が「ジョブ」になる。",
+groups:[
+["語頭","[b]ag|bæɡ|かばん|1;[b]ook|bʊk|本|1;[b]ig|bɪɡ|大きい|1;[b]oy|bɔɪ|男の子|1;[b]ed|bed|ベッド|1;[b]lue|bluː|青|1;[b]rother|ˈbrʌðɚ|兄弟|1;[b]uy|baɪ|買う|1;[b]ill|bɪl|請求書|3;[b]ranch|bræntʃ|支店|3"],
+["語中","ta[b]le|ˈteɪbəl|テーブル|1;ba[b]y|ˈbeɪbi|赤ちゃん|1;ho[bb]y|ˈhɑːbi|趣味|1;ra[bb]it|ˈræbɪt|うさぎ|1;num[b]er|ˈnʌmbɚ|数|1;a[b]out|əˈbaʊt|約、〜について|1;pro[b]lem|ˈprɑːbləm|問題|1;Novem[b]er|noʊˈvembɚ|11月|1;ru[bb]er|ˈrʌbɚ|ゴム|2;neigh[b]or|ˈneɪbɚ|隣人|2"],
+["語尾","jo[b]|dʒɑːb|仕事|1;clu[b]|klʌb|クラブ|1;we[b]|web|ウェブ|2;ru[b]|rʌb|こする|2;ca[b]|kæb|タクシー|2;tu[b]|tʌb|浴槽|2;gra[b]|ɡræb|つかむ|2;tu[b]e|tuːb|管|2;bul[b]|bʌlb|電球|2;descri[b]e|dɪˈskraɪb|説明する|2;subscri[b]e|səbˈskraɪb|定期購読する|3"]]},
+{id:"c_t",ipa:"t",cat:"cons",key:"ten",sp:"t, tt, ed",
+tip:"舌先を上の歯ぐきにつけて息を止め、離すときに息を出す。声は出さない。",
+miss:"「ト」と母音「オ」をつける。語尾の t は軽く止めるだけでよい。アメリカ英語では water の t がラ行に近く聞こえる。",
+groups:[
+["語頭","[t]en|ten|10|1;[t]ime|taɪm|時間|1;[t]alk|tɔːk|話す|1;[t]ea|tiː|お茶|1;[t]rain|treɪn|電車|1;[t]oday|təˈdeɪ|今日|1;[t]urn|tɝːn|曲がる|1;[t]icket|ˈtɪkɪt|切符|1;[t]able|ˈteɪbəl|テーブル|1;[t]ax|tæks|税金|3"],
+["語中","wa[t]er|ˈwɑːtɚ|水|1;le[tt]er|ˈletɚ|手紙|1;bu[tt]er|ˈbʌtɚ|バター|1;ci[t]y|ˈsɪti|都市|1;pre[tt]y|ˈprɪti|かなり|1;hospi[t]al|ˈhɑːspɪtəl|病院|1;in[t]eresting|ˈɪntrəstɪŋ|おもしろい|1;ho[t]el|hoʊˈtel|ホテル|1;Sa[t]urday|ˈsætɚdeɪ|土曜日|1;da[t]a|ˈdeɪtə|データ|3"],
+["語尾","ca[t]|kæt|猫|1;ea[t]|iːt|食べる|1;ho[t]|hɑːt|暑い|1;ge[t]|ɡet|得る|1;nigh[t]|naɪt|夜|1;las[t]|læst|最後の|1;wan[t]|wɑːnt|欲しい|1;ask[ed]|æskt|尋ねた|1;look[ed]|lʊkt|見た|1;repor[t]|rɪˈpɔːrt|報告|2;receip[t]|rɪˈsiːt|領収書|3"]]},
+{id:"c_d",ipa:"d",cat:"cons",key:"dog",sp:"d, dd, ed",
+tip:"/t/ と同じ舌の位置で、声を出す。",
+miss:"語尾に「ド」と母音をつける。bed が「ベッド」になる。",
+groups:[
+["語頭","[d]og|dɔːɡ|犬|1;[d]ay|deɪ|日|1;[d]oor|dɔːr|ドア|1;[d]esk|desk|机|1;[d]rink|drɪŋk|飲む|1;[d]inner|ˈdɪnɚ|夕食|1;[d]ance|dæns|踊る|1;[d]octor|ˈdɑːktɚ|医者|1;[d]eadline|ˈdedlaɪn|締め切り|3;[d]elivery|dɪˈlɪvəri|配達|3"],
+["語中","mi[dd]le|ˈmɪdəl|真ん中|1;Mon[d]ay|ˈmʌndeɪ|月曜日|1;win[d]ow|ˈwɪndoʊ|窓|1;stu[d]ent|ˈstuːdənt|学生|1;bo[d]y|ˈbɑːdi|体|1;rea[d]y|ˈredi|準備ができた|1;or[d]er|ˈɔːrdɚ|注文|1;la[dd]er|ˈlædɚ|はしご|2;we[dd]ing|ˈwedɪŋ|結婚式|2;sche[d]ule|ˈskedʒuːl|予定|3"],
+["語尾","be[d]|bed|ベッド|1;re[d]|red|赤|1;goo[d]|ɡʊd|よい|1;foo[d]|fuːd|食べ物|1;han[d]|hænd|手|1;frien[d]|frend|友達|1;col[d]|koʊld|寒い|1;nee[d]|niːd|必要とする|1;play[ed]|pleɪd|遊んだ|1;call[ed]|kɔːld|電話した|1;recor[d]|ˈrekɚd|記録|2"]]},
+{id:"c_k",ipa:"k",cat:"cons",key:"cat",sp:"c, k, ck, ch, qu",
+tip:"舌の奥を上あごの奥につけて息を止め、一気に離す。声は出さない。",
+miss:"語尾に「ク」と母音をつける。book が「ブック」になる。",
+groups:[
+["語頭","[c]at|kæt|猫|1;[c]ar|kɑːr|車|1;[k]ey|kiː|かぎ|1;[k]itchen|ˈkɪtʃən|台所|1;[c]ome|kʌm|来る|1;[c]ook|kʊk|料理する|1;[k]ind|kaɪnd|親切な|1;[qu]een|kwiːn|女王|1;[qu]ick|kwɪk|速い|1;[c]ustomer|ˈkʌstəmɚ|顧客|3;[c]ontract|ˈkɑːntrækt|契約|3"],
+["語中","s[ch]ool|skuːl|学校|1;ba[k]er|ˈbeɪkɚ|パン屋|1;po[ck]et|ˈpɑːkɪt|ポケット|1;a[c]tor|ˈæktɚ|俳優|1;ba[ck]pack|ˈbækpæk|リュック|1;mar[k]et|ˈmɑːrkɪt|市場|1;se[c]ond|ˈsekənd|2番目の|1;wee[k]end|ˈwiːkend|週末|1;ro[ck]et|ˈrɑːkɪt|ロケット|2;a[cc]ount|əˈkaʊnt|口座|3"],
+["語尾","boo[k]|bʊk|本|1;ba[ck]|bæk|後ろ|1;wal[k]|wɔːk|歩く|1;mil[k]|mɪlk|牛乳|1;dar[k]|dɑːrk|暗い|1;thin[k]|θɪŋk|思う|1;clo[ck]|klɑːk|時計|1;ca[k]e|keɪk|ケーキ|1;che[ck]|tʃek|確認する|1;ban[k]|bæŋk|銀行|1;stoma[ch]|ˈstʌmək|胃|2"]]},
+{id:"c_g",ipa:"ɡ",cat:"cons",key:"go",sp:"g, gg, gu",
+tip:"/k/ と同じ舌の位置で、声を出す。",
+miss:"語尾の g に「グ」と母音をつける。bag が「バッグ」になる。",
+groups:[
+["語頭","[g]o|ɡoʊ|行く|1;[g]ame|ɡeɪm|試合|1;[g]ive|ɡɪv|与える|1;[g]irl|ɡɝːl|女の子|1;[g]arden|ˈɡɑːrdən|庭|1;[g]reen|ɡriːn|緑|1;[g]lass|ɡlæs|コップ|1;[g]uess|ɡes|推測する|1;[g]uitar|ɡɪˈtɑːr|ギター|1;[g]oal|ɡoʊl|目標|2;[g]uarantee|ˌɡærənˈtiː|保証|3"],
+["語中","a[g]o|əˈɡoʊ|〜前に|1;su[g]ar|ˈʃʊɡɚ|砂糖|1;bi[gg]er|ˈbɪɡɚ|より大きい|1;ti[g]er|ˈtaɪɡɚ|トラ|1;En[g]lish|ˈɪŋɡlɪʃ|英語|1;a[g]ain|əˈɡen|再び|1;for[g]et|fɚˈɡet|忘れる|1;re[g]ular|ˈreɡjəlɚ|定期的な|2;lan[g]uage|ˈlæŋɡwɪdʒ|言語|2;ba[gg]age|ˈbæɡɪdʒ|手荷物|3"],
+["語尾","ba[g]|bæɡ|かばん|1;bi[g]|bɪɡ|大きい|1;do[g]|dɔːɡ|犬|1;le[g]|leɡ|脚|1;e[gg]|eɡ|卵|1;fla[g]|flæɡ|旗|1;hu[g]|hʌɡ|抱きしめる|2;dru[g]|drʌɡ|薬|2;dialo[g]ue|ˈdaɪəlɔːɡ|対話|2;catalo[g]|ˈkætəlɔːɡ|カタログ|3"]]},
+{id:"c_f",ipa:"f",cat:"cons",key:"fish",sp:"f, ff, ph, gh",
+tip:"上の前歯を下唇の内側に軽く当て、そのすき間から息を出す。声は出さない。",
+miss:"日本語の「フ」のように両唇で言う。歯を唇に当てないと /h/ に近く聞こえる。",
+groups:[
+["語頭","[f]ish|fɪʃ|魚|1;[f]ive|faɪv|5|1;[f]ood|fuːd|食べ物|1;[f]amily|ˈfæməli|家族|1;[f]oot|fʊt|足|1;[f]ly|flaɪ|飛ぶ|1;[f]riend|frend|友達|1;[ph]one|foʊn|電話|1;[ph]oto|ˈfoʊtoʊ|写真|1;[f]ee|fiː|料金|3;[f]ile|faɪl|ファイル|3"],
+["語中","co[ff]ee|ˈkɔːfi|コーヒー|1;a[f]ter|ˈæftɚ|〜のあとで|1;be[f]ore|bɪˈfɔːr|〜の前に|1;o[ff]ice|ˈɔːfɪs|事務所|1;break[f]ast|ˈbrekfəst|朝食|1;di[ff]erent|ˈdɪfrənt|違う|1;tele[ph]one|ˈteləfoʊn|電話|1;per[f]ect|ˈpɝːfɪkt|完ぺきな|2;tra[ff]ic|ˈtræfɪk|交通|2;pro[f]it|ˈprɑːfɪt|利益|3"],
+["語尾","i[f]|ɪf|もし|1;o[ff]|ɔːf|離れて|1;hal[f]|hæf|半分|1;li[f]e|laɪf|生活|1;kni[f]e|naɪf|ナイフ|1;lea[f]|liːf|葉|1;enou[gh]|ɪˈnʌf|十分な|1;lau[gh]|læf|笑う|1;chie[f]|tʃiːf|長|2;sta[ff]|stæf|職員|3"]]},
+{id:"c_v",ipa:"v",cat:"cons",key:"very",sp:"v",
+tip:"/f/ と同じ形（上の前歯を下唇に当てる）で、声を出す。",
+miss:"日本語の「ブ」で代用して /b/ になる。very が berry に聞こえる。",
+groups:[
+["語頭","[v]ery|ˈveri|とても|1;[v]oice|vɔɪs|声|1;[v]isit|ˈvɪzɪt|訪れる|1;[v]egetable|ˈvedʒtəbəl|野菜|1;[v]iew|vjuː|眺め|1;[v]acation|veɪˈkeɪʃən|休暇|1;[v]ideo|ˈvɪdioʊ|動画|1;[v]illage|ˈvɪlɪdʒ|村|2;[v]alue|ˈvæljuː|価値|2;[v]endor|ˈvendɚ|販売業者|3"],
+["語中","e[v]ery|ˈevri|すべての|1;ne[v]er|ˈnevɚ|一度も〜ない|1;e[v]ening|ˈiːvnɪŋ|夕方|1;o[v]er|ˈoʊvɚ|〜を越えて|1;ri[v]er|ˈrɪvɚ|川|1;tra[v]el|ˈtrævəl|旅行する|1;lo[v]ely|ˈlʌvli|すてきな|1;ele[v]en|ɪˈlevən|11|1;ser[v]ice|ˈsɝːvɪs|サービス|1;ad[v]ice|ədˈvaɪs|助言|2;deli[v]ery|dɪˈlɪvəri|配達|3"],
+["語尾","li[v]e|lɪv|住む|1;lo[v]e|lʌv|愛する|1;ha[v]e|hæv|持っている|1;gi[v]e|ɡɪv|与える|1;fi[v]e|faɪv|5|1;mo[v]e|muːv|動く|1;dri[v]e|draɪv|運転する|1;lea[v]e|liːv|去る|1;arri[v]e|əˈraɪv|到着する|1;recei[v]e|rɪˈsiːv|受け取る|2"]]},
+{id:"c_th",ipa:"θ",cat:"cons",key:"think",sp:"th",
+tip:"舌先を上の前歯の先に軽く当て（歯の間から少し出してもよい）、すき間から息を出す。声は出さない。",
+miss:"「ス」や「サ行」で言う。think が sink、thank が sank に聞こえる。",
+groups:[
+["語頭","[th]ink|θɪŋk|思う|1;[th]ank|θæŋk|感謝する|1;[th]ree|θriː|3|1;[th]ing|θɪŋ|もの|1;[th]irty|ˈθɝːti|30|1;[th]ousand|ˈθaʊzənd|1000|1;[Th]ursday|ˈθɝːzdeɪ|木曜日|1;[th]in|θɪn|薄い|1;[th]eater|ˈθiːətɚ|劇場|1;[th]roat|θroʊt|のど|2;[th]eme|θiːm|テーマ|2"],
+["語中","bir[th]day|ˈbɝːθdeɪ|誕生日|1;no[th]ing|ˈnʌθɪŋ|何も〜ない|1;some[th]ing|ˈsʌmθɪŋ|何か|1;any[th]ing|ˈeniθɪŋ|何でも|1;every[th]ing|ˈevriθɪŋ|すべて|1;heal[th]y|ˈhelθi|健康な|2;au[th]or|ˈɔːθɚ|著者|2;me[th]od|ˈmeθəd|方法|2;ma[th]ematics|ˌmæθəˈmætɪks|数学|2"],
+["語尾","mou[th]|maʊθ|口|1;ma[th]|mæθ|数学|1;too[th]|tuːθ|歯|1;bo[th]|boʊθ|両方|1;nor[th]|nɔːrθ|北|1;sou[th]|saʊθ|南|1;mon[th]|mʌnθ|月|1;ba[th]|bæθ|入浴|1;heal[th]|helθ|健康|2;wor[th]|wɝːθ|価値がある|2;grow[th]|ɡroʊθ|成長|3"]]},
+{id:"c_dh",ipa:"ð",cat:"cons",key:"this",sp:"th",
+tip:"/θ/ と同じ舌の形で、声を出す。",
+miss:"「ザ」「ダ」で言う。this が「ジス」、mother が「マザー」になる。",
+groups:[
+["語頭","[th]is|ðɪs|これ|1;[th]at|ðæt|あれ|1;[th]e|ðə|その|1;[th]ey|ðeɪ|彼ら|1;[th]ere|ðer|そこに|1;[th]en|ðen|そのとき|1;[th]ese|ðiːz|これら|1;[th]ose|ðoʊz|それら|1;[th]an|ðæn|〜より|1;[th]em|ðem|彼らを|1;[th]ough|ðoʊ|〜だけれども|2;[th]us|ðʌs|したがって|2"],
+["語中","mo[th]er|ˈmʌðɚ|母|1;fa[th]er|ˈfɑːðɚ|父|1;bro[th]er|ˈbrʌðɚ|兄弟|1;o[th]er|ˈʌðɚ|ほかの|1;wea[th]er|ˈweðɚ|天気|1;toge[th]er|təˈɡeðɚ|一緒に|1;wi[th]out|wɪˈðaʊt|〜なしで|1;ei[th]er|ˈiːðɚ|どちらか|2;nei[th]er|ˈniːðɚ|どちらも〜ない|2;ra[th]er|ˈræðɚ|むしろ|2;fur[th]er|ˈfɝːðɚ|さらに|3"],
+["語尾","wi[th]|wɪð|〜と一緒に|1;brea[th]e|briːð|呼吸する|2;clo[th]e|kloʊð|服を着せる|2;smoo[th]|smuːð|なめらかな|2;ba[th]e|beɪð|入浴させる|2"]]},
+{id:"c_s",ipa:"s",cat:"cons",key:"see",sp:"s, ss, c, ce, sc",
+tip:"舌先を上の歯ぐきに近づけ、細いすき間から息を出す。声は出さない。",
+miss:"si が「シ」になる。sea が she に、sit が「シット」に聞こえる。",
+groups:[
+["語頭","[s]ee|siː|見る|1;[s]it|sɪt|座る|1;[s]ix|sɪks|6|1;[s]un|sʌn|太陽|1;[s]ay|seɪ|言う|1;[s]ister|ˈsɪstɚ|姉妹|1;[s]tation|ˈsteɪʃən|駅|1;[c]ity|ˈsɪti|都市|1;[c]enter|ˈsentɚ|中心|1;[sc]ience|ˈsaɪəns|科学|1;[s]ales|seɪlz|売上|3;[s]ign|saɪn|署名する|3"],
+["語中","ba[s]ket|ˈbæskɪt|かご|1;le[ss]on|ˈlesən|授業|1;gla[ss]es|ˈɡlæsɪz|めがね|1;pen[c]il|ˈpensəl|鉛筆|1;de[c]ide|dɪˈsaɪd|決める|1;ba[s]eball|ˈbeɪsbɔːl|野球|1;me[ss]age|ˈmesɪdʒ|伝言|1;in[s]ide|ˌɪnˈsaɪd|内側|1;a[ss]ist|əˈsɪst|手伝う|3;re[c]eipt|rɪˈsiːt|領収書|3"],
+["語尾","bu[s]|bʌs|バス|1;ye[s]|jes|はい|1;cla[ss]|klæs|授業|1;mi[ss]|mɪs|逃す|1;ni[ce]|naɪs|すてきな|1;ri[ce]|raɪs|米|1;pla[ce]|pleɪs|場所|1;hou[s]e|haʊs|家|1;book[s]|bʊks|本（複数）|1;offi[ce]|ˈɔːfɪs|事務所|1;pri[ce]|praɪs|価格|3"]]},
+{id:"c_z",ipa:"z",cat:"cons",key:"zoo",sp:"z, s, zz, x",
+tip:"/s/ と同じ舌の位置で、声を出す。のどがふるえるのを確かめる。",
+miss:"舌が歯ぐきについて「ヅ」になる。語尾の -s（dogs など）を /s/ で言ってしまう。",
+groups:[
+["語頭","[z]oo|zuː|動物園|1;[z]ero|ˈzɪroʊ|0|1;[z]ebra|ˈziːbrə|シマウマ|1;[z]one|zoʊn|地帯|2;[z]ip|zɪp|ファスナー|2"],
+["語中","ea[s]y|ˈiːzi|簡単な|1;bu[s]y|ˈbɪzi|忙しい|1;mu[s]ic|ˈmjuːzɪk|音楽|1;pre[s]ent|ˈprezənt|プレゼント|1;vi[s]it|ˈvɪzɪt|訪れる|1;cra[z]y|ˈkreɪzi|ばかげた|1;la[z]y|ˈleɪzi|怠けた|1;maga[z]ine|ˌmæɡəˈziːn|雑誌|1;pu[zz]le|ˈpʌzəl|パズル|1;Tue[s]day|ˈtuːzdeɪ|火曜日|1;bu[s]iness|ˈbɪznɪs|仕事|1;e[x]ample|ɪɡˈzæmpəl|例|1;de[s]ign|dɪˈzaɪn|設計|2;po[s]ition|pəˈzɪʃən|位置、職|2;re[s]ult|rɪˈzʌlt|結果|2"],
+["語尾","i[s]|ɪz|〜である|1;ha[s]|hæz|持っている|1;wa[s]|wʌz|〜だった|1;becau[s]e|bɪˈkɔːz|なぜなら|1;plea[s]e|pliːz|どうぞ|1;no[s]e|noʊz|鼻|1;ro[s]e|roʊz|バラ|1;clo[s]e|kloʊz|閉める|1;si[z]e|saɪz|大きさ|1;dog[s]|dɔːɡz|犬（複数）|1;pri[z]e|praɪz|賞|2"]]},
+{id:"c_sh",ipa:"ʃ",cat:"cons",key:"she",sp:"sh, ti, ci, s, ch",
+tip:"唇を少し丸めて前に出し、舌を /s/ より少し奥に引いて息を出す。声は出さない。",
+miss:"唇を丸めずに言うと /s/ との差が小さくなる。she と see を言い分ける。",
+groups:[
+["語頭","[sh]e|ʃiː|彼女|1;[sh]ip|ʃɪp|船|1;[sh]op|ʃɑːp|店|1;[sh]oe|ʃuː|靴|1;[sh]ort|ʃɔːrt|短い|1;[sh]ow|ʃoʊ|見せる|1;[sh]are|ʃer|共有する|1;[s]ure|ʃʊr|確かな|1;[s]ugar|ˈʃʊɡɚ|砂糖|1;[sh]ipping|ˈʃɪpɪŋ|配送|3;[sh]ift|ʃɪft|勤務シフト|3"],
+["語中","sta[ti]on|ˈsteɪʃən|駅|1;spe[ci]al|ˈspeʃəl|特別な|1;o[c]ean|ˈoʊʃən|海|1;wa[sh]ing|ˈwɑːʃɪŋ|洗濯|1;informa[ti]on|ˌɪnfɚˈmeɪʃən|情報|1;na[ti]on|ˈneɪʃən|国家|2;ma[ch]ine|məˈʃiːn|機械|2;fa[sh]ion|ˈfæʃən|流行|2;pre[ss]ure|ˈpreʃɚ|圧力|2;offi[ci]al|əˈfɪʃəl|公式の|3;in[s]urance|ɪnˈʃʊrəns|保険|3"],
+["語尾","fi[sh]|fɪʃ|魚|1;wa[sh]|wɑːʃ|洗う|1;di[sh]|dɪʃ|皿|1;pu[sh]|pʊʃ|押す|1;bru[sh]|brʌʃ|ブラシ|1;Engli[sh]|ˈɪŋɡlɪʃ|英語|1;ca[sh]|kæʃ|現金|1;fre[sh]|freʃ|新鮮な|1;fini[sh]|ˈfɪnɪʃ|終える|1"]]},
+{id:"c_zh",ipa:"ʒ",cat:"cons",key:"measure",sp:"s, g",
+tip:"/ʃ/ と同じ形で、声を出す。舌はどこにもつけない。",
+miss:"「ジ」で言うと舌が上あごについて /dʒ/ になる。",
+groups:[
+["語中（s）","u[s]ual|ˈjuːʒuəl|ふつうの|1;u[s]ually|ˈjuːʒuəli|ふつうは|1;televi[s]ion|ˈteləvɪʒən|テレビ|1;trea[s]ure|ˈtreʒɚ|宝物|1;A[s]ia|ˈeɪʒə|アジア|1;mea[s]ure|ˈmeʒɚ|測る|2;plea[s]ure|ˈpleʒɚ|喜び|2;lei[s]ure|ˈliːʒɚ|余暇|2;vi[s]ion|ˈvɪʒən|視力|2;deci[s]ion|dɪˈsɪʒən|決定|2;ver[s]ion|ˈvɝːʒən|版|2;occa[s]ion|əˈkeɪʒən|機会|2;ca[s]ual|ˈkæʒuəl|気軽な|2;conclu[s]ion|kənˈkluːʒən|結論|3;revi[s]ion|rɪˈvɪʒən|修正|3"],
+["語尾（g）","gara[g]e|ɡəˈrɑːʒ|ガレージ|1;bei[g]e|beɪʒ|ベージュ|2;massa[g]e|məˈsɑːʒ|マッサージ|2"]]},
+{id:"c_h",ipa:"h",cat:"cons",key:"hat",sp:"h, wh",
+tip:"口を次の母音の形にしておき、のどから息だけを出す。",
+miss:"「フ」の前で唇がすぼまり /f/ に近くなる。who は唇を使わず、のどから息を出す。",
+groups:[
+["語頭","[h]at|hæt|帽子|1;[h]ouse|haʊs|家|1;[h]appy|ˈhæpi|幸せな|1;[h]ead|hed|頭|1;[h]and|hænd|手|1;[h]ome|hoʊm|家|1;[h]ot|hɑːt|暑い|1;[h]ear|hɪr|聞こえる|1;[h]elp|help|助ける|1;[h]ospital|ˈhɑːspɪtəl|病院|1;[h]otel|hoʊˈtel|ホテル|1;[h]oliday|ˈhɑːlədeɪ|休日|1;[wh]o|huː|誰|1;[wh]ole|hoʊl|全体の|2;[h]uman|ˈhjuːmən|人間|2;[h]ire|haɪɚ|雇う|3;[h]eadquarters|ˈhedkwɔːrtɚz|本社|3"],
+["語中","be[h]ind|bɪˈhaɪnd|後ろに|1;un[h]appy|ʌnˈhæpi|不幸な|1;a[h]ead|əˈhed|前方に|2;per[h]aps|pɚˈhæps|たぶん|2;be[h]ave|bɪˈheɪv|ふるまう|2;re[h]earsal|rɪˈhɝːsəl|リハーサル|2;some[h]ow|ˈsʌmhaʊ|なんとか|2;neighbor[h]ood|ˈneɪbɚhʊd|近所|2;child[h]ood|ˈtʃaɪldhʊd|子ども時代|2;ware[h]ouse|ˈwerhaʊs|倉庫|3"]]},
+{id:"c_ch",ipa:"tʃ",cat:"cons",key:"chair",sp:"ch, tch, t",
+tip:"舌先を歯ぐきにつけて息を止め、唇を少し前に出して /ʃ/ の形で一気に出す。声は出さない。",
+miss:"語尾に「チ」と母音をつける。watch が「ウォッチ」になる。",
+groups:[
+["語頭","[ch]air|tʃer|いす|1;[ch]ild|tʃaɪld|子ども|1;[ch]eese|tʃiːz|チーズ|1;[ch]icken|ˈtʃɪkɪn|鶏肉|1;[ch]eap|tʃiːp|安い|1;[ch]ange|tʃeɪndʒ|変える|1;[ch]oose|tʃuːz|選ぶ|1;[ch]ocolate|ˈtʃɑːklət|チョコレート|1;[ch]eck|tʃek|確認する|1;[ch]ance|tʃæns|機会|1;[ch]arge|tʃɑːrdʒ|料金|3"],
+["語中","ki[tch]en|ˈkɪtʃən|台所|1;tea[ch]er|ˈtiːtʃɚ|先生|1;pic[t]ure|ˈpɪktʃɚ|絵、写真|1;na[t]ure|ˈneɪtʃɚ|自然|1;fu[t]ure|ˈfjuːtʃɚ|未来|1;ques[t]ion|ˈkwestʃən|質問|1;ac[t]ually|ˈæktʃuəli|実は|1;furni[t]ure|ˈfɝːnɪtʃɚ|家具|2;pur[ch]ase|ˈpɝːtʃəs|購入する|3"],
+["語尾","lun[ch]|lʌntʃ|昼食|1;mu[ch]|mʌtʃ|たくさん|1;whi[ch]|wɪtʃ|どちら|1;tea[ch]|tiːtʃ|教える|1;wa[tch]|wɑːtʃ|見る、腕時計|1;ca[tch]|kætʃ|捕まえる|1;bea[ch]|biːtʃ|浜辺|1;Mar[ch]|mɑːrtʃ|3月|1;swi[tch]|swɪtʃ|スイッチ|2;resear[ch]|ˈriːsɝːtʃ|研究|2;bran[ch]|bræntʃ|支店|3"]]},
+{id:"c_j",ipa:"dʒ",cat:"cons",key:"job",sp:"j, g, dg, ge",
+tip:"/tʃ/ と同じ形で、声を出す。",
+miss:"語尾に「ジ」と母音をつける。page が「ページ」になる。",
+groups:[
+["語頭","[j]ob|dʒɑːb|仕事|1;[j]uice|dʒuːs|ジュース|1;[J]une|dʒuːn|6月|1;[j]ump|dʒʌmp|跳ぶ|1;[J]apan|dʒəˈpæn|日本|1;[j]oin|dʒɔɪn|参加する|1;[j]acket|ˈdʒækɪt|上着|1;[g]ym|dʒɪm|ジム|1;[g]entle|ˈdʒentəl|やさしい|2;[g]iant|ˈdʒaɪənt|巨人|2;[j]ourney|ˈdʒɝːni|旅|2"],
+["語中","ma[g]ic|ˈmædʒɪk|魔法|1;ve[g]etable|ˈvedʒtəbəl|野菜|1;dan[g]erous|ˈdeɪndʒɚəs|危険な|1;en[j]oy|ɪnˈdʒɔɪ|楽しむ|1;sub[j]ect|ˈsʌbdʒekt|教科、件名|1;ener[g]y|ˈenɚdʒi|エネルギー|2;ma[j]or|ˈmeɪdʒɚ|主要な|2;ima[g]ine|ɪˈmædʒɪn|想像する|2;pro[j]ect|ˈprɑːdʒekt|計画|3;a[g]enda|əˈdʒendə|議題|3;bu[dg]et|ˈbʌdʒɪt|予算|3"],
+["語尾","pa[ge]|peɪdʒ|ページ|1;a[ge]|eɪdʒ|年齢|1;lar[ge]|lɑːrdʒ|大きい|1;oran[ge]|ˈɔːrɪndʒ|オレンジ|1;chan[ge]|tʃeɪndʒ|変える|1;bri[dge]|brɪdʒ|橋|1;messa[ge]|ˈmesɪdʒ|伝言|1;colle[ge]|ˈkɑːlɪdʒ|大学|1;e[dge]|edʒ|端|2;knowle[dge]|ˈnɑːlɪdʒ|知識|2;packa[ge]|ˈpækɪdʒ|小包|3"]]},
+{id:"c_m",ipa:"m",cat:"cons",key:"milk",sp:"m, mm, mb, mn",
+tip:"唇を閉じたまま、鼻から声を出す。",
+miss:"語尾の m を「ム」と母音つきで言う。または唇を閉じずに「ン」で済ませる。",
+groups:[
+["語頭","[m]ilk|mɪlk|牛乳|1;[m]other|ˈmʌðɚ|母|1;[m]oney|ˈmʌni|お金|1;[m]orning|ˈmɔːrnɪŋ|朝|1;[m]usic|ˈmjuːzɪk|音楽|1;[m]an|mæn|男性|1;[m]eet|miːt|会う|1;[m]ake|meɪk|作る|1;[m]ail|meɪl|郵便|1;[m]eeting|ˈmiːtɪŋ|会議|3;[m]anager|ˈmænɪdʒɚ|管理者|3"],
+["語中","su[mm]er|ˈsʌmɚ|夏|1;le[m]on|ˈlemən|レモン|1;nu[m]ber|ˈnʌmbɚ|数|1;fa[m]ily|ˈfæməli|家族|1;ca[m]era|ˈkæmrə|カメラ|1;ani[m]al|ˈænəməl|動物|1;re[m]ember|rɪˈmembɚ|覚えている|1;i[m]portant|ɪmˈpɔːrtənt|重要な|1;ha[mm]er|ˈhæmɚ|金づち|2;co[mm]ittee|kəˈmɪti|委員会|3"],
+["語尾","ti[m]e|taɪm|時間|1;na[m]e|neɪm|名前|1;ho[m]e|hoʊm|家|1;ga[m]e|ɡeɪm|試合|1;roo[m]|ruːm|部屋|1;drea[m]|driːm|夢|1;tea[m]|tiːm|チーム|1;autu[mn]|ˈɔːtəm|秋|1;cli[mb]|klaɪm|登る|2;for[m]|fɔːrm|用紙|3;ite[m]|ˈaɪtəm|品目|3"]]},
+{id:"c_n",ipa:"n",cat:"cons",key:"nine",sp:"n, nn, kn, gn",
+tip:"舌先を上の歯ぐきにつけて、鼻から声を出す。",
+miss:"語尾で舌先が歯ぐきにつかず、日本語の「ン」になる。ten は最後に舌先を歯ぐきにつける。",
+groups:[
+["語頭","[n]ine|naɪn|9|1;[n]ose|noʊz|鼻|1;[n]ame|neɪm|名前|1;[n]ew|nuː|新しい|1;[n]ight|naɪt|夜|1;[n]umber|ˈnʌmbɚ|数|1;[n]ice|naɪs|すてきな|1;[kn]ow|noʊ|知っている|1;[kn]ife|naɪf|ナイフ|1;[n]otice|ˈnoʊtɪs|通知|3;[n]egotiate|nɪˈɡoʊʃieɪt|交渉する|3"],
+["語中","di[nn]er|ˈdɪnɚ|夕食|1;ba[n]ana|bəˈnænə|バナナ|1;mo[n]ey|ˈmʌni|お金|1;Ja[n]uary|ˈdʒænjueri|1月|1;fi[n]ally|ˈfaɪnəli|ついに|1;te[nn]is|ˈtenɪs|テニス|1;mi[n]ute|ˈmɪnɪt|分|1;ho[n]est|ˈɑːnɪst|正直な|2;pla[n]et|ˈplænɪt|惑星|2;a[nn]ual|ˈænjuəl|年1回の|3"],
+["語尾","te[n]|ten|10|1;su[n]|sʌn|太陽|1;pe[n]|pen|ペン|1;ca[n]|kæn|〜できる|1;ru[n]|rʌn|走る|1;trai[n]|treɪn|電車|1;o[n]e|wʌn|1|1;dow[n]|daʊn|下へ|1;gree[n]|ɡriːn|緑|1;pla[n]|plæn|計画|1;si[gn]|saɪn|署名する|3;loa[n]|loʊn|ローン|3"]]},
+{id:"c_ng",ipa:"ŋ",cat:"cons",key:"sing",sp:"ng, n（k / g の前）",
+tip:"舌の奥を上あごの奥につけて、鼻から声を出す。最後に「グ」をつけない。",
+miss:"sing を「シング」と g をはっきり言う。thing と thin の違いは、舌の奥がつくか舌先がつくか。",
+groups:[
+["ng（語尾）","si[ng]|sɪŋ|歌う|1;ki[ng]|kɪŋ|王|1;ri[ng]|rɪŋ|指輪、鳴る|1;lo[ng]|lɔːŋ|長い|1;so[ng]|sɔːŋ|歌|1;you[ng]|jʌŋ|若い|1;thi[ng]|θɪŋ|もの|1;wro[ng]|rɔːŋ|間違った|1;morni[ng]|ˈmɔːrnɪŋ|朝|1;eveni[ng]|ˈiːvnɪŋ|夕方|1;buildi[ng]|ˈbɪldɪŋ|建物|1;shoppi[ng]|ˈʃɑːpɪŋ|買い物|1;meeti[ng]|ˈmiːtɪŋ|会議|3"],
+["ng（語中）","si[ng]ing|ˈsɪŋɪŋ|歌うこと|1;ha[ng]er|ˈhæŋɚ|ハンガー|1;ri[ng]ing|ˈrɪŋɪŋ|鳴っている|1;Washi[ng]ton|ˈwɑːʃɪŋtən|ワシントン|1;si[ng]er|ˈsɪŋɚ|歌手|2;ki[ng]dom|ˈkɪŋdəm|王国|2;le[n]gth|leŋθ|長さ|2"],
+["n＋k / g","thi[n]k|θɪŋk|思う|1;ba[n]k|bæŋk|銀行|1;dri[n]k|drɪŋk|飲む|1;pi[n]k|pɪŋk|ピンク|1;tha[n]k|θæŋk|感謝する|1;u[n]cle|ˈʌŋkəl|おじ|1;E[n]glish|ˈɪŋɡlɪʃ|英語|1;fi[n]ger|ˈfɪŋɡɚ|指|1;hu[n]gry|ˈhʌŋɡri|空腹の|1;a[n]gry|ˈæŋɡri|怒った|1;la[n]guage|ˈlæŋɡwɪdʒ|言語|2"]]},
+{id:"c_l",ipa:"l",cat:"cons",key:"light",sp:"l, ll",
+tip:"舌先を上の歯ぐきにしっかりつけたまま、舌の両側から声を出す。語尾では舌先をつけたまま「ウ」に近い響きになる。",
+miss:"舌先を弾いて日本語のラ行で言う。light が right に聞こえる。",
+groups:[
+["語頭","[l]ight|laɪt|光|1;[l]ook|lʊk|見る|1;[l]ive|lɪv|住む|1;[l]ove|lʌv|愛する|1;[l]eft|left|左|1;[l]ong|lɔːŋ|長い|1;[l]etter|ˈletɚ|手紙|1;[l]unch|lʌntʃ|昼食|1;[l]ead|liːd|導く|2;[l]ocal|ˈloʊkəl|地元の|2;[l]ease|liːs|賃貸契約|3"],
+["子音のあと","b[l]ue|bluː|青|1;g[l]ass|ɡlæs|コップ|1;f[l]y|flaɪ|飛ぶ|1;p[l]ay|pleɪ|遊ぶ|1;c[l]ean|kliːn|きれいな|1;s[l]ow|sloʊ|遅い|1;c[l]ient|ˈklaɪənt|顧客|3"],
+["語中","he[ll]o|həˈloʊ|こんにちは|1;co[l]or|ˈkʌlɚ|色|1;fami[l]y|ˈfæməli|家族|1;ye[ll]ow|ˈjeloʊ|黄色|1;on[l]y|ˈoʊnli|〜だけ|1;co[ll]ect|kəˈlekt|集める|2;ba[l]ance|ˈbæləns|残高|3"],
+["語尾","a[ll]|ɔːl|すべて|1;ba[ll]|bɔːl|ボール|1;te[ll]|tel|伝える|1;fee[l]|fiːl|感じる|1;schoo[l]|skuːl|学校|1;mi[l]k|mɪlk|牛乳|1;fu[ll]|fʊl|いっぱいの|1;tab[l]e|ˈteɪbəl|テーブル|1;emai[l]|ˈiːmeɪl|メール|3"]]},
+{id:"c_r",ipa:"r",cat:"cons",key:"right",sp:"r, rr, wr",
+tip:"唇を少し丸め、舌先をどこにもつけずに奥へ引いて声を出す。小さく「ウ」と言う準備をしてから始めると出しやすい。",
+miss:"舌先を上あごに弾いて日本語のラ行で言う。right が light に聞こえる。",
+groups:[
+["語頭","[r]ight|raɪt|右、正しい|1;[r]ed|red|赤|1;[r]ead|riːd|読む|1;[r]un|rʌn|走る|1;[r]ice|raɪs|米|1;[r]oom|ruːm|部屋|1;[r]ain|reɪn|雨|1;[r]iver|ˈrɪvɚ|川|1;[wr]ite|raɪt|書く|1;[wr]ong|rɔːŋ|間違った|1;[r]eport|rɪˈpɔːrt|報告|2;[r]eceipt|rɪˈsiːt|領収書|3"],
+["子音のあと","t[r]ain|treɪn|電車|1;d[r]ink|drɪŋk|飲む|1;b[r]own|braʊn|茶色|1;g[r]een|ɡriːn|緑|1;c[r]y|kraɪ|泣く|1;f[r]iend|frend|友達|1;p[r]esent|ˈprezənt|プレゼント|1;th[r]ee|θriː|3|1;f[r]y|fraɪ|揚げる|2;p[r]ice|praɪs|価格|3"],
+["語中","so[rr]y|ˈsɑːri|ごめんなさい|1;ve[r]y|ˈveri|とても|1;ca[rr]y|ˈkæri|運ぶ|1;a[r]ound|əˈraʊnd|周りに|1;pa[r]ent|ˈperənt|親|1;hu[rr]y|ˈhɝːi|急ぐ|1;tomo[rr]ow|təˈmɑːroʊ|明日|1;co[rr]ect|kəˈrekt|正しい|2"]]},
+{id:"c_w",ipa:"w",cat:"cons",key:"water",sp:"w, wh, u, o",
+tip:"唇を小さく丸めて前に突き出し、そこから次の母音へ一気に開く。",
+miss:"唇を丸めずに始める。woman が「ウーマン」、wood が「ウッド」になる。",
+groups:[
+["語頭（w）","[w]ater|ˈwɑːtɚ|水|1;[w]e|wiː|私たち|1;[w]ant|wɑːnt|欲しい|1;[w]alk|wɔːk|歩く|1;[w]ork|wɝːk|働く|1;[w]eek|wiːk|週|1;[w]in|wɪn|勝つ|1;[w]indow|ˈwɪndoʊ|窓|1;[w]oman|ˈwʊmən|女性|1;[w]ood|wʊd|木材|1;[w]arranty|ˈwɔːrənti|保証書|3;[w]arehouse|ˈwerhaʊs|倉庫|3"],
+["語頭（wh）","[wh]at|wɑːt|何|1;[wh]en|wen|いつ|1;[wh]ere|wer|どこ|1;[wh]ite|waɪt|白|1;[wh]y|waɪ|なぜ|1;[wh]ich|wɪtʃ|どちら|1"],
+["子音のあと・語中","q[u]een|kwiːn|女王|1;q[u]estion|ˈkwestʃən|質問|1;s[w]im|swɪm|泳ぐ|1;t[w]elve|twelv|12|1;bet[w]een|bɪˈtwiːn|〜の間に|1;a[w]ay|əˈweɪ|離れて|1;al[w]ays|ˈɔːlweɪz|いつも|1;sand[w]ich|ˈsænwɪtʃ|サンドイッチ|1;[o]ne|wʌn|1|1;q[u]ality|ˈkwɑːləti|品質|3"]]},
+{id:"c_y",ipa:"j",cat:"cons",key:"yes",sp:"y, u, ew, i",
+tip:"舌の中ほどを上あごに近づけ、「イ」の形から次の母音へ移る。",
+miss:"year と ear を同じに言う。year は「イ」の形から始める。発音記号の /j/ は日本語の「ヤ行」の音で、j の文字とは違う。",
+groups:[
+["y","[y]es|jes|はい|1;[y]ou|juː|あなた|1;[y]ellow|ˈjeloʊ|黄色|1;[y]ear|jɪr|年|1;[y]oung|jʌŋ|若い|1;[y]esterday|ˈjestɚdeɪ|昨日|1;[y]et|jet|まだ|1;[y]oga|ˈjoʊɡə|ヨガ|1;[y]ogurt|ˈjoʊɡɚt|ヨーグルト|1;[y]ard|jɑːrd|庭|2"],
+["u / ew（ユー）","[u]se|juːz|使う|1;m[u]sic|ˈmjuːzɪk|音楽|1;c[u]te|kjuːt|かわいい|1;[u]niform|ˈjuːnəfɔːrm|制服|1;[u]niversity|ˌjuːnəˈvɝːsəti|大学|1;comp[u]ter|kəmˈpjuːtɚ|コンピューター|1;men[u]|ˈmenjuː|メニュー|1;[u]sual|ˈjuːʒuəl|ふつうの|1;f[ew]|fjuː|少数の|1;h[u]ge|hjuːdʒ|巨大な|2;val[u]e|ˈvæljuː|価値|2"],
+["その他","on[i]on|ˈʌnjən|たまねぎ|1;mill[i]on|ˈmɪljən|100万|1;Jan[u]ary|ˈdʒænjueri|1月|1;famil[i]ar|fəˈmɪljɚ|よく知っている|2;reg[u]lar|ˈreɡjəlɚ|定期的な|2;b[eau]ty|ˈbjuːti|美しさ|2"]]}
+];
+const CPAIRS=[["light","laɪt","right","raɪt","l / r"],["lead","liːd","read","riːd","l / r"],["glass","ɡlæs","grass","ɡræs","l / r"],["collect","kəˈlekt","correct","kəˈrekt","l / r"],["lock","lɑːk","rock","rɑːk","l / r"],["long","lɔːŋ","wrong","rɔːŋ","l / r"],["fly","flaɪ","fry","fraɪ","l / r"],["berry","ˈberi","very","ˈveri","b / v"],["best","best","vest","vest","b / v"],["boat","boʊt","vote","voʊt","b / v"],["ban","bæn","van","væn","b / v"],["sink","sɪŋk","think","θɪŋk","s / θ"],["mouse","maʊs","mouth","maʊθ","s / θ"],["sank","sæŋk","thank","θæŋk","s / θ"],["sick","sɪk","thick","θɪk","s / θ"],["close","kloʊz","clothe","kloʊð","z / ð"],["breeze","briːz","breathe","briːð","z / ð"],["see","siː","she","ʃiː","s / ʃ"],["sip","sɪp","ship","ʃɪp","s / ʃ"],["save","seɪv","shave","ʃeɪv","s / ʃ"],["seat","siːt","sheet","ʃiːt","s / ʃ"],["fall","fɔːl","hall","hɔːl","f / h"],["fat","fæt","hat","hæt","f / h"],["thin","θɪn","thing","θɪŋ","n / ŋ"],["ran","ræn","rang","ræŋ","n / ŋ"],["sin","sɪn","sing","sɪŋ","n / ŋ"]];
+P.push(...PC);PAIRS.push(...CPAIRS);
+/*END*/
+
+/* ---------- layout data ---------- */
+const POS={v_ii:[4,4],v_i:[20,20],v_e:[24,48],v_ae:[38,90],v_schwa:[48,56],v_er_strong:[50,26],v_er_weak:[64,42],v_uh:[64,76],v_u:[76,16],v_uu:[94,4],v_oo:[92,56],v_aa:[88,92]};
+const GLIDE={v_ei:[[24,48],[20,20]],v_ai:[[44,96],[20,20]],v_oi:[[92,56],[20,20]],v_au:[[48,96],[76,16]],v_ou:[[90,38],[76,16]],v_ir:[[20,20],[64,42]],v_er:[[24,48],[64,42]],v_ar:[[88,92],[64,42]],v_or:[[92,56],[64,42]]};
+const LIPS={v_i:"力を抜く",v_e:"力を抜く",v_ae:"横に引く",v_uh:"力を抜く",v_u:"軽く丸める",v_schwa:"力を抜く",v_er_weak:"軽くすぼめる",v_ii:"横に引く",v_uu:"強く丸める",v_aa:"丸めない",v_oo:"丸める",v_er_strong:"軽くすぼめる",v_ei:"横に引く",v_ai:"開いて横に",v_oi:"丸めて横に",v_au:"開いて丸める",v_ou:"丸めてすぼめる",v_ir:"力を抜く",v_er:"力を抜く",v_ar:"丸めない",v_or:"丸める"};
+const CATC={short:"var(--short)",long:"var(--long)",diph:"var(--diph)",r:"var(--r)",cons:"var(--cons)"};
+const CATN={short:"短母音",long:"長母音",diph:"二重母音",r:"r の母音",cons:"子音"};
+const PLACES=["上下の唇","上の歯と下唇","舌先と前歯","舌先と歯ぐき","舌先と歯ぐきの奥","舌の中ほどと上あご","舌の奥と上あごの奥","のど"];
+const PLACE_S=["両唇","唇と歯","歯","歯ぐき","歯ぐきの奥","上あご","舌の奥","のど"];
+const MANNERS=["破裂","摩擦","破擦","鼻音","流音<br>半母音"];
+const MANNER_D=["止めて一気に出す","すき間から出し続ける","止めてからすき間へ","鼻から出す","舌や唇を動かす"];
+const CPOS={c_p:[0,0,0],c_b:[0,0,1],c_m:[0,3,1],c_w:[0,4,1],c_f:[1,1,0],c_v:[1,1,1],c_th:[2,1,0],c_dh:[2,1,1],c_t:[3,0,0],c_d:[3,0,1],c_s:[3,1,0],c_z:[3,1,1],c_n:[3,3,1],c_l:[3,4,1],c_sh:[4,1,0],c_zh:[4,1,1],c_ch:[4,2,0],c_j:[4,2,1],c_r:[4,4,1],c_y:[5,4,1],c_k:[6,0,0],c_g:[6,0,1],c_ng:[6,3,1],c_h:[7,1,0]};
+const PARTNER={c_p:"c_b",c_b:"c_p",c_t:"c_d",c_d:"c_t",c_k:"c_g",c_g:"c_k",c_f:"c_v",c_v:"c_f",c_th:"c_dh",c_dh:"c_th",c_s:"c_z",c_z:"c_s",c_sh:"c_zh",c_zh:"c_sh",c_ch:"c_j",c_j:"c_ch",c_l:"c_r",c_r:"c_l",c_n:"c_ng",c_ng:"c_n"};
+const LV={1:"中学",2:"高校",3:"TOEIC"};
+const NUM={one:"1",two:"2",three:"3",four:"4",five:"5",six:"6",seven:"7",eight:"8",nine:"9",ten:"10",thousand:"1000"};
+const HOMO={eye:["i","aye"],two:["to","too"],too:["to","two"],four:["for","fore"],for:["four","fore"],know:["no"],no:["know"],sea:["see","c"],see:["sea","c"],tea:["t","tee"],hear:["here"],here:["hear"],there:["their","they're"],their:["there","they're"],pair:["pear","pare"],pear:["pair","pare"],bear:["bare"],wear:["where"],where:["wear"],deer:["dear"],dear:["deer"],new:["knew"],flew:["flu","flue"],flu:["flew","flue"],son:["sun"],sun:["son"],right:["write","rite"],write:["right","rite"],hour:["our"],fair:["fare"],fare:["fair"],read:["reed"],meet:["meat"],week:["weak"],pie:["pi"],tie:["thai"],buy:["by","bye"],pour:["poor","pore"],board:["bored"],war:["wore"],toe:["tow"],eight:["ate"],due:["do","dew"],do:["due","dew"],"break":["brake"],weight:["wait"],wait:["weight"],mail:["male"],plane:["plain"],fee:["v"],we:["wee"],pier:["peer"],course:["coarse"],cheer:["chair"],flower:["flour"],through:["threw"],steal:["steel"],piece:["peace"],peace:["piece"],sole:["soul"],role:["roll"]};
+
+/* ---------- mouth cross-section (face looking left) ---------- */
+const HEADPT={lips:[13.4,52.6],ld:[18.6,54.6],dent:[21.6,50.2],alv:[26.3,47.2],post:[32.5,43.6],pal:[46,41.4],vel:[62,44],glot:[70,93]};
+const PLACEKEY=["lips","ld","dent","alv","post","pal","vel","glot"];
+const TONGUE={
+  rest:[[23,58],[30,55.5],[46,51.5],[62,53.5]],
+  dent:[[21.4,52.6],[27,53.5],[44,51.5],[62,53.5]],
+  alvS:[[26.2,47.9],[31,50.5],[46,51.5],[62,53.5]],
+  alvF:[[26.4,49.3],[31,51.5],[46,51.5],[62,53.5]],
+  postS:[[29,49.5],[32.6,44.3],[46,49.5],[62,53]],
+  postF:[[29,50.5],[32.8,45.8],[46,50],[62,53]],
+  r:[[32,50.5],[37,47.2],[49,49],[62,53]],
+  pal:[[24,57],[33,50],[46,43],[62,50.5]],
+  vel:[[23,58],[33,55],[50,48.5],[62,44.8]]
+};
+function catmull(pts,closed){
+  const n=pts.length;let d=`M${pts[0][0]} ${pts[0][1]}`;
+  const P=i=>closed?pts[(i+n)%n]:pts[Math.max(0,Math.min(n-1,i))];
+  const last=closed?n:n-1;
+  for(let i=0;i<last;i++){
+    const p0=P(i-1),p1=P(i),p2=P(i+1),p3=P(i+2);
+    const c1=[p1[0]+(p2[0]-p0[0])/6,p1[1]+(p2[1]-p0[1])/6],c2=[p2[0]-(p3[0]-p1[0])/6,p2[1]-(p3[1]-p1[1])/6];
+    d+=`C${c1[0].toFixed(2)} ${c1[1].toFixed(2)} ${c2[0].toFixed(2)} ${c2[1].toFixed(2)} ${p2[0]} ${p2[1]}`;
+  }
+  return d+(closed?"Z":"");
+}
+function poseOf(id){
+  if(!id||!CPOS[id])return {lips:"open",tongue:"rest",velum:"up",voice:false,air:null,pt:null};
+  const [r,c,v]=CPOS[id];
+  let lips="open",tongue="rest";
+  if(r===0)lips=id==="c_w"?"round":"closed";
+  if(r===1)lips="ld";
+  if(r===2)tongue="dent";
+  if(r===3)tongue=c===1?"alvF":"alvS";
+  if(r===4){tongue=id==="c_r"?"r":(c===1?"postF":"postS");lips="round"}
+  if(r===5)tongue="pal";
+  if(r===6)tongue="vel";
+  if(id==="c_w")tongue="vel";
+  return {lips,tongue,velum:c===3?"down":"up",voice:!!v,air:c===3?"nasal":"oral",pt:PLACEKEY[r],glot:r===7};
+}
+function headSVG(pose,o){
+  o=o||{};
+  const L={open:{u:[12.2,50.6],l:[12.2,55.2]},closed:{u:[12,52.6],l:[12,52.9]},ld:{u:[12.2,50.4],l:[18.4,53.4]},round:{u:[9.4,51.4],l:[9.4,54.4]}}[pose.lips];
+  const [ux,uy]=L.u,[lx,ly]=L.l;
+  const face=`M25 0 C22.5 7 21.2 13 20.6 18 C20 22 16 27.5 9 33.6 C7.4 35.2 8.2 37.6 11 38 L15 38.4 C15.6 40.6 15.2 43 14.2 45 C${ux-1.6} ${uy-4.2} ${ux-1.2} ${uy-1.4} ${ux} ${uy} L19.2 ${uy+0.4}`;
+  const jaw=`M19.6 ${ly-0.4} L${lx} ${ly} C${lx-1.4} ${ly+1.6} ${lx-0.6} ${ly+5.4} 15 61.5 C13.6 64 13 67 13.2 70.5 C13.6 75.5 17 79.4 24 81 C34 83 44 83.2 52 84 C54 90 55.4 97 56 106`;
+  const tp=TONGUE[pose.tongue];
+  const tongue=catmull([[25,63],tp[0],tp[1],tp[2],tp[3],[68,60],[70,71],[67.5,80],[58,79],[42,73]],true);
+  const roof=`M22.6 46 C24.2 45.9 25.6 46.3 26.6 47 C28 45.2 30.3 43.8 33 43.1 C40 41.6 50 41 58 42.3 L61 43`;
+  const velum=pose.velum==="up"?`M61 43 C66 43.4 72 44 77.6 46.4`:`M61 43 C66 43.6 69.4 48.6 70.2 56.6`;
+  const nasal=`M15 38.4 C30 33.2 50 32.2 62 34 C70 35.2 76 39.2 78 45.4`;
+  const floor=`M16 40.2 C30 40 48 39.4 60 41`;
+  const back=`M78 45.4 C79.2 60 79.2 82 78 106`;
+  let s=`<path class="hf" d="${face}"/><path class="hf" d="${jaw}"/><path class="hl1" d="${nasal}"/><path class="hl1" d="${floor}"/><path class="hl1" d="${back}"/>`;
+  s+=`<path class="ht" d="M19 46.2 L22.6 46.2 L21.6 52.2 L20.2 52.2 Z"/><path class="ht" d="M20.6 54.8 L22.2 54.8 L23 60.4 L21.2 60.4 Z"/>`;
+  s+=`<path class="hn" d="${tongue}"/>`;
+  s+=`<path class="hr" d="${roof}"/><path class="hv" d="${velum}"/>`;
+  s+=`<path class="hl1" d="M66.6 81 C65.6 77 67.4 74.4 70.2 75.4"/>`;
+  s+=`<path class="${pose.glot?"hg on":"hg"}" d="M62.5 93 L69 93 M71 93 L77.5 93"/>`;
+  if(pose.voice)s+=`<path class="hw" d="M60.5 98.5 l1.6 -2 l1.6 2 l1.6 -2 l1.6 2 l1.6 -2 l1.6 2 l1.6 -2 l1.6 2"/>`;
+  if(pose.air==="oral")s+=`<path class="ha" d="M${Math.min(ux,lx)-2} ${(uy+ly)/2} L1.5 ${(uy+ly)/2} M4.3 ${(uy+ly)/2-2.2} L1.5 ${(uy+ly)/2} L4.3 ${(uy+ly)/2+2.2}"/>`;
+  if(pose.air==="nasal")s+=`<path class="ha" d="M8.6 36.4 L1.5 34.2 M4.6 33.2 L1.5 34.2 L3.6 36.6"/>`;
+  if(pose.pt&&o.mark!==false){const [x,y]=HEADPT[pose.pt];s+=`<circle class="hp" cx="${x}" cy="${y}" r="1.9"/>`}
+  return s;
+}
+
+const CCLUS=[
+ {lab:"歯ぐき",pt:"alv",x:22,y:5,cols:[["c_t","c_d"],["c_s","c_z"],["c_n","c_l"]],ax:56,ay:26.5},
+ {lab:"歯ぐきの奥",pt:"post",x:59.5,y:5,cols:[["c_sh","c_zh"],["c_ch","c_j"],["c_r",null]],ax:60.5,ay:26.5},
+ {lab:"上あご",pt:"pal",x:62,y:32,cols:[["c_y"]],ax:67,ay:42.5},
+ {lab:"舌の奥",pt:"vel",x:77.5,y:32,cols:[["c_k","c_ng"],["c_g",null]],ax:82.75,ay:54},
+ {lab:"歯",pt:"dent",x:0,y:33,cols:[["c_th"],["c_dh"]],row:true,ax:22.5,ay:38},
+ {lab:"唇と歯",pt:"ld",x:0,y:51,cols:[["c_f"],["c_v"]],row:true,ax:22.5,ay:56},
+ {lab:"両唇",pt:"lips",x:0,y:69,cols:[["c_p","c_m"],["c_b","c_w"]],ax:22.5,ay:80},
+ {lab:"のど",pt:"glot",x:61,y:96,cols:[["c_h"]],ax:71.5,ay:101}
+];
+const HT={s:.878,x:28,y:40-28*.878};
+function hp(k){const [x,y]=HEADPT[k];return [HT.x+x*HT.s,HT.y+y*HT.s]}
+function chipHTML(id,x,y){const p=byId(id),n=doneList(id).length,t=totalN(p),vd=CPOS[id][2];
+  return `<button class="cc ${vd?"vd":""} ${n>=t?"full":""}" data-act="open" data-id="${id}" style="left:${x}%;top:${y/110*100}%;--p:${(n/t).toFixed(3)}" aria-label="/${p.ipa}/ ${p.key}、声${vd?"あり":"なし"}、${n}/${t}語クリア"><span class="cc-ipa">${p.ipa}</span><span class="cc-bar"></span></button>`}
+function consFigHTML(){
+  let svg=`<svg viewBox="0 0 100 110" aria-hidden="true"><defs><clipPath id="hclip"><rect x="0" y="28" width="82" height="76.5"/></clipPath></defs><g transform="translate(${HT.x} ${HT.y}) scale(${HT.s})"><g clip-path="url(#hclip)">${headSVG(poseOf(null),{mark:false})}</g></g>`,chips="";
+  for(const c of CCLUS){
+    const [px,py]=hp(c.pt);
+    svg+=`<path class="hlead" d="M${c.ax} ${c.ay} L${px.toFixed(2)} ${py.toFixed(2)}"/><circle class="hp" cx="${px.toFixed(2)}" cy="${py.toFixed(2)}" r="1.25"/>`;
+    chips+=`<span class="clab" style="left:${c.x}%;top:${c.y/110*100}%">${c.lab}</span>`;
+    c.cols.forEach((col,i)=>col.forEach((id,j)=>{if(!id)return;chips+=chipHTML(id,c.x+i*11.5,c.y+(c.row?0:j*11))}));
+  }
+  svg+=`</svg>`;
+  return `<div class="cfig">${svg}${chips}</div><p class="chart-note">顔を横から見た口の断面図です。点が音を作る場所で、左が唇、右下がのどです。塗りのある丸は声あり（のどがふるえる）の音です。丸の下の線はクリアした単語の割合です。</p>`;
+}
+function mouthMini(p){return `<svg class="mini mouth" viewBox="0 26 86 82" role="img" aria-label="/${p.ipa}/ を出すときの口と舌の形">${headSVG(poseOf(p.id))}</svg>`}
+const CORDER=["c_p","c_b","c_m","c_w","c_f","c_v","c_th","c_dh","c_t","c_d","c_s","c_z","c_n","c_l","c_sh","c_zh","c_ch","c_j","c_r","c_y","c_k","c_g","c_ng","c_h"];
+let ORDER=null;
+function order(){if(!ORDER)ORDER=P.filter(p=>p.cat!=="cons").map(p=>p.id).concat(CORDER.filter(id=>byId(id)));return ORDER}
+function nbr(id,d){const o=order(),i=o.indexOf(id);return o[(i+d+o.length)%o.length]}
+/* ---------- icons ---------- */
+const IC={
+ play:'<path d="M8 5.8v12.4a.8.8 0 0 0 1.2.7l10-6.2a.8.8 0 0 0 0-1.4l-10-6.2A.8.8 0 0 0 8 5.8z" fill="currentColor" stroke="none"/>',
+ slow:'<path d="M8.5 6.6v10.8l8.7-5.4z"/>',
+ stop:'<rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor" stroke="none"/>',
+ mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/>',
+ head:'<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3.5" y="14" width="4" height="6" rx="1.5"/><rect x="16.5" y="14" width="4" height="6" rx="1.5"/>',
+ wave:'<path d="M3 12h2.5l2-5 3 10 3-8 2 6 1.5-3H21"/>',
+ bubble:'<path d="M4.5 5h15v10.5h-9L6 19.5v-4H4.5z"/><path d="M8.8 10.4l2.2 2.2 4.2-4.2"/>',
+ check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+ grid:'<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>',
+ chevL:'<path d="M14.5 5.5L8 12l6.5 6.5"/>',
+ chevR:'<path d="M9.5 5.5L16 12l-6.5 6.5"/>',
+ close:'<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+ loop:'<path d="M5 9.5h12l-3-3M19 14.5H7l3 3"/>',
+ eye:'<path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
+ eyeOff:'<path d="M2.5 12s3.5-6.5 9.5-6.5 9.5 6.5 9.5 6.5-3.5 6.5-9.5 6.5S2.5 12 2.5 12z"/><path d="M4 4l16 16"/>'
+};
+function sl(ipa){return `<span class="sl">/</span>${ipa}<span class="sl">/</span>`}
+function ic(n){return `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg>`}
+
+/* ---------- helpers ---------- */
+function byId(id){return P.find(p=>p.id===id)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function hl(raw){return esc(raw).replace(/\[(.+?)\]/g,'<b class="hl">$1</b>')}
+function parseWords(p){
+  if(p._w)return p._w;
+  p._w=p.groups.map(([label,str])=>({label,words:str.split(";").map(s=>s.trim()).filter(Boolean).map(s=>{const [w,ipa,ja,lv]=s.split("|");return {raw:w,text:w.replace(/[\[\]]/g,""),ipa,ja,lv:+lv}})}));
+  return p._w;
+}
+function totalN(p){return parseWords(p).reduce((a,g)=>a+g.words.length,0)}
+function findWord(p,text){for(const g of parseWords(p)){const w=g.words.find(x=>x.text===text);if(w)return w}return null}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fmtRate(r){return Number(r).toFixed(2).replace(/0$/,"")}
+
+let view="map",curP=null,curW=null,lvF=0,speedOpen=false,Q=null;
+/* ---------- storage ---------- */
+const KEY="hatsuon_trainer_v1";
+const DEF={cMode:"fig",rate:1,slow:0.6,gap:0.6,repeat:1,audioSource:"eleven",playMode:"next",followPlay:false,readJa:false,accent:"us",voice:"",recSec:5,autoCmp:true,srLang:"en-US",font:"m",theme:"auto",order:"spell",qCount:10,qPairs:null,showIpa:true,showJa:true,mapMode:"chart",mapKind:"v"};
+let S={last:null,done:{},quizBest:0,set:{}};
+function normalizeState(s){
+  const o={last:null,done:{},quizBest:0,set:{}};
+  if(s&&typeof s==="object"){
+    if(typeof s.last==="string")o.last=s.last;
+    if(s.done&&typeof s.done==="object")for(const k in s.done)if(Array.isArray(s.done[k]))o.done[k]=s.done[k].filter(x=>typeof x==="string");
+    if(typeof s.quizBest==="number")o.quizBest=s.quizBest;
+    o.set=Object.assign({},DEF,(s.set&&typeof s.set==="object")?s.set:{});
+    if(s.voice&&!o.set.voice)o.set.voice=s.voice;
+  }else o.set=Object.assign({},DEF);
+  if(![1,2,3,5].includes(Number(o.set.repeat)))o.set.repeat=1;
+  if(!["once","sound","next","all"].includes(o.set.playMode))o.set.playMode="next";
+  o.set.followPlay=o.set.followPlay===true;
+  if(!["eleven","device"].includes(o.set.audioSource))o.set.audioSource="eleven";
+  return o;
+}
+try{S=normalizeState(JSON.parse(localStorage.getItem(KEY)))}catch(e){S=normalizeState(null)}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function doneList(id){return S.done[id]||[]}
+function isDone(id,t){return doneList(id).includes(t)}
+function setDone(id,t,on){const l=doneList(id).filter(x=>x!==t);if(on)l.push(t);S.done[id]=l;save()}
+function applyLook(){
+  const r=document.documentElement;r.dataset.font=S.set.font;
+  if(S.set.theme==="auto")r.removeAttribute("data-theme");else r.dataset.theme=S.set.theme;
+  const dark=S.set.theme==="dark"||(S.set.theme==="auto"&&matchMedia("(prefers-color-scheme: dark)").matches);
+  {const m=document.querySelector('meta[name="theme-color"]');if(m)m.content=dark?"#11151B":"#F3F5F8"}
+}
+
+let toastT=null;
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),2600)}
+
+/* ---------- speech synthesis ---------- */
+let allVoices=[];
+function loadVoices(){try{allVoices=speechSynthesis.getVoices()||[]}catch(e){allVoices=[]}if(view==="settings")render()}
+if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function vlang(v){return (v.lang||"").replace("_","-").toLowerCase()}
+function enVoices(){const a=S.set.accent;return allVoices.filter(v=>{const l=vlang(v);return a==="us"?l==="en-us":a==="gb"?l==="en-gb":l.startsWith("en")})}
+function pickVoice(){
+  let pool=enVoices();if(!pool.length)pool=allVoices.filter(v=>vlang(v).startsWith("en"));
+  if(S.set.voice){const v=pool.find(v=>v.voiceURI===S.set.voice);if(v)return v}
+  return pool.find(v=>/google/i.test(v.name))||pool[0]||null;
+}
+function jaVoice(){const j=allVoices.filter(v=>vlang(v).startsWith("ja"));return j.find(v=>/google/i.test(v.name))||j[0]||null}
+let speechGeneration=0;
+let recordedAudio=null,recordedMapPromise=null,recordedCancel=null,lastAudioSource="";
+function stopRecordedAudio(){
+  const cancel=recordedCancel;recordedCancel=null;if(cancel)cancel();
+  if(recordedAudio){try{recordedAudio.pause()}catch(e){}}
+}
+function recordedMap(){
+  if(!recordedMapPromise)recordedMapPromise=(async()=>{
+    const c=new AbortController(),timer=setTimeout(()=>c.abort(),8000);
+    try{const r=await fetch("audio/jessica-map.json?v=2",{signal:c.signal});if(!r.ok)throw Error("map");const m=await r.json();if(!m.clips||m.audio!=="audio/jessica-padded.mp3")throw Error("map");return m}
+    finally{clearTimeout(timer)}
+  })().catch(e=>{recordedMapPromise=null;throw e});
+  return recordedMapPromise;
+}
+function recordedReady(generation){
+  if(!recordedAudio){recordedAudio=new Audio("audio/jessica-padded.mp3");recordedAudio.preload="auto";recordedAudio.preservesPitch=true;recordedAudio.load()}
+  const a=recordedAudio;
+  if(a.readyState>=1)return Promise.resolve(a);
+  return new Promise((resolve,reject)=>{
+    let timer;const clean=()=>{clearTimeout(timer);a.removeEventListener("loadedmetadata",ready);a.removeEventListener("error",error);if(recordedCancel===cancel)recordedCancel=null};
+    const ready=()=>{clean();generation===speechGeneration?resolve(a):reject(Error("cancelled"))};
+    const error=()=>{clean();reject(Error("audio"))};const cancel=()=>{clean();reject(Error("cancelled"))};
+    recordedCancel=cancel;a.addEventListener("loadedmetadata",ready);a.addEventListener("error",error);timer=setTimeout(error,10000);
+  });
+}
+async function speakRecorded(text,rate,generation,done,fallback){
+  try{
+    const map=await recordedMap();if(generation!==speechGeneration)return;
+    const clip=map.clips[text.trim().toLowerCase()];
+    if(!Array.isArray(clip)||clip.length!==2||!Number.isFinite(clip[0])||!Number.isFinite(clip[1])||clip[0]<0||clip[1]<=clip[0]){fallback();return}
+    const a=await recordedReady(generation);if(generation!==speechGeneration)return;
+    a.playbackRate=rate;a.preservesPitch=true;
+    let stopped=false,timer=null,seekTimer=null,played=false,lastTime=clip[0],progressAt=Date.now();
+    const clean=()=>{if(stopped)return;stopped=true;clearTimeout(timer);clearTimeout(seekTimer);a.removeEventListener("seeked",seeked);a.removeEventListener("error",failed);a.removeEventListener("ended",ended);a.removeEventListener("playing",playing);a.pause();if(recordedCancel===cancel)recordedCancel=null};
+    const cancel=()=>clean();
+    const finish=()=>{if(stopped)return;clean();if(generation===speechGeneration)done()};
+    const failed=()=>{if(stopped)return;clean();if(generation===speechGeneration)fallback()};
+    const ended=()=>finish();
+    const check=()=>{if(stopped)return;if(generation!==speechGeneration){clean();return}if(a.currentTime>lastTime+.01){lastTime=a.currentTime;progressAt=Date.now()}else if(Date.now()-progressAt>15000){failed();return}if(a.currentTime>=clip[1]-.008){finish();return}timer=setTimeout(check,15)};
+    const playing=()=>{clearTimeout(seekTimer);clearTimeout(timer);lastAudioSource="ElevenLabs";if(playAll)renderToolbar();check()};
+    const play=()=>{if(stopped||played||generation!==speechGeneration)return;played=true;a.removeEventListener("seeked",seeked);clearTimeout(seekTimer);seekTimer=setTimeout(failed,10000);try{const result=a.play();if(result&&result.catch)result.catch(failed)}catch(e){failed()}};
+    const seeked=()=>play();
+    recordedCancel=cancel;a.addEventListener("error",failed);a.addEventListener("ended",ended);a.addEventListener("playing",playing);a.addEventListener("seeked",seeked);
+    seekTimer=setTimeout(failed,8000);
+    if(Math.abs(a.currentTime-clip[0])<.015&&!a.seeking)play();else{a.currentTime=clip[0];if(!a.seeking&&Math.abs(a.currentTime-clip[0])<.015)play()}
+  }catch(e){if(generation===speechGeneration)fallback()}
+}
+function speak(text,slow,onend,opt){
+  const generation=++speechGeneration;opt=opt||{};stopRecordedAudio();lastAudioSource="";if(playAll)renderToolbar();
+  try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(e){}
+  let finished=false;const done=()=>{if(finished||generation!==speechGeneration)return;finished=true;if(onend)onend()};
+  const rate=opt.rate||(opt.ja?1.05:(slow?S.set.slow:S.set.rate));
+  const device=()=>{
+    if(generation!==speechGeneration)return;lastAudioSource="端末音声";if(playAll)renderToolbar();
+    if(!("speechSynthesis" in window)){toast("この単語の音声を再生できません。端末の英語音声を確認してください");done();return}
+    const u=new SpeechSynthesisUtterance(text),v=opt.ja?jaVoice():pickVoice();
+    if(v){u.voice=v;u.lang=v.lang}else u.lang=opt.ja?"ja-JP":(S.set.accent==="gb"?"en-GB":"en-US");u.rate=rate;
+    u.onend=done;u.onerror=done;
+    if(onend)setTimeout(done,2500+text.length*420/u.rate);
+    setTimeout(()=>{if(generation!==speechGeneration)return;try{speechSynthesis.speak(u)}catch(e){done()}},60);
+  };
+  if(!opt.ja&&S.set.audioSource==="eleven"&&S.set.accent!=="gb")speakRecorded(text,rate,generation,done,device);else device();
+}
+document.addEventListener("visibilitychange",()=>{if(document.hidden){speechGeneration++;stopRecordedAudio();try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(e){}if(playAll){stopPlayAll();toast("画面を閉じたため再生を停止しました")}}});
+let playAll=null;
+let playOptionsOpen=false;
+function startPlayAll(list){
+  stopPlayAll();
+  if(!list.length)return;
+  if(!("speechSynthesis" in window)&&S.set.audioSource!=="eleven"){toast("このブラウザは読み上げに対応していません");return}
+  const tok={stop:false,phon:view==="phon",word:null,i:0,rep:0};playAll=tok;renderToolbar();
+  let i=0,rep=0;
+  const step=()=>{
+    if(tok.stop||playAll!==tok)return;
+    if(i>=list.length){
+      if(tok.phon&&S.set.playMode!=="once"){
+        if(S.set.playMode!=="sound"){
+          const ids=order(),at=ids.indexOf(curP);
+          if(at===ids.length-1&&S.set.playMode==="next"){stopPlayAll();toast("最後の音まで再生しました");return}
+          let found=false;
+          for(let n=1;n<=ids.length;n++){
+            const ni=at+n;if(ni>=ids.length&&S.set.playMode==="next")break;
+            const id=ids[ni%ids.length],nextList=viewList(byId(id));
+            if(nextList.length){
+              const y=window.scrollY;curP=id;curW=null;S.last=id;S.set.mapKind=byId(id).cat==="cons"?"c":"v";save();
+              list=nextList;openG[id]=openG[id]||new Set([0]);
+              if(S.set.followPlay)viewGroups(byId(id)).forEach(g=>openG[id].add(g.i));
+              render();window.scrollTo(0,S.set.followPlay?0:y);centerStrip(false);found=true;break;
+            }
+          }
+          if(!found){stopPlayAll();toast("このレベルの単語がある音を再生し終えました");return}
+        }
+        i=0;
+      }else{stopPlayAll();return}
+    }
+    const w=list[i];tok.word=w.text;tok.i=i;tok.rep=rep+1;tok.total=list.length;
+    if(tok.phon&&S.set.followPlay){const g=viewGroups(byId(curP)).find(g=>g.words.some(x=>x.text===w.text));if(g&&g.i!==-1&&!openG[curP].has(g.i)){openG[curP].add(g.i);const y=window.scrollY;render();window.scrollTo(0,y)}}
+    markPlaying(w.text);renderToolbar();
+    speak(w.text,false,()=>{
+      if(tok.stop||playAll!==tok)return;
+      rep++;if(rep<S.set.repeat){setTimeout(step,350);return}
+      rep=0;
+      const next=()=>{if(tok.stop||playAll!==tok)return;i++;setTimeout(step,S.set.gap*1000)};
+      if(S.set.readJa&&w.ja)setTimeout(()=>{if(!tok.stop&&playAll===tok)speak(w.ja,false,next,{ja:true})},250);else next();
+    });
+  };
+  step();
+}
+function stopPlayAll(){
+  const was=!!playAll;
+  speechGeneration++;stopRecordedAudio();
+  if(playAll){playAll.stop=true;playAll=null;try{speechSynthesis.cancel()}catch(e){}}
+  markPlaying(null);if(was)renderToolbar();
+}
+function showPlaying(){
+  if(!playAll||!playAll.word)return;
+  if(view==="phon"){
+    const p=byId(curP),g=viewGroups(p).find(g=>g.words.some(w=>w.text===playAll.word));
+    if(g&&g.i!==-1&&!openG[p.id].has(g.i)){openG[p.id].add(g.i);const y=window.scrollY;render();window.scrollTo(0,y)}
+  }
+  const r=[...document.querySelectorAll(".wrow")].find(r=>r.dataset.w===playAll.word);
+  if(r)r.scrollIntoView({block:"center",behavior:"smooth"});
+}
+function markPlaying(text){
+  document.querySelectorAll(".wrow").forEach(r=>{
+    const on=text!==null&&r.dataset.w===text;r.classList.toggle("playing",on);
+    if(on&&S.set.followPlay){const top=r.getBoundingClientRect().top;if(top<180||top>innerHeight-120)r.scrollIntoView({block:"center",behavior:"smooth"})}
+  });
+}
+
+/* ---------- mic availability ---------- */
+let micBlocked=false;
+const inFrame=(()=>{try{return window.top!==window}catch(e){return true}})();
+function micOK(){
+  if(micBlocked)return false;
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder)return false;
+  try{const pp=document.permissionsPolicy||document.featurePolicy;if(pp&&pp.allowsFeature&&!pp.allowsFeature("microphone"))return false}catch(e){}
+  return true;
+}
+function judgeOK(){return !!SR&&micOK()}
+function blockMic(){micBlocked=true;res={cls:"",html:""};renderSheet();toast("この画面ではマイクを使えません")}
+/* ---------- recording ---------- */
+const rec={mr:null,url:null,word:null,timer:null,tick:null,end:0};
+async function toggleRecord(){
+  if(rec.mr&&rec.mr.state==="recording"){rec.mr.stop();return}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){toast("この環境では録音できません");return}
+  stopPlayAll();try{speechSynthesis.cancel()}catch(e){}
+  let stream;
+  try{stream=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){if(inFrame&&e&&(e.name==="NotAllowedError"||e.name==="SecurityError")){blockMic();return}toast("マイクを使えません。ブラウザのマイク許可を確認してください");return}
+  const chunks=[],mr=new MediaRecorder(stream),word=curW.text;
+  mr.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
+  mr.onstop=()=>{
+    stream.getTracks().forEach(t=>t.stop());clearTimeout(rec.timer);clearInterval(rec.tick);
+    if(rec.url)URL.revokeObjectURL(rec.url);
+    rec.url=URL.createObjectURL(new Blob(chunks,{type:mr.mimeType||"audio/webm"}));
+    rec.word=word;rec.mr=null;renderSheet();
+    if(S.set.autoCmp&&curW&&curW.text===word)compare();
+  };
+  mr.start();rec.mr=mr;rec.end=Date.now()+S.set.recSec*1000;
+  rec.timer=setTimeout(()=>{if(mr.state==="recording")mr.stop()},S.set.recSec*1000);
+  rec.tick=setInterval(()=>{const b=document.getElementById("recbtn");if(b)b.querySelector(".t").textContent=recLabel()},200);
+  renderSheet();
+}
+function recLabel(){if(rec.mr&&rec.mr.state==="recording"){return "停止 "+Math.max(0,(rec.end-Date.now())/1000).toFixed(1)+"秒"}return "録音"}
+function playSelf(cb){if(!rec.url){if(cb)cb();return}const a=new Audio(rec.url);if(cb){a.onended=cb;a.onerror=cb}a.play().catch(()=>{if(cb)cb()})}
+function compare(){stopPlayAll();speak(curW.text,false,()=>setTimeout(()=>playSelf(),300))}
+
+/* ---------- recognition ---------- */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let srBusy=false,res={cls:"",html:""};
+function norm(s){return String(s).toLowerCase().replace(/[’]/g,"'").replace(/[^a-z0-9' ]/g," ").replace(/\s+/g," ").trim()}
+function matches(t,target){const tg=norm(target),ok=new Set([tg,...(HOMO[tg]||[])]);if(NUM[tg])ok.add(NUM[tg]);const n=norm(t);if(ok.has(n))return true;return n.split(" ").some(x=>ok.has(x))}
+function judge(){
+  if(!SR){toast("このブラウザは判定に対応していません");return}
+  if(srBusy)return;
+  if(rec.mr&&rec.mr.state==="recording")rec.mr.stop();
+  stopPlayAll();try{speechSynthesis.cancel()}catch(e){}
+  const target=curW.text,pid=curP,r=new SR();
+  r.lang=S.set.srLang;r.interimResults=false;r.maxAlternatives=5;r.continuous=false;
+  let got=false,err=false;
+  srBusy=true;res={cls:"",html:"聞いています。単語を1回言ってください"};renderSheet();
+  r.onresult=e=>{
+    got=true;const alts=[],rs=e.results[0];for(let i=0;i<rs.length;i++)alts.push(rs[i].transcript);
+    const heard=esc(alts[0]||"");
+    if(alts.some(a=>matches(a,target))){
+      const first=!isDone(pid,target);setDone(pid,target,true);
+      res={cls:"ok",html:`聞き取れました（認識結果 ${heard}）${first?"。クリアに追加しました":""}`};refreshRow(target);
+    }else res={cls:"ng",html:`${heard} と認識されました。お手本を聞いてもう一度どうぞ`};
+  };
+  r.onerror=e=>{err=true;if(inFrame&&(e.error==="not-allowed"||e.error==="service-not-allowed")){srBusy=false;blockMic();return}const m={"not-allowed":"マイクの使用が許可されていません","service-not-allowed":"この環境では判定を使えません","no-speech":"声が聞こえませんでした。もう一度どうぞ","network":"ネットに接続できません。判定はネット接続が必要です","audio-capture":"マイクが見つかりません","aborted":"判定を中断しました"};res={cls:"ng",html:m[e.error]||("判定できませんでした（"+esc(e.error)+"）")}};
+  r.onend=()=>{srBusy=false;if(!got&&!err)res={cls:"ng",html:"聞き取れませんでした。もう一度どうぞ"};renderSheet()};
+  try{r.start()}catch(e){srBusy=false;res={cls:"ng",html:"判定を開始できませんでした"};renderSheet()}
+}
+
+/* ---------- state ---------- */
+const openG={},randOrder={},revealed={ipa:null,ja:null};
+const $main=document.getElementById("main"),$top=document.getElementById("top");
+
+function viewGroups(p){
+  const f=w=>!lvF||w.lv===lvF;
+  if(S.set.order==="random"){
+    if(!randOrder[p.id])randOrder[p.id]=shuffle(parseWords(p).flatMap(g=>g.words));
+    const ws=randOrder[p.id].filter(f);return ws.length?[{i:-1,label:"ランダム順",words:ws}]:[];
+  }
+  return parseWords(p).map((g,i)=>({i,label:g.label,words:g.words.filter(f)})).filter(g=>g.words.length);
+}
+function viewList(p){return viewGroups(p).flatMap(g=>g.words)}
+
+/* ---------- render ---------- */
+function render(){
+  document.body.dataset.view=view;
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab===view));
+  if(view==="phon"){const p=byId(curP);document.body.style.setProperty("--c",CATC[p.cat]);$top.innerHTML=topPhon(p);$main.innerHTML=phonHTML(p)}
+  else{
+    document.body.style.removeProperty("--c");
+    if(view==="map"){$top.innerHTML=`<h1>発音トレーナー</h1><span class="meta">${P.reduce((a,p)=>a+doneList(p.id).length,0)} / ${P.reduce((a,p)=>a+totalN(p),0)}語クリア</span>`;$main.innerHTML=mapHTML()}
+    else if(view==="quiz"){$top.innerHTML=`<h1>聞き分け</h1>`;$main.innerHTML=quizHTML()}
+    else{$top.innerHTML=`<h1>設定</h1>`;$main.innerHTML=setHTML()}
+  }
+  renderSheet();stickCheck();
+}
+function topPhon(p){
+  const a=byId(nbr(p.id,-1)),b=byId(nbr(p.id,1));
+  return `<button class="back" data-act="back" aria-label="一覧に戻る">${ic("grid")}</button><div class="pnav">
+<button class="pn prev" data-act="go" data-id="${a.id}" style="--c:${CATC[a.cat]}" aria-label="前の音 /${a.ipa}/">${ic("chevL")}<span class="pni">${a.ipa}</span></button>
+<div class="pcur"><span class="cat" style="--c:${CATC[p.cat]}">${CATN[p.cat]}</span><span class="meta" id="pmeta">${doneList(p.id).length} / ${totalN(p)}語クリア</span></div>
+<button class="pn next" data-act="go" data-id="${b.id}" style="--c:${CATC[b.cat]}" aria-label="次の音 /${b.ipa}/"><span class="pni">${b.ipa}</span>${ic("chevR")}</button></div>`}
+function stripHTML(p){
+  let h=`<nav class="strip" id="strip" aria-label="音の一覧">`,prevCons=null;
+  for(const id of order()){const q=byId(id),c=q.cat==="cons";
+    if(prevCons===false&&c)h+=`<span class="sgap" aria-hidden="true"></span>`;prevCons=c;
+    const n=doneList(id).length,tt=totalN(q);
+    h+=`<button class="sc ${id===p.id?"on":""}" data-act="go" data-id="${id}" style="--c:${CATC[q.cat]};--p:${(n/tt).toFixed(3)}" aria-label="/${q.ipa}/ ${q.key}" ${id===p.id?'aria-current="true"':""}><span class="sci">${q.ipa}</span><span class="scb"></span></button>`}
+  return h+`</nav>`;
+}
+function centerStrip(smooth){const s=document.getElementById("strip"),on=s&&s.querySelector(".sc.on");if(!on)return;s.scrollTo({left:on.offsetLeft-s.clientWidth/2+on.offsetWidth/2,behavior:smooth?"smooth":"auto"})}
+
+/* map */
+function mapHTML(){
+  let h=`<section class="learn-guide"><strong>迷ったら、この順番で</strong><p>① 母音 → ② 子音 → ③ 聞き分け<br>口の形を見る → 聞く → まねる。好きな音からでもOKです。</p><div class="btnrow"><button class="btn-line" data-act="open" data-id="${order()[0]}">① 母音から始める</button><button class="btn-line" data-act="open" data-id="${order().find(id=>byId(id).cat==="cons")}">② 子音から始める</button><button class="btn-line" data-act="tab" data-tab="quiz">③ 聞き分け</button></div></section>`;
+  const lp=S.last&&byId(S.last);
+  if(lp)h+=`<button class="resume" data-act="open" data-id="${lp.id}" style="--c:${CATC[lp.cat]}"><span class="resume-l"><span class="resume-k">前回の続き</span><span class="resume-w"><span class="ph resume-ipa">${sl(lp.ipa)}</span><span class="ph">${lp.key}</span></span></span><span class="resume-n">${doneList(lp.id).length} / ${totalN(lp)}</span>${ic("chevR")}</button>`;
+  else h+=`<p class="intro">練習したい音をタップします。単語ごとに聞く、まねて録音、判定の順に進めます。</p>`;
+  const vN=P.filter(p=>p.cat!=="cons"),cN=P.filter(p=>p.cat==="cons");
+  const cnt=a=>a.reduce((s,p)=>s+doneList(p.id).length,0)+" / "+a.reduce((s,p)=>s+totalN(p),0);
+  h+=`<div class="seg kindseg" role="tablist"><button class="${S.set.mapKind==="v"?"on":""}" data-act="mapkind" data-v="v" role="tab" aria-selected="${S.set.mapKind==="v"}">母音<span class="n">${cnt(vN)}</span></button><button class="${S.set.mapKind==="c"?"on":""}" data-act="mapkind" data-v="c" role="tab" aria-selected="${S.set.mapKind==="c"}">子音<span class="n">${cnt(cN)}</span></button></div>`;
+  if(S.set.mapKind==="c"){
+    h+=`<div class="viewtog"><button class="linkbtn" data-act="cmode" data-v="${S.set.cMode==="fig"?"table":"fig"}">${S.set.cMode==="fig"?"表で表示":"断面図で表示"}</button></div>`;
+    h+=S.set.cMode==="fig"?consFigHTML():consHTML();return h}
+  h+=`<div class="viewtog"><button class="linkbtn" data-act="mapmode" data-v="${S.set.mapMode==="chart"?"list":"chart"}">${S.set.mapMode==="chart"?"一覧で表示":"母音図で表示"}</button></div>`;
+  if(S.set.mapMode==="chart"){
+    h+=chartHTML();
+    h+=secHTML("diph")+secHTML("r");
+  }else{
+    h+=secHTML("short")+secHTML("long")+secHTML("diph")+secHTML("r");
+  }
+  return h;
+}
+function consHTML(){
+  let h=`<div class="ctab" role="grid" aria-label="子音の表"><span></span>${MANNERS.map(m=>`<span class="chd">${m}</span>`).join("")}`;
+  PLACE_S.forEach((pl,r)=>{
+    h+=`<span class="rl">${pl}</span>`;
+    for(let c=0;c<5;c++){
+      const ps=P.filter(p=>CPOS[p.id]&&CPOS[p.id][0]===r&&CPOS[p.id][1]===c).sort((a,b)=>CPOS[a.id][2]-CPOS[b.id][2]);
+      h+=`<div class="cell">${ps.map(p=>{const n=doneList(p.id).length,t=totalN(p),vd=CPOS[p.id][2];
+        return `<button class="cc ${vd?"vd":""} ${n>=t?"full":""}" data-act="open" data-id="${p.id}" style="--p:${(n/t).toFixed(3)}" aria-label="/${p.ipa}/ ${p.key}、声${vd?"あり":"なし"}、${n}/${t}語クリア"><span class="cc-ipa">${p.ipa}</span><span class="cc-key">${p.key}</span><span class="cc-bar"></span></button>`}).join("")}</div>`;
+    }
+  });
+  h+=`</div><p class="chart-note">音を作る場所（上ほど口の前、下ほどのどの奥）と息の出し方で並べた表です。同じマスの2つは口の形が同じで、声の有無だけが違います。下の線はクリアした単語の割合です。</p>
+<div class="cleg"><span><i></i>声なし（息だけ）</span><span><i class="vd"></i>声あり（のどがふるえる）</span></div>`;
+  return h;
+}
+function chartHTML(){
+  const nodes=P.filter(p=>POS[p.id]).map(p=>{
+    const [x,y]=POS[p.id],n=doneList(p.id).length,t=totalN(p);
+    return `<button class="node ${n>=t?"full":""}" data-act="open" data-id="${p.id}" style="--x:${x};--y:${y};--c:${CATC[p.cat]};--p:${(n/t).toFixed(3)}" aria-label="/${p.ipa}/ ${p.key}、${n}/${t}語クリア"><span class="ring"></span><span class="node-ipa ph">${p.ipa}</span><span class="node-key ph">${p.key}</span></button>`;
+  }).join("");
+  return `<figure class="chart"><div class="chart-box"><svg class="chart-bg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="tz" d="M0 0H100V100H30Z"/><path class="gl" d="M10 33.3H100M20 66.7H100M50 0L65 100"/></svg><span class="ax f">舌が前</span><span class="ax b">舌が奥</span><span class="ax c">狭い</span><span class="ax o">広い</span>${nodes}</div>
+<figcaption><p class="chart-note">舌の位置（左が前、右が奥）と口の開き（上が狭い、下が広い）で母音を並べた図です。近い位置の音ほど聞き分けにくくなります。外側の線はクリアした単語の割合です。</p><div class="legend"><span style="--c:var(--short)"><i></i>短母音</span><span style="--c:var(--long)"><i></i>長母音</span></div></figcaption></figure>`;
+}
+function secHTML(cat){
+  const ps=P.filter(p=>p.cat===cat);
+  return `<h2 class="sec-h" style="--c:${CATC[cat]}"><i></i>${CATN[cat]}</h2><div class="tiles">${ps.map(tileHTML).join("")}</div>`;
+}
+function tileHTML(p){const n=doneList(p.id).length,t=totalN(p);return `<button class="tile" data-act="open" data-id="${p.id}" style="--c:${CATC[p.cat]};--p:${(n/t).toFixed(3)}"><span class="tile-ipa ph">${sl(p.ipa)}</span><span class="tile-key ph">${p.key}</span><span class="tile-n">${n} / ${t}</span><span class="tile-bar"></span></button>`}
+
+/* phoneme */
+function region(x,y){return {t:x<35?"前":x<70?"中央":"奥",o:y<33?"狭い":y<66?"中くらい":"広い"}}
+function factsOf(p){
+  if(CPOS[p.id]){const [r,c,v]=CPOS[p.id];return {cons:true,place:PLACES[r],voice:v?"あり":"なし",manner:MANNER_D[c]}}
+  if(POS[p.id]){const r=region(...POS[p.id]);return {t:r.t,o:r.o}}
+  const [a,b]=GLIDE[p.id],r1=region(...a),r2=region(...b);
+  return {t:r1.t===r2.t?r1.t:`${r1.t}から${r2.t}`,o:r1.o===r2.o?r1.o:`${r1.o}から${r2.o}`};
+}
+function mx(x,y){return [6+x*1.08,6+y*.86]}
+function miniChart(p){
+  const tz=[[0,0],[100,0],[100,100],[30,100]].map(([x,y])=>mx(x,y).join(" ")).join("L");
+  const dots=Object.values(POS).map(([x,y])=>{const [a,b]=mx(x,y);return `<circle class="dot" cx="${a}" cy="${b}" r="2.2"/>`}).join("");
+  let t="";
+  if(POS[p.id]){const [a,b]=mx(...POS[p.id]);t=`<circle cx="${a}" cy="${b}" r="8.5" fill="var(--surface)"/><circle class="tgt" cx="${a}" cy="${b}" r="6"/>`}
+  else{
+    const [s,e]=GLIDE[p.id],[x1,y1]=mx(...s),[x2,y2]=mx(...e);
+    const ang=Math.atan2(y2-y1,x2-x1),L=7,x3=x2-Math.cos(ang)*2,y3=y2-Math.sin(ang)*2;
+    const ah=`M${x2-L*Math.cos(ang-0.5)} ${y2-L*Math.sin(ang-0.5)}L${x2} ${y2}L${x2-L*Math.cos(ang+0.5)} ${y2-L*Math.sin(ang+0.5)}`;
+    t=`<circle class="tgt" cx="${x1}" cy="${y1}" r="4.5"/><path class="gld" d="M${x1} ${y1}L${x3} ${y3}"/><path class="gld" d="${ah}" stroke-linejoin="round"/>`;
+  }
+  return `<svg class="mini" viewBox="0 0 120 100" role="img" aria-label="母音図での位置"><path class="tz" d="M${tz}Z" stroke-width="1.2"/>${dots}${t}</svg>`;
+}
+function phonHTML(p){
+  const og=openG[p.id]||(openG[p.id]=new Set([0])),f=factsOf(p);
+  const sp=p.sp.split(",").map(s=>`<b>${esc(s.trim())}</b>`).join("");
+  const all=parseWords(p).flatMap(g=>g.words),cnt=[0,1,2,3].map(l=>l?all.filter(w=>w.lv===l).length:all.length);
+  let side="",pbtn="";
+  if(f.cons){const q=PARTNER[p.id]&&byId(PARTNER[p.id]);if(q){const lab=CPOS[q.id][0]===CPOS[p.id][0]&&CPOS[q.id][1]===CPOS[p.id][1]?(CPOS[q.id][2]?"声ありのペア":"声なしのペア"):"聞き分けたい音";pbtn=`<button class="partner" data-act="open" data-id="${q.id}"><span class="pk">${lab}</span><span class="pw"><span class="pi">${sl(q.ipa)}</span><span class="pe">${q.key}</span></span></button>`}side=mouthMini(p)}
+  else side=miniChart(p);
+  const facts=f.cons?`<div><dt>音を作る場所</dt><dd>${f.place}</dd></div><div><dt>声</dt><dd>${f.voice}</dd></div><div><dt>息の出し方</dt><dd>${f.manner}</dd></div>`:`<div><dt>舌の位置</dt><dd>${f.t}</dd></div><div><dt>口の開き</dt><dd>${f.o}</dd></div><div><dt>唇</dt><dd>${LIPS[p.id]}</dd></div>`;
+  let h=`<div class="lesson-step">${p.cat==="cons"?"② 子音":"① 母音"} · 音 ${order().indexOf(p.id)+1} / ${order().length}<span>口の形 → 聞く → まねる</span></div>`+stripHTML(p)+`<section class="hero"><div><div class="hero-ipa ph">${sl(p.ipa)}</div><div class="hero-sp">つづり<div class="sps">${sp}</div></div></div>${side}
+<dl class="facts">${facts}</dl>
+<div class="hero-act"><button class="keyplay" data-act="play" data-w="${esc(p.key)}">${ic("play")}<span class="ph">${esc(p.key)}</span>を聞く</button>${pbtn}</div></section>
+<section class="advice"><div class="adv"><h3>口の形</h3><p>${esc(p.tip)}</p></div><div class="adv miss"><h3>よくあるミス</h3><p>${esc(p.miss)}</p></div></section>
+<div class="toolbar" id="toolbar">${toolbarInner()}</div>
+<div class="seg levels" role="tablist">${[[0,"全部"],[1,"中学"],[2,"高校"],[3,"TOEIC"]].map(([v,l])=>`<button class="${lvF===v?"on":""}" data-act="lv" data-v="${v}" ${cnt[v]?"":"disabled"}>${l}<span class="n">${cnt[v]}</span></button>`).join("")}</div>`;
+  const gs=viewGroups(p);
+  if(!gs.length)h+=`<p class="empty">このレベルの単語はありません。</p>`;
+  for(const g of gs){
+    const open=g.i===-1||og.has(g.i);
+    h+=`<div class="grp ${open?"open":""}">`;
+    if(g.i!==-1)h+=`<button class="ghead" data-act="tog" data-g="${g.i}" aria-expanded="${open}"><span class="gl ${/[^\x00-\x7F]/.test(g.label.replace(/[／・＋（）]/g,""))?"ja":""}">${esc(g.label)}</span><span class="gn">${g.words.length}語</span>${ic("chevR")}</button>`;
+    else h+=`<div class="ghead"><span class="gl">ランダム順</span><span class="gn">${g.words.length}語</span></div>`;
+    if(open)h+=g.words.map(w=>rowHTML(p.id,w)).join("");
+    h+=`</div>`;
+  }
+  const nx=byId(nbr(p.id,1));
+  h+=`<button class="nextp" data-act="go" data-id="${nx.id}" style="--c:${CATC[nx.cat]}"><span class="grow"><span class="nk">次の音${nx.cat!==p.cat?`（${CATN[nx.cat]}）`:""}</span><span class="nw"><span class="ni">${sl(nx.ipa)}</span><span class="ne">${nx.key}</span></span></span>${ic("chevR")}</button>`;
+  return h;
+}
+function toolbarInner(){
+  const r=S.set.rate;
+  let h=`<div class="tb"><button class="tb-main" data-act="all">${playAll?ic("stop")+"停止":ic("loop")+"連続再生"}</button>
+<button class="tb-speed ${speedOpen?"on":""}" data-act="speed" aria-expanded="${speedOpen}"><span class="tb-k">速度</span><span class="tb-v" id="tbrate">${fmtRate(r)}×</span></button><span class="grow"></span>
+<button class="tb-tog ${S.set.showIpa?"":"off"}" data-act="togIpa" aria-pressed="${S.set.showIpa}"><span class="lbl">記号</span></button>
+<button class="tb-tog ${S.set.showJa?"":"off"}" data-act="togJa" aria-pressed="${S.set.showJa}"><span class="lbl">意味</span></button></div>`;
+  h+=`<div class="play-summary"><button class="linkbtn" data-act="playOptions" aria-expanded="${playOptionsOpen}">${S.set.audioSource==="eleven"?"ElevenLabs優先":"端末音声"} · 再生設定 · 各${S.set.repeat}回 · ${{once:"この音で停止",sound:"この音をループ",next:"次の音へ",all:"全てループ"}[S.set.playMode]} ▾</button></div>`;
+  if(playAll&&playAll.phon)h+=`<div class="now-playing" role="status"><span>再生中 <b>${esc(playAll.word||"準備中")}</b> <span>${esc(lastAudioSource||"読み込み中")}</span> ${playAll.i+1}/${playAll.total||"–"}語 · ${playAll.rep}/${S.set.repeat}回</span><button class="linkbtn" data-act="playing">再生中へ</button></div>`;
+  if(playOptionsOpen)h+=`<div class="play-options"><label>各単語の回数<select data-play="repeat">${[1,2,3,5].map(n=>`<option value="${n}" ${S.set.repeat==n?"selected":""}>${n}回ずつ</option>`).join("")}</select></label><label>この音を再生したら<select data-play="playMode">${[["once","この音で停止"],["sound","この音だけエンドレス"],["next","次の音へ進む（最後で停止）"],["all","次の音へ進む（全体ループ）"]].map(([v,l])=>`<option value="${v}" ${S.set.playMode===v?"selected":""}>${l}</option>`).join("")}</select></label><label class="follow-label"><input type="checkbox" data-play="followPlay" ${S.set.followPlay?"checked":""}> 再生中の単語へ画面を自動移動</label><p>OFFなら口の形や説明を見たまま聞けます。次の音に進むと説明も切り替わります。</p></div>`;
+  if(speedOpen)h+=`<div class="speedpanel"><div class="sp-row"><input type="range" id="rateRange" min="0.5" max="1.5" step="0.05" value="${r}" aria-label="再生速度"><span class="sp-val" id="spval">${fmtRate(r)}×</span></div><div class="sp-pre">${[0.6,0.8,1,1.2].map(v=>`<button class="${Math.abs(r-v)<.001?"on":""}" data-act="rate" data-v="${v}">${fmtRate(v)}×</button>`).join("")}</div></div>`;
+  return h;
+}
+function renderToolbar(){const el=document.getElementById("toolbar");if(el)el.innerHTML=toolbarInner()}
+function rowHTML(pid,w){
+  const d=isDone(pid,w.text),sel=curW&&curW.text===w.text;
+  return `<div class="wrow ${sel?"sel":""}" data-act="pick" data-w="${esc(w.text)}"><div class="wl"><div class="wt"><span>${hl(w.raw)}</span>${d?`<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア済み"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</div><div class="wi">${S.set.showIpa?"/"+w.ipa+"/":'<span class="mask"></span>'}</div></div><div class="wr"><div class="wja">${S.set.showJa?esc(w.ja):'<span class="mask"></span>'}</div>${lvF?"":`<div class="lv">${LV[w.lv]}</div>`}</div><button class="play" data-act="play" data-w="${esc(w.text)}" aria-label="${esc(w.text)}を再生">${ic("play")}</button></div>`;
+}
+function refreshRow(text){
+  const p=byId(curP);if(!p||view!=="phon")return;const w=findWord(p,text);if(!w)return;
+  document.querySelectorAll(".wrow").forEach(r=>{if(r.dataset.w===text)r.outerHTML=rowHTML(p.id,w)});
+  const m=document.getElementById("pmeta");if(m)m.textContent=`${doneList(p.id).length} / ${totalN(p)}語クリア`;
+}
+
+/* sheet */
+function renderSheet(){
+  const el=document.getElementById("sheet");
+  if(view!=="phon"||!curW){el.hidden=true;el.innerHTML="";document.body.classList.remove("sheet-open");return}
+  const first=el.hidden;el.hidden=false;document.body.classList.add("sheet-open");
+  const p=byId(curP),w=curW,list=viewList(p),idx=list.findIndex(x=>x.text===w.text);
+  const d=isDone(curP,w.text),recOn=!!(rec.mr&&rec.mr.state==="recording"),hasSelf=!!(rec.url&&rec.word===w.text);
+  const showI=S.set.showIpa||revealed.ipa===w.text,showJ=S.set.showJa||revealed.ja===w.text;
+  const mic=micOK(),jd=judgeOK();
+  const r=res.html?res:{cls:"",html:jd?"判定するを押して、単語を1回言います":"このブラウザは判定に対応していません。録音して聞き比べてください"};
+  el.innerHTML=`<div class="sh ${first?"":"noanim"}" role="dialog" aria-label="${esc(w.text)}の練習">
+<div class="sh-bar"><span class="sh-idx">${idx+1} / ${list.length}</span><button class="icb sm" data-act="close" aria-label="閉じる">${ic("close")}</button></div>
+<div class="sh-top"><button class="icb" data-act="prev" aria-label="前の単語" ${idx>0?"":"disabled"}>${ic("chevL")}</button>
+<div class="sh-word"><div class="sh-w">${hl(w.raw)}</div><div class="sh-meta">${showI?`<span class="ph">/${w.ipa}/</span>`:`<button class="reveal" data-act="reveal" data-k="ipa">記号を見る</button>`}${showJ?`<span>${esc(w.ja)}</span>`:`<button class="reveal" data-act="reveal" data-k="ja">意味を見る</button>`}</div></div>
+<button class="icb" data-act="next" aria-label="次の単語" ${idx>=0&&idx<list.length-1?"":"disabled"}>${ic("chevR")}</button></div>
+<div class="sh-row"><button data-act="say">${ic("play")}お手本</button><button data-act="saySlow">${ic("slow")}ゆっくり ${fmtRate(S.set.slow)}×</button></div>
+${mic?`<div class="sh-row"><button class="rec ${recOn?"on":""}" id="recbtn" data-act="rec">${recOn?ic("stop"):ic("mic")}<span class="t">${recLabel()}</span></button><button data-act="self" ${hasSelf?"":"disabled"}>${ic("head")}自分の声</button><button data-act="cmp" ${hasSelf?"":"disabled"}>${ic("wave")}聞き比べ</button></div>`:""}
+<div class="sh-row">${jd?`<button class="primary" data-act="judge">${ic("bubble")}${srBusy?"聞いています":"判定する"}</button>`:""}<button class="donebtn ${d?"on":""}" data-act="done" aria-pressed="${d}">${ic("check")}${d?"クリア済み":"できた"}</button></div>
+${mic?`<p class="result ${r.cls}" aria-live="polite">${r.html}</p>`:`<p class="micnote">この画面ではマイクを使えません。録音と判定は、GitHub Pagesに置いたページで使えます。</p>`}</div>`;
+  if(!first){const s=el.querySelector(".sh");if(s)s.style.animation="none"}
+}
+
+/* quiz */
+const VPN=PAIRS.length-CPAIRS.length;
+function idxRange(k){return PAIRS.map((_,i)=>i).filter(i=>k==="v"?i<VPN:k==="c"?i>=VPN:true)}
+function qScope(){const s=qSel();if(s.length===PAIRS.length)return "all";const eq=a=>a.length===s.length&&a.every((x,i)=>x===s[i]);return eq(idxRange("v"))?"v":eq(idxRange("c"))?"c":"custom"}
+function qSel(){const s=S.set.qPairs;return (Array.isArray(s)&&s.length?s:PAIRS.map((_,i)=>i)).filter(i=>PAIRS[i])}
+function quizHTML(){
+  if(!Q){
+    return `<section class="q-start"><p class="q-lead">似た2つの単語のうち、1つが読み上げられます。聞こえたほうを選びます。l と r、b と v のように、日本語にない区別がここで身につきます。</p>
+<div class="seg qscope" role="tablist">${[["all","すべて"],["v","母音"],["c","子音"]].map(([k,l])=>`<button class="${qScope()===k?"on":""}" data-act="qscope" data-v="${k}">${l}<span class="n">${idxRange(k).length}</span></button>`).join("")}</div>
+<dl class="q-sum"><div><dt>問題数</dt><dd>${S.set.qCount}問</dd></div><div><dt>出題する組</dt><dd>${qSel().length}組${qScope()==="custom"?"（個別）":""}</dd></div><div><dt>最高記録</dt><dd>${S.quizBest||0}問</dd></div></dl>
+<button class="btn-main" data-act="qstart">${ic("play")}始める</button><button class="btn-sub" data-act="tab" data-tab="settings">問題数と出題する組を変える</button></section>`;
+  }
+  const n=Q.qs.length;
+  if(Q.i>=n){
+    return `<section class="q-start"><div class="q-dots">${Q.hist.map(x=>`<i class="${x?"ok":"ng"}"></i>`).join("")}</div><p class="q-score">${Q.score}<small> / ${n}問</small></p><p class="q-lead">${Q.score===n?"全問正解です。":"間違えた組は、音素ページで2つの単語を聞き比べると差がつかめます。"}最高記録は${S.quizBest}問です。</p><button class="btn-main" data-act="qstart">${ic("loop")}もう一度</button><button class="btn-sub" data-act="qback">最初の画面に戻る</button></section>`;
+  }
+  const q=Q.qs[Q.i],pr=q.pair;
+  const dots=Q.qs.map((_,k)=>`<i class="${k<Q.hist.length?(Q.hist[k]?"ok":"ng"):k===Q.i?"cur":""}"></i>`).join("");
+  let h=`<div class="q-head"><span>${Q.i+1} / ${n}問</span><span>正解 ${Q.score}</span></div><div class="q-dots">${dots}</div>
+<div class="q-stage"><button class="q-play" data-act="qplay" aria-label="もう一度聞く">${ic("play")}</button><button class="q-slow" data-act="qslow">ゆっくり聞く</button></div>
+<p class="q-ask">聞こえた単語を選んでください</p><div class="q-choices">`;
+  h+=q.order.map(k=>{
+    if(Q.ans===null)return `<button class="choice" data-act="qans" data-k="${k}"><span class="cw">${pr[k*2]}</span></button>`;
+    const c=k===q.target?"right":k===Q.ans?"wrong":"";
+    return `<div class="choice ${c}"><span class="cw">${pr[k*2]}</span><span class="ci">/${pr[k*2+1]}/</span><button class="hear" data-act="qhear" data-w="${pr[k*2]}">${ic("play")}聞く</button></div>`;
+  }).join("");
+  h+=`</div>`;
+  if(Q.ans!==null){const ok=Q.ans===q.target;h+=`<p class="q-fb ${ok?"ok":"ng"}">${ok?"正解":"不正解。読まれたのは "+pr[q.target*2]+" です"}</p><button class="btn-main" data-act="qnext">${Q.i+1>=n?"結果を見る":"次の問題"}</button>`}
+  return h;
+}
+function qWord(){const q=Q.qs[Q.i];return q.pair[q.target*2]}
+
+/* settings */
+function seg(k,opts){return `<div class="seg">${opts.map(([v,l])=>`<button class="${String(S.set[k])===String(v)?"on":""}" data-act="setv" data-k="${k}" data-v="${v}">${l}</button>`).join("")}</div>`}
+function sw(k,label,desc){return `<div class="srow inline"><span class="lab">${label}${desc?`<span class="desc">${desc}</span>`:""}</span><button class="sw" role="switch" aria-checked="${!!S.set[k]}" data-act="swt" data-k="${k}" aria-label="${label}"></button></div>`}
+function rng(k,label,min,max,step,unit,desc){return `<div class="srow"><div class="rhead"><span class="lab">${label}${desc?`<span class="desc">${desc}</span>`:""}</span><span class="val" id="v_${k}">${fmtNum(k,S.set[k])}${unit}</span></div><input type="range" data-set="${k}" data-unit="${unit}" min="${min}" max="${max}" step="${step}" value="${S.set[k]}" aria-label="${label}"></div>`}
+function fmtNum(k,v){return k==="gap"?Number(v).toFixed(1):fmtRate(v)}
+function setHTML(){
+  const ev=enVoices(),cur=pickVoice(),ja=jaVoice();
+  const gv={},gc={};PAIRS.forEach((p,i)=>{const g=i<VPN?gv:gc;(g[p[4]]=g[p[4]]||[]).push(i)});
+  const pgr=gs=>`<div class="pgrps">${Object.entries(gs).map(([g,ids])=>`<div class="pgrp"><span class="pgl ph">${g.split(" / ").map(x=>"/"+x+"/").join(" ")}</span><div class="pills">${ids.map(i=>`<button class="pill ${sel.has(i)?"on":""}" data-act="pair" data-i="${i}" aria-pressed="${sel.has(i)}">${PAIRS[i][0]} / ${PAIRS[i][2]}</button>`).join("")}</div></div>`).join("")}</div>`;
+  const sel=new Set(qSel());
+  return `<h2 class="set-h">再生</h2><div class="card">
+${rng("rate","再生速度",0.5,1.5,0.05,"×","お手本と連続再生の速さ")}
+${rng("slow","ゆっくりボタンの速度",0.4,0.9,0.05,"×")}
+${rng("gap","連続再生の間隔",0.3,2,0.1,"秒")}
+<div class="srow"><span class="lab">連続再生で1語を繰り返す回数</span>${seg("repeat",[[1,"1回"],[2,"2回"],[3,"3回"],[5,"5回"]])}</div>
+${sw("followPlay","再生中の単語へ画面を自動移動","OFFなら説明を見たまま再生できます。音の画面の再生設定からも変更できます")}
+${sw("readJa","連続再生で日本語の意味も読む",ja?"":"日本語の音声が見つからないため、端末の既定の声で読みます")}
+</div>
+<h2 class="set-h">お手本の声</h2><div class="card">
+<div class="srow"><span class="lab">音声の種類<span class="desc">ElevenLabsはアメリカ英語の810語に対応。未対応の単語・英文・イギリス英語は端末音声で読みます。初回は音声の読み込みに少し時間がかかります。</span></span>${seg("audioSource",[["eleven","ElevenLabs優先"],["device","端末音声"]])}</div>
+<div class="srow"><span class="desc" style="margin:0">画面OFF・別タブへの移動中は再生を停止します。</span></div>
+<div class="srow"><span class="lab">発音</span>${seg("accent",[["us","アメリカ"],["gb","イギリス"],["all","すべて"]])}</div>
+<div class="srow"><span class="lab">声</span>${ev.length?`<select id="vsel" aria-label="声">${ev.map(v=>`<option value="${esc(v.voiceURI)}" ${cur&&cur.voiceURI===v.voiceURI?"selected":""}>${esc(v.name)}（${esc(v.lang)}）</option>`).join("")}</select>`:`<span class="desc">この発音の声が見つかりません。端末の設定（テキスト読み上げ）で英語の音声データを追加してください。</span>`}<div class="btnrow"><button class="btn-line" data-act="vtest">${"試しに聞く"}</button></div></div>
+</div>
+<h2 class="set-h">録音と判定</h2><div class="card">
+<div class="srow"><span class="lab">録音時間</span>${seg("recSec",[[3,"3秒"],[5,"5秒"],[8,"8秒"]])}</div>
+${sw("autoCmp","録音後に自動で聞き比べ","お手本、自分の声の順に再生します")}
+<div class="srow"><span class="lab">判定に使う英語</span>${seg("srLang",[["en-US","アメリカ"],["en-GB","イギリス"]])}</div>
+</div>
+<h2 class="set-h">表示</h2><div class="card">
+<div class="srow"><span class="lab">文字サイズ</span>${seg("font",[["s","小"],["m","中"],["l","大"]])}</div>
+<div class="srow"><span class="lab">テーマ</span>${seg("theme",[["auto","端末に合わせる"],["light","ライト"],["dark","ダーク"]])}</div>
+<div class="srow"><span class="lab">単語の並び順</span>${seg("order",[["spell","つづり別"],["random","ランダム"]])}</div>
+${sw("showIpa","発音記号を表示","オフにすると単語の一覧で記号を隠します")}
+${sw("showJa","意味を表示","オフにすると単語の一覧で意味を隠します")}
+</div>
+<h2 class="set-h">聞き分けクイズ</h2><div class="card">
+<div class="srow"><span class="lab">問題数</span>${seg("qCount",[[5,"5問"],[10,"10問"],[20,"20問"]])}</div>
+<div class="srow"><span class="lab">出題する組<span class="desc">${sel.size}組を選択中。何も選ばないとすべての組から出題します</span></span>
+<div class="pblock"><h4>母音</h4>${pgr(gv)}</div><div class="pblock"><h4>子音</h4>${pgr(gc)}</div>
+<div class="btnrow"><button class="btn-line" data-act="pairsAll">すべて選ぶ</button></div></div>
+</div>
+<h2 class="set-h">学習記録</h2><div class="card">
+<div class="srow"><span class="desc" style="margin:0">クリアした単語と設定は、このブラウザの中に保存されます。別の端末に移すときは書き出したファイルを読み込みます。読み込みとリセットは今の記録を消すので、2回押して実行します。</span><div class="btnrow"><button class="btn-line" data-act="export">書き出す</button><button class="btn-line" data-act="import">読み込む</button><button class="btn-line danger" data-act="reset">リセット</button></div></div>
+</div>
+<h2 class="set-h">この端末の対応状況</h2><div class="card"><div class="srow"><dl class="status">
+<dt>読み上げ</dt><dd class="${"speechSynthesis" in window?"":"no"}">${"speechSynthesis" in window?"使えます":"使えません"}</dd>
+<dt>録音</dt><dd class="${micOK()?"":"no"}">${micOK()?"使えます":inFrame?"この画面では使えません":"使えません"}</dd>
+<dt>判定</dt><dd class="${judgeOK()?"":"no"}">${judgeOK()?"使えます（ネット接続が必要）":!micOK()&&inFrame?"この画面では使えません":"使えません。Chromeで開いてください"}</dd></dl></div></div>`;
+}
+
+/* ---------- actions ---------- */
+function goPhon(id){
+  if(!byId(id)||id===curP)return;
+  stopPlayAll();if(rec.mr&&rec.mr.state==="recording")rec.mr.stop();
+  const p=byId(id);curP=id;curW=null;res={cls:"",html:""};speedOpen=false;S.last=id;S.set.mapKind=p.cat==="cons"?"c":"v";save();
+  if(lvF&&!parseWords(p).some(g=>g.words.some(w=>w.lv===lvF)))lvF=0;
+  render();window.scrollTo(0,0);centerStrip(true);
+}
+function openPhon(id,push){
+  stopPlayAll();curP=id;curW=null;{const p=byId(id);if(p)S.set.mapKind=p.cat==="cons"?"c":"v"}res={cls:"",html:""};lvF=0;speedOpen=false;S.last=id;save();view="phon";
+  if(push)history.pushState({v:"phon"},"");render();window.scrollTo(0,0);centerStrip(false);
+}
+function goMap(){stopPlayAll();if(rec.mr&&rec.mr.state==="recording")rec.mr.stop();curW=null;view="map";render();window.scrollTo(0,0)}
+function pickWord(w,el){
+  stopPlayAll();curW=w;res={cls:"",html:""};
+  document.querySelectorAll(".wrow").forEach(r=>r.classList.toggle("sel",r.dataset.w===w.text));
+  renderSheet();speak(w.text,false);
+  const row=el||[...document.querySelectorAll(".wrow")].find(r=>r.dataset.w===w.text);
+  if(row)setTimeout(()=>{const b=row.getBoundingClientRect(),limit=innerHeight-(document.querySelector(".sh")||{offsetHeight:0}).offsetHeight-12;if(b.bottom>limit||b.top<140)row.scrollIntoView({block:"center",behavior:"smooth"})},60);
+}
+function step(d){
+  const p=byId(curP),list=viewList(p),i=list.findIndex(x=>x.text===curW.text),w=list[i+d];if(!w)return;
+  const g=viewGroups(p).find(g=>g.words.includes(w));
+  if(g&&g.i!==-1&&!openG[p.id].has(g.i)){openG[p.id].add(g.i);$main.innerHTML=phonHTML(p)}
+  pickWord(w);
+}
+function armed(b,msg){
+  if(b.dataset.armed==="1"){b.dataset.armed="";b.textContent=b.dataset.label;clearTimeout(b._t);return true}
+  b.dataset.label=b.textContent;b.dataset.armed="1";b.textContent=msg;
+  b._t=setTimeout(()=>{b.dataset.armed="";b.textContent=b.dataset.label},4000);return false;
+}
+const ACT={
+  go(b){goPhon(b.dataset.id)},
+  open(b){if(view==="phon"){goPhon(b.dataset.id);return}openPhon(b.dataset.id,true)},
+  back(){if(history.state&&history.state.v==="phon")history.back();else goMap()},
+  tab(b){stopPlayAll();view=b.dataset.tab;render();window.scrollTo(0,0)},
+  mapmode(b){S.set.mapMode=b.dataset.v;save();render()},
+  cmode(b){S.set.cMode=b.dataset.v;save();render()},
+  mapkind(b){S.set.mapKind=b.dataset.v;save();render()},
+  lv(b){stopPlayAll();lvF=+b.dataset.v;const p=byId(curP);if(curW&&!viewList(p).some(w=>w.text===curW.text))curW=null;render()},
+  tog(b){const s=openG[curP],i=+b.dataset.g;s.has(i)?s.delete(i):s.add(i);render()},
+  play(b,e){e.stopPropagation();stopPlayAll();speak(b.dataset.w,false)},
+  pick(b){const w=findWord(byId(curP),b.dataset.w);if(w)pickWord(w,b)},
+  prev(){step(-1)},next(){step(1)},
+  close(){curW=null;document.querySelectorAll(".wrow.sel").forEach(r=>r.classList.remove("sel"));renderSheet()},
+  reveal(b){revealed[b.dataset.k]=curW.text;renderSheet()},
+  say(){stopPlayAll();speak(curW.text,false)},
+  saySlow(){stopPlayAll();speak(curW.text,true)},
+  rec(){toggleRecord()},
+  self(){stopPlayAll();playSelf()},
+  cmp(){compare()},
+  judge(){judge()},
+  done(){const on=!isDone(curP,curW.text);setDone(curP,curW.text,on);refreshRow(curW.text);document.querySelectorAll(".wrow").forEach(r=>r.classList.toggle("sel",r.dataset.w===curW.text));renderSheet()},
+  all(){
+    if(playAll){stopPlayAll();return}
+    const p=byId(curP),gs=viewGroups(p),list=gs.flatMap(g=>g.words);if(!list.length)return;
+    const y=window.scrollY;if(S.set.followPlay)gs.forEach(g=>{if(g.i!==-1)openG[p.id].add(g.i)});curW=null;$main.innerHTML=phonHTML(p);renderSheet();window.scrollTo(0,y);
+    startPlayAll(list);
+  },
+  playOptions(){playOptionsOpen=!playOptionsOpen;renderToolbar()},
+  playing(){showPlaying()},
+  speed(){speedOpen=!speedOpen;renderToolbar()},
+  rate(b){S.set.rate=+b.dataset.v;save();renderToolbar();if(curW)speak(curW.text,false)},
+  togIpa(){S.set.showIpa=!S.set.showIpa;save();const p=byId(curP);$main.innerHTML=phonHTML(p);renderSheet();stickCheck()},
+  togJa(){S.set.showJa=!S.set.showJa;save();const p=byId(curP);$main.innerHTML=phonHTML(p);renderSheet();stickCheck()},
+  qstart(){
+    const sel=qSel();let l=[];while(l.length<S.set.qCount){let s=shuffle(sel);if(l.length&&s.length>1&&s[0]===l[l.length-1])s.push(s.shift());l=l.concat(s)}
+    Q={qs:l.slice(0,S.set.qCount).map(i=>({pair:PAIRS[i],target:Math.random()<.5?0:1,order:shuffle([0,1])})),i:0,score:0,ans:null,hist:[]};
+    render();window.scrollTo(0,0);speak(qWord(),false);
+  },
+  qplay(){speak(qWord(),false)},
+  qslow(){speak(qWord(),true)},
+  qans(b){if(Q.ans!==null)return;Q.ans=+b.dataset.k;const ok=Q.ans===Q.qs[Q.i].target;if(ok)Q.score++;Q.hist.push(ok);render()},
+  qhear(b){speak(b.dataset.w,false)},
+  qnext(){Q.i++;Q.ans=null;if(Q.i>=Q.qs.length){S.quizBest=Math.max(S.quizBest||0,Q.score);save();render()}else{render();speak(qWord(),false)}},
+  qback(){Q=null;render()},
+  setv(b){
+    const k=b.dataset.k,v=b.dataset.v;if(["audioSource","accent","voice"].includes(k))stopPlayAll();S.set[k]=["repeat","recSec","qCount"].includes(k)?+v:v;
+    if(k==="accent")S.set.voice="";
+    if(k==="order")for(const x in randOrder)delete randOrder[x];
+    save();applyLook();render();
+  },
+  swt(b){const k=b.dataset.k;S.set[k]=!S.set[k];save();b.setAttribute("aria-checked",String(!!S.set[k]))},
+  vtest(){speak("Hello. This is how I sound.",false)},
+  pair(b){const i=+b.dataset.i;const s=new Set(qSel());s.has(i)?s.delete(i):s.add(i);S.set.qPairs=(s.size===0||s.size===PAIRS.length)?null:[...s].sort((a,b)=>a-b);save();render()},
+  qscope(b){const k=b.dataset.v;S.set.qPairs=k==="all"?null:idxRange(k);save();render()},
+  pairsAll(){S.set.qPairs=null;save();render()},
+  export(){
+    const json=JSON.stringify({app:"hatsuon-trainer",version:3,saved:new Date().toISOString(),data:S},null,1),blob=new Blob([json],{type:"application/json"});
+    const d=new Date(),n=`hatsuon-backup-${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}.json`;
+    if(dlNS){dlNS.save({filename:n,data:json}).then(()=>toast("書き出しました")).catch(e=>{if(e&&e.code==="declined")return;toast(e&&e.code==="rate_limited"?"少し待ってからもう一度押してください":"この画面では書き出せません")});return}
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=n;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500);toast("書き出しました");
+  },
+  import(b){if(!armed(b,"もう一度押してファイルを選ぶ"))return;document.getElementById("importFile").click()},
+  reset(b){if(!armed(b,"もう一度押すとリセット"))return;S.done={};S.last=null;S.quizBest=0;save();render();toast("学習記録をリセットしました")}
+};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(!b||b.disabled)return;const f=ACT[b.dataset.act];if(f)f(b,e)});
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.id==="rateRange"){S.set.rate=+t.value;document.getElementById("spval").textContent=fmtRate(t.value)+"×";document.getElementById("tbrate").textContent=fmtRate(t.value)+"×";document.querySelectorAll(".sp-pre button").forEach(b=>b.classList.toggle("on",Math.abs(+b.dataset.v-S.set.rate)<.001))}
+  if(t.dataset.set){S.set[t.dataset.set]=+t.value;const v=document.getElementById("v_"+t.dataset.set);if(v)v.textContent=fmtNum(t.dataset.set,t.value)+t.dataset.unit}
+});
+document.addEventListener("change",e=>{
+  const t=e.target;
+  if(t.dataset.play){const k=t.dataset.play;S.set[k]=k==="repeat"?+t.value:k==="followPlay"?t.checked:t.value;save();if(k==="followPlay"&&t.checked&&playAll)showPlaying();renderToolbar()}
+  if(t.id==="rateRange"){save();if(curW)speak(curW.text,false)}
+  if(t.dataset.set){save();if(t.dataset.set==="rate")speak("This is the new speed.",false);if(t.dataset.set==="slow")speak("This is the slow speed.",true)}
+  if(t.id==="vsel"){S.set.voice=t.value;save();speak("Hello.",false)}
+  if(t.dataset.pair!==undefined){const ids=[...document.querySelectorAll("[data-pair]")].filter(x=>x.checked).map(x=>+x.dataset.pair);S.set.qPairs=ids.length===PAIRS.length?null:ids;save();const d=t.closest(".srow").querySelector(".desc");if(d)d.textContent=`${qSel().length}組を選択中。何も選ばないとすべての組から出題します`}
+  if(t.id==="importFile"&&t.files&&t.files[0]){
+    const fr=new FileReader();fr.onload=()=>{try{const j=JSON.parse(fr.result);if(!j||j.app!=="hatsuon-trainer"||!j.data)throw 0;S=normalizeState(j.data);save();applyLook();render();toast("読み込みました")}catch(err){toast("このファイルは読み込めません。書き出したファイルを選んでください")}finally{t.value=""}};fr.readAsText(t.files[0]);
+  }
+});
+document.addEventListener("keydown",e=>{
+  if(view!=="phon"||e.altKey||e.ctrlKey||e.metaKey)return;
+  const tg=e.target;if(tg&&(tg.tagName==="INPUT"||tg.tagName==="SELECT"||tg.tagName==="TEXTAREA"))return;
+  if(e.key==="ArrowRight"&&e.shiftKey){goPhon(nbr(curP,1));e.preventDefault()}
+  if(e.key==="ArrowLeft"&&e.shiftKey){goPhon(nbr(curP,-1));e.preventDefault()}
+});
+window.addEventListener("popstate",()=>{if(view==="phon")goMap()});
+function stickCheck(){const t=document.getElementById("toolbar");if(!t)return;t.classList.toggle("stuck",t.getBoundingClientRect().top<=56.5)}
+window.addEventListener("scroll",stickCheck,{passive:true});
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change",applyLook);
+let dlNS=null;
+try{if(window.claude&&typeof window.claude.use==="function")window.claude.use("downloads").then(ns=>{dlNS=ns}).catch(()=>{})}catch(e){}
+applyLook();render();
+</script>
+<script>
+/*SOUND CHANGES DATA*/
+const SC=[
+{id:"silent",name:"サイレントレター",en:"Silent letters",c:"var(--short)",
+sum:"書いてあるのに読まない文字",
+how:"綴りの中に、発音しない文字がある。昔は読んでいた音が、時代とともに消えて文字だけ残った。kn の k、wr の w、mb の b、alk の l などはパターンで覚えられる。",
+tip:"[ ] で囲んだ文字は読まない。綴りを見て音を作るのではなく、音を聞いて単語を覚え直す。",
+miss:"knife を「クナイフ」、listen を「リッスン」と、ローマ字読みで t や k を入れてしまう。",
+items:`[k]now|ノウ|知っている
+[k]nife|ナイフ|ナイフ
+[k]nee|ニー|ひざ
+[k]nock|ナック|ノックする
+[w]rite|ライト|書く
+[w]rong|ローング|間違った
+[w]rap|ラップ|包む
+lis[t]en|リスン|聞く
+cas[t]le|キャソー|城
+whis[t]le|ウィソー|口笛
+ha[l]f|ハーフ|半分
+ta[l]k|トーク|話す
+wa[l]k|ウォーク|歩く
+ca[l]m|カーム|落ち着いた
+cou[l]d|クッド|できた
+shou[l]d|シュッド|〜すべき
+wou[l]d|ウッド|〜だろう
+clim[b]|クライム|登る
+com[b]|コウム|くし
+thum[b]|サム|親指
+dou[b]t|ダウト|疑う
+de[b]t|デット|借金
+[h]our|アワー|1時間
+[h]onest|アネスト|正直な
+[h]onor|アナー|名誉
+i[s]land|アイランド|島
+autum[n]|オータム|秋
+colum[n]|カラム|列、コラム
+forei[g]n|フォーリン|外国の
+We[d]nesday|ウェンズデイ|水曜日`},
+{id:"contr",name:"短縮形",en:"Contractions",c:"var(--long)",
+sum:"2語がくっついて1語になる",
+how:"I will が I'll、do not が don't のように、2つの語が縮まって1つになる。会話ではほぼ必ず短縮形で話されるので、元の形で待っていると聞き逃す。",
+tip:"'ll は「ル」、'd は小さい「ド」、'v は「ヴ」がかすかに聞こえるだけ。主語の直後の小さな音を拾う。",
+miss:"I'll と I、I'd と I を聞き分けられず、時制や意味を取り違える。can't と can も特に間違えやすい。",
+items:`I['m]|アイム|私は〜だ
+I['ll]|アイル|私は〜するつもり
+I['ve]|アイヴ|私は〜したことがある
+I['d]|アイド|私は〜するだろう／〜した
+you['re]|ユア|あなたは〜だ
+you['ll]|ユール|あなたは〜するだろう
+you['ve]|ユーヴ|あなたは〜した
+he['s]|ヒーズ|彼は〜だ／〜した
+she['ll]|シール|彼女は〜するだろう
+it['s]|イッツ|それは〜だ
+we['re]|ウィア|私たちは〜だ
+they['re]|ゼア|彼らは〜だ
+they['ve]|ゼイヴ|彼らは〜した
+that['s]|ザッツ|それは〜だ
+there['s]|ゼアズ|〜がある
+what['s]|ワッツ|何が〜か
+let['s]|レッツ|〜しよう
+is[n't]|イズント|〜ではない
+are[n't]|アーント|〜ではない
+was[n't]|ワズント|〜ではなかった
+do[n't]|ドウント|〜しない
+does[n't]|ダズント|〜しない（三単現）
+did[n't]|ディドゥント|〜しなかった
+ca[n't]|キャーント|〜できない
+[won't]|ウォウント|〜しないだろう
+could[n't]|クドゥント|〜できなかった
+should[n't]|シュドゥント|〜すべきでない
+should['ve]|シュダヴ|〜すべきだった
+would['ve]|ウダヴ|〜しただろうに
+could['ve]|クダヴ|〜できただろうに`},
+{id:"stress",name:"単語の強勢",en:"Word stress",c:"var(--diph)",
+sum:"単語のどこを強く読むか",
+how:"英語の単語には強く・高く・長く読む音節が1か所ある。強勢の位置を間違えると、発音が正しくても通じない。品詞で強勢が移る単語もある（名詞は前、動詞は後ろ）。",
+tip:"大きい文字の音節を強く長く。それ以外は力を抜いて短く、あいまいに読む。",
+miss:"日本語は高さで区別するので、全部の音節を同じ強さで読みがち。hotel を「ホテル」と前に置くと通じにくい。",
+items:`[pho]·to|[フォウ]トウ|写真
+pho·[tog]·ra·pher|フ[タ]グラファー|写真家
+pho·to·[graph]·ic|フォウト[グラ]フィック|写真の
+ba·[na]·na|バ[ナァ]ナ|バナナ
+ho·[tel]|ホウ[テル]|ホテル
+[cof]·fee|[カー]フィー|コーヒー
+[en]·er·gy|[エ]ナジー|エネルギー
+[al]·co·hol|[アル]カホール|アルコール
+[choc]·o·late|[チャ]クレット|チョコレート
+[vi]·ta·min|[ヴァイ]タミン|ビタミン
+i·[de]·a|アイ[ディー]ア|考え
+mu·[se]·um|ミュー[ズィー]アム|博物館
+gui·[tar]|ギ[ター]|ギター
+ca·[reer]|カ[リア]|経歴
+[cal]·en·dar|[キャ]レンダー|カレンダー
+[in]·ter·est·ing|[イン]タレスティング|面白い
+e·[con]·o·my|イ[カ]ナミー|経済
+ec·o·[nom]·ic|エカ[ナ]ミック|経済の
+[pol]·i·tics|[パ]リティクス|政治
+po·[lit]·i·cal|パ[リ]ティカル|政治の
+[pres]·ent|[プレ]ズント|贈り物（名詞）
+pre·[sent]|プリ[ゼント]|贈る（動詞）
+[rec]·ord|[レ]カード|記録（名詞）
+re·[cord]|リ[コード]|記録する（動詞）
+[des]·ert|[デ]ザート|砂漠
+des·[sert]|ディ[ザート]|デザート
+Ja·[pan]|ジャ[パン]|日本
+Jap·a·[nese]|ジャパ[ニーズ]|日本語、日本人
+ad·[vice]|アド[ヴァイス]|助言
+[man]·a·ger|[マ]ニジャー|管理者`},
+{id:"assim",name:"同化",en:"Assimilation",c:"var(--r)",
+sum:"隣の音と混ざって別の音になる",
+how:"語末の音と次の語頭の音が影響し合い、別の音に変わる。t＋y は「チュ」、d＋y は「ジュ」、s＋y は「シュ」に。n は次の p・b の前で m に近くなる。",
+tip:"「〜ジュ」「〜チュ」が聞こえたら、d you / t you を疑う。自分で言うときも無理に切らず、つなげて言う。",
+miss:"did you を「ディド ユー」と1語ずつ区切って待っているので、「ディジュ」を聞いて別の単語だと思ってしまう。",
+items:`di[d y]ou|ディジュ|〜したの？
+woul[d y]ou|ウッジュ|〜してくれますか
+coul[d y]ou|クッジュ|〜してもらえますか
+nee[d y]ou|ニージュ|あなたが必要だ
+an[d y]ou|アンジュ|そしてあなたは
+mee[t y]ou|ミーチュ|あなたに会う
+ge[t y]ou|ゲッチュ|あなたに〜を取ってくる
+le[t y]ou|レッチュ|あなたに〜させる
+go[t y]ou|ガッチュ|つかまえた、わかった
+wha[t y]ou|ワッチュ|あなたが〜すること
+bu[t y]ou|バッチュ|でもあなたは
+tha[t y]ou|ザッチュ|あなたが〜ということ
+don'[t y]ou|ドンチュ|〜しないの？
+won'[t y]ou|ウォンチュ|〜しませんか
+can'[t y]ou|キャンチュ|〜できないの？
+didn'[t y]ou|ディドゥンチュ|〜しなかったの？
+mi[ss y]ou|ミシュ|会いたい
+ble[ss y]ou|ブレシュ|お大事に
+thi[s y]ear|ディシア|今年
+a[s y]ou know|アジュノウ|ご存じのとおり
+how'[s y]our day|ハウジュアデイ|今日はどう？
+gree[n p]ark|グリームパーク|緑の公園
+te[n b]oys|テムボイズ|10人の男の子
+i[n p]ublic|イムパブリック|人前で
+i[n c]ase|イングケイス|〜の場合に備えて
+goo[d b]oy|グッボイ|いい子
+ha[d t]o|ハットゥ|〜しなければならなかった
+ha[s t]o|ハストゥ|〜しなければならない
+ha[ve t]o|ハフトゥ|〜しなければならない
+use[d t]o|ユーストゥ|以前は〜だった`},
+{id:"flap",name:"フラップT",en:"Flap T",c:"var(--cons)",
+sum:"母音にはさまれた t がラ行に",
+how:"アメリカ英語では、母音（と r）にはさまれた t や tt が、舌先で上の歯ぐきを一瞬はじく音になる。日本語のラ行や軽いダ行に聞こえる。単語の中だけでなく、get it のように語と語の間でも起きる。",
+tip:"舌先を上の歯の裏の歯ぐきにポンと1回当てるだけ。「ト」と息を出さない。",
+miss:"water を「ウォーター」とはっきり t で言う。聞くときも「ワーラー」が water だと結びつかない。",
+items:`wa[t]er|ワーラー|水
+be[tt]er|ベラー|より良い
+ci[t]y|シリー|都市
+pre[tt]y|プリリー|かなり、かわいい
+ma[tt]er|マラー|問題
+li[tt]le|リロー|少し、小さい
+bu[tt]er|バラー|バター
+le[tt]er|レラー|手紙
+compu[t]er|コンピューラー|コンピューター
+par[t]y|パーリー|パーティー
+thir[t]y|サーリー|30
+for[t]y|フォーリー|40
+beau[t]iful|ビューリフォー|美しい
+hea[t]er|ヒーラー|暖房器具
+wri[t]er|ライラー|作家
+ea[t]ing|イーリング|食べている
+mee[t]ing|ミーリング|会議
+a lo[t] of|アラーラヴ|たくさんの
+ge[t] up|ゲラップ|起きる
+ge[t] it|ゲリッ|手に入れる、わかる
+pu[t] it on|プリロン|それを着る
+wha[t] is|ワリズ|何が〜か
+wha[t] about|ワラバウト|〜はどう？
+shu[t] up|シャラップ|黙れ
+ou[t] of|アウラヴ|〜から外へ
+no[t] at all|ナラローゥ|まったく〜ない
+le[t] it go|レリゴウ|放っておく
+a bi[t] of|アビラヴ|少しの
+I go[t] it|アイガリッ|わかった
+wai[t] a minute|ウェイラミニッ|ちょっと待って`},
+{id:"drop",name:"脱落・未破裂",en:"Elision",c:"var(--short)",
+sum:"子音が消える、言いかけで止まる",
+how:"子音が3つ続く、または同じ・似た子音が続くと、間の子音（特に t・d）が落ちる。p・b・t・d・k・g が語末に来て次も子音のときは、口の形だけ作って息を破裂させない（未破裂）。",
+tip:"消える音の分だけ、ほんの少し間があく。その「間」を聞き取る。",
+miss:"last night の t を探して聞くので「ラスナイ」が分からない。good morning を「グッド モーニング」と全部の音を出す。",
+items:`las[t] night|ラスナイ|昨夜
+nex[t] day|ネクスデイ|翌日
+nex[t] week|ネクスウィーク|来週
+mus[t] be|マスビー|〜に違いない
+jus[t] now|ジャスナウ|たった今
+I don'[t] know|アイドンノウ|わからない
+han[d]bag|ハンバッグ|ハンドバッグ
+san[d]wich|サンウィッチ|サンドイッチ
+frien[d]ship|フレンシップ|友情
+gran[d]mother|グランマザー|祖母
+blin[d] man|ブラインマン|目の見えない男性
+col[d] coffee|コウルカーフィー|冷たいコーヒー
+ol[d] man|オウルマン|おじいさん
+goo[d] morning|グッモーニン|おはよう
+goo[d] night|グッナイ|おやすみ
+ba[d] guy|バッガイ|悪いやつ
+ho[t] dog|ハッドッグ|ホットドッグ
+bi[g] game|ビッゲイム|大事な試合
+sto[p] by|スタッバイ|立ち寄る
+bla[ck] coffee|ブラッカーフィー|ブラックコーヒー
+ta[ke] care|テイケア|気をつけて
+sof[t] drink|ソフドリンク|清涼飲料
+firs[t] time|ファースタイム|初めて
+bes[t] friend|ベスフレンド|親友
+wen[t] to|ウェントゥ|〜へ行った
+lef[t] side|レフサイド|左側
+pos[t]card|ポウスカード|はがき
+mos[t] people|モウスピーポー|ほとんどの人
+hel[p] me|ヘルミー|助けて
+aske[d] me|アスクミー|私に尋ねた`},
+{id:"weak",name:"弱形",en:"Weak forms",c:"var(--long)",
+sum:"前置詞・助動詞などが弱く短くなる",
+how:"of, and, to, for, can, do, him など文法の働きをする短い語は、文の中では母音があいまいな「ア」になり、子音も落ちる。of は「ア」、and は「ン」、to は「タ」、him は「イム」まで縮む。",
+tip:"弱形は文の途中でだけ起きる。文末や強調するときは元の強い形に戻る（Yes, I can.）。",
+miss:"cup of tea の of を「オブ」で待っていて「カッパ」に気づかない。can と can't も、弱形の can（クン）を知らないと区別できない。",
+items:`cup [of] tea|カッパティー|紅茶1杯
+a lot [of]|アラーラ|たくさんの
+kind [of]|カインダ|ちょっと、なんとなく
+sort [of]|ソーラ|まあ、いくぶん
+out [of] time|アウラタイム|時間切れ
+rock [and] roll|ロックンロウル|ロックンロール
+you [and] me|ユーンミー|あなたと私
+black [and] white|ブラッケンワイト|白黒
+bread [and] butter|ブレッドゥンバラー|バターを塗ったパン
+I [can] swim.|アイクンスウィム|私は泳げる
+Yes, I can.|イエス、アイキャン|ええ、できます（文末は強形）
+want [to]|ワナ|〜したい
+going [to]|ゴナ|〜するつもり
+got [to]|ガラ|〜しなければ
+need [to] go|ニードゥゴウ|行かなきゃ
+go [to] school|ゴウタスクール|学校へ行く
+[for] you|ファユー|あなたのために
+wait [for] me|ウェイファミー|待って
+stay [at] home|ステイアトホウム|家にいる
+look [at] this|ルカディス|これを見て
+[from] Japan|フラムジャパン|日本から
+tell [him]|テリム|彼に言う
+ask [her]|アスカー|彼女に聞く
+call [them]|コーレム|彼らに電話する
+[Do] you know?|ジュノウ|知ってる？
+What [do] you think?|ワダユシンク|どう思う？
+It [was] fun.|イッワズファン|楽しかった
+They [were] late.|ゼイワレイト|彼らは遅れた
+I['ve] been there.|アイヴビンゼア|そこへ行ったことがある
+taller [than] me|トーラーザンミー|私より背が高い`},
+{id:"link",name:"連結",en:"Linking",c:"var(--diph)",
+sum:"前の語の最後と次の語の最初がつながる",
+how:"子音で終わる語の次が母音で始まると、2語が1語のようにつながる。母音どうしの間には、軽い「w」や「y」の音がはさまる（go away → ゴウワウェイ）。",
+tip:"文字の区切りではなく、音のかたまりで聞く。check it out は「チェキラウト」という1つのかたまり。",
+miss:"1語ずつ区切って読むので、ネイティブの速さについていけない。聞くときも単語の切れ目が分からなくなる。",
+items:`chec[k i]t out|チェキラウト|調べてみて
+pic[k i]t up|ピキラップ|拾い上げる
+ta[ke i]t easy|テイキリーズィー|気楽にね
+a[n a]pple|アナポー|りんご1個
+a[n o]range|アノーレンジ|オレンジ1個
+a[n e]gg|アネッグ|卵1個
+a[n h]our|アナワー|1時間
+tur[n o]ff|ターノフ|消す
+tur[n o]n|ターノン|つける
+co[me o]n|カモン|さあ、いいかげんにして
+loo[k a]t|ルカット|見る
+thin[k a]bout|シンカバウト|〜について考える
+fi[ll i]n|フィリン|記入する
+cal[l u]s|コーラス|私たちに電話して
+wor[k o]ut|ワーカウト|運動する、うまくいく
+fin[d o]ut|ファインダウト|見つけ出す
+stan[d u]p|スタンダップ|立ち上がる
+pu[sh i]t|プシット|それを押して
+i[s i]t?|イズィット|そうなの？
+a[s a]n example|アザニグザンポー|例として
+fo[r a] while|フォラワイル|しばらく
+fa[r a]way|ファーラウェイ|遠くに
+the[re i]s|ゼアリズ|〜がある
+afte[r a]ll|アフタロール|結局
+mo[re a]nd more|モアランモア|ますます
+g[o a]way|ゴウワウェイ|あっちへ行って
+d[o i]t|ドゥーウィット|それをやる
+s[ee i]t|スィーイット|それを見る
+th[e e]nd|ズィーエンド|終わり
+s[ay i]t|セイイット|言って`},
+{id:"heldt",name:"飲み込むT",en:"Held T / Glottal T",c:"var(--r)",
+sum:"t を息を止めるだけで済ませる",
+how:"tn の組み合わせ（button, important）では、t でのどを一瞬止め、そのまま n を鼻から出す。語末や子音の前の t も、舌を当てて止めるだけで破裂させないことが多い。",
+tip:"t の場所で「ッ」と息を止める。button は「バッン」。舌は離さない。",
+miss:"important を「インポータント」とはっきり t を出す。聞くときは「インポーッン」が important だと気づかない。",
+items:`impor[t]ant|インポーッンッ|重要な
+bu[tt]on|バッン|ボタン
+co[tt]on|カッン|綿
+moun[t]ain|マウンッン|山
+cer[t]ain|サーッン|確かな
+cur[t]ain|カーッン|カーテン
+wri[tt]en|リッン|書かれた
+forgo[tt]en|フォガッン|忘れられた
+ki[tt]en|キッン|子猫
+mi[tt]en|ミッン|ミトン（手袋）
+Bri[t]ain|ブリッン|イギリス
+ea[t]en|イーッン|食べられた
+tha[t]|ザッ|あれ、それ
+wha[t]|ワッ|何
+no[t]|ナッ|〜ない
+bu[t]|バッ|しかし
+ho[t]|ハッ|熱い、暑い
+grea[t]|グレイッ|すごい
+ca[t]|キャッ|猫
+I can'[t].|アイキャーン|できない
+ge[t] back|ゲッバック|戻る
+wha[t] time|ワッタイム|何時
+tha[t] guy|ザッガイ|あの人
+no[t] bad|ナッバッ|悪くない
+a bi[t] more|アビッモア|もう少し
+I'm no[t] sure.|アイムナッシュア|よく分からない
+si[t] down|スィッダウン|座って
+wai[t] here|ウェイッヒア|ここで待って
+ou[t]side|アウッサイド|外
+foo[t]ball|フッボール|サッカー、アメフト`},
+{id:"rhythm",name:"文の強弱・リズム",en:"Sentence stress",c:"var(--cons)",
+sum:"大事な語を強く、それ以外は弱く速く",
+how:"英語は強く読む語（名詞・動詞・形容詞・疑問詞・否定語など内容を運ぶ語）が、ほぼ一定の間隔で来るリズムで話す。間にはさまる弱い語は、何語あっても詰め込んで速く読む。",
+tip:"大きい文字の語だけ手をたたきながら読む。弱い語は手拍子の間に押し込む。",
+miss:"全部の単語を同じ強さ・同じ長さで読むので、カタコトに聞こえる。聞くときも弱い語を拾おうとして強い語を聞き逃す。",
+items:`I [want] to [go] [home].|アイ[ワ]ナ[ゴウ][ホウム]|家に帰りたい
+[What] do you [want] to [eat]?|[ワ]ダユ[ワ]ナ[イート]|何が食べたい？
+I [went] to the [park] [yesterday].|アイ[ウェン]タダ[パーク][イェ]スタデイ|昨日公園へ行った
+[Thank] you for [coming].|[センキュ]ファ[カ]ミング|来てくれてありがとう
+I'd [like] a [cup] of [coffee].|アイ[ライ]カ[カッ]パ[カー]フィー|コーヒーを1杯ください
+Can I [have] the [bill]?|クナイ[ハヴ]ダ[ビル]|お会計をお願いします
+[Where] are you [from]?|[ウェ]ア ユ[フラム]|どこの出身ですか
+I'm [looking] for the [station].|アイム[ル]キンファダ[ステイ]ション|駅を探しています
+She [lives] in [Osaka].|シ[リヴ]ズィン オウ[サ]カ|彼女は大阪に住んでいる
+He's [good] at [cooking].|ヒズ[グッ]ダッ[ク]キング|彼は料理が得意だ
+It's [nice] to [meet] you.|イッツ[ナイ]ス タ[ミー]チュ|はじめまして
+[How] [long] does it [take]?|[ハウ][ローン]ダズィッ[テイク]|どれくらいかかりますか
+I [don't] [think] so.|アイ[ドウン][シン]ク ソウ|そうは思わない
+Let's [have] [lunch] [together].|レッツ[ハヴ][ランチ]タ[ゲ]ザー|一緒にお昼を食べよう
+[Turn] [left] at the [corner].|[ターン][レフ]タダ[コー]ナー|角を左に曲がって
+I [got] up at [six].|アイ[ガ]ラッパッ[スィックス]|6時に起きた
+We [had] a [great] [time].|ウィ[ハ]ダ[グレイッ][タイム]|とても楽しかった
+Could you [help] me?|クジュ[ヘル]プミー|手伝ってもらえますか
+I'm [sorry] I'm [late].|アイム[サ]リー アイム[レイト]|遅れてごめんなさい
+[Call] me when you [get] [home].|[コー]ルミ ウェニュ[ゲッ][ホウム]|家に着いたら電話して
+The [train] was [crowded].|ダ[トレイン]ワズ[クラウ]ディッド|電車が混んでいた
+I [need] to [buy] some [milk].|アイ[ニー]ドゥ[バイ]サム[ミルク]|牛乳を買わなきゃ
+[What] [time] is it?|[ワッ][タイ]ミズィッ|今何時？
+It [depends] on the [weather].|イッディ[ペン]ズォンダ[ウェ]ザー|天気しだいだ
+I [forgot] my [umbrella].|アイファ[ガッ]マイアム[ブレ]ラ|傘を忘れた
+[See] you [tomorrow].|[スィー]ユ タ[マ]ロウ|また明日
+My [son] [loves] [trains].|マイ[サン][ラヴ]ズ[トレインズ]|息子は電車が大好きだ
+I'll [be] there in [five] [minutes].|アイル[ビー]ゼアリン[ファイヴ][ミ]ニッツ|5分で着きます
+Do you [have] any [questions]?|ジュ[ハ]ヴェニ[クエス]チョンズ|質問はありますか
+It was a [lot] of [fun].|イッワザ[ラー]ラ[ファン]|すごく楽しかった`},
+{id:"inton",name:"イントネーション",en:"Intonation",c:"var(--short)",
+sum:"文末を上げるか下げるかで意味が変わる",
+how:"Yes/No で答える質問や聞き返しは文末を上げる（↗）。疑問詞（What, Where など）で始まる質問、平叙文、あいさつ、命令は文末を下げる（↘）。同じ語でも上げ下げで意味が変わる。",
+tip:"文の最後の強い語から音程を動かす。上げるときは驚いたように、下げるときは言い切るように。",
+miss:"疑問文はすべて上げると思い込み、What's your name? まで上げてしまう。聞くときも Really?↗ と Really.↘ の違いに気づかない。",
+items:`[Really]?|リアリー↗|ほんとに？（驚き）|u
+[Really].|リアリー↘|へえ、そうなんだ（納得）|d
+Are you [ready]?|アユレディ↗|準備できた？|u
+Is this [yours]?|イズディスユアズ↗|これはあなたの？|u
+Do you like [sushi]?|ジュライクスシ↗|寿司は好き？|u
+Can you [help] me?|キャニュヘルプミー↗|手伝ってくれる？|u
+Have you been to [Kyoto]?|ハヴユビントゥキョウト↗|京都に行ったことある？|u
+Is it [raining]?|イズィットレイニング↗|雨降ってる？|u
+Excuse [me]?|イクスキューズミー↗|何とおっしゃいました？（聞き返し）|u
+[Sorry]?|ソーリー↗|え、何て？（聞き返し）|u
+What's your [name]?|ワッツユアネイム↘|お名前は？|d
+Where do you [live]?|ウェアドゥユリヴ↘|どこに住んでるの？|d
+How was your [day]?|ハウワズユアデイ↘|今日はどうだった？|d
+What time [is] it?|ワッタイミズィッ↘|今何時？|d
+Why [not]?|ワイナッ↘|もちろん、いいよ|d
+Who [called]?|フーコールド↘|誰から電話？|d
+I'm from [Osaka].|アイムフラムオウサカ↘|大阪出身です|d
+It's cold [today].|イッツコウルドトゥデイ↘|今日は寒い|d
+Thank [you].|センキュー↘|ありがとう|d
+Good [morning].|グッモーニン↘|おはよう|d
+Coffee or [tea]?|カーフィー↗オアティー↘|コーヒーと紅茶どっち？（選択）|d
+You're [coming]?|ユアカミング↗|来るんだよね？（確認）|u
+You're [coming].|ユアカミング↘|来るんだね（断定）|d
+[Tea]?|ティー↗|紅茶にする？（すすめる）|u
+[Tea].|ティー↘|紅茶をください|d
+[Right]?|ライッ↗|だよね？（念押し）|u
+It's nice, [isn't] it?|イッツナイス、イズニッ↘|いいよね（同意を求める）|d
+You're Ken, [aren't] you?|ユアケン、アーンチュ↗|ケンさんですよね？（確認）|u
+[Sorry].|ソーリー↘|ごめんなさい（謝罪）|d
+[Hello]?|ハロウ↗|もしもし？聞こえてる？|u`}
+];
+/* 個別の音（既存の練習画面へ） */
+const SC_IND=[
+{t:"L と R",ids:["c_l","c_r"],ear:"L は舌先が上の歯ぐきに付いたまま。R は舌先がどこにも付かず、奥へ丸める。聞き分けは、R のほうがこもって「ウ」が混ざったように聞こえる。",mir:"L は鏡で舌先が上の前歯の裏に見える。R は唇が少し丸まり、舌先は見えない。"},
+{t:"th（θ と ð）",ids:["c_th","c_dh","c_s","c_z"],ear:"th は s・z より音が弱く、息がやわらかく抜ける。think と sink は、s のほうが鋭い「スー」になる。",mir:"鏡で舌先が上下の歯の間から少し見えていれば正解。見えなければ s になっている。"},
+{t:"F と V（と B）",ids:["c_f","c_v","c_b"],ear:"v はのどが震えたまま、f は息だけ。b は唇を閉じてから開くので、v より一瞬はじける音。",mir:"鏡で上の前歯が下唇に軽く乗っていれば f・v。唇どうしが閉じていれば b。"},
+{t:"S と SH",ids:["c_s","c_sh"],ear:"see と she。sh は唇を丸めて前に出すので、こもった「シュ」になる。日本語の「シ」は sh に近い。",mir:"sh は鏡で唇が前に突き出ている。s は口角が横に引かれている。"},
+{t:"W と Y",ids:["c_w","c_y"],ear:"wood と would、year と ear。w は唇を強くすぼめてから開く、y は舌を上あごに近づけてから開く。",mir:"w は鏡で唇が小さく丸まってから開く。ear と year の y は舌の動きなので、口の形はほぼ同じ。"}
+];
+
+/*SOUND CHANGES APP*/
+(function(){
+const STRESS=new Set(["stress","rhythm"]);
+SC.forEach(c=>{c.list=c.items.trim().split("\n").map(l=>{const [raw,ear,ja,ud]=l.split("|");return {raw,ear,ja,ud:ud||"",text:raw.replace(/[\[\]·]/g,"").replace(/\s+/g," ").trim()}})});
+const scById=id=>SC.find(c=>c.id===id);
+const dk=id=>"sc_"+id;
+const kOf=(c,w)=>c.id+"|"+w.text;
+function fromKey(k){const i=k.indexOf("|"),c=scById(k.slice(0,i));if(!c)return null;const w=c.list.find(x=>x.text===k.slice(i+1));return w?{c,w}:null}
+let scCur=null,scOpen=null,scMode="list",SQ=null;
+const scRec={mr:null,url:null,text:null,timer:null};
+const EXTRA={today:"今日の5文",mix:"ミックス練習",miss:"苦手復習",fav:"お気に入り"};
+
+/* ---------- storage ---------- */
+function st(){S.scMiss=S.scMiss||{};S.scFav=S.scFav||[];S.scBest=S.scBest||{};return S}
+function missN(){return Object.keys(st().scMiss).filter(fromKey).length}
+function favN(){return st().scFav.filter(fromKey).length}
+function isFav(k){return st().scFav.includes(k)}
+function togFav(k){const s=st();s.scFav=isFav(k)?s.scFav.filter(x=>x!==k):s.scFav.concat(k);save()}
+function addMiss(k){const s=st();s.scMiss[k]=Math.min(3,(s.scMiss[k]||0)+1);save()}
+function subMiss(k,all){const s=st();if(!s.scMiss[k])return;s.scMiss[k]=all?0:s.scMiss[k]-1;if(s.scMiss[k]<=0)delete s.scMiss[k];save()}
+
+/* ---------- lists ---------- */
+function dayKey(){const d=new Date();return d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate()}
+function seeded(seed){let s=seed%2147483647;if(s<=0)s+=2147483646;return()=>(s=s*16807%2147483647)/2147483647}
+function todayList(){const all=SC.flatMap(c=>c.list.map(w=>({c,w}))),r=seeded(dayKey()),out=[],used=new Set();
+  while(out.length<5){const x=all[Math.floor(r()*all.length)];if(used.has(x.c.id))continue;used.add(x.c.id);out.push(x)}return out}
+function curList(){
+  if(scCur==="today")return todayList();
+  if(scCur==="miss")return Object.keys(st().scMiss).map(fromKey).filter(Boolean);
+  if(scCur==="fav")return st().scFav.map(fromKey).filter(Boolean);
+  const c=scById(scCur);return c?c.list.map(w=>({c,w})):[];
+}
+
+function mark(raw,cat){const cls=STRESS.has(cat)?"sc-st":"hl";return esc(raw).replace(/\[(.+?)\]/g,`<b class="${cls}">$1</b>`)}
+function earHTML(e){return esc(e).replace(/\[(.+?)\]/g,'<b class="sc-st">$1</b>')}
+function cnt(c){return doneList(dk(c.id)).length}
+const STAR=on=>`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="${on?"currentColor":"none"}" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8-4.3-4.1 5.9-.8z"/></svg>`;
+
+/* ---------- list page ---------- */
+function listHTML(){
+  const tot=SC.reduce((a,c)=>a+c.list.length,0),dn=SC.reduce((a,c)=>a+cnt(c),0);
+  const td=todayList().filter(x=>isDone(dk(x.c.id),x.w.text)).length;
+  let h=`<p class="sc-lead">英語は、つづりどおりには読まれません。音がつながる・消える・変わるルールを知ると、聞き取れる量が増えます。${SC.length}分類・${tot}例、クリア ${dn}。</p>`;
+  h+=`<div class="sc-quick">
+<button data-act="scopen" data-id="today"><span class="k">今日の5文</span><span class="v">${td}<small>/5</small></span></button>
+<button data-act="scopen" data-id="mix"><span class="k">ミックス練習</span><span class="v sm">全分類から10問</span></button>
+<button data-act="scopen" data-id="miss"><span class="k">苦手復習</span><span class="v">${missN()}<small>件</small></span></button>
+<button data-act="scopen" data-id="fav"><span class="k">お気に入り</span><span class="v">${favN()}<small>件</small></span></button></div><div class="sc-cards">`;
+  SC.forEach((c,i)=>{const n=cnt(c),t=c.list.length;
+    h+=`<button class="sc-card" data-act="scopen" data-id="${c.id}" style="--c:${c.c};--p:${(n/t).toFixed(3)}"><span class="sc-no">${i+1}</span><span class="sc-cb"><span class="sc-cn">${esc(c.name)}</span><span class="sc-ce">${esc(c.en)}</span><span class="sc-cs">${esc(c.sum)}</span></span><span class="sc-cp">${n}<small>/${t}</small></span><i class="sc-bar"></i></button>`});
+  h+=`<button class="sc-card" data-act="scopen" data-id="ind" style="--c:var(--ink2);--p:0"><span class="sc-no">${SC.length+1}</span><span class="sc-cb"><span class="sc-cn">個別の音</span><span class="sc-ce">L / R・th・F / V ほか</span><span class="sc-cs">聞き分けのコツと鏡で見るポイント</span></span><span class="sc-cp">${ic("chevR")}</span></button></div>`;
+  h+=`<p class="sc-note">お手本はブラウザの読み上げ音声です。フラップTや飲み込むTなどは、声の種類によって再現されないことがあります。カタカナの「聞こえ方」はめやすです。苦手・お気に入り・クリアの記録はこのブラウザに保存され、設定の「書き出し」に含まれます。</p>`;
+  return h;
+}
+
+function indHTML(){
+  let h=`<section class="sc-exp"><p>母音・子音の1音ずつの練習は「練習」タブにあります。日本人が特に間違えやすい組み合わせを、聞き分けのコツと鏡で確認するポイントにまとめました。</p></section>`;
+  SC_IND.forEach(x=>{h+=`<section class="sc-ind"><h2>${esc(x.t)}</h2><dl><dt>聞き分けのコツ</dt><dd>${esc(x.ear)}</dd><dt>鏡で確認</dt><dd>${esc(x.mir)}</dd></dl><div class="sc-indb">${x.ids.filter(byId).map(id=>{const p=byId(id);return `<button class="btn-line" data-act="scgo" data-id="${id}"><span class="ph">/${p.ipa}/</span> ${esc(p.key)} を練習</button>`}).join("")}</div></section>`});
+  return h;
+}
+
+function rowHTML(x,i,showCat){
+  const {c,w}=x,k=kOf(c,w),d=isDone(dk(c.id),w.text),open=scOpen===i,recOn=scRec.mr&&scRec.mr.state==="recording"&&scRec.text===w.text,hasS=scRec.url&&scRec.text===w.text,f=isFav(k),m=st().scMiss[k];
+  let h=`<div class="sc-row ${open?"open":""}" style="--c:${c.c}"><button class="sc-rh" data-act="scrow" data-i="${i}" aria-expanded="${open}">${showCat?`<span class="sc-rc">${esc(c.name)}</span>`:""}<span class="sc-rt ph">${mark(w.raw,c.id)}</span><span class="sc-re">${earHTML(w.ear)}</span><span class="sc-rj">${esc(w.ja)}</span><span class="sc-flags">${m?`<i class="sc-mi" aria-label="苦手">苦手</i>`:""}${f?`<i class="sc-fv" aria-label="お気に入り">${STAR(true)}</i>`:""}${d?`<svg class="sc-ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</span></button>`;
+  if(open)h+=`<div class="sc-ra"><button data-act="scsay" data-i="${i}">${ic("play")}お手本</button><button data-act="scslow" data-i="${i}">${ic("slow")}ゆっくり</button><button class="${recOn?"rec on":"rec"}" data-act="screc" data-i="${i}">${recOn?ic("stop")+"停止":ic("mic")+"録音"}</button><button data-act="scself" ${hasS?"":"disabled"}>${ic("play")}自分の声</button><button data-act="sccmp" data-i="${i}" ${hasS?"":"disabled"}>聞き比べ</button><button class="sc-done ${d?"on":""}" data-act="scdone" data-i="${i}">${d?"クリア済み":"できた"}</button><button class="sc-favb ${f?"on":""}" data-act="scfav" data-i="${i}">${STAR(f)}${f?"お気に入り済み":"お気に入り"}</button>${m?`<button data-act="scunmiss" data-i="${i}">苦手から外す</button>`:`<button data-act="scaddmiss" data-i="${i}">苦手に入れる</button>`}</div>`;
+  return h+`</div>`;
+}
+function rowsHTML(list,showCat){return list.map((x,i)=>rowHTML(x,i,showCat)).join("")}
+function toolbar(leg){return `<div class="sc-tb"><button class="btn-line" data-act="scall">${playAll?ic("stop")+"停止":ic("loop")+"連続再生"}</button><span class="sc-leg">${leg}</span></div>`}
+function segHTML(n){return `<div class="seg sc-seg"><button class="${scMode==="list"?"on":""}" data-act="scmode" data-v="list">例文 ${n}</button><button class="${scMode==="quiz"?"on":""}" data-act="scmode" data-v="quiz">クイズ</button></div>`}
+
+function detailHTML(){
+  if(scCur==="ind")return indHTML();
+  if(scCur==="mix")return quizHTML();
+  if(EXTRA[scCur]){
+    const l=curList();
+    const desc={today:"毎日日付で入れ替わる5文。分類がかぶらないように選んでいます。聞いて、録音して、できたら「できた」。",miss:"クイズで間違えた例が自動で入ります。苦手復習のクイズで正解すると外れます（通常のクイズでも、正解するたびに苦手度が下がります）。",fav:"例文を開いて「お気に入り」を押すと入ります。"}[scCur];
+    let h=`<section class="sc-exp"><p>${desc}</p></section>`;
+    if(SQ&&SQ.src===scCur&&scMode==="quiz")return h+segHTML(l.length)+quizHTML();
+    if(!l.length)return h+`<p class="sc-empty">${scCur==="miss"?"まだ苦手はありません。各分類やミックス練習のクイズで間違えると、ここに入ります。":"まだお気に入りはありません。"}</p>`;
+    if(scCur==="today")return h+toolbar("色の部分＝音が変わる所")+rowsHTML(l,true);
+    h+=segHTML(l.length);
+    return h+(scMode==="list"?toolbar(`${l.length}件`)+rowsHTML(l,true):quizHTML());
+  }
+  const c=scById(scCur);
+  let h=`<section class="sc-exp" style="--c:${c.c}"><h2>しくみ</h2><p>${esc(c.how)}</p><h2>コツ</h2><p>${esc(c.tip)}</p><h2>よくあるミス</h2><p>${esc(c.miss)}</p></section>`+segHTML(c.list.length);
+  if(scMode==="list")h+=toolbar(STRESS.has(c.id)?"大きい文字＝強く読む":c.id==="inton"?"↗上げる ↘下げる":"色の部分＝音が変わる所")+rowsHTML(curList(),false);
+  else h+=quizHTML();
+  return h;
+}
+
+/* ---------- quiz ---------- */
+function tokens(w){
+  const r=w.raw.replace(/[.?!,]/g,"");
+  let parts;
+  if(r.includes("·"))parts=r.split("·");
+  else if(!/\s/.test(r.trim())){parts=[];let m;const re=/\[[^\]]+\]|[^\[]/g;while((m=re.exec(r)))parts.push(m[0])}
+  else parts=r.split(/\s+/);
+  return parts.filter(Boolean).map(p=>({t:p.replace(/[\[\]]/g,""),ok:/\[/.test(p)}));
+}
+function spotOK(w){return /\[/.test(w.raw)&&tokens(w).some(t=>!t.ok)}
+function mkQ(x,type){
+  const {c,w}=x;
+  if(type==="listen"){const others=shuffle(c.list.filter(y=>y.text!==w.text)).slice(0,3);return {c,w,type,ch:shuffle([w,...others])}}
+  if(type==="rule"){const others=shuffle(SC.filter(y=>y.id!==c.id)).slice(0,3);return {c,w,type,ch:shuffle([c,...others])}}
+  if(type==="spot"&&!spotOK(w))return mkQ(x,"listen");
+  if(type==="ud"&&!w.ud)return mkQ(x,"listen");
+  return {c,w,type};
+}
+function qTypes(){
+  if(scCur==="inton")return [["listen","聞き取り"],["ud","上げ下げ"]];
+  if(scCur==="miss"||scCur==="fav")return [["listen","聞き取り"],["mixed","いろいろ"]];
+  return [["listen","聞き取り"],["spot","変わる所"]];
+}
+function startQuiz(type){
+  let pool=curList();
+  if(scCur==="mix")pool=SC.flatMap(c=>c.list.map(w=>({c,w})));
+  if(type==="spot")pool=pool.filter(x=>spotOK(x.w));
+  const qs=shuffle(pool).slice(0,10).map((x,i)=>{
+    if(type==="mixed"){const t=x.c.id==="inton"?(i%2?"ud":"listen"):["listen","spot","rule"][i%3];return mkQ(x,t)}
+    return mkQ(x,type)});
+  SQ={src:scCur,qs,i:0,score:0,ans:null,hist:[]};
+}
+function quizHTML(){
+  if(!SQ||SQ.src!==scCur){
+    if(scCur==="mix")return `<section class="sc-exp"><p>全11分類からランダムに10問。どのルールかを当てる「ルール当て」、流れた文を選ぶ「聞き取り」、音が変わる所を選ぶ「変わる所」が混ざって出ます。間違えた例は苦手復習に入ります。</p></section><section class="sc-qs">${S.scBest&&S.scBest.mix?`<p class="sc-qbest">最高 ${S.scBest.mix} / 10</p>`:""}<div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="mixed">${ic("play")}始める</button></div></section>`;
+    const best=(S.scBest&&S.scBest[scCur])||0;
+    return `<section class="sc-qs"><p class="sc-qd">最大10問。「聞き取り」は流れた文を4つから選ぶ。${scCur==="inton"?"「上げ下げ」は文末が上がるか下がるかを選ぶ。":scCur==="miss"||scCur==="fav"?"「いろいろ」は聞き取り・変わる所・ルール当てが混ざる。":"「変わる所」は音が変化・脱落する部分をタップする。"}${scCur==="miss"?"正解した例は苦手から外れる。":"間違えた例は苦手復習に入る。"}</p>${best?`<p class="sc-qbest">最高 ${best}</p>`:""}<div class="sc-qbtn">${qTypes().map(([k,l])=>`<button class="btn-main" data-act="scqstart" data-v="${k}">${ic("play")}${l}</button>`).join("")}</div></section>`;
+  }
+  const n=SQ.qs.length;
+  if(SQ.i>=n)return `<section class="sc-qs"><div class="q-dots">${SQ.hist.map(x=>`<i class="${x?"ok":"ng"}"></i>`).join("")}</div><p class="q-score">${SQ.score}<small> / ${n}問</small></p>${SQ.hist.some(x=>!x)&&scCur!=="miss"?`<p class="sc-qd" style="text-align:center">間違えた例を苦手復習に入れました</p>`:""}<div class="sc-qbtn"><button class="btn-main" data-act="scqstart" data-v="${SQ.type0}">もう一度</button><button class="btn-sub" data-act="scqback">やめる</button></div></section>`;
+  const q=SQ.qs[SQ.i],{c,w}=q;
+  let h=`<div class="sc-qbar"><span>${SQ.i+1} / ${n}</span><button class="linkbtn" data-act="scqback">やめる</button></div>`;
+  if(q.type==="listen"){
+    h+=`<p class="sc-qd">流れた文はどれ？</p><div class="q-stage"><button class="q-play" data-act="scqplay" aria-label="もう一度聞く">${ic("play")}</button><button class="q-slow" data-act="scqslow">ゆっくり聞く</button></div><div class="sc-qch">`;
+    h+=q.ch.map((x,k)=>{
+      if(SQ.ans===null)return `<button class="sc-opt" data-act="scqans" data-k="${k}"><span class="ph">${esc(x.text)}</span></button>`;
+      const cl=x===w?"right":(k===SQ.ans?"wrong":"");
+      return `<div class="sc-opt ${cl}"><span class="ph">${mark(x.raw,c.id)}</span><span class="sc-oe">${earHTML(x.ear)}</span><button class="hear" data-act="scqhear" data-k="${k}" aria-label="聞く">${ic("play")}</button></div>`}).join("")+`</div>`;
+  }else if(q.type==="rule"){
+    h+=`<p class="sc-qd">この文で起きている音の変化は？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${SQ.ans===null?esc(w.text):mark(w.raw,c.id)}</p></div><div class="sc-qch two">`;
+    h+=q.ch.map((x,k)=>{
+      if(SQ.ans===null)return `<button class="sc-opt big sm" data-act="scqans" data-k="${k}">${esc(x.name)}</button>`;
+      return `<div class="sc-opt big sm ${x===c?"right":(k===SQ.ans?"wrong":"")}">${esc(x.name)}</div>`}).join("")+`</div>`;
+  }else if(q.type==="ud"){
+    h+=`<p class="sc-qd">文末は上がる？下がる？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button><p class="sc-qt ph">${esc(w.text)}</p></div><div class="sc-qch two">`;
+    h+=[["u","↗ 上がる"],["d","↘ 下がる"]].map(([v,l])=>{
+      if(SQ.ans===null)return `<button class="sc-opt big" data-act="scqans" data-k="${v}">${l}</button>`;
+      return `<div class="sc-opt big ${v===w.ud?"right":(v===SQ.ans?"wrong":"")}">${l}</div>`}).join("")+`</div>`;
+  }else{
+    const tk=tokens(w);
+    h+=`<p class="sc-qd">${scCur==="mix"||scCur==="miss"||scCur==="fav"?`【${esc(c.name)}】`:""}音が変化する・消える・強くなる所はどこ？</p><div class="q-stage"><button class="q-play" data-act="scqplay">${ic("play")}</button></div><div class="sc-tok">`;
+    h+=tk.map((t,k)=>{
+      if(SQ.ans===null)return `<button class="ph" data-act="scqans" data-k="${k}">${esc(t.t)}</button>`;
+      return `<span class="ph ${t.ok?"right":(k===SQ.ans?"wrong":"")}">${esc(t.t)}</span>`}).join("")+`</div>`;
+  }
+  if(SQ.ans!==null){
+    const ok=SQ.hist[SQ.hist.length-1],k=kOf(c,w),f=isFav(k);
+    h+=`<div class="sc-fb ${ok?"ok":"ng"}"><b>${ok?"正解":"不正解"}　<small>${esc(c.name)}</small></b><span class="ph">${mark(w.raw,c.id)}</span><span>${earHTML(w.ear)}　${esc(w.ja)}</span><button class="sc-favb sm ${f?"on":""}" data-act="scqfav">${STAR(f)}${f?"お気に入り済み":"お気に入り"}</button></div><button class="btn-main" data-act="scqnext">${SQ.i+1<n?"次へ":"結果を見る"}</button>`;
+  }
+  return h;
+}
+
+/* ---------- recording ---------- */
+async function recToggle(text){
+  if(scRec.mr&&scRec.mr.state==="recording"){scRec.mr.stop();return}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){toast("この環境では録音できません");return}
+  stopPlayAll();try{speechSynthesis.cancel()}catch(e){}
+  let sm;try{sm=await navigator.mediaDevices.getUserMedia({audio:true})}catch(e){toast("マイクを使えません。ブラウザのマイク許可を確認してください");return}
+  const ch=[],mr=new MediaRecorder(sm);
+  mr.ondataavailable=e=>{if(e.data&&e.data.size)ch.push(e.data)};
+  mr.onstop=()=>{sm.getTracks().forEach(t=>t.stop());clearTimeout(scRec.timer);if(scRec.url)URL.revokeObjectURL(scRec.url);scRec.url=URL.createObjectURL(new Blob(ch,{type:mr.mimeType||"audio/webm"}));scRec.mr=null;rerender();if(S.set.autoCmp)cmp(text)};
+  mr.start();scRec.mr=mr;scRec.text=text;scRec.timer=setTimeout(()=>{if(mr.state==="recording")mr.stop()},Math.max(5,S.set.recSec)*1000);rerender();
+}
+function self(cb){if(!scRec.url){if(cb)cb();return}const a=new Audio(scRec.url);if(cb){a.onended=cb;a.onerror=cb}a.play().catch(()=>{if(cb)cb()})}
+function cmp(text){stopPlayAll();speak(text,false,()=>setTimeout(()=>self(),300))}
+
+/* ---------- view ---------- */
+function rerender(){if(view==="sc"||view==="scd"){const y=window.scrollY;render();window.scrollTo(0,y)}}
+function titleOf(){if(scCur==="ind")return "個別の音";if(EXTRA[scCur])return EXTRA[scCur];return scById(scCur).name}
+const _render=render;
+render=function(){
+  if(view!=="sc"&&view!=="scd"){return _render()}
+  document.body.dataset.view=view;document.body.style.removeProperty("--c");
+  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.tab==="sc"));
+  if(view==="sc"){$top.innerHTML=`<h1>音の変化</h1>`;$main.innerHTML=listHTML()}
+  else{const c=scById(scCur);
+    $top.innerHTML=`<button class="back" data-act="scback" aria-label="一覧に戻る">${ic("chevL")}</button><h1>${esc(titleOf())}</h1>${c?`<span class="meta">${cnt(c)} / ${c.list.length}</span>`:""}`;
+    $main.innerHTML=detailHTML()}
+  renderSheet();
+};
+const itemOf=b=>curList()[+b.dataset.i];
+const textOf=b=>itemOf(b).w.text;
+Object.assign(ACT,{
+  scopen(b){stopPlayAll();scCur=b.dataset.id;scOpen=null;scMode="list";SQ=null;view="scd";history.pushState({v:"scd"},"");render();window.scrollTo(0,0)},
+  scback(){if(history.state&&history.state.v==="scd")history.back();else{stopPlayAll();view="sc";render()}},
+  scgo(b){openPhon(b.dataset.id,true)},
+  scrow(b){const i=+b.dataset.i;scOpen=scOpen===i?null:i;rerender();if(scOpen===i)speak(curList()[i].w.text,false)},
+  scsay(b){stopPlayAll();speak(textOf(b),false)},
+  scslow(b){stopPlayAll();speak(textOf(b),true)},
+  screc(b){recToggle(textOf(b))},
+  scself(){stopPlayAll();self()},
+  sccmp(b){cmp(textOf(b))},
+  scdone(b){const {c,w}=itemOf(b);setDone(dk(c.id),w.text,!isDone(dk(c.id),w.text));rerender()},
+  scfav(b){const {c,w}=itemOf(b),k=kOf(c,w),was=isFav(k);togFav(k);if(scCur==="fav"&&was)scOpen=null;toast(was?"お気に入りから外しました":"お気に入りに入れました");rerender()},
+  scaddmiss(b){const {c,w}=itemOf(b);addMiss(kOf(c,w));toast("苦手に入れました");rerender()},
+  scunmiss(b){const {c,w}=itemOf(b);subMiss(kOf(c,w),true);if(scCur==="miss")scOpen=null;toast("苦手から外しました");rerender()},
+  scmode(b){stopPlayAll();scMode=b.dataset.v;SQ=null;render()},
+  scall(){if(playAll){stopPlayAll();rerender();return}const l=curList().map(x=>({text:x.w.text,ja:x.w.ja}));if(!l.length)return;startPlayAll(l);rerender()},
+  scqstart(b){startQuiz(b.dataset.v);SQ.type0=b.dataset.v;if(!SQ.qs.length){SQ=null;toast("出題できる例がありません");return}render();window.scrollTo(0,0);speak(SQ.qs[0].w.text,false)},
+  scqplay(){speak(SQ.qs[SQ.i].w.text,false)},
+  scqslow(){speak(SQ.qs[SQ.i].w.text,true)},
+  scqhear(b){speak(SQ.qs[SQ.i].ch[+b.dataset.k].text,false)},
+  scqans(b){if(SQ.ans!==null)return;const q=SQ.qs[SQ.i];let ok;
+    if(q.type==="listen"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.w}
+    else if(q.type==="rule"){SQ.ans=+b.dataset.k;ok=q.ch[SQ.ans]===q.c}
+    else if(q.type==="ud"){SQ.ans=b.dataset.k;ok=SQ.ans===q.w.ud}
+    else{SQ.ans=+b.dataset.k;ok=tokens(q.w)[SQ.ans].ok}
+    const k=kOf(q.c,q.w);if(ok){SQ.score++;subMiss(k,scCur==="miss")}else addMiss(k);
+    SQ.hist.push(ok);rerender()},
+  scqfav(){const q=SQ.qs[SQ.i];togFav(kOf(q.c,q.w));rerender()},
+  scqnext(){SQ.i++;SQ.ans=null;if(SQ.i>=SQ.qs.length){if(scCur!=="miss"&&scCur!=="fav"){st().scBest[scCur]=Math.max(S.scBest[scCur]||0,SQ.score);save()}render()}else{render();speak(SQ.qs[SQ.i].w.text,false)}window.scrollTo(0,0)},
+  scqback(){SQ=null;render()}
+});
+const _tab=ACT.tab;ACT.tab=function(b,e){if(b.dataset.tab==="sc"){stopPlayAll();view="sc";render();window.scrollTo(0,0);return}_tab(b,e)};
+const _reset=ACT.reset;ACT.reset=function(b,e){const was=b.dataset.armed==="1";_reset(b,e);if(was){S.scMiss={};S.scFav=[];S.scBest={};save()}};
+window.addEventListener("popstate",()=>{if(view==="scd"){stopPlayAll();view="sc";render()}});
+/* 書き出し・読み込みで苦手・お気に入り・最高点も保持 */
+const _norm=normalizeState;normalizeState=function(s){const o=_norm(s);if(s&&typeof s==="object"){if(s.scBest&&typeof s.scBest==="object")o.scBest=s.scBest;if(s.scMiss&&typeof s.scMiss==="object")o.scMiss=s.scMiss;if(Array.isArray(s.scFav))o.scFav=s.scFav.filter(x=>typeof x==="string")}return o};
+try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw){if(raw.scBest)S.scBest=raw.scBest;if(raw.scMiss)S.scMiss=raw.scMiss;if(Array.isArray(raw.scFav))S.scFav=raw.scFav}}catch(e){}
+})();
+</script>
+</body>
+</html>
+

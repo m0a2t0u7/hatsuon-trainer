@@ -1,0 +1,58 @@
+{
+  "candidate_count": 200,
+  "existing_headword_duplicates": 0,
+  "self_duplicates": 0,
+  "cmudict_covered_headwords": 200,
+  "cmudict_normalized_segment_matches": 197,
+  "normalization": "Ignore stress/length for segment comparison; normalize AH to schwa and rhotic vowel spelling (er/ar vs r). Stress and vowel length were separately authored in normal US IPA.",
+  "cambridge_verified_variants": [
+    {
+      "word": "remove",
+      "ipa": "rɪˈmuːv",
+      "source": "https://dictionary.cambridge.org/pronunciation/english/remove"
+    },
+    {
+      "word": "review",
+      "ipa": "rɪˈvjuː",
+      "source": "https://dictionary.cambridge.org/us/pronunciation/english/review"
+    },
+    {
+      "word": "visual",
+      "ipa": "ˈvɪʒuəl",
+      "source": "https://dictionary.cambridge.org/pronunciation/english/visual"
+    }
+  ],
+  "level_notes": "Author-estimated practical school-level categories, not certified textbook or CEFR alignment.",
+  "usage_ambiguities": [
+    {
+      "word": "row",
+      "sense": "列",
+      "target": "roʊ"
+    },
+    {
+      "word": "wind",
+      "sense": "風",
+      "target": "wɪnd"
+    },
+    {
+      "word": "separate",
+      "sense": "分ける（動詞）",
+      "target": "ˈsepɚeɪt"
+    },
+    {
+      "word": "transfer",
+      "sense": "移す（動詞）",
+      "target": "trænsˈfɝː"
+    },
+    {
+      "word": "transport",
+      "sense": "運ぶ（動詞）",
+      "target": "trænsˈpɔːrt"
+    },
+    {
+      "word": "update",
+      "sense": "更新する（動詞）",
+      "target": "ʌpˈdeɪt"
+    }
+  ]
+}

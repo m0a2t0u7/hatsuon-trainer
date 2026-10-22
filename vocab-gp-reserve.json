@@ -1,0 +1,650 @@
+[
+  {
+    "word": "gain",
+    "ipa": "ɡeɪn",
+    "ja": "得る",
+    "level": 2,
+    "phonId": "c_g",
+    "marked": "[g]ain"
+  },
+  {
+    "word": "gap",
+    "ipa": "ɡæp",
+    "ja": "すき間",
+    "level": 2,
+    "phonId": "c_g",
+    "marked": "[g]ap"
+  },
+  {
+    "word": "general",
+    "ipa": "ˈdʒenɚəl",
+    "ja": "一般的な",
+    "level": 2,
+    "phonId": "c_j",
+    "marked": "[g]eneral"
+  },
+  {
+    "word": "generation",
+    "ipa": "ˌdʒenɚˈeɪʃən",
+    "ja": "世代",
+    "level": 2,
+    "phonId": "c_j",
+    "marked": "[g]eneration"
+  },
+  {
+    "word": "gesture",
+    "ipa": "ˈdʒestʃɚ",
+    "ja": "身ぶり",
+    "level": 2,
+    "phonId": "c_j",
+    "marked": "[g]esture"
+  },
+  {
+    "word": "global",
+    "ipa": "ˈɡloʊbəl",
+    "ja": "世界的な",
+    "level": 2,
+    "phonId": "c_g",
+    "marked": "[g]lobal"
+  },
+  {
+    "word": "grocery",
+    "ipa": "ˈɡroʊsɚi",
+    "ja": "食料品",
+    "level": 2,
+    "phonId": "c_g",
+    "marked": "[g]rocery"
+  },
+  {
+    "word": "hers",
+    "ipa": "hɝːz",
+    "ja": "彼女のもの",
+    "level": 1,
+    "phonId": "c_h",
+    "marked": "[h]ers"
+  },
+  {
+    "word": "herself",
+    "ipa": "hɚˈself",
+    "ja": "彼女自身",
+    "level": 1,
+    "phonId": "c_h",
+    "marked": "[h]erself"
+  },
+  {
+    "word": "himself",
+    "ipa": "hɪmˈself",
+    "ja": "彼自身",
+    "level": 1,
+    "phonId": "c_h",
+    "marked": "[h]imself"
+  },
+  {
+    "word": "host",
+    "ipa": "hoʊst",
+    "ja": "主催者",
+    "level": 2,
+    "phonId": "c_h",
+    "marked": "[h]ost"
+  },
+  {
+    "word": "household",
+    "ipa": "ˈhaʊshoʊld",
+    "ja": "世帯・家庭",
+    "level": 2,
+    "phonId": "c_h",
+    "marked": "[h]ousehold"
+  },
+  {
+    "word": "ideal",
+    "ipa": "aɪˈdiːl",
+    "ja": "理想的な",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "[i]deal"
+  },
+  {
+    "word": "identify",
+    "ipa": "aɪˈdentəfaɪ",
+    "ja": "見分ける・特定する",
+    "level": 2,
+    "phonId": "v_ai",
+    "marked": "[i]dentify"
+  },
+  {
+    "word": "immediate",
+    "ipa": "ɪˈmiːdiət",
+    "ja": "即座の",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]mmediate"
+  },
+  {
+    "word": "impact",
+    "ipa": "ˈɪmpækt",
+    "ja": "影響",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]mpact"
+  },
+  {
+    "word": "income",
+    "ipa": "ˈɪnkʌm",
+    "ja": "収入",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]ncome"
+  },
+  {
+    "word": "independent",
+    "ipa": "ˌɪndɪˈpendənt",
+    "ja": "独立した",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]ndependent"
+  },
+  {
+    "word": "industry",
+    "ipa": "ˈɪndəstri",
+    "ja": "産業",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]ndustry"
+  },
+  {
+    "word": "influence",
+    "ipa": "ˈɪnfluəns",
+    "ja": "影響を与える",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]nfluence"
+  },
+  {
+    "word": "ingredient",
+    "ipa": "ɪnˈɡriːdiənt",
+    "ja": "材料",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]ngredient"
+  },
+  {
+    "word": "injury",
+    "ipa": "ˈɪndʒɚi",
+    "ja": "けが",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]njury"
+  },
+  {
+    "word": "insert",
+    "ipa": "ɪnˈsɝːt",
+    "ja": "差し込む・挿入する",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]nsert"
+  },
+  {
+    "word": "install",
+    "ipa": "ɪnˈstɔːl",
+    "ja": "設置する",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]nstall"
+  },
+  {
+    "word": "instruction",
+    "ipa": "ɪnˈstrʌkʃən",
+    "ja": "指示・説明",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]nstruction"
+  },
+  {
+    "word": "intelligent",
+    "ipa": "ɪnˈtelədʒənt",
+    "ja": "知的な",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]ntelligent"
+  },
+  {
+    "word": "invest",
+    "ipa": "ɪnˈvest",
+    "ja": "投資する",
+    "level": 2,
+    "phonId": "v_i",
+    "marked": "[i]nvest"
+  },
+  {
+    "word": "its",
+    "ipa": "ɪts",
+    "ja": "それの",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "[i]ts"
+  },
+  {
+    "word": "itself",
+    "ipa": "ɪtˈself",
+    "ja": "それ自身",
+    "level": 1,
+    "phonId": "v_i",
+    "marked": "[i]tself"
+  },
+  {
+    "word": "jewelry",
+    "ipa": "ˈdʒuːəlri",
+    "ja": "宝石類",
+    "level": 2,
+    "phonId": "c_j",
+    "marked": "[j]ewelry"
+  },
+  {
+    "word": "judge",
+    "ipa": "dʒʌdʒ",
+    "ja": "判断する・裁判官",
+    "level": 2,
+    "phonId": "c_j",
+    "marked": "[j]udge"
+  },
+  {
+    "word": "junior",
+    "ipa": "ˈdʒuːnjɚ",
+    "ja": "年下の・下級の",
+    "level": 1,
+    "phonId": "c_j",
+    "marked": "[j]unior"
+  },
+  {
+    "word": "kilometer",
+    "ipa": "kəˈlɑːmətɚ",
+    "ja": "キロメートル",
+    "level": 1,
+    "phonId": "c_k",
+    "marked": "[k]ilometer"
+  },
+  {
+    "word": "labor",
+    "ipa": "ˈleɪbɚ",
+    "ja": "労働",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]abor"
+  },
+  {
+    "word": "lack",
+    "ipa": "læk",
+    "ja": "不足",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]ack"
+  },
+  {
+    "word": "later",
+    "ipa": "ˈleɪtɚ",
+    "ja": "後で",
+    "level": 1,
+    "phonId": "c_l",
+    "marked": "[l]ater"
+  },
+  {
+    "word": "lawyer",
+    "ipa": "ˈlɔːjɚ",
+    "ja": "弁護士",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]awyer"
+  },
+  {
+    "word": "least",
+    "ipa": "liːst",
+    "ja": "最も少ない",
+    "level": 1,
+    "phonId": "c_l",
+    "marked": "[l]east"
+  },
+  {
+    "word": "leather",
+    "ipa": "ˈleðɚ",
+    "ja": "革",
+    "level": 2,
+    "phonId": "c_dh",
+    "marked": "lea[th]er"
+  },
+  {
+    "word": "less",
+    "ipa": "les",
+    "ja": "より少ない",
+    "level": 1,
+    "phonId": "c_l",
+    "marked": "[l]ess"
+  },
+  {
+    "word": "likely",
+    "ipa": "ˈlaɪkli",
+    "ja": "〜しそうな",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]ikely"
+  },
+  {
+    "word": "load",
+    "ipa": "loʊd",
+    "ja": "積む・読み込む",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]oad"
+  },
+  {
+    "word": "loose",
+    "ipa": "luːs",
+    "ja": "緩い",
+    "level": 2,
+    "phonId": "c_l",
+    "marked": "[l]oose"
+  },
+  {
+    "word": "lucky",
+    "ipa": "ˈlʌki",
+    "ja": "運のよい",
+    "level": 1,
+    "phonId": "c_l",
+    "marked": "[l]ucky"
+  },
+  {
+    "word": "maintain",
+    "ipa": "meɪnˈteɪn",
+    "ja": "維持する",
+    "level": 2,
+    "phonId": "c_m",
+    "marked": "[m]aintain"
+  },
+  {
+    "word": "makeup",
+    "ipa": "ˈmeɪkʌp",
+    "ja": "化粧",
+    "level": 1,
+    "phonId": "c_m",
+    "marked": "[m]akeup"
+  },
+  {
+    "word": "manner",
+    "ipa": "ˈmænɚ",
+    "ja": "やり方・態度",
+    "level": 2,
+    "phonId": "c_m",
+    "marked": "[m]anner"
+  },
+  {
+    "word": "meaning",
+    "ipa": "ˈmiːnɪŋ",
+    "ja": "意味",
+    "level": 1,
+    "phonId": "c_m",
+    "marked": "[m]eaning"
+  },
+  {
+    "word": "mention",
+    "ipa": "ˈmenʃən",
+    "ja": "言及する",
+    "level": 2,
+    "phonId": "c_m",
+    "marked": "[m]ention"
+  },
+  {
+    "word": "mess",
+    "ipa": "mes",
+    "ja": "散らかった状態",
+    "level": 2,
+    "phonId": "c_m",
+    "marked": "[m]ess"
+  },
+  {
+    "word": "muscle",
+    "ipa": "ˈmʌsəl",
+    "ja": "筋肉",
+    "level": 2,
+    "phonId": "c_m",
+    "marked": "[m]uscle"
+  },
+  {
+    "word": "negative",
+    "ipa": "ˈneɡətɪv",
+    "ja": "否定的な・負の",
+    "level": 2,
+    "phonId": "c_n",
+    "marked": "[n]egative"
+  },
+  {
+    "word": "object",
+    "ipa": "ˈɑːbdʒekt",
+    "ja": "物体",
+    "level": 2,
+    "phonId": "v_aa",
+    "marked": "[o]bject"
+  },
+  {
+    "word": "observe",
+    "ipa": "əbˈzɝːv",
+    "ja": "観察する",
+    "level": 2,
+    "phonId": "v_schwa",
+    "marked": "[o]bserve"
+  },
+  {
+    "word": "obtain",
+    "ipa": "əbˈteɪn",
+    "ja": "手に入れる",
+    "level": 2,
+    "phonId": "v_schwa",
+    "marked": "[o]btain"
+  },
+  {
+    "word": "obvious",
+    "ipa": "ˈɑːbviəs",
+    "ja": "明らかな",
+    "level": 2,
+    "phonId": "v_aa",
+    "marked": "[o]bvious"
+  },
+  {
+    "word": "original",
+    "ipa": "əˈrɪdʒənəl",
+    "ja": "元の・独自の",
+    "level": 2,
+    "phonId": "v_er_weak",
+    "marked": "[o]riginal"
+  },
+  {
+    "word": "owner",
+    "ipa": "ˈoʊnɚ",
+    "ja": "所有者",
+    "level": 2,
+    "phonId": "v_ou",
+    "marked": "[o]wner"
+  },
+  {
+    "word": "pale",
+    "ipa": "peɪl",
+    "ja": "青白い",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]ale"
+  },
+  {
+    "word": "pancake",
+    "ipa": "ˈpænkeɪk",
+    "ja": "パンケーキ",
+    "level": 1,
+    "phonId": "c_p",
+    "marked": "[p]ancake"
+  },
+  {
+    "word": "pants",
+    "ipa": "pænts",
+    "ja": "ズボン",
+    "level": 1,
+    "phonId": "c_p",
+    "marked": "[p]ants"
+  },
+  {
+    "word": "paragraph",
+    "ipa": "ˈpærəɡræf",
+    "ja": "段落",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]aragraph"
+  },
+  {
+    "word": "patient",
+    "ipa": "ˈpeɪʃənt",
+    "ja": "患者・辛抱強い",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]atient"
+  },
+  {
+    "word": "pause",
+    "ipa": "pɔːz",
+    "ja": "一時停止",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]ause"
+  },
+  {
+    "word": "permission",
+    "ipa": "pɚˈmɪʃən",
+    "ja": "許可",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]ermission"
+  },
+  {
+    "word": "phrase",
+    "ipa": "freɪz",
+    "ja": "語句",
+    "level": 2,
+    "phonId": "c_f",
+    "marked": "[ph]rase"
+  },
+  {
+    "word": "pill",
+    "ipa": "pɪl",
+    "ja": "錠剤",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]ill"
+  },
+  {
+    "word": "platform",
+    "ipa": "ˈplætfɔːrm",
+    "ja": "駅のホーム・基盤",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]latform"
+  },
+  {
+    "word": "pleasant",
+    "ipa": "ˈplezənt",
+    "ja": "心地よい",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]leasant"
+  },
+  {
+    "word": "prefer",
+    "ipa": "prɪˈfɝː",
+    "ja": "より好む",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]refer"
+  },
+  {
+    "word": "pregnant",
+    "ipa": "ˈpreɡnənt",
+    "ja": "妊娠している",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]regnant"
+  },
+  {
+    "word": "prevent",
+    "ipa": "prɪˈvent",
+    "ja": "防ぐ",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]revent"
+  },
+  {
+    "word": "previous",
+    "ipa": "ˈpriːviəs",
+    "ja": "前の",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]revious"
+  },
+  {
+    "word": "primary",
+    "ipa": "ˈpraɪmeri",
+    "ja": "主な・初等の",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]rimary"
+  },
+  {
+    "word": "process",
+    "ipa": "ˈprɑːses",
+    "ja": "過程・処理",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]rocess"
+  },
+  {
+    "word": "product",
+    "ipa": "ˈprɑːdəkt",
+    "ja": "製品",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]roduct"
+  },
+  {
+    "word": "proper",
+    "ipa": "ˈprɑːpɚ",
+    "ja": "適切な",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]roper"
+  },
+  {
+    "word": "provide",
+    "ipa": "prəˈvaɪd",
+    "ja": "提供する",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]rovide"
+  },
+  {
+    "word": "public",
+    "ipa": "ˈpʌblɪk",
+    "ja": "公共の",
+    "level": 1,
+    "phonId": "c_p",
+    "marked": "[p]ublic"
+  },
+  {
+    "word": "pump",
+    "ipa": "pʌmp",
+    "ja": "ポンプ",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]ump"
+  },
+  {
+    "word": "purpose",
+    "ipa": "ˈpɝːpəs",
+    "ja": "目的",
+    "level": 2,
+    "phonId": "c_p",
+    "marked": "[p]urpose"
+  }
+]

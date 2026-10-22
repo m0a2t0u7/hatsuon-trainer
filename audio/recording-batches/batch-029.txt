@@ -1,0 +1,10 @@
+park.
+depart.
+target.
+cargo.
+alarm.
+argue.
+art.
+garbage.
+jar.
+shark.

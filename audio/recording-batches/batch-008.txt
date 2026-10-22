@@ -1,0 +1,10 @@
+enemy.
+engine.
+enter.
+fence.
+festival.
+capital.
+absent.
+accident.
+act.
+action.

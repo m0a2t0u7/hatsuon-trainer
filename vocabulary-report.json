@@ -1,0 +1,362 @@
+{
+ "unique": 1500,
+ "practiceEntries": 1900,
+ "new": 562,
+ "recorded": 810,
+ "pending": 690,
+ "counts": [
+  {
+   "id": "v_i",
+   "ipa": "ɪ",
+   "count": 68
+  },
+  {
+   "id": "v_e",
+   "ipa": "e",
+   "count": 64
+  },
+  {
+   "id": "v_ae",
+   "ipa": "æ",
+   "count": 59
+  },
+  {
+   "id": "v_uh",
+   "ipa": "ʌ",
+   "count": 45
+  },
+  {
+   "id": "v_u",
+   "ipa": "ʊ",
+   "count": 30
+  },
+  {
+   "id": "v_schwa",
+   "ipa": "ə",
+   "count": 35
+  },
+  {
+   "id": "v_er_weak",
+   "ipa": "ɚ",
+   "count": 30
+  },
+  {
+   "id": "v_ii",
+   "ipa": "iː",
+   "count": 46
+  },
+  {
+   "id": "v_uu",
+   "ipa": "uː",
+   "count": 34
+  },
+  {
+   "id": "v_aa",
+   "ipa": "ɑː",
+   "count": 31
+  },
+  {
+   "id": "v_oo",
+   "ipa": "ɔː",
+   "count": 32
+  },
+  {
+   "id": "v_er_strong",
+   "ipa": "ɝː",
+   "count": 35
+  },
+  {
+   "id": "v_ei",
+   "ipa": "eɪ",
+   "count": 55
+  },
+  {
+   "id": "v_ai",
+   "ipa": "aɪ",
+   "count": 50
+  },
+  {
+   "id": "v_oi",
+   "ipa": "ɔɪ",
+   "count": 30
+  },
+  {
+   "id": "v_au",
+   "ipa": "aʊ",
+   "count": 34
+  },
+  {
+   "id": "v_ou",
+   "ipa": "oʊ",
+   "count": 40
+  },
+  {
+   "id": "v_ir",
+   "ipa": "ɪr",
+   "count": 30
+  },
+  {
+   "id": "v_er",
+   "ipa": "er",
+   "count": 32
+  },
+  {
+   "id": "v_ar",
+   "ipa": "ɑːr",
+   "count": 32
+  },
+  {
+   "id": "v_or",
+   "ipa": "ɔːr",
+   "count": 33
+  },
+  {
+   "id": "c_p",
+   "ipa": "p",
+   "count": 77
+  },
+  {
+   "id": "c_b",
+   "ipa": "b",
+   "count": 35
+  },
+  {
+   "id": "c_t",
+   "ipa": "t",
+   "count": 48
+  },
+  {
+   "id": "c_d",
+   "ipa": "d",
+   "count": 34
+  },
+  {
+   "id": "c_k",
+   "ipa": "k",
+   "count": 42
+  },
+  {
+   "id": "c_g",
+   "ipa": "ɡ",
+   "count": 44
+  },
+  {
+   "id": "c_f",
+   "ipa": "f",
+   "count": 32
+  },
+  {
+   "id": "c_v",
+   "ipa": "v",
+   "count": 34
+  },
+  {
+   "id": "c_th",
+   "ipa": "θ",
+   "count": 36
+  },
+  {
+   "id": "c_dh",
+   "ipa": "ð",
+   "count": 34
+  },
+  {
+   "id": "c_s",
+   "ipa": "s",
+   "count": 95
+  },
+  {
+   "id": "c_z",
+   "ipa": "z",
+   "count": 32
+  },
+  {
+   "id": "c_sh",
+   "ipa": "ʃ",
+   "count": 36
+  },
+  {
+   "id": "c_zh",
+   "ipa": "ʒ",
+   "count": 20
+  },
+  {
+   "id": "c_h",
+   "ipa": "h",
+   "count": 49
+  },
+  {
+   "id": "c_ch",
+   "ipa": "tʃ",
+   "count": 32
+  },
+  {
+   "id": "c_j",
+   "ipa": "dʒ",
+   "count": 41
+  },
+  {
+   "id": "c_m",
+   "ipa": "m",
+   "count": 56
+  },
+  {
+   "id": "c_n",
+   "ipa": "n",
+   "count": 44
+  },
+  {
+   "id": "c_ng",
+   "ipa": "ŋ",
+   "count": 32
+  },
+  {
+   "id": "c_l",
+   "ipa": "l",
+   "count": 64
+  },
+  {
+   "id": "c_r",
+   "ipa": "r",
+   "count": 55
+  },
+  {
+   "id": "c_w",
+   "ipa": "w",
+   "count": 51
+  },
+  {
+   "id": "c_y",
+   "ipa": "j",
+   "count": 32
+  }
+ ],
+ "under30": [
+  {
+   "id": "c_zh",
+   "ipa": "ʒ",
+   "count": 20
+  }
+ ],
+ "omittedCandidates": [
+  "false",
+  "fault",
+  "gain",
+  "gap",
+  "general",
+  "generation",
+  "gesture",
+  "global",
+  "grocery",
+  "hardware",
+  "harm",
+  "host",
+  "household",
+  "humid",
+  "humor",
+  "ideal",
+  "identify",
+  "ignore",
+  "immediate",
+  "impact",
+  "income",
+  "independent",
+  "industry",
+  "influence",
+  "ingredient",
+  "injury",
+  "insert",
+  "install",
+  "instruction",
+  "intelligent",
+  "invest",
+  "jewelry",
+  "judge",
+  "labor",
+  "lack",
+  "lawyer",
+  "leather",
+  "likely",
+  "load",
+  "loose",
+  "maintain",
+  "manner",
+  "mention",
+  "mess",
+  "muscle",
+  "negative",
+  "nightmare",
+  "object",
+  "observe",
+  "obtain",
+  "obvious",
+  "ordinary",
+  "original",
+  "owner",
+  "pale",
+  "paragraph",
+  "parcel",
+  "patient",
+  "pause",
+  "permission",
+  "phrase",
+  "pill",
+  "platform",
+  "pleasant",
+  "port",
+  "prefer",
+  "pregnant",
+  "prevent",
+  "previous",
+  "primary",
+  "process",
+  "product",
+  "proper",
+  "provide",
+  "pump",
+  "pupil",
+  "pure",
+  "purpose",
+  "rare",
+  "recommend",
+  "reduce",
+  "remove",
+  "request",
+  "review",
+  "salary",
+  "security",
+  "select",
+  "separate",
+  "skill",
+  "spare",
+  "stare",
+  "swear",
+  "task",
+  "technology",
+  "temperature",
+  "therefore",
+  "training",
+  "transfer",
+  "translate",
+  "transport",
+  "treat",
+  "trust",
+  "unable",
+  "underground",
+  "unit",
+  "unless",
+  "update",
+  "upset",
+  "user",
+  "variety",
+  "vehicle",
+  "vote",
+  "warn",
+  "whether",
+  "whoever",
+  "whom",
+  "within",
+  "youth",
+  "zoom"
+ ]
+}

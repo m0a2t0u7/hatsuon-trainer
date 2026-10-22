@@ -366,6 +366,8 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .learn-guide{padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;margin:.6rem 0 1rem}.learn-guide p{font-size:.875rem;line-height:1.7;color:var(--ink2);margin:.5rem 0}.learn-guide .btnrow{flex-wrap:wrap}.lesson-step{font-size:.8rem;color:var(--ink2);padding:.5rem 0}.lesson-step span{display:block;margin-top:.2rem}.play-summary{padding:.35rem 0}.play-summary .linkbtn{font-size:.8rem;text-align:left;min-height:2.5rem}.play-options{padding:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:.8rem;max-height:45vh;overflow:auto}.play-options label{display:block;font-size:.85rem;margin-bottom:.7rem}.play-options select{display:block;width:100%;min-height:2.8rem;padding:.5rem;margin-top:.3rem;background:var(--bg);border:1px solid var(--line);border-radius:.5rem}.play-options .follow-label{display:flex;gap:.5rem;align-items:center;min-height:2.5rem}.follow-label input{width:1.2rem;height:1.2rem;flex:none}.play-options p{font-size:.75rem;line-height:1.6;color:var(--ink2);margin:0}.now-playing{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.75rem;padding:.25rem 0 .5rem}.now-playing b{font-family:var(--f-ph);font-size:1rem}.now-playing .linkbtn{white-space:nowrap;font-size:.75rem;min-height:2.5rem}
+
+.recording-intro p,.recording-note{color:var(--ink2);font-size:.85rem;line-height:1.7}.recording-batch textarea{width:100%;box-sizing:border-box;min-height:16rem;max-height:55vh;margin:.75rem 0;padding:.75rem;border:1px solid var(--line);border-radius:.65rem;background:var(--bg);font:1rem/1.8 var(--f-ui);color:var(--ink);resize:vertical}.recording-batch .rhead{gap:.5rem;flex-wrap:wrap}.recording-batch .rhead span{font-size:.8rem;color:var(--ink2)}.recording-targets{margin:1rem 0;padding:.7rem;background:var(--surface);border:1px solid var(--line);border-radius:.7rem}.recording-targets summary{cursor:pointer;min-height:2rem}.recording-targets li{padding:.25rem 0;font-size:.9rem}.recording-intro h2{margin:.25rem 0}.btnrow{flex-wrap:wrap}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 <style>
 /*SOUND CHANGES*/
@@ -470,344 +472,1305 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 /*DATA*/
 const CATS=[{id:"short",name:"短母音"},{id:"long",name:"長母音"},{id:"diph",name:"二重母音"},{id:"r",name:"r の母音"},{id:"cons",name:"子音"}];
 const P=[
-{id:"v_i",ipa:"ɪ",cat:"short",key:"sit",sp:"i, y, ui, e, o, u, a",
-tip:"日本語の「イ」と「エ」の中間。口と舌の力を抜いて、短く言う。",
-miss:"「イー」と伸ばすと /iː/ に聞こえる。ship が sheep になる。",
-groups:[
-["i","s[i]t|sɪt|座る|1;b[i]g|bɪɡ|大きい|1;f[i]sh|fɪʃ|魚|1;m[i]lk|mɪlk|牛乳|1;th[i]s|ðɪs|これ|1;l[i]ve|lɪv|住む|1;g[i]ve|ɡɪv|与える|1;d[i]nner|ˈdɪnɚ|夕食|1;l[i]sten|ˈlɪsən|聞く|1;v[i]sit|ˈvɪzɪt|訪れる|1;f[i]nish|ˈfɪnɪʃ|終える|1;sh[i]p|ʃɪp|船|1;c[i]ty|ˈsɪti|都市|1;[i]ssue|ˈɪʃuː|問題、発行する|3;[i]nvoice|ˈɪnvɔɪs|請求書|3;sh[i]pping|ˈʃɪpɪŋ|配送|3"],
-["y","g[y]m|dʒɪm|ジム|1;s[y]stem|ˈsɪstəm|仕組み|2;s[y]mbol|ˈsɪmbəl|記号|2;t[y]pical|ˈtɪpɪkəl|典型的な|2;rh[y]thm|ˈrɪðəm|リズム|2"],
-["ui","b[ui]ld|bɪld|建てる|1;b[ui]lding|ˈbɪldɪŋ|建物|1;g[ui]lty|ˈɡɪlti|有罪の|2"],
-["e / o / u / a（例外）","[E]nglish|ˈɪŋɡlɪʃ|英語|1;pr[e]tty|ˈprɪti|かなり、かわいい|1;w[o]men|ˈwɪmɪn|女性たち|1;b[u]siness|ˈbɪznɪs|仕事|1;mess[a]ge|ˈmesɪdʒ|伝言|1;vill[a]ge|ˈvɪlɪdʒ|村|2;pack[a]ge|ˈpækɪdʒ|小包|3"]]},
-{id:"v_e",ipa:"e",cat:"short",key:"bed",sp:"e, ea, ai, ay, a, ie, u",
-tip:"日本語の「エ」に近い。口を指1本ぶん縦に開ける。",
-miss:"口を横に引きすぎると /æ/ との差がなくなる。bed と bad を言い分ける。",
-groups:[
-["e","b[e]d|bed|ベッド|1;r[e]d|red|赤|1;t[e]n|ten|10|1;p[e]n|pen|ペン|1;l[e]g|leɡ|脚|1;[e]gg|eɡ|卵|1;h[e]lp|help|助ける|1;s[e]nd|send|送る|1;b[e]st|best|最もよい|1;t[e]st|test|テスト|1;pr[e]sent|ˈprezənt|プレゼント|1;m[e]mber|ˈmembɚ|一員|1;sch[e]dule|ˈskedʒuːl|予定|3;ag[e]nda|əˈdʒendə|議題|3;exp[e]nse|ɪkˈspens|費用|3"],
-["ea","h[ea]d|hed|頭|1;br[ea]d|bred|パン|1;br[ea]kfast|ˈbrekfəst|朝食|1;w[ea]ther|ˈweðɚ|天気|1;h[ea]vy|ˈhevi|重い|1;r[ea]dy|ˈredi|準備ができた|1;h[ea]lth|helθ|健康|2;m[ea]sure|ˈmeʒɚ|測る|2;thr[ea]t|θret|脅威|2"],
-["ai / ay","s[ai]d|sed|言った|1;ag[ai]n|əˈɡen|再び|1;s[ay]s|sez|言う（三単現）|1"],
-["a / ie / u（例外）","[a]ny|ˈeni|いくらかの|1;m[a]ny|ˈmeni|たくさんの|1;fr[ie]nd|frend|友達|1;b[u]ry|ˈberi|埋める|2"]]},
-{id:"v_ae",ipa:"æ",cat:"short",key:"cat",sp:"a, au",
-tip:"「エ」の口の形のまま「ア」と言う。口角を横に引き、あごも下げて少し長めに。",
-miss:"日本語の「ア」で言うと /ʌ/ に聞こえ、cat が cut になる。",
-groups:[
-["a（1音節）","c[a]t|kæt|猫|1;b[a]g|bæɡ|かばん|1;h[a]t|hæt|帽子|1;m[a]p|mæp|地図|1;h[a]nd|hænd|手|1;b[a]ck|bæk|後ろ|1;bl[a]ck|blæk|黒|1;th[a]nk|θæŋk|感謝する|1;pl[a]n|plæn|計画|1"],
-["a（2音節以上）","[a]pple|ˈæpəl|りんご|1;h[a]ppy|ˈhæpi|幸せな|1;f[a]mily|ˈfæməli|家族|1;[a]ctually|ˈæktʃuəli|実は|1;tr[a]ffic|ˈtræfɪk|交通|2;ch[a]llenge|ˈtʃælɪndʒ|挑戦|2;c[a]pital|ˈkæpɪtəl|首都、資本|2;st[a]ndard|ˈstændɚd|標準|2;m[a]nager|ˈmænɪdʒɚ|管理者|3;c[a]ncel|ˈkænsəl|取り消す|3;[a]nnual|ˈænjuəl|年1回の|3;an[a]lysis|əˈnæləsɪs|分析|3;c[a]ndidate|ˈkændɪdət|候補者|3;b[a]lance|ˈbæləns|残高|3"],
-["a（米音で /æ/）","[a]sk|æsk|尋ねる|1;gl[a]ss|ɡlæs|コップ|1;l[a]st|læst|最後の|1;c[a]n't|kænt|できない|1;d[a]nce|dæns|踊る|1;[a]nswer|ˈænsɚ|答え|1"],
-["au","l[au]gh|læf|笑う|1;[au]nt|ænt|おば|1"]]},
-{id:"v_uh",ipa:"ʌ",cat:"short",key:"cup",sp:"u, o, ou, oo, oe",
-tip:"口を軽く開けて、のどの奥から短く「ア」。驚いたときの「アッ」の感覚。",
-miss:"口を大きく開けすぎると /ɑː/ に、横に引くと /æ/ になる。",
-groups:[
-["u","c[u]p|kʌp|カップ|1;b[u]s|bʌs|バス|1;r[u]n|rʌn|走る|1;s[u]n|sʌn|太陽|1;f[u]n|fʌn|楽しみ|1;j[u]mp|dʒʌmp|跳ぶ|1;l[u]nch|lʌntʃ|昼食|1;m[u]st|mʌst|〜しなければならない|1;n[u]mber|ˈnʌmbɚ|数|1;S[u]nday|ˈsʌndeɪ|日曜日|1;s[u]bject|ˈsʌbdʒekt|教科、件名|1;f[u]nction|ˈfʌŋkʃən|機能|2;b[u]dget|ˈbʌdʒɪt|予算|3"],
-["o","s[o]n|sʌn|息子|1;c[o]me|kʌm|来る|1;s[o]me|sʌm|いくつかの|1;l[o]ve|lʌv|愛する|1;M[o]nday|ˈmʌndeɪ|月曜日|1;m[o]ney|ˈmʌni|お金|1;m[o]nth|mʌnθ|月|1;[o]ther|ˈʌðɚ|ほかの|1;ab[o]ve|əˈbʌv|上に|1;c[o]mpany|ˈkʌmpəni|会社|1;w[o]nder|ˈwʌndɚ|不思議に思う|2"],
-["ou","c[ou]ntry|ˈkʌntri|国|1;y[ou]ng|jʌŋ|若い|1;d[ou]ble|ˈdʌbəl|2倍の|1;en[ou]gh|ɪˈnʌf|十分な|1;t[ou]ch|tʌtʃ|触れる|1"],
-["oo / oe","d[oe]s|dʌz|する（三単現）|1;bl[oo]d|blʌd|血|2;fl[oo]d|flʌd|洪水|2"]]},
-{id:"v_u",ipa:"ʊ",cat:"short",key:"book",sp:"oo, u, ou, o",
-tip:"唇を軽く丸めて、力を抜いた短い「ウ」。「ウ」と「オ」の中間。",
-miss:"唇を突き出して伸ばすと /uː/ になる。full が fool に聞こえる。",
-groups:[
-["oo","b[oo]k|bʊk|本|1;l[oo]k|lʊk|見る|1;c[oo]k|kʊk|料理する|1;g[oo]d|ɡʊd|よい|1;w[oo]d|wʊd|木材|1;f[oo]t|fʊt|足|1;st[oo]d|stʊd|立った|1;t[oo]k|tʊk|取った|1;sh[oo]k|ʃʊk|振った|2;w[oo]l|wʊl|羊毛|2;h[oo]k|hʊk|フック|2"],
-["u","p[u]t|pʊt|置く|1;p[u]ll|pʊl|引く|1;p[u]sh|pʊʃ|押す|1;f[u]ll|fʊl|いっぱいの|1;s[u]gar|ˈʃʊɡɚ|砂糖|1;p[u]dding|ˈpʊdɪŋ|プリン|1;b[u]sh|bʊʃ|茂み|2"],
-["ou","c[ou]ld|kʊd|〜できた|1;w[ou]ld|wʊd|〜だろう|1;sh[ou]ld|ʃʊd|〜すべき|1"],
-["o","w[o]man|ˈwʊmən|女性|1;w[o]lf|wʊlf|オオカミ|2"]]},
-{id:"v_schwa",ipa:"ə",cat:"short",key:"about",sp:"a, o, e, u, ou, i",
-tip:"口・舌・唇の力を全部抜いて、短くあいまいな「ア」。アクセントのない場所にだけ出る音。",
-miss:"つづりにつられて about を「アバウト」、lemon を「レモン」とはっきり読んでしまう。",
-groups:[
-["a","[a]bout|əˈbaʊt|約、〜について|1;[a]go|əˈɡoʊ|〜前に|1;[a]way|əˈweɪ|離れて|1;b[a]nana|bəˈnænə|バナナ|1;J[a]pan|dʒəˈpæn|日本|1;sof[a]|ˈsoʊfə|ソファ|1;pizz[a]|ˈpiːtsə|ピザ|1;ide[a]|aɪˈdiːə|考え|1;[a]ttend|əˈtend|出席する|3;[a]vailable|əˈveɪləbəl|利用できる|3;[a]ccount|əˈkaʊnt|口座、アカウント|3"],
-["o","lem[o]n|ˈlemən|レモン|1;sec[o]nd|ˈsekənd|2番目の、秒|1;c[o]mputer|kəmˈpjuːtɚ|コンピューター|1;t[o]day|təˈdeɪ|今日|1;pers[o]n|ˈpɝːsən|人|1;seas[o]n|ˈsiːzən|季節|1;c[o]llect|kəˈlekt|集める|2;p[o]sition|pəˈzɪʃən|位置、職|2;c[o]nfirm|kənˈfɝːm|確認する|3"],
-["e","probl[e]m|ˈprɑːbləm|問題|1;mom[e]nt|ˈmoʊmənt|瞬間|1;childr[e]n|ˈtʃɪldrən|子どもたち|1;gard[e]n|ˈɡɑːrdən|庭|1"],
-["u","s[u]pport|səˈpɔːrt|支える|2;s[u]ppose|səˈpoʊz|思う|2;s[u]ccess|səkˈses|成功|2;circ[u]s|ˈsɝːkəs|サーカス|2"],
-["ou","fam[ou]s|ˈfeɪməs|有名な|1;danger[ou]s|ˈdeɪndʒɚəs|危険な|1"],
-["i","penc[i]l|ˈpensəl|鉛筆|1;poss[i]ble|ˈpɑːsəbəl|可能な|1"]]},
-{id:"v_er_weak",ipa:"ɚ",cat:"short",key:"teacher",sp:"er, or, ar, ure",
-tip:"舌先を少し持ち上げるか、舌全体を奥へ引いて、弱い「アー」に r の響きをのせる。アメリカ英語らしさが一番出る音。",
-miss:"「ティーチャー」のように r の響きがないまま「アー」で終わる。",
-groups:[
-["er","teach[er]|ˈtiːtʃɚ|先生|1;butt[er]|ˈbʌtɚ|バター|1;wat[er]|ˈwɑːtɚ|水|1;fath[er]|ˈfɑːðɚ|父|1;moth[er]|ˈmʌðɚ|母|1;sist[er]|ˈsɪstɚ|姉妹|1;play[er]|ˈpleɪɚ|選手|1;lead[er]|ˈliːdɚ|リーダー|1;speak[er]|ˈspiːkɚ|話し手|1;ov[er]|ˈoʊvɚ|〜を越えて|1;aft[er]|ˈæftɚ|〜のあとで|1;und[er]|ˈʌndɚ|〜の下に|1;ord[er]|ˈɔːrdɚ|注文|1;pap[er]|ˈpeɪpɚ|紙|1;custom[er]|ˈkʌstəmɚ|顧客|3;deliv[er]|dɪˈlɪvɚ|配達する|3"],
-["or","doct[or]|ˈdɑːktɚ|医者|1;act[or]|ˈæktɚ|俳優|1;visit[or]|ˈvɪzɪtɚ|訪問者|1;col[or]|ˈkʌlɚ|色|1;fav[or]ite|ˈfeɪvɚɪt|お気に入りの|1;elevat[or]|ˈeləveɪtɚ|エレベーター|2;direct[or]|dəˈrektɚ|責任者|3"],
-["ar","doll[ar]|ˈdɑːlɚ|ドル|1;popul[ar]|ˈpɑːpjəlɚ|人気のある|1;calend[ar]|ˈkæləndɚ|カレンダー|1;regul[ar]|ˈreɡjəlɚ|定期的な|2"],
-["ure","pict[ure]|ˈpɪktʃɚ|絵、写真|1;nat[ure]|ˈneɪtʃɚ|自然|1;fut[ure]|ˈfjuːtʃɚ|未来|1"]]},
-{id:"v_ii",ipa:"iː",cat:"long",key:"see",sp:"ee, ea, e, ie, ei, i, eo",
-tip:"唇を横に強く引いて、はっきり「イー」と長く。",
-miss:"短く「イ」で済ませると /ɪ/ と区別できない。sheep と ship を言い分ける。",
-groups:[
-["ee","s[ee]|siː|見る|1;tr[ee]|triː|木|1;thr[ee]|θriː|3|1;f[ee]l|fiːl|感じる|1;m[ee]t|miːt|会う|1;sh[ee]p|ʃiːp|羊|1;w[ee]k|wiːk|週|1;n[ee]d|niːd|必要とする|1;sl[ee]p|sliːp|眠る|1;gr[ee]n|ɡriːn|緑|1;f[ee]|fiː|料金|3;employ[ee]|ɪmˈplɔɪiː|従業員|3"],
-["ea","[ea]t|iːt|食べる|1;t[ea]|tiː|お茶|1;s[ea]|siː|海|1;r[ea]d|riːd|読む|1;t[ea]m|tiːm|チーム|1;cl[ea]n|kliːn|きれいな|1;l[ea]ve|liːv|去る|1;incr[ea]se|ɪnˈkriːs|増える|2;l[ea]se|liːs|賃貸契約|3"],
-["e","m[e]|miː|私を|1;w[e]|wiː|私たち|1;compl[e]te|kəmˈpliːt|完成させる|2"],
-["ie / ei / i / eo","p[ie]ce|piːs|1切れ|1;bel[ie]ve|bɪˈliːv|信じる|1;pol[i]ce|pəˈliːs|警察|1;p[eo]ple|ˈpiːpəl|人々|1;rec[ei]ve|rɪˈsiːv|受け取る|2;mach[i]ne|məˈʃiːn|機械|2;rec[ei]pt|rɪˈsiːt|領収書|3"]]},
-{id:"v_uu",ipa:"uː",cat:"long",key:"food",sp:"oo, u, ue, ew, o, ou, ui",
-tip:"唇を小さく丸めて前に突き出し、「ウー」と長く。口笛を吹くときの唇の形。",
-miss:"唇を丸めない日本語の「ウ」になる。food が「フード」の平たい音になる。",
-groups:[
-["oo","f[oo]d|fuːd|食べ物|1;m[oo]n|muːn|月|1;s[oo]n|suːn|すぐに|1;r[oo]m|ruːm|部屋|1;sch[oo]l|skuːl|学校|1;c[oo]l|kuːl|涼しい|1;t[oo]|tuː|〜も|1;z[oo]|zuː|動物園|1;p[oo]l|puːl|プール|1;t[oo]th|tuːθ|歯|1"],
-["u / ue","r[u]le|ruːl|規則|1;J[u]ne|dʒuːn|6月|1;fl[u]|fluː|インフルエンザ|1;st[u]dent|ˈstuːdənt|学生|1;s[u]per|ˈsuːpɚ|すごい|1;bl[ue]|bluː|青|1;tr[ue]|truː|本当の|1;d[ue]|duː|期限の|3"],
-["ew","n[ew]|nuː|新しい|1;fl[ew]|fluː|飛んだ|1;cr[ew]|kruː|乗組員|2"],
-["o / ou / ui","d[o]|duː|する|1;tw[o]|tuː|2|1;m[o]ve|muːv|動く|1;wh[o]|huː|誰|1;gr[ou]p|ɡruːp|グループ|1;s[ou]p|suːp|スープ|1;y[ou]|juː|あなた|1;fr[ui]t|fruːt|果物|1;j[ui]ce|dʒuːs|ジュース|1"]]},
-{id:"v_aa",ipa:"ɑː",cat:"long",key:"hot",sp:"o, a, ow",
-tip:"口を縦に大きく開けて、のどの奥から「アー」。アメリカ英語では hot も father もこの音。",
-miss:"o のつづりにつられて「オ」と読む。hot は「ホット」より「ハート」寄り。",
-groups:[
-["o","h[o]t|hɑːt|暑い|1;st[o]p|stɑːp|止まる|1;b[o]x|bɑːks|箱|1;t[o]p|tɑːp|頂上|1;j[o]b|dʒɑːb|仕事|1;cl[o]ck|klɑːk|時計|1;sh[o]p|ʃɑːp|店|1;n[o]t|nɑːt|〜でない|1;l[o]t|lɑːt|たくさん|1;g[o]t|ɡɑːt|得た|1;r[o]ck|rɑːk|岩|1;b[o]ttle|ˈbɑːtəl|ビン|1;h[o]bby|ˈhɑːbi|趣味|1;c[o]py|ˈkɑːpi|写し|1;c[o]llege|ˈkɑːlɪdʒ|大学|1;s[o]rry|ˈsɑːri|ごめんなさい|1;[o]ption|ˈɑːpʃən|選択肢|3;pr[o]ject|ˈprɑːdʒekt|計画|3;c[o]ntract|ˈkɑːntrækt|契約|3"],
-["a","f[a]ther|ˈfɑːðɚ|父|1;w[a]tch|wɑːtʃ|見る、腕時計|1;w[a]nt|wɑːnt|欲しい|1;wh[a]t|wɑːt|何|1;dr[a]ma|ˈdrɑːmə|ドラマ|1;p[a]sta|ˈpɑːstə|パスタ|1;paj[a]mas|pəˈdʒɑːməz|パジャマ|1;c[a]lm|kɑːm|落ち着いた|2;p[a]lm|pɑːm|手のひら|2;sp[a]|spɑː|温泉施設|2"],
-["ow","kn[ow]ledge|ˈnɑːlɪdʒ|知識|2"]]},
-{id:"v_oo",ipa:"ɔː",cat:"long",key:"law",sp:"aw, au, ough, a, o",
-tip:"唇を少し丸め、口を縦に大きく開けて「オー」。日本語の「オー」より口を大きく開ける。",
-miss:"アメリカでは /ɑː/ と同じ音で言う人も多い（cot と caught が同じ音）。どちらでも通じる。練習はこの口の形でそろえる。",
-groups:[
-["aw","s[aw]|sɔː|見た|1;dr[aw]|drɔː|描く|1;str[aw]|strɔː|ストロー|1;l[aw]|lɔː|法律|2;[aw]ful|ˈɔːfəl|ひどい|2"],
-["au","c[au]ght|kɔːt|捕まえた|1;t[au]ght|tɔːt|教えた|1;d[au]ghter|ˈdɔːtɚ|娘|1;[Au]gust|ˈɔːɡəst|8月|1;bec[au]se|bɪˈkɔːz|なぜなら|1;[au]tumn|ˈɔːtəm|秋|1;[au]thor|ˈɔːθɚ|著者|2;[au]dit|ˈɔːdɪt|監査|3"],
-["ough","th[ough]t|θɔːt|思った|1;b[ough]t|bɔːt|買った|1;br[ough]t|brɔːt|持ってきた|1"],
-["a（al / all）","w[a]lk|wɔːk|歩く|1;t[a]lk|tɔːk|話す|1;[a]ll|ɔːl|すべて|1;b[a]ll|bɔːl|ボール|1;c[a]ll|kɔːl|電話する|1;sm[a]ll|smɔːl|小さい|1;[a]lso|ˈɔːlsoʊ|〜も|1;[a]lways|ˈɔːlweɪz|いつも|1"],
-["o","l[o]ng|lɔːŋ|長い|1;s[o]ng|sɔːŋ|歌|1;str[o]ng|strɔːŋ|強い|1;c[o]ffee|ˈkɔːfi|コーヒー|1;[o]ften|ˈɔːfən|しばしば|1;l[o]ss|lɔːs|損失|3"]]},
-{id:"v_er_strong",ipa:"ɝː",cat:"long",key:"bird",sp:"ir, er, ur, or, ear, our",
-tip:"口はあまり開けず、舌を奥へ引いて、こもった「アー」を長く。最初から最後まで r の響きを保つ。",
-miss:"口を大きく開けると /ɑːr/ に近づき、bird が bard、work が walk に聞こえる。",
-groups:[
-["ir","b[ir]d|bɝːd|鳥|1;g[ir]l|ɡɝːl|女の子|1;f[ir]st|fɝːst|最初の|1;sh[ir]t|ʃɝːt|シャツ|1;th[ir]d|θɝːd|3番目の|1;th[ir]sty|ˈθɝːsti|のどが渇いた|1;b[ir]thday|ˈbɝːθdeɪ|誕生日|1;f[ir]m|fɝːm|会社|3;conf[ir]m|kənˈfɝːm|確認する|3"],
-["er","h[er]|hɝː|彼女の|1;s[er]vice|ˈsɝːvɪs|サービス|1;s[er]ve|sɝːv|出す、仕える|2;t[er]m|tɝːm|期間、用語|2;ref[er]|rɪˈfɝː|参照する|2;v[er]sion|ˈvɝːʒən|版|2"],
-["ur","t[ur]n|tɝːn|曲がる|1;n[ur]se|nɝːs|看護師|1;h[ur]t|hɝːt|傷つける|1;Th[ur]sday|ˈθɝːzdeɪ|木曜日|1;p[ur]ple|ˈpɝːpəl|紫|1;ch[ur]ch|tʃɝːtʃ|教会|1;p[ur]chase|ˈpɝːtʃəs|購入する|3"],
-["or（w のあと）","w[or]k|wɝːk|働く|1;w[or]d|wɝːd|単語|1;w[or]ld|wɝːld|世界|1;w[or]se|wɝːs|より悪い|2"],
-["ear / our","l[ear]n|lɝːn|学ぶ|1;[ear]ly|ˈɝːli|早い|1;res[ear]ch|ˈriːsɝːtʃ|研究|2;j[our]ney|ˈdʒɝːni|旅|2"]]},
-{id:"v_ei",ipa:"eɪ",cat:"diph",key:"day",sp:"a_e, a, ai, ay, ei, ey, ea",
-tip:"「エ」から「イ」へ口を動かす。「エ」を強く、「イ」は軽く添える。",
-miss:"「エー」と伸ばしてしまう。table は「テーブル」ではなく「テイブル」。",
-groups:[
-["a_e","c[a]ke|keɪk|ケーキ|1;n[a]me|neɪm|名前|1;m[a]ke|meɪk|作る|1;g[a]me|ɡeɪm|試合|1;pl[a]ne|pleɪn|飛行機|1;s[a]me|seɪm|同じ|1;d[a]te|deɪt|日付|1;r[a]te|reɪt|料金、割合|3"],
-["a","t[a]ble|ˈteɪbəl|テーブル|1;p[a]per|ˈpeɪpɚ|紙|1;b[a]by|ˈbeɪbi|赤ちゃん|1;st[a]tion|ˈsteɪʃən|駅|1;loc[a]tion|loʊˈkeɪʃən|場所|2;[a]gent|ˈeɪdʒənt|代理人|3"],
-["ai / ay","r[ai]n|reɪn|雨|1;tr[ai]n|treɪn|電車|1;w[ai]t|weɪt|待つ|1;m[ai]l|meɪl|郵便|1;d[ay]|deɪ|日|1;pl[ay]|pleɪ|遊ぶ|1;s[ay]|seɪ|言う|1;p[ai]d|peɪd|支払った|2;displ[ay]|dɪˈspleɪ|展示する|2;del[ay]|dɪˈleɪ|遅れ|3"],
-["ei / ey / ea","[ei]ght|eɪt|8|1;th[ey]|ðeɪ|彼ら|1;br[ea]k|breɪk|壊す、休憩|1;gr[ea]t|ɡreɪt|すばらしい|1;w[ei]ght|weɪt|重さ|2;surv[ey]|ˈsɝːveɪ|調査|3"]]},
-{id:"v_ai",ipa:"aɪ",cat:"diph",key:"time",sp:"i_e, i, igh, y, ie, uy, eye",
-tip:"「ア」から「イ」へなめらかに動かす。「ア」を強く長めに、「イ」は軽く。",
-miss:"「ア」「イ」を2つの音として同じ強さで言ってしまう。",
-groups:[
-["i_e","t[i]me|taɪm|時間|1;l[i]ke|laɪk|好き|1;f[i]ve|faɪv|5|1;n[i]ce|naɪs|すてきな|1;wr[i]te|raɪt|書く|1;wh[i]te|waɪt|白|1;l[i]fe|laɪf|生活|1;pr[i]ce|praɪs|価格|3;s[i]te|saɪt|用地、サイト|3;f[i]le|faɪl|ファイル|3"],
-["i","k[i]nd|kaɪnd|親切な|1;f[i]nd|faɪnd|見つける|1;ch[i]ld|tʃaɪld|子ども|1;m[i]nd|maɪnd|気にする|2;cl[i]mate|ˈklaɪmət|気候|2;cl[i]ent|ˈklaɪənt|顧客|3"],
-["igh","n[igh]t|naɪt|夜|1;l[igh]t|laɪt|光|1;r[igh]t|raɪt|右、正しい|1;h[igh]|haɪ|高い|1;fl[igh]t|flaɪt|航空便|1"],
-["y / ie / uy / eye","m[y]|maɪ|私の|1;fl[y]|flaɪ|飛ぶ|1;wh[y]|waɪ|なぜ|1;tr[y]|traɪ|試す|1;p[ie]|paɪ|パイ|1;t[ie]|taɪ|ネクタイ|1;b[uy]|baɪ|買う|1;[eye]|aɪ|目|1;suppl[y]|səˈplaɪ|供給|3"]]},
-{id:"v_oi",ipa:"ɔɪ",cat:"diph",key:"boy",sp:"oy, oi",
-tip:"唇を丸めた「オ」から「イ」へ。「オ」を強く、「イ」は軽く。",
-miss:"「ボーイ」のように「オー」と伸ばしてしまう。",
-groups:[
-["oy","b[oy]|bɔɪ|男の子|1;t[oy]|tɔɪ|おもちゃ|1;enj[oy]|ɪnˈdʒɔɪ|楽しむ|1;j[oy]|dʒɔɪ|喜び|2;ann[oy]|əˈnɔɪ|いらだたせる|2;destr[oy]|dɪˈstrɔɪ|破壊する|2;l[oy]al|ˈlɔɪəl|忠実な|2;r[oy]al|ˈrɔɪəl|王室の|2;empl[oy]|ɪmˈplɔɪ|雇う|3;empl[oy]ment|ɪmˈplɔɪmənt|雇用|3"],
-["oi","[oi]l|ɔɪl|油|1;c[oi]n|kɔɪn|硬貨|1;v[oi]ce|vɔɪs|声|1;n[oi]se|nɔɪz|騒音|1;p[oi]nt|pɔɪnt|点|1;j[oi]n|dʒɔɪn|参加する|1;b[oi]l|bɔɪl|ゆでる|1;t[oi]let|ˈtɔɪlət|トイレ|1;ch[oi]ce|tʃɔɪs|選択|2;av[oi]d|əˈvɔɪd|避ける|2;app[oi]ntment|əˈpɔɪntmənt|約束、予約|3"]]},
-{id:"v_au",ipa:"aʊ",cat:"diph",key:"house",sp:"ou, ow",
-tip:"大きく開けた「ア」から、唇を丸めて「ウ」へ。「ア」を強く。",
-miss:"「ウ」をはっきり言いすぎる。または「アー」と伸ばして house が「ハース」になる。",
-groups:[
-["ou","h[ou]se|haʊs|家|1;[ou]t|aʊt|外へ|1;m[ou]th|maʊθ|口|1;s[ou]nd|saʊnd|音|1;r[ou]nd|raʊnd|丸い|1;gr[ou]nd|ɡraʊnd|地面|1;l[ou]d|laʊd|うるさい|1;cl[ou]d|klaʊd|雲|1;h[ou]r|ˈaʊɚ|1時間|1;s[ou]th|saʊθ|南|1;th[ou]sand|ˈθaʊzənd|1000|1;m[ou]ntain|ˈmaʊntən|山|1;c[ou]nt|kaʊnt|数える|2;am[ou]nt|əˈmaʊnt|量、金額|3;ann[ou]nce|əˈnaʊns|発表する|3;disc[ou]nt|ˈdɪskaʊnt|割引|3"],
-["ow","n[ow]|naʊ|今|1;h[ow]|haʊ|どのように|1;c[ow]|kaʊ|牛|1;d[ow]n|daʊn|下へ|1;t[ow]n|taʊn|町|1;br[ow]n|braʊn|茶色|1;fl[ow]er|ˈflaʊɚ|花|1;t[ow]el|ˈtaʊəl|タオル|1;sh[ow]er|ˈʃaʊɚ|シャワー|1;all[ow]|əˈlaʊ|許す|2;cr[ow]d|kraʊd|群衆|2;p[ow]er|ˈpaʊɚ|力|2"]]},
-{id:"v_ou",ipa:"oʊ",cat:"diph",key:"go",sp:"o, o_e, oa, ow, oe, ou",
-tip:"「オ」から唇をすぼめて「ウ」へ動かす。日本語の「オー」と伸ばさない。",
-miss:"「オー」と伸ばすと /ɔː/ に聞こえる。boat が bought、coat が caught になる。",
-groups:[
-["o / o_e","g[o]|ɡoʊ|行く|1;n[o]|noʊ|いいえ|1;s[o]|soʊ|だから|1;h[o]me|hoʊm|家|1;h[o]pe|hoʊp|望む|1;n[o]te|noʊt|メモ|1;ph[o]ne|foʊn|電話|1;cl[o]se|kloʊz|閉める|1;[o]pen|ˈoʊpən|開ける|1;[o]nly|ˈoʊnli|〜だけ|1;c[o]ld|koʊld|寒い|1;[o]ld|oʊld|古い|1;h[o]tel|hoʊˈtel|ホテル|1;ph[o]to|ˈfoʊtoʊ|写真|1;t[o]tal|ˈtoʊtəl|合計|3"],
-["oa","b[oa]t|boʊt|ボート|1;r[oa]d|roʊd|道路|1;c[oa]t|koʊt|コート|1;s[oa]p|soʊp|石けん|1;appr[oa]ch|əˈproʊtʃ|近づく|2;l[oa]n|loʊn|ローン|3"],
-["ow","kn[ow]|noʊ|知っている|1;sh[ow]|ʃoʊ|見せる|1;sn[ow]|snoʊ|雪|1;sl[ow]|sloʊ|遅い|1;gr[ow]|ɡroʊ|育つ|1;[ow]n|oʊn|自分自身の|2;foll[ow]|ˈfɑːloʊ|ついていく|2"],
-["oe / ou","t[oe]|toʊ|足の指|1;sh[ou]lder|ˈʃoʊldɚ|肩|1;th[ou]gh|ðoʊ|〜だけれども|2"]]},
-{id:"v_ir",ipa:"ɪr",cat:"r",key:"near",sp:"ear, eer, ere, er, ier, eir",
-tip:"「イ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
-miss:"「ニア」「イヤー」と最後を「ア」で言ってしまう。",
-groups:[
-["ear","n[ear]|nɪr|近くに|1;[ear]|ɪr|耳|1;h[ear]|hɪr|聞こえる|1;d[ear]|dɪr|親愛なる|1;y[ear]|jɪr|年|1;cl[ear]|klɪr|はっきりした|1;f[ear]|fɪr|恐怖|2;t[ear]|tɪr|涙|2;app[ear]|əˈpɪr|現れる|2;b[ear]d|bɪrd|あごひげ|2"],
-["eer","b[eer]|bɪr|ビール|1;d[eer]|dɪr|シカ|1;ch[eer]|tʃɪr|応援する|2;car[eer]|kəˈrɪr|経歴|2;engin[eer]|ˌendʒɪˈnɪr|技術者|2;volunt[eer]|ˌvɑːlənˈtɪr|ボランティア|2"],
-["ere / er / ier / eir","h[ere]|hɪr|ここに|1;p[er]iod|ˈpɪriəd|期間|1;exp[er]ience|ɪkˈspɪriəns|経験|1;s[er]ious|ˈsɪriəs|深刻な|2;p[ier]|pɪr|桟橋|2;w[eir]d|wɪrd|奇妙な|2;mat[er]ial|məˈtɪriəl|材料、資料|3"]]},
-{id:"v_er",ipa:"er",cat:"r",key:"hair",sp:"air, are, ear, ere, eir, ar, er",
-tip:"「エ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
-miss:"「ヘアー」「チェアー」と「ア」を足してしまう。",
-groups:[
-["air","h[air]|her|髪|1;ch[air]|tʃer|いす|1;[air]|er|空気|1;[air]port|ˈerpɔːrt|空港|1;st[air]s|sterz|階段|1;f[air]|fer|公平な|2;p[air]|per|1組|2;aff[air]|əˈfer|出来事|2;rep[air]|rɪˈper|修理する|3"],
-["are","c[are]|ker|世話、気にかける|1;sh[are]|ʃer|共有する|1;squ[are]|skwer|正方形|1;c[are]ful|ˈkerfəl|注意深い|1;sc[are]d|skerd|怖がった|2;comp[are]|kəmˈper|比べる|2;prep[are]|prɪˈper|準備する|2;aw[are]|əˈwer|気づいている|2;f[are]|fer|運賃|3"],
-["ear / ere / eir","b[ear]|ber|クマ|1;w[ear]|wer|着ている|1;p[ear]|per|洋ナシ|1;th[ere]|ðer|そこに|1;wh[ere]|wer|どこ|1;th[eir]|ðer|彼らの|1"],
-["ar / er","p[ar]ent|ˈperənt|親|1;v[er]y|ˈveri|とても|1;Am[er]ica|əˈmerɪkə|アメリカ|1;v[ar]y|ˈveri|異なる|2"]]},
-{id:"v_ar",ipa:"ɑːr",cat:"r",key:"car",sp:"ar, ear, uar",
-tip:"口を縦に大きく開けた「アー」から、舌を奥へ引いて r で終える。",
-miss:"「カー」「スター」と r の響きがないまま終わる。",
-groups:[
-["ar（1音節）","c[ar]|kɑːr|車|1;st[ar]|stɑːr|星|1;f[ar]|fɑːr|遠い|1;c[ar]d|kɑːrd|カード|1;p[ar]k|pɑːrk|公園|1;d[ar]k|dɑːrk|暗い|1;h[ar]d|hɑːrd|難しい|1;[ar]m|ɑːrm|腕|1;f[ar]m|fɑːrm|農場|1;st[ar]t|stɑːrt|始める|1;p[ar]t|pɑːrt|部分|1;sm[ar]t|smɑːrt|賢い|1;M[ar]ch|mɑːrtʃ|3月|1;sc[ar]f|skɑːrf|マフラー|1;ch[ar]ge|tʃɑːrdʒ|料金|3"],
-["ar（2音節以上）","p[ar]ty|ˈpɑːrti|パーティー|1;m[ar]ket|ˈmɑːrkɪt|市場|1;[ar]tist|ˈɑːrtɪst|芸術家|1;ap[ar]tment|əˈpɑːrtmənt|アパート|1;dep[ar]tment|dɪˈpɑːrtmənt|部門|2;dep[ar]t|dɪˈpɑːrt|出発する|3;t[ar]get|ˈtɑːrɡɪt|目標|3;c[ar]go|ˈkɑːrɡoʊ|貨物|3"],
-["ear / uar","h[ear]t|hɑːrt|心臓、心|1;g[uar]d|ɡɑːrd|警備員|2"]]},
-{id:"v_or",ipa:"ɔːr",cat:"r",key:"more",sp:"or, ore, oor, our, oar, ar",
-tip:"唇を丸めた「オー」から、舌を奥へ引いて r で終える。",
-miss:"「モア」「ドア」と最後を「ア」で言ってしまう。",
-groups:[
-["or","f[or]|fɔːr|〜のために|1;sh[or]t|ʃɔːrt|短い|1;sp[or]t|spɔːrt|スポーツ|1;h[or]se|hɔːrs|馬|1;m[or]ning|ˈmɔːrnɪŋ|朝|1;n[or]th|nɔːrθ|北|1;f[or]k|fɔːrk|フォーク|1;[or]der|ˈɔːrdɚ|注文|1;imp[or]tant|ɪmˈpɔːrtənt|重要な|1;rep[or]t|rɪˈpɔːrt|報告|2;[or]ganize|ˈɔːrɡənaɪz|まとめる|2;f[or]m|fɔːrm|用紙|3;f[or]ward|ˈfɔːrwɚd|転送する|3"],
-["ore","m[ore]|mɔːr|もっと|1;st[ore]|stɔːr|店|1;bef[ore]|bɪˈfɔːr|〜の前に|1;sc[ore]|skɔːr|得点|2"],
-["oor / our / oar","d[oor]|dɔːr|ドア|1;fl[oor]|flɔːr|床、階|1;f[our]|fɔːr|4|1;c[our]se|kɔːrs|講座|2;p[our]|pɔːr|注ぐ|2;b[oar]d|bɔːrd|板、役員会|2"],
-["ar（w / qu のあと）","w[ar]m|wɔːrm|暖かい|1;w[ar]|wɔːr|戦争|2;qu[ar]ter|ˈkwɔːrtɚ|4分の1|2;w[ar]ning|ˈwɔːrnɪŋ|警告|2;aw[ar]d|əˈwɔːrd|賞|3"]]}
+ {
+  "id": "v_i",
+  "ipa": "ɪ",
+  "cat": "short",
+  "key": "sit",
+  "sp": "i, y, ui, e, o, u, a",
+  "tip": "日本語の「イ」と「エ」の中間。口と舌の力を抜いて、短く言う。",
+  "miss": "「イー」と伸ばすと /iː/ に聞こえる。ship が sheep になる。",
+  "groups": [
+   [
+    "i",
+    "s[i]t|sɪt|座る|1;b[i]g|bɪɡ|大きい|1;f[i]sh|fɪʃ|魚|1;m[i]lk|mɪlk|牛乳|1;th[i]s|ðɪs|これ|1;l[i]ve|lɪv|住む|1;g[i]ve|ɡɪv|与える|1;d[i]nner|ˈdɪnɚ|夕食|1;l[i]sten|ˈlɪsən|聞く|1;v[i]sit|ˈvɪzɪt|訪れる|1;f[i]nish|ˈfɪnɪʃ|終える|1;sh[i]p|ʃɪp|船|1;c[i]ty|ˈsɪti|都市|1;[i]ssue|ˈɪʃuː|問題、発行する|3;[i]nvoice|ˈɪnvɔɪs|請求書|3;sh[i]pping|ˈʃɪpɪŋ|配送|3"
+   ],
+   [
+    "y",
+    "g[y]m|dʒɪm|ジム|1;s[y]stem|ˈsɪstəm|仕組み|2;s[y]mbol|ˈsɪmbəl|記号|2;t[y]pical|ˈtɪpɪkəl|典型的な|2;rh[y]thm|ˈrɪðəm|リズム|2"
+   ],
+   [
+    "ui",
+    "b[ui]ld|bɪld|建てる|1;b[ui]lding|ˈbɪldɪŋ|建物|1;g[ui]lty|ˈɡɪlti|有罪の|2"
+   ],
+   [
+    "e / o / u / a（例外）",
+    "[E]nglish|ˈɪŋɡlɪʃ|英語|1;pr[e]tty|ˈprɪti|かなり、かわいい|1;w[o]men|ˈwɪmɪn|女性たち|1;b[u]siness|ˈbɪznɪs|仕事|1;mess[a]ge|ˈmesɪdʒ|伝言|1;vill[a]ge|ˈvɪlɪdʒ|村|2;pack[a]ge|ˈpækɪdʒ|小包|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "act[i]vity|ækˈtɪvəti|活動|1;beg[i]n|bɪˈɡɪn|始める|1;beg[i]nning|bɪˈɡɪnɪŋ|始まり|1;br[i]ck|brɪk|れんが|2;br[i]ng|brɪŋ|持ってくる|1;c[i]nema|ˈsɪnəmə|映画館|1;c[i]tizen|ˈsɪtəzən|市民|2;cl[i]ck|klɪk|クリックする|1;cond[i]tion|kənˈdɪʃən|状態|2;cons[i]der|kənˈsɪdɚ|よく考える|2;cont[i]nue|kənˈtɪnjuː|続ける|2;del[i]cious|dɪˈlɪʃəs|おいしい|1;d[i]ctionary|ˈdɪkʃəneri|辞書|1;d[i]fference|ˈdɪfɚəns|違い|1;d[i]fficult|ˈdɪfɪkəlt|難しい|1;d[i]g|dɪɡ|掘る|1;d[i]stance|ˈdɪstəns|距離|2;electr[i]city|ɪˌlekˈtrɪsəti|電気|2;f[i]ll|fɪl|満たす|1;f[i]lm|fɪlm|映画・フィルム|1;f[i]x|fɪks|直す|1;[i]ll|ɪl|病気の|1;[i]mage|ˈɪmɪdʒ|画像・印象|1;[i]mprove|ɪmˈpruːv|改善する|1;[i]nclude|ɪnˈkluːd|含む|1;[i]nsect|ˈɪnsekt|昆虫|1;[i]nstead|ɪnˈsted|代わりに|1;[i]nstrument|ˈɪnstrəmənt|楽器・器具|1;[i]nternational|ˌɪntɚˈnæʃənəl|国際的な|1;[i]nternet|ˈɪntɚnet|インターネット|1;[i]nterview|ˈɪntɚvjuː|面接・インタビュー|1;[i]ntroduce|ˌɪntrəˈduːs|紹介する|1;[i]nvent|ɪnˈvent|発明する|1;[i]nvitation|ˌɪnvɪˈteɪʃən|招待|1;[i]t|ɪt|それは・それを|1;[i]ts|ɪts|それの|1;[i]tself|ɪtˈself|それ自身|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_e",
+  "ipa": "e",
+  "cat": "short",
+  "key": "bed",
+  "sp": "e, ea, ai, ay, a, ie, u",
+  "tip": "日本語の「エ」に近い。口を指1本ぶん縦に開ける。",
+  "miss": "口を横に引きすぎると /æ/ との差がなくなる。bed と bad を言い分ける。",
+  "groups": [
+   [
+    "e",
+    "b[e]d|bed|ベッド|1;r[e]d|red|赤|1;t[e]n|ten|10|1;p[e]n|pen|ペン|1;l[e]g|leɡ|脚|1;[e]gg|eɡ|卵|1;h[e]lp|help|助ける|1;s[e]nd|send|送る|1;b[e]st|best|最もよい|1;t[e]st|test|テスト|1;pr[e]sent|ˈprezənt|プレゼント|1;m[e]mber|ˈmembɚ|一員|1;sch[e]dule|ˈskedʒuːl|予定|3;ag[e]nda|əˈdʒendə|議題|3;exp[e]nse|ɪkˈspens|費用|3"
+   ],
+   [
+    "ea",
+    "h[ea]d|hed|頭|1;br[ea]d|bred|パン|1;br[ea]kfast|ˈbrekfəst|朝食|1;w[ea]ther|ˈweðɚ|天気|1;h[ea]vy|ˈhevi|重い|1;r[ea]dy|ˈredi|準備ができた|1;h[ea]lth|helθ|健康|2;m[ea]sure|ˈmeʒɚ|測る|2;thr[ea]t|θret|脅威|2"
+   ],
+   [
+    "ai / ay",
+    "s[ai]d|sed|言った|1;ag[ai]n|əˈɡen|再び|1;s[ay]s|sez|言う（三単現）|1"
+   ],
+   [
+    "a / ie / u（例外）",
+    "[a]ny|ˈeni|いくらかの|1;m[a]ny|ˈmeni|たくさんの|1;fr[ie]nd|frend|友達|1;b[u]ry|ˈberi|埋める|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "acc[e]pt|əkˈsept|受け入れる|2;adv[e]nture|ədˈventʃɚ|冒険|1;alr[ea]dy|ɔːlˈredi|すでに|1;b[e]droom|ˈbedruːm|寝室|1;b[e]nefit|ˈbenəfɪt|利益|2;b[e]tter|ˈbetɚ|よりよい|1;c[e]lebrate|ˈseləbreɪt|祝う|2;c[e]ntury|ˈsentʃɚi|世紀|1;ch[e]rry|ˈtʃeri|さくらんぼ|1;ch[e]st|tʃest|胸|1;cl[e]ver|ˈklevɚ|賢い|1;conn[e]ct|kəˈnekt|つなぐ|2;d[ea]d|ded|死んでいる|1;d[e]ntist|ˈdentɪst|歯科医|1;dep[e]nd|dɪˈpend|頼る|2;d[e]sert|ˈdezɚt|砂漠|2;dev[e]lop|dɪˈveləp|発展させる|2;dir[e]ction|dɪˈrekʃən|方向|1;dr[e]ss|dres|ドレス・服を着る|1;[e]ducation|ˌedʒəˈkeɪʃən|教育|2;eff[e]ct|ɪˈfekt|影響|2;[e]ffort|ˈefɚt|努力|2;[e]lbow|ˈelboʊ|ひじ|1;el[e]ctric|ɪˈlektrɪk|電気の|2;[e]lephant|ˈeləfənt|ゾウ|1;[e]lse|els|ほかの|1;[e]mpty|ˈempti|空の|1;[e]nd|end|終わり|1;[e]nemy|ˈenəmi|敵|1;[e]ngine|ˈendʒən|エンジン|1;[e]nter|ˈentɚ|入る|1;f[e]nce|fens|フェンス|1;f[e]stival|ˈfestəvəl|祭り|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_ae",
+  "ipa": "æ",
+  "cat": "short",
+  "key": "cat",
+  "sp": "a, au",
+  "tip": "「エ」の口の形のまま「ア」と言う。口角を横に引き、あごも下げて少し長めに。",
+  "miss": "日本語の「ア」で言うと /ʌ/ に聞こえ、cat が cut になる。",
+  "groups": [
+   [
+    "a（1音節）",
+    "c[a]t|kæt|猫|1;b[a]g|bæɡ|かばん|1;h[a]t|hæt|帽子|1;m[a]p|mæp|地図|1;h[a]nd|hænd|手|1;b[a]ck|bæk|後ろ|1;bl[a]ck|blæk|黒|1;th[a]nk|θæŋk|感謝する|1;pl[a]n|plæn|計画|1"
+   ],
+   [
+    "a（2音節以上）",
+    "[a]pple|ˈæpəl|りんご|1;h[a]ppy|ˈhæpi|幸せな|1;f[a]mily|ˈfæməli|家族|1;[a]ctually|ˈæktʃuəli|実は|1;tr[a]ffic|ˈtræfɪk|交通|2;ch[a]llenge|ˈtʃælɪndʒ|挑戦|2;c[a]pital|ˈkæpɪtəl|首都、資本|2;st[a]ndard|ˈstændɚd|標準|2;m[a]nager|ˈmænɪdʒɚ|管理者|3;c[a]ncel|ˈkænsəl|取り消す|3;[a]nnual|ˈænjuəl|年1回の|3;an[a]lysis|əˈnæləsɪs|分析|3;c[a]ndidate|ˈkændɪdət|候補者|3;b[a]lance|ˈbæləns|残高|3"
+   ],
+   [
+    "a（米音で /æ/）",
+    "[a]sk|æsk|尋ねる|1;gl[a]ss|ɡlæs|コップ|1;l[a]st|læst|最後の|1;c[a]n't|kænt|できない|1;d[a]nce|dæns|踊る|1;[a]nswer|ˈænsɚ|答え|1"
+   ],
+   [
+    "au",
+    "l[au]gh|læf|笑う|1;[au]nt|ænt|おば|1"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[a]bsent|ˈæbsənt|欠席している|1;[a]ccident|ˈæksədənt|事故|1;[a]ct|ækt|行動する|1;[a]ction|ˈækʃən|行動|1;[a]ctive|ˈæktɪv|活動的な|1;[a]dd|æd|加える|1;adv[a]nce|ədˈvæns|進歩|2;adv[a]ntage|ədˈvæntɪdʒ|利点|2;[a]dvertise|ˈædvɚtaɪz|広告を出す|2;[a]lbum|ˈælbəm|アルバム|1;[a]nkle|ˈæŋkəl|足首|1;b[a]nd|bænd|バンド|1;b[a]ttery|ˈbætɚi|電池|1;bl[a]nket|ˈblæŋkət|毛布|1;c[a]bbage|ˈkæbɪdʒ|キャベツ|1;c[a]mp|kæmp|キャンプ|1;c[a]ndle|ˈkændəl|ろうそく|1;c[a]ndy|ˈkændi|あめ|1;c[a]rrot|ˈkærət|にんじん|1;c[a]stle|ˈkæsəl|城|1;cont[a]ct|ˈkɑːntækt|連絡する|2;d[a]mage|ˈdæmɪdʒ|損害|2;f[a]ct|fækt|事実|1;f[a]ctory|ˈfæktɚi|工場|1;f[a]n|fæn|扇風機・ファン|1;f[a]st|fæst|速い|1;f[a]t|fæt|太った|1;fl[a]t|flæt|平らな|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_uh",
+  "ipa": "ʌ",
+  "cat": "short",
+  "key": "cup",
+  "sp": "u, o, ou, oo, oe",
+  "tip": "口を軽く開けて、のどの奥から短く「ア」。驚いたときの「アッ」の感覚。",
+  "miss": "口を大きく開けすぎると /ɑː/ に、横に引くと /æ/ になる。",
+  "groups": [
+   [
+    "u",
+    "c[u]p|kʌp|カップ|1;b[u]s|bʌs|バス|1;r[u]n|rʌn|走る|1;s[u]n|sʌn|太陽|1;f[u]n|fʌn|楽しみ|1;j[u]mp|dʒʌmp|跳ぶ|1;l[u]nch|lʌntʃ|昼食|1;m[u]st|mʌst|〜しなければならない|1;n[u]mber|ˈnʌmbɚ|数|1;S[u]nday|ˈsʌndeɪ|日曜日|1;s[u]bject|ˈsʌbdʒekt|教科、件名|1;f[u]nction|ˈfʌŋkʃən|機能|2;b[u]dget|ˈbʌdʒɪt|予算|3"
+   ],
+   [
+    "o",
+    "s[o]n|sʌn|息子|1;c[o]me|kʌm|来る|1;s[o]me|sʌm|いくつかの|1;l[o]ve|lʌv|愛する|1;M[o]nday|ˈmʌndeɪ|月曜日|1;m[o]ney|ˈmʌni|お金|1;m[o]nth|mʌnθ|月|1;[o]ther|ˈʌðɚ|ほかの|1;ab[o]ve|əˈbʌv|上に|1;c[o]mpany|ˈkʌmpəni|会社|1;w[o]nder|ˈwʌndɚ|不思議に思う|2"
+   ],
+   [
+    "ou",
+    "c[ou]ntry|ˈkʌntri|国|1;y[ou]ng|jʌŋ|若い|1;d[ou]ble|ˈdʌbəl|2倍の|1;en[ou]gh|ɪˈnʌf|十分な|1;t[ou]ch|tʌtʃ|触れる|1"
+   ],
+   [
+    "oo / oe",
+    "d[oe]s|dʌz|する（三単現）|1;bl[oo]d|blʌd|血|2;fl[oo]d|flʌd|洪水|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "ad[u]lt|əˈdʌlt|大人|1;am[o]ng|əˈmʌŋ|〜の間に|1;bec[o]me|bɪˈkʌm|〜になる|1;b[u]tton|ˈbʌtən|ボタン|1;c[o]mfort|ˈkʌmfɚt|心地よさ|2;disc[u]ss|dɪˈskʌs|話し合う|2;d[o]zen|ˈdʌzən|12個|2;d[u]ck|dʌk|アヒル|1;d[u]st|dʌst|ほこり|1;[o]ven|ˈʌvən|オーブン|1;[u]gly|ˈʌɡli|醜い|1;[u]nderstand|ˌʌndɚˈstænd|理解する|1;[u]p|ʌp|上へ|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_u",
+  "ipa": "ʊ",
+  "cat": "short",
+  "key": "book",
+  "sp": "oo, u, ou, o",
+  "tip": "唇を軽く丸めて、力を抜いた短い「ウ」。「ウ」と「オ」の中間。",
+  "miss": "唇を突き出して伸ばすと /uː/ になる。full が fool に聞こえる。",
+  "groups": [
+   [
+    "oo",
+    "b[oo]k|bʊk|本|1;l[oo]k|lʊk|見る|1;c[oo]k|kʊk|料理する|1;g[oo]d|ɡʊd|よい|1;w[oo]d|wʊd|木材|1;f[oo]t|fʊt|足|1;st[oo]d|stʊd|立った|1;t[oo]k|tʊk|取った|1;sh[oo]k|ʃʊk|振った|2;w[oo]l|wʊl|羊毛|2;h[oo]k|hʊk|フック|2"
+   ],
+   [
+    "u",
+    "p[u]t|pʊt|置く|1;p[u]ll|pʊl|引く|1;p[u]sh|pʊʃ|押す|1;f[u]ll|fʊl|いっぱいの|1;s[u]gar|ˈʃʊɡɚ|砂糖|1;p[u]dding|ˈpʊdɪŋ|プリン|1;b[u]sh|bʊʃ|茂み|2"
+   ],
+   [
+    "ou",
+    "c[ou]ld|kʊd|〜できた|1;w[ou]ld|wʊd|〜だろう|1;sh[ou]ld|ʃʊd|〜すべき|1"
+   ],
+   [
+    "o",
+    "w[o]man|ˈwʊmən|女性|1;w[o]lf|wʊlf|オオカミ|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "g[oo]dbye|ˌɡʊdˈbaɪ|さようなら|1;h[oo]die|ˈhʊdi|パーカー|1;inp[u]t|ˈɪnpʊt|入力|2"
+   ],
+   [
+    "別の音でも練習",
+    "childh[oo]d|ˈtʃaɪldhʊd|子ども時代|2;neighborh[oo]d|ˈneɪbɚhʊd|近所|2;b[oo]ks|bʊks|本（複数）|1;l[oo]ked|lʊkt|見た|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_schwa",
+  "ipa": "ə",
+  "cat": "short",
+  "key": "about",
+  "sp": "a, o, e, u, ou, i",
+  "tip": "口・舌・唇の力を全部抜いて、短くあいまいな「ア」。アクセントのない場所にだけ出る音。",
+  "miss": "つづりにつられて about を「アバウト」、lemon を「レモン」とはっきり読んでしまう。",
+  "groups": [
+   [
+    "a",
+    "[a]bout|əˈbaʊt|約、〜について|1;[a]go|əˈɡoʊ|〜前に|1;[a]way|əˈweɪ|離れて|1;b[a]nana|bəˈnænə|バナナ|1;J[a]pan|dʒəˈpæn|日本|1;sof[a]|ˈsoʊfə|ソファ|1;pizz[a]|ˈpiːtsə|ピザ|1;ide[a]|aɪˈdiːə|考え|1;[a]ttend|əˈtend|出席する|3;[a]vailable|əˈveɪləbəl|利用できる|3;[a]ccount|əˈkaʊnt|口座、アカウント|3"
+   ],
+   [
+    "o",
+    "lem[o]n|ˈlemən|レモン|1;sec[o]nd|ˈsekənd|2番目の、秒|1;c[o]mputer|kəmˈpjuːtɚ|コンピューター|1;t[o]day|təˈdeɪ|今日|1;pers[o]n|ˈpɝːsən|人|1;seas[o]n|ˈsiːzən|季節|1;c[o]llect|kəˈlekt|集める|2;p[o]sition|pəˈzɪʃən|位置、職|2;c[o]nfirm|kənˈfɝːm|確認する|3"
+   ],
+   [
+    "e",
+    "probl[e]m|ˈprɑːbləm|問題|1;mom[e]nt|ˈmoʊmənt|瞬間|1;childr[e]n|ˈtʃɪldrən|子どもたち|1;gard[e]n|ˈɡɑːrdən|庭|1"
+   ],
+   [
+    "u",
+    "s[u]pport|səˈpɔːrt|支える|2;s[u]ppose|səˈpoʊz|思う|2;s[u]ccess|səkˈses|成功|2;circ[u]s|ˈsɝːkəs|サーカス|2"
+   ],
+   [
+    "ou",
+    "fam[ou]s|ˈfeɪməs|有名な|1;danger[ou]s|ˈdeɪndʒɚəs|危険な|1"
+   ],
+   [
+    "i",
+    "penc[i]l|ˈpensəl|鉛筆|1;poss[i]ble|ˈpɑːsəbəl|可能な|1"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[o]pinion|əˈpɪnjən|意見|1;[u]mbrella|əmˈbrelə|傘|1;[u]ntil|ənˈtɪl|〜まで|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_er_weak",
+  "ipa": "ɚ",
+  "cat": "short",
+  "key": "teacher",
+  "sp": "er, or, ar, ure",
+  "tip": "舌先を少し持ち上げるか、舌全体を奥へ引いて、弱い「アー」に r の響きをのせる。アメリカ英語らしさが一番出る音。",
+  "miss": "「ティーチャー」のように r の響きがないまま「アー」で終わる。",
+  "groups": [
+   [
+    "er",
+    "teach[er]|ˈtiːtʃɚ|先生|1;butt[er]|ˈbʌtɚ|バター|1;wat[er]|ˈwɑːtɚ|水|1;fath[er]|ˈfɑːðɚ|父|1;moth[er]|ˈmʌðɚ|母|1;sist[er]|ˈsɪstɚ|姉妹|1;play[er]|ˈpleɪɚ|選手|1;lead[er]|ˈliːdɚ|リーダー|1;speak[er]|ˈspiːkɚ|話し手|1;ov[er]|ˈoʊvɚ|〜を越えて|1;aft[er]|ˈæftɚ|〜のあとで|1;und[er]|ˈʌndɚ|〜の下に|1;ord[er]|ˈɔːrdɚ|注文|1;pap[er]|ˈpeɪpɚ|紙|1;custom[er]|ˈkʌstəmɚ|顧客|3;deliv[er]|dɪˈlɪvɚ|配達する|3"
+   ],
+   [
+    "or",
+    "doct[or]|ˈdɑːktɚ|医者|1;act[or]|ˈæktɚ|俳優|1;visit[or]|ˈvɪzɪtɚ|訪問者|1;col[or]|ˈkʌlɚ|色|1;fav[or]ite|ˈfeɪvɚɪt|お気に入りの|1;elevat[or]|ˈeləveɪtɚ|エレベーター|2;direct[or]|dəˈrektɚ|責任者|3"
+   ],
+   [
+    "ar",
+    "doll[ar]|ˈdɑːlɚ|ドル|1;popul[ar]|ˈpɑːpjəlɚ|人気のある|1;calend[ar]|ˈkæləndɚ|カレンダー|1;regul[ar]|ˈreɡjəlɚ|定期的な|2"
+   ],
+   [
+    "ure",
+    "pict[ure]|ˈpɪktʃɚ|絵、写真|1;nat[ure]|ˈneɪtʃɚ|自然|1;fut[ure]|ˈfjuːtʃɚ|未来|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_ii",
+  "ipa": "iː",
+  "cat": "long",
+  "key": "see",
+  "sp": "ee, ea, e, ie, ei, i, eo",
+  "tip": "唇を横に強く引いて、はっきり「イー」と長く。",
+  "miss": "短く「イ」で済ませると /ɪ/ と区別できない。sheep と ship を言い分ける。",
+  "groups": [
+   [
+    "ee",
+    "s[ee]|siː|見る|1;tr[ee]|triː|木|1;thr[ee]|θriː|3|1;f[ee]l|fiːl|感じる|1;m[ee]t|miːt|会う|1;sh[ee]p|ʃiːp|羊|1;w[ee]k|wiːk|週|1;n[ee]d|niːd|必要とする|1;sl[ee]p|sliːp|眠る|1;gr[ee]n|ɡriːn|緑|1;f[ee]|fiː|料金|3;employ[ee]|ɪmˈplɔɪiː|従業員|3"
+   ],
+   [
+    "ea",
+    "[ea]t|iːt|食べる|1;t[ea]|tiː|お茶|1;s[ea]|siː|海|1;r[ea]d|riːd|読む|1;t[ea]m|tiːm|チーム|1;cl[ea]n|kliːn|きれいな|1;l[ea]ve|liːv|去る|1;incr[ea]se|ɪnˈkriːs|増える|2;l[ea]se|liːs|賃貸契約|3"
+   ],
+   [
+    "e",
+    "m[e]|miː|私を|1;w[e]|wiː|私たち|1;compl[e]te|kəmˈpliːt|完成させる|2"
+   ],
+   [
+    "ie / ei / i / eo",
+    "p[ie]ce|piːs|1切れ|1;bel[ie]ve|bɪˈliːv|信じる|1;pol[i]ce|pəˈliːs|警察|1;p[eo]ple|ˈpiːpəl|人々|1;rec[ei]ve|rɪˈsiːv|受け取る|2;mach[i]ne|məˈʃiːn|機械|2;rec[ei]pt|rɪˈsiːt|領収書|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "agr[ee]|əˈɡriː|賛成する|1;agr[ee]ment|əˈɡriːmənt|合意|2;b[ea]n|biːn|豆|1;b[ee]f|biːf|牛肉|1;c[ei]ling|ˈsiːlɪŋ|天井|1;d[ea]l|diːl|取引|2;d[ee]p|diːp|深い|1;degr[ee]|dɪˈɡriː|程度・学位|2;d[e]tail|ˈdiːteɪl|詳細|2;dis[ea]se|dɪˈziːz|病気|2;[ea]ch|iːtʃ|それぞれの|1;[ea]gle|ˈiːɡəl|ワシ|1;[ea]st|iːst|東|1;f[e]ver|ˈfiːvɚ|熱|1;fr[ee]|friː|自由な・無料の|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_uu",
+  "ipa": "uː",
+  "cat": "long",
+  "key": "food",
+  "sp": "oo, u, ue, ew, o, ou, ui",
+  "tip": "唇を小さく丸めて前に突き出し、「ウー」と長く。口笛を吹くときの唇の形。",
+  "miss": "唇を丸めない日本語の「ウ」になる。food が「フード」の平たい音になる。",
+  "groups": [
+   [
+    "oo",
+    "f[oo]d|fuːd|食べ物|1;m[oo]n|muːn|月|1;s[oo]n|suːn|すぐに|1;r[oo]m|ruːm|部屋|1;sch[oo]l|skuːl|学校|1;c[oo]l|kuːl|涼しい|1;t[oo]|tuː|〜も|1;z[oo]|zuː|動物園|1;p[oo]l|puːl|プール|1;t[oo]th|tuːθ|歯|1"
+   ],
+   [
+    "u / ue",
+    "r[u]le|ruːl|規則|1;J[u]ne|dʒuːn|6月|1;fl[u]|fluː|インフルエンザ|1;st[u]dent|ˈstuːdənt|学生|1;s[u]per|ˈsuːpɚ|すごい|1;bl[ue]|bluː|青|1;tr[ue]|truː|本当の|1;d[ue]|duː|期限の|3"
+   ],
+   [
+    "ew",
+    "n[ew]|nuː|新しい|1;fl[ew]|fluː|飛んだ|1;cr[ew]|kruː|乗組員|2"
+   ],
+   [
+    "o / ou / ui",
+    "d[o]|duː|する|1;tw[o]|tuː|2|1;m[o]ve|muːv|動く|1;wh[o]|huː|誰|1;gr[ou]p|ɡruːp|グループ|1;s[ou]p|suːp|スープ|1;y[ou]|juː|あなた|1;fr[ui]t|fruːt|果物|1;j[ui]ce|dʒuːs|ジュース|1"
+   ],
+   [
+    "よく使う単語（追加）",
+    "aftern[oo]n|ˌæftɚˈnuːn|午後|1;ball[oo]n|bəˈluːn|風船|1;ch[ew]|tʃuː|かむ|2;d[u]ty|ˈduːti|義務・仕事|2"
+   ]
+  ]
+ },
+ {
+  "id": "v_aa",
+  "ipa": "ɑː",
+  "cat": "long",
+  "key": "hot",
+  "sp": "o, a, ow",
+  "tip": "口を縦に大きく開けて、のどの奥から「アー」。アメリカ英語では hot も father もこの音。",
+  "miss": "o のつづりにつられて「オ」と読む。hot は「ホット」より「ハート」寄り。",
+  "groups": [
+   [
+    "o",
+    "h[o]t|hɑːt|暑い|1;st[o]p|stɑːp|止まる|1;b[o]x|bɑːks|箱|1;t[o]p|tɑːp|頂上|1;j[o]b|dʒɑːb|仕事|1;cl[o]ck|klɑːk|時計|1;sh[o]p|ʃɑːp|店|1;n[o]t|nɑːt|〜でない|1;l[o]t|lɑːt|たくさん|1;g[o]t|ɡɑːt|得た|1;r[o]ck|rɑːk|岩|1;b[o]ttle|ˈbɑːtəl|ビン|1;h[o]bby|ˈhɑːbi|趣味|1;c[o]py|ˈkɑːpi|写し|1;c[o]llege|ˈkɑːlɪdʒ|大学|1;s[o]rry|ˈsɑːri|ごめんなさい|1;[o]ption|ˈɑːpʃən|選択肢|3;pr[o]ject|ˈprɑːdʒekt|計画|3;c[o]ntract|ˈkɑːntrækt|契約|3"
+   ],
+   [
+    "a",
+    "f[a]ther|ˈfɑːðɚ|父|1;w[a]tch|wɑːtʃ|見る、腕時計|1;w[a]nt|wɑːnt|欲しい|1;wh[a]t|wɑːt|何|1;dr[a]ma|ˈdrɑːmə|ドラマ|1;p[a]sta|ˈpɑːstə|パスタ|1;paj[a]mas|pəˈdʒɑːməz|パジャマ|1;c[a]lm|kɑːm|落ち着いた|2;p[a]lm|pɑːm|手のひら|2;sp[a]|spɑː|温泉施設|2"
+   ],
+   [
+    "ow",
+    "kn[ow]ledge|ˈnɑːlɪdʒ|知識|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[o]pposite|ˈɑːpəzət|反対の|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_oo",
+  "ipa": "ɔː",
+  "cat": "long",
+  "key": "law",
+  "sp": "aw, au, ough, a, o",
+  "tip": "唇を少し丸め、口を縦に大きく開けて「オー」。日本語の「オー」より口を大きく開ける。",
+  "miss": "アメリカでは /ɑː/ と同じ音で言う人も多い（cot と caught が同じ音）。どちらでも通じる。練習はこの口の形でそろえる。",
+  "groups": [
+   [
+    "aw",
+    "s[aw]|sɔː|見た|1;dr[aw]|drɔː|描く|1;str[aw]|strɔː|ストロー|1;l[aw]|lɔː|法律|2;[aw]ful|ˈɔːfəl|ひどい|2"
+   ],
+   [
+    "au",
+    "c[au]ght|kɔːt|捕まえた|1;t[au]ght|tɔːt|教えた|1;d[au]ghter|ˈdɔːtɚ|娘|1;[Au]gust|ˈɔːɡəst|8月|1;bec[au]se|bɪˈkɔːz|なぜなら|1;[au]tumn|ˈɔːtəm|秋|1;[au]thor|ˈɔːθɚ|著者|2;[au]dit|ˈɔːdɪt|監査|3"
+   ],
+   [
+    "ough",
+    "th[ough]t|θɔːt|思った|1;b[ough]t|bɔːt|買った|1;br[ough]t|brɔːt|持ってきた|1"
+   ],
+   [
+    "a（al / all）",
+    "w[a]lk|wɔːk|歩く|1;t[a]lk|tɔːk|話す|1;[a]ll|ɔːl|すべて|1;b[a]ll|bɔːl|ボール|1;c[a]ll|kɔːl|電話する|1;sm[a]ll|smɔːl|小さい|1;[a]lso|ˈɔːlsoʊ|〜も|1;[a]lways|ˈɔːlweɪz|いつも|1"
+   ],
+   [
+    "o",
+    "l[o]ng|lɔːŋ|長い|1;s[o]ng|sɔːŋ|歌|1;str[o]ng|strɔːŋ|強い|1;c[o]ffee|ˈkɔːfi|コーヒー|1;[o]ften|ˈɔːfən|しばしば|1;l[o]ss|lɔːs|損失|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[o]ffer|ˈɔːfɚ|申し出る|1;[o]nline|ˈɔːnlaɪn|オンラインで|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_er_strong",
+  "ipa": "ɝː",
+  "cat": "long",
+  "key": "bird",
+  "sp": "ir, er, ur, or, ear, our",
+  "tip": "口はあまり開けず、舌を奥へ引いて、こもった「アー」を長く。最初から最後まで r の響きを保つ。",
+  "miss": "口を大きく開けると /ɑːr/ に近づき、bird が bard、work が walk に聞こえる。",
+  "groups": [
+   [
+    "ir",
+    "b[ir]d|bɝːd|鳥|1;g[ir]l|ɡɝːl|女の子|1;f[ir]st|fɝːst|最初の|1;sh[ir]t|ʃɝːt|シャツ|1;th[ir]d|θɝːd|3番目の|1;th[ir]sty|ˈθɝːsti|のどが渇いた|1;b[ir]thday|ˈbɝːθdeɪ|誕生日|1;f[ir]m|fɝːm|会社|3;conf[ir]m|kənˈfɝːm|確認する|3"
+   ],
+   [
+    "er",
+    "h[er]|hɝː|彼女の|1;s[er]vice|ˈsɝːvɪs|サービス|1;s[er]ve|sɝːv|出す、仕える|2;t[er]m|tɝːm|期間、用語|2;ref[er]|rɪˈfɝː|参照する|2;v[er]sion|ˈvɝːʒən|版|2"
+   ],
+   [
+    "ur",
+    "t[ur]n|tɝːn|曲がる|1;n[ur]se|nɝːs|看護師|1;h[ur]t|hɝːt|傷つける|1;Th[ur]sday|ˈθɝːzdeɪ|木曜日|1;p[ur]ple|ˈpɝːpəl|紫|1;ch[ur]ch|tʃɝːtʃ|教会|1;p[ur]chase|ˈpɝːtʃəs|購入する|3"
+   ],
+   [
+    "or（w のあと）",
+    "w[or]k|wɝːk|働く|1;w[or]d|wɝːd|単語|1;w[or]ld|wɝːld|世界|1;w[or]se|wɝːs|より悪い|2"
+   ],
+   [
+    "ear / our",
+    "l[ear]n|lɝːn|学ぶ|1;[ear]ly|ˈɝːli|早い|1;res[ear]ch|ˈriːsɝːtʃ|研究|2;j[our]ney|ˈdʒɝːni|旅|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "c[er]tain|ˈsɝːtən|確かな|2;c[ir]cle|ˈsɝːkəl|円|1;d[ir]ty|ˈdɝːti|汚れた|1;[ear]th|ɝːθ|地球|1;em[er]gency|ɪˈmɝːdʒənsi|緊急事態|2"
+   ]
+  ]
+ },
+ {
+  "id": "v_ei",
+  "ipa": "eɪ",
+  "cat": "diph",
+  "key": "day",
+  "sp": "a_e, a, ai, ay, ei, ey, ea",
+  "tip": "「エ」から「イ」へ口を動かす。「エ」を強く、「イ」は軽く添える。",
+  "miss": "「エー」と伸ばしてしまう。table は「テーブル」ではなく「テイブル」。",
+  "groups": [
+   [
+    "a_e",
+    "c[a]ke|keɪk|ケーキ|1;n[a]me|neɪm|名前|1;m[a]ke|meɪk|作る|1;g[a]me|ɡeɪm|試合|1;pl[a]ne|pleɪn|飛行機|1;s[a]me|seɪm|同じ|1;d[a]te|deɪt|日付|1;r[a]te|reɪt|料金、割合|3"
+   ],
+   [
+    "a",
+    "t[a]ble|ˈteɪbəl|テーブル|1;p[a]per|ˈpeɪpɚ|紙|1;b[a]by|ˈbeɪbi|赤ちゃん|1;st[a]tion|ˈsteɪʃən|駅|1;loc[a]tion|loʊˈkeɪʃən|場所|2;[a]gent|ˈeɪdʒənt|代理人|3"
+   ],
+   [
+    "ai / ay",
+    "r[ai]n|reɪn|雨|1;tr[ai]n|treɪn|電車|1;w[ai]t|weɪt|待つ|1;m[ai]l|meɪl|郵便|1;d[ay]|deɪ|日|1;pl[ay]|pleɪ|遊ぶ|1;s[ay]|seɪ|言う|1;p[ai]d|peɪd|支払った|2;displ[ay]|dɪˈspleɪ|展示する|2;del[ay]|dɪˈleɪ|遅れ|3"
+   ],
+   [
+    "ei / ey / ea",
+    "[ei]ght|eɪt|8|1;th[ey]|ðeɪ|彼ら|1;br[ea]k|breɪk|壊す、休憩|1;gr[ea]t|ɡreɪt|すばらしい|1;w[ei]ght|weɪt|重さ|2;surv[ey]|ˈsɝːveɪ|調査|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[a]ble|ˈeɪbəl|できる|1;[a]che|eɪk|痛み|1;afr[ai]d|əˈfreɪd|恐れている|1;[ai]d|eɪd|援助|2;[ai]m|eɪm|目標|2;am[a]zing|əˈmeɪzɪŋ|驚くほどの|1;b[a]con|ˈbeɪkən|ベーコン|1;b[a]ke|beɪk|焼く|1;b[a]sic|ˈbeɪsɪk|基本的な|1;bl[a]me|bleɪm|責める|2;br[ai]n|breɪn|脳|1;br[a]ve|breɪv|勇敢な|1;caf[e]|kəˈfeɪ|カフェ|1;c[a]ge|keɪdʒ|かご|1;c[a]se|keɪs|場合|1;ch[ai]n|tʃeɪn|鎖|1;compl[ai]n|kəmˈpleɪn|不満を言う|2;cont[ai]n|kənˈteɪn|含む|2;convers[a]tion|ˌkɑːnvɚˈseɪʃən|会話|1;d[ai]ly|ˈdeɪli|毎日の|1;d[a]nger|ˈdeɪndʒɚ|危険|1;[eigh]teen|eɪˈtiːn|18|1;[eigh]ty|ˈeɪti|80|1;f[a]ce|feɪs|顔|1;f[ai]l|feɪl|失敗する|2"
+   ]
+  ]
+ },
+ {
+  "id": "v_ai",
+  "ipa": "aɪ",
+  "cat": "diph",
+  "key": "time",
+  "sp": "i_e, i, igh, y, ie, uy, eye",
+  "tip": "「ア」から「イ」へなめらかに動かす。「ア」を強く長めに、「イ」は軽く。",
+  "miss": "「ア」「イ」を2つの音として同じ強さで言ってしまう。",
+  "groups": [
+   [
+    "i_e",
+    "t[i]me|taɪm|時間|1;l[i]ke|laɪk|好き|1;f[i]ve|faɪv|5|1;n[i]ce|naɪs|すてきな|1;wr[i]te|raɪt|書く|1;wh[i]te|waɪt|白|1;l[i]fe|laɪf|生活|1;pr[i]ce|praɪs|価格|3;s[i]te|saɪt|用地、サイト|3;f[i]le|faɪl|ファイル|3"
+   ],
+   [
+    "i",
+    "k[i]nd|kaɪnd|親切な|1;f[i]nd|faɪnd|見つける|1;ch[i]ld|tʃaɪld|子ども|1;m[i]nd|maɪnd|気にする|2;cl[i]mate|ˈklaɪmət|気候|2;cl[i]ent|ˈklaɪənt|顧客|3"
+   ],
+   [
+    "igh",
+    "n[igh]t|naɪt|夜|1;l[igh]t|laɪt|光|1;r[igh]t|raɪt|右、正しい|1;h[igh]|haɪ|高い|1;fl[igh]t|flaɪt|航空便|1"
+   ],
+   [
+    "y / ie / uy / eye",
+    "m[y]|maɪ|私の|1;fl[y]|flaɪ|飛ぶ|1;wh[y]|waɪ|なぜ|1;tr[y]|traɪ|試す|1;p[ie]|paɪ|パイ|1;t[ie]|taɪ|ネクタイ|1;b[uy]|baɪ|買う|1;[eye]|aɪ|目|1;suppl[y]|səˈplaɪ|供給|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "al[i]ve|əˈlaɪv|生きている|1;apolog[i]ze|əˈpɑːlədʒaɪz|謝る|2;appl[y]|əˈplaɪ|応募する|2;bes[i]de|bɪˈsaɪd|〜のそばに|1;b[i]cycle|ˈbaɪsɪkəl|自転車|1;b[i]ke|baɪk|自転車|1;b[i]ology|baɪˈɑːlədʒi|生物学|2;b[i]te|baɪt|かむ|1;bl[i]nd|blaɪnd|目が見えない|2;br[igh]t|braɪt|明るい|1;den[y]|dɪˈnaɪ|否定する|2;d[i]ary|ˈdaɪɚi|日記|1;d[ie]|daɪ|死ぬ|1;div[i]de|dɪˈvaɪd|分ける|2;dr[y]|draɪ|乾いた|1;f[igh]t|faɪt|戦う|1;f[i]re|faɪɚ|火|1;[i]ce|aɪs|氷|1;[i]ron|ˈaɪɚn|鉄・アイロン|1;[i]sland|ˈaɪlənd|島|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_oi",
+  "ipa": "ɔɪ",
+  "cat": "diph",
+  "key": "boy",
+  "sp": "oy, oi",
+  "tip": "唇を丸めた「オ」から「イ」へ。「オ」を強く、「イ」は軽く。",
+  "miss": "「ボーイ」のように「オー」と伸ばしてしまう。",
+  "groups": [
+   [
+    "oy",
+    "b[oy]|bɔɪ|男の子|1;t[oy]|tɔɪ|おもちゃ|1;enj[oy]|ɪnˈdʒɔɪ|楽しむ|1;j[oy]|dʒɔɪ|喜び|2;ann[oy]|əˈnɔɪ|いらだたせる|2;destr[oy]|dɪˈstrɔɪ|破壊する|2;l[oy]al|ˈlɔɪəl|忠実な|2;r[oy]al|ˈrɔɪəl|王室の|2;empl[oy]|ɪmˈplɔɪ|雇う|3;empl[oy]ment|ɪmˈplɔɪmənt|雇用|3"
+   ],
+   [
+    "oi",
+    "[oi]l|ɔɪl|油|1;c[oi]n|kɔɪn|硬貨|1;v[oi]ce|vɔɪs|声|1;n[oi]se|nɔɪz|騒音|1;p[oi]nt|pɔɪnt|点|1;j[oi]n|dʒɔɪn|参加する|1;b[oi]l|bɔɪl|ゆでる|1;t[oi]let|ˈtɔɪlət|トイレ|1;ch[oi]ce|tʃɔɪs|選択|2;av[oi]d|əˈvɔɪd|避ける|2;app[oi]ntment|əˈpɔɪntmənt|約束、予約|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "j[oi]nt|dʒɔɪnt|関節・接合部|2;m[oi]st|mɔɪst|湿った|2;[oy]ster|ˈɔɪstɚ|かき|2;p[oi]son|ˈpɔɪzən|毒|2;s[oi]l|sɔɪl|土|2;sp[oi]l|spɔɪl|台無しにする|2;v[oy]age|ˈvɔɪɪdʒ|航海|2"
+   ],
+   [
+    "別の音でも練習",
+    "inv[oi]ce|ˈɪnvɔɪs|請求書|3;empl[oy]ee|ɪmˈplɔɪiː|従業員|3"
+   ]
+  ]
+ },
+ {
+  "id": "v_au",
+  "ipa": "aʊ",
+  "cat": "diph",
+  "key": "house",
+  "sp": "ou, ow",
+  "tip": "大きく開けた「ア」から、唇を丸めて「ウ」へ。「ア」を強く。",
+  "miss": "「ウ」をはっきり言いすぎる。または「アー」と伸ばして house が「ハース」になる。",
+  "groups": [
+   [
+    "ou",
+    "h[ou]se|haʊs|家|1;[ou]t|aʊt|外へ|1;m[ou]th|maʊθ|口|1;s[ou]nd|saʊnd|音|1;r[ou]nd|raʊnd|丸い|1;gr[ou]nd|ɡraʊnd|地面|1;l[ou]d|laʊd|うるさい|1;cl[ou]d|klaʊd|雲|1;h[ou]r|ˈaʊɚ|1時間|1;s[ou]th|saʊθ|南|1;th[ou]sand|ˈθaʊzənd|1000|1;m[ou]ntain|ˈmaʊntən|山|1;c[ou]nt|kaʊnt|数える|2;am[ou]nt|əˈmaʊnt|量、金額|3;ann[ou]nce|əˈnaʊns|発表する|3;disc[ou]nt|ˈdɪskaʊnt|割引|3"
+   ],
+   [
+    "ow",
+    "n[ow]|naʊ|今|1;h[ow]|haʊ|どのように|1;c[ow]|kaʊ|牛|1;d[ow]n|daʊn|下へ|1;t[ow]n|taʊn|町|1;br[ow]n|braʊn|茶色|1;fl[ow]er|ˈflaʊɚ|花|1;t[ow]el|ˈtaʊəl|タオル|1;sh[ow]er|ˈʃaʊɚ|シャワー|1;all[ow]|əˈlaʊ|許す|2;cr[ow]d|kraʊd|群衆|2;p[ow]er|ˈpaʊɚ|力|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "al[ou]d|əˈlaʊd|声を出して|1;bl[ou]se|blaʊs|ブラウス|1;d[ou]bt|daʊt|疑い|2;[o]urs|aʊɚz|私たちのもの|1;[o]urselves|aʊɚˈselvz|私たち自身|1;[o]utside|ˌaʊtˈsaɪd|外に・外側|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_ou",
+  "ipa": "oʊ",
+  "cat": "diph",
+  "key": "go",
+  "sp": "o, o_e, oa, ow, oe, ou",
+  "tip": "「オ」から唇をすぼめて「ウ」へ動かす。日本語の「オー」と伸ばさない。",
+  "miss": "「オー」と伸ばすと /ɔː/ に聞こえる。boat が bought、coat が caught になる。",
+  "groups": [
+   [
+    "o / o_e",
+    "g[o]|ɡoʊ|行く|1;n[o]|noʊ|いいえ|1;s[o]|soʊ|だから|1;h[o]me|hoʊm|家|1;h[o]pe|hoʊp|望む|1;n[o]te|noʊt|メモ|1;ph[o]ne|foʊn|電話|1;cl[o]se|kloʊz|閉める|1;[o]pen|ˈoʊpən|開ける|1;[o]nly|ˈoʊnli|〜だけ|1;c[o]ld|koʊld|寒い|1;[o]ld|oʊld|古い|1;h[o]tel|hoʊˈtel|ホテル|1;ph[o]to|ˈfoʊtoʊ|写真|1;t[o]tal|ˈtoʊtəl|合計|3"
+   ],
+   [
+    "oa",
+    "b[oa]t|boʊt|ボート|1;r[oa]d|roʊd|道路|1;c[oa]t|koʊt|コート|1;s[oa]p|soʊp|石けん|1;appr[oa]ch|əˈproʊtʃ|近づく|2;l[oa]n|loʊn|ローン|3"
+   ],
+   [
+    "ow",
+    "kn[ow]|noʊ|知っている|1;sh[ow]|ʃoʊ|見せる|1;sn[ow]|snoʊ|雪|1;sl[ow]|sloʊ|遅い|1;gr[ow]|ɡroʊ|育つ|1;[ow]n|oʊn|自分自身の|2;foll[ow]|ˈfɑːloʊ|ついていく|2"
+   ],
+   [
+    "oe / ou",
+    "t[oe]|toʊ|足の指|1;sh[ou]lder|ˈʃoʊldɚ|肩|1;th[ou]gh|ðoʊ|〜だけれども|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "al[o]ne|əˈloʊn|ひとりで|1;bl[ow]|bloʊ|吹く|1;b[o]ne|boʊn|骨|1;b[ow]l|boʊl|ボウル|1;c[oa]st|koʊst|海岸|1;c[o]conut|ˈkoʊkənʌt|ココナッツ|1;c[o]de|koʊd|コード|2;contr[o]l|kənˈtroʊl|管理する|2;[o]kay|ˌoʊˈkeɪ|大丈夫な|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_ir",
+  "ipa": "ɪr",
+  "cat": "r",
+  "key": "near",
+  "sp": "ear, eer, ere, er, ier, eir",
+  "tip": "「イ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
+  "miss": "「ニア」「イヤー」と最後を「ア」で言ってしまう。",
+  "groups": [
+   [
+    "ear",
+    "n[ear]|nɪr|近くに|1;[ear]|ɪr|耳|1;h[ear]|hɪr|聞こえる|1;d[ear]|dɪr|親愛なる|1;y[ear]|jɪr|年|1;cl[ear]|klɪr|はっきりした|1;f[ear]|fɪr|恐怖|2;t[ear]|tɪr|涙|2;app[ear]|əˈpɪr|現れる|2;b[ear]d|bɪrd|あごひげ|2"
+   ],
+   [
+    "eer",
+    "b[eer]|bɪr|ビール|1;d[eer]|dɪr|シカ|1;ch[eer]|tʃɪr|応援する|2;car[eer]|kəˈrɪr|経歴|2;engin[eer]|ˌendʒɪˈnɪr|技術者|2;volunt[eer]|ˌvɑːlənˈtɪr|ボランティア|2"
+   ],
+   [
+    "ere / er / ier / eir",
+    "h[ere]|hɪr|ここに|1;p[er]iod|ˈpɪriəd|期間|1;exp[er]ience|ɪkˈspɪriəns|経験|1;s[er]ious|ˈsɪriəs|深刻な|2;p[ier]|pɪr|桟橋|2;w[eir]d|wɪrd|奇妙な|2;mat[er]ial|məˈtɪriəl|材料、資料|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "c[er]eal|ˈsɪriəl|シリアル|1;h[ear]ing|ˈhɪrɪŋ|聴力・聞くこと|2;n[ear]ly|ˈnɪrli|ほとんど・もう少しで|1;r[ear]|rɪr|後ろの|2;s[er]ies|ˈsɪriːz|シリーズ|1;sev[ere]|səˈvɪr|厳しい|2;sinc[ere]|sɪnˈsɪr|誠実な|2"
+   ]
+  ]
+ },
+ {
+  "id": "v_er",
+  "ipa": "er",
+  "cat": "r",
+  "key": "hair",
+  "sp": "air, are, ear, ere, eir, ar, er",
+  "tip": "「エ」を言ったあと、舌を奥へ引いて r の響きにつなげる。",
+  "miss": "「ヘアー」「チェアー」と「ア」を足してしまう。",
+  "groups": [
+   [
+    "air",
+    "h[air]|her|髪|1;ch[air]|tʃer|いす|1;[air]|er|空気|1;[air]port|ˈerpɔːrt|空港|1;st[air]s|sterz|階段|1;f[air]|fer|公平な|2;p[air]|per|1組|2;aff[air]|əˈfer|出来事|2;rep[air]|rɪˈper|修理する|3"
+   ],
+   [
+    "are",
+    "c[are]|ker|世話、気にかける|1;sh[are]|ʃer|共有する|1;squ[are]|skwer|正方形|1;c[are]ful|ˈkerfəl|注意深い|1;sc[are]d|skerd|怖がった|2;comp[are]|kəmˈper|比べる|2;prep[are]|prɪˈper|準備する|2;aw[are]|əˈwer|気づいている|2;f[are]|fer|運賃|3"
+   ],
+   [
+    "ear / ere / eir",
+    "b[ear]|ber|クマ|1;w[ear]|wer|着ている|1;p[ear]|per|洋ナシ|1;th[ere]|ðer|そこに|1;wh[ere]|wer|どこ|1;th[eir]|ðer|彼らの|1"
+   ],
+   [
+    "ar / er",
+    "p[ar]ent|ˈperənt|親|1;v[er]y|ˈveri|とても|1;Am[er]ica|əˈmerɪkə|アメリカ|1;v[ar]y|ˈveri|異なる|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[ar]ea|ˈeriə|地域|1;ch[ar]acter|ˈkerɪktɚ|性格・登場人物|2;m[arr]y|ˈmeri|結婚する|1;n[arr]ow|ˈneroʊ|狭い|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_ar",
+  "ipa": "ɑːr",
+  "cat": "r",
+  "key": "car",
+  "sp": "ar, ear, uar",
+  "tip": "口を縦に大きく開けた「アー」から、舌を奥へ引いて r で終える。",
+  "miss": "「カー」「スター」と r の響きがないまま終わる。",
+  "groups": [
+   [
+    "ar（1音節）",
+    "c[ar]|kɑːr|車|1;st[ar]|stɑːr|星|1;f[ar]|fɑːr|遠い|1;c[ar]d|kɑːrd|カード|1;p[ar]k|pɑːrk|公園|1;d[ar]k|dɑːrk|暗い|1;h[ar]d|hɑːrd|難しい|1;[ar]m|ɑːrm|腕|1;f[ar]m|fɑːrm|農場|1;st[ar]t|stɑːrt|始める|1;p[ar]t|pɑːrt|部分|1;sm[ar]t|smɑːrt|賢い|1;M[ar]ch|mɑːrtʃ|3月|1;sc[ar]f|skɑːrf|マフラー|1;ch[ar]ge|tʃɑːrdʒ|料金|3"
+   ],
+   [
+    "ar（2音節以上）",
+    "p[ar]ty|ˈpɑːrti|パーティー|1;m[ar]ket|ˈmɑːrkɪt|市場|1;[ar]tist|ˈɑːrtɪst|芸術家|1;ap[ar]tment|əˈpɑːrtmənt|アパート|1;dep[ar]tment|dɪˈpɑːrtmənt|部門|2;dep[ar]t|dɪˈpɑːrt|出発する|3;t[ar]get|ˈtɑːrɡɪt|目標|3;c[ar]go|ˈkɑːrɡoʊ|貨物|3"
+   ],
+   [
+    "ear / uar",
+    "h[ear]t|hɑːrt|心臓、心|1;g[uar]d|ɡɑːrd|警備員|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "al[ar]m|əˈlɑːrm|警報|1;[ar]gue|ˈɑːrɡjuː|言い争う|2;[ar]t|ɑːrt|美術|1;g[ar]bage|ˈɡɑːrbɪdʒ|ごみ|1;j[ar]|dʒɑːr|びん|1;sh[ar]k|ʃɑːrk|サメ|1;sh[ar]p|ʃɑːrp|鋭い|1"
+   ]
+  ]
+ },
+ {
+  "id": "v_or",
+  "ipa": "ɔːr",
+  "cat": "r",
+  "key": "more",
+  "sp": "or, ore, oor, our, oar, ar",
+  "tip": "唇を丸めた「オー」から、舌を奥へ引いて r で終える。",
+  "miss": "「モア」「ドア」と最後を「ア」で言ってしまう。",
+  "groups": [
+   [
+    "or",
+    "f[or]|fɔːr|〜のために|1;sh[or]t|ʃɔːrt|短い|1;sp[or]t|spɔːrt|スポーツ|1;h[or]se|hɔːrs|馬|1;m[or]ning|ˈmɔːrnɪŋ|朝|1;n[or]th|nɔːrθ|北|1;f[or]k|fɔːrk|フォーク|1;[or]der|ˈɔːrdɚ|注文|1;imp[or]tant|ɪmˈpɔːrtənt|重要な|1;rep[or]t|rɪˈpɔːrt|報告|2;[or]ganize|ˈɔːrɡənaɪz|まとめる|2;f[or]m|fɔːrm|用紙|3;f[or]ward|ˈfɔːrwɚd|転送する|3"
+   ],
+   [
+    "ore",
+    "m[ore]|mɔːr|もっと|1;st[ore]|stɔːr|店|1;bef[ore]|bɪˈfɔːr|〜の前に|1;sc[ore]|skɔːr|得点|2"
+   ],
+   [
+    "oor / our / oar",
+    "d[oor]|dɔːr|ドア|1;fl[oor]|flɔːr|床、階|1;f[our]|fɔːr|4|1;c[our]se|kɔːrs|講座|2;p[our]|pɔːr|注ぐ|2;b[oar]d|bɔːrd|板、役員会|2"
+   ],
+   [
+    "ar（w / qu のあと）",
+    "w[ar]m|wɔːrm|暖かい|1;w[ar]|wɔːr|戦争|2;qu[ar]ter|ˈkwɔːrtɚ|4分の1|2;w[ar]ning|ˈwɔːrnɪŋ|警告|2;aw[ar]d|əˈwɔːrd|賞|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "b[or]ing|ˈbɔːrɪŋ|退屈な|1;c[or]ner|ˈkɔːrnɚ|角|1;n[or]mal|ˈnɔːrməl|普通の|1;p[or]k|pɔːrk|豚肉|1;st[or]m|stɔːrm|嵐|1"
+   ]
+  ]
+ }
 ];
 const PAIRS=[["ship","ʃɪp","sheep","ʃiːp","ɪ / iː"],["sit","sɪt","seat","siːt","ɪ / iː"],["live","lɪv","leave","liːv","ɪ / iː"],["full","fʊl","fool","fuːl","ʊ / uː"],["pull","pʊl","pool","puːl","ʊ / uː"],["cat","kæt","cut","kʌt","æ / ʌ"],["hat","hæt","hut","hʌt","æ / ʌ"],["bag","bæɡ","bug","bʌɡ","æ / ʌ"],["cap","kæp","cup","kʌp","æ / ʌ"],["hot","hɑːt","hut","hʌt","ɑː / ʌ"],["cop","kɑːp","cup","kʌp","ɑː / ʌ"],["bed","bed","bad","bæd","e / æ"],["men","men","man","mæn","e / æ"],["pen","pen","pan","pæn","e / æ"],["walk","wɔːk","work","wɝːk","ɔː / ɝː"],["heart","hɑːrt","hurt","hɝːt","ɑːr / ɝː"],["far","fɑːr","fur","fɝː","ɑːr / ɝː"],["boat","boʊt","bought","bɔːt","oʊ / ɔː"],["coat","koʊt","caught","kɔːt","oʊ / ɔː"],["wait","weɪt","wet","wet","eɪ / e"],["late","leɪt","let","let","eɪ / e"],["hear","hɪr","hair","her","ɪr / er"]];
 const PC=[
-{id:"c_p",ipa:"p",cat:"cons",key:"pen",sp:"p, pp",
-tip:"唇を閉じて息をためてから、一気にパッと離す。声は出さない。語頭では息を強めに出す。",
-miss:"日本語の「プ」のように母音「ウ」を足してしまう。cup が「カップ」になる。",
-groups:[
-["語頭","[p]en|pen|ペン|1;[p]ark|pɑːrk|公園|1;[p]eople|ˈpiːpəl|人々|1;[p]ay|peɪ|支払う|1;[p]lace|pleɪs|場所|1;[p]ost|poʊst|郵便|1;[p]ush|pʊʃ|押す|1;[p]rice|praɪs|価格|3;[p]olicy|ˈpɑːləsi|方針|3;[p]urchase|ˈpɝːtʃəs|購入する|3"],
-["語中","ha[pp]y|ˈhæpi|幸せな|1;a[pp]le|ˈæpəl|りんご|1;o[p]en|ˈoʊpən|開ける|1;pa[p]er|ˈpeɪpɚ|紙|1;com[p]uter|kəmˈpjuːtɚ|コンピューター|1;sho[pp]ing|ˈʃɑːpɪŋ|買い物|1;su[pp]ort|səˈpɔːrt|支える|2;ex[p]ect|ɪkˈspekt|予期する|2;ca[p]tain|ˈkæptən|船長|2;re[p]air|rɪˈper|修理する|3"],
-["語尾","cu[p]|kʌp|カップ|1;sto[p]|stɑːp|止まる|1;ma[p]|mæp|地図|1;hel[p]|help|助ける|1;kee[p]|kiːp|保つ|1;slee[p]|sliːp|眠る|1;jum[p]|dʒʌmp|跳ぶ|1;shi[p]|ʃɪp|船|1;tri[p]|trɪp|旅行|1;grou[p]|ɡruːp|グループ|1;ste[p]|step|段階|2"]]},
-{id:"c_b",ipa:"b",cat:"cons",key:"bag",sp:"b, bb",
-tip:"/p/ と同じ唇の形で、のどをふるわせて声を出す。",
-miss:"語尾の b に「ブ」と母音をつける。job が「ジョブ」になる。",
-groups:[
-["語頭","[b]ag|bæɡ|かばん|1;[b]ook|bʊk|本|1;[b]ig|bɪɡ|大きい|1;[b]oy|bɔɪ|男の子|1;[b]ed|bed|ベッド|1;[b]lue|bluː|青|1;[b]rother|ˈbrʌðɚ|兄弟|1;[b]uy|baɪ|買う|1;[b]ill|bɪl|請求書|3;[b]ranch|bræntʃ|支店|3"],
-["語中","ta[b]le|ˈteɪbəl|テーブル|1;ba[b]y|ˈbeɪbi|赤ちゃん|1;ho[bb]y|ˈhɑːbi|趣味|1;ra[bb]it|ˈræbɪt|うさぎ|1;num[b]er|ˈnʌmbɚ|数|1;a[b]out|əˈbaʊt|約、〜について|1;pro[b]lem|ˈprɑːbləm|問題|1;Novem[b]er|noʊˈvembɚ|11月|1;ru[bb]er|ˈrʌbɚ|ゴム|2;neigh[b]or|ˈneɪbɚ|隣人|2"],
-["語尾","jo[b]|dʒɑːb|仕事|1;clu[b]|klʌb|クラブ|1;we[b]|web|ウェブ|2;ru[b]|rʌb|こする|2;ca[b]|kæb|タクシー|2;tu[b]|tʌb|浴槽|2;gra[b]|ɡræb|つかむ|2;tu[b]e|tuːb|管|2;bul[b]|bʌlb|電球|2;descri[b]e|dɪˈskraɪb|説明する|2;subscri[b]e|səbˈskraɪb|定期購読する|3"]]},
-{id:"c_t",ipa:"t",cat:"cons",key:"ten",sp:"t, tt, ed",
-tip:"舌先を上の歯ぐきにつけて息を止め、離すときに息を出す。声は出さない。",
-miss:"「ト」と母音「オ」をつける。語尾の t は軽く止めるだけでよい。アメリカ英語では water の t がラ行に近く聞こえる。",
-groups:[
-["語頭","[t]en|ten|10|1;[t]ime|taɪm|時間|1;[t]alk|tɔːk|話す|1;[t]ea|tiː|お茶|1;[t]rain|treɪn|電車|1;[t]oday|təˈdeɪ|今日|1;[t]urn|tɝːn|曲がる|1;[t]icket|ˈtɪkɪt|切符|1;[t]able|ˈteɪbəl|テーブル|1;[t]ax|tæks|税金|3"],
-["語中","wa[t]er|ˈwɑːtɚ|水|1;le[tt]er|ˈletɚ|手紙|1;bu[tt]er|ˈbʌtɚ|バター|1;ci[t]y|ˈsɪti|都市|1;pre[tt]y|ˈprɪti|かなり|1;hospi[t]al|ˈhɑːspɪtəl|病院|1;in[t]eresting|ˈɪntrəstɪŋ|おもしろい|1;ho[t]el|hoʊˈtel|ホテル|1;Sa[t]urday|ˈsætɚdeɪ|土曜日|1;da[t]a|ˈdeɪtə|データ|3"],
-["語尾","ca[t]|kæt|猫|1;ea[t]|iːt|食べる|1;ho[t]|hɑːt|暑い|1;ge[t]|ɡet|得る|1;nigh[t]|naɪt|夜|1;las[t]|læst|最後の|1;wan[t]|wɑːnt|欲しい|1;ask[ed]|æskt|尋ねた|1;look[ed]|lʊkt|見た|1;repor[t]|rɪˈpɔːrt|報告|2;receip[t]|rɪˈsiːt|領収書|3"]]},
-{id:"c_d",ipa:"d",cat:"cons",key:"dog",sp:"d, dd, ed",
-tip:"/t/ と同じ舌の位置で、声を出す。",
-miss:"語尾に「ド」と母音をつける。bed が「ベッド」になる。",
-groups:[
-["語頭","[d]og|dɔːɡ|犬|1;[d]ay|deɪ|日|1;[d]oor|dɔːr|ドア|1;[d]esk|desk|机|1;[d]rink|drɪŋk|飲む|1;[d]inner|ˈdɪnɚ|夕食|1;[d]ance|dæns|踊る|1;[d]octor|ˈdɑːktɚ|医者|1;[d]eadline|ˈdedlaɪn|締め切り|3;[d]elivery|dɪˈlɪvəri|配達|3"],
-["語中","mi[dd]le|ˈmɪdəl|真ん中|1;Mon[d]ay|ˈmʌndeɪ|月曜日|1;win[d]ow|ˈwɪndoʊ|窓|1;stu[d]ent|ˈstuːdənt|学生|1;bo[d]y|ˈbɑːdi|体|1;rea[d]y|ˈredi|準備ができた|1;or[d]er|ˈɔːrdɚ|注文|1;la[dd]er|ˈlædɚ|はしご|2;we[dd]ing|ˈwedɪŋ|結婚式|2;sche[d]ule|ˈskedʒuːl|予定|3"],
-["語尾","be[d]|bed|ベッド|1;re[d]|red|赤|1;goo[d]|ɡʊd|よい|1;foo[d]|fuːd|食べ物|1;han[d]|hænd|手|1;frien[d]|frend|友達|1;col[d]|koʊld|寒い|1;nee[d]|niːd|必要とする|1;play[ed]|pleɪd|遊んだ|1;call[ed]|kɔːld|電話した|1;recor[d]|ˈrekɚd|記録|2"]]},
-{id:"c_k",ipa:"k",cat:"cons",key:"cat",sp:"c, k, ck, ch, qu",
-tip:"舌の奥を上あごの奥につけて息を止め、一気に離す。声は出さない。",
-miss:"語尾に「ク」と母音をつける。book が「ブック」になる。",
-groups:[
-["語頭","[c]at|kæt|猫|1;[c]ar|kɑːr|車|1;[k]ey|kiː|かぎ|1;[k]itchen|ˈkɪtʃən|台所|1;[c]ome|kʌm|来る|1;[c]ook|kʊk|料理する|1;[k]ind|kaɪnd|親切な|1;[qu]een|kwiːn|女王|1;[qu]ick|kwɪk|速い|1;[c]ustomer|ˈkʌstəmɚ|顧客|3;[c]ontract|ˈkɑːntrækt|契約|3"],
-["語中","s[ch]ool|skuːl|学校|1;ba[k]er|ˈbeɪkɚ|パン屋|1;po[ck]et|ˈpɑːkɪt|ポケット|1;a[c]tor|ˈæktɚ|俳優|1;ba[ck]pack|ˈbækpæk|リュック|1;mar[k]et|ˈmɑːrkɪt|市場|1;se[c]ond|ˈsekənd|2番目の|1;wee[k]end|ˈwiːkend|週末|1;ro[ck]et|ˈrɑːkɪt|ロケット|2;a[cc]ount|əˈkaʊnt|口座|3"],
-["語尾","boo[k]|bʊk|本|1;ba[ck]|bæk|後ろ|1;wal[k]|wɔːk|歩く|1;mil[k]|mɪlk|牛乳|1;dar[k]|dɑːrk|暗い|1;thin[k]|θɪŋk|思う|1;clo[ck]|klɑːk|時計|1;ca[k]e|keɪk|ケーキ|1;che[ck]|tʃek|確認する|1;ban[k]|bæŋk|銀行|1;stoma[ch]|ˈstʌmək|胃|2"]]},
-{id:"c_g",ipa:"ɡ",cat:"cons",key:"go",sp:"g, gg, gu",
-tip:"/k/ と同じ舌の位置で、声を出す。",
-miss:"語尾の g に「グ」と母音をつける。bag が「バッグ」になる。",
-groups:[
-["語頭","[g]o|ɡoʊ|行く|1;[g]ame|ɡeɪm|試合|1;[g]ive|ɡɪv|与える|1;[g]irl|ɡɝːl|女の子|1;[g]arden|ˈɡɑːrdən|庭|1;[g]reen|ɡriːn|緑|1;[g]lass|ɡlæs|コップ|1;[g]uess|ɡes|推測する|1;[g]uitar|ɡɪˈtɑːr|ギター|1;[g]oal|ɡoʊl|目標|2;[g]uarantee|ˌɡærənˈtiː|保証|3"],
-["語中","a[g]o|əˈɡoʊ|〜前に|1;su[g]ar|ˈʃʊɡɚ|砂糖|1;bi[gg]er|ˈbɪɡɚ|より大きい|1;ti[g]er|ˈtaɪɡɚ|トラ|1;En[g]lish|ˈɪŋɡlɪʃ|英語|1;a[g]ain|əˈɡen|再び|1;for[g]et|fɚˈɡet|忘れる|1;re[g]ular|ˈreɡjəlɚ|定期的な|2;lan[g]uage|ˈlæŋɡwɪdʒ|言語|2;ba[gg]age|ˈbæɡɪdʒ|手荷物|3"],
-["語尾","ba[g]|bæɡ|かばん|1;bi[g]|bɪɡ|大きい|1;do[g]|dɔːɡ|犬|1;le[g]|leɡ|脚|1;e[gg]|eɡ|卵|1;fla[g]|flæɡ|旗|1;hu[g]|hʌɡ|抱きしめる|2;dru[g]|drʌɡ|薬|2;dialo[g]ue|ˈdaɪəlɔːɡ|対話|2;catalo[g]|ˈkætəlɔːɡ|カタログ|3"]]},
-{id:"c_f",ipa:"f",cat:"cons",key:"fish",sp:"f, ff, ph, gh",
-tip:"上の前歯を下唇の内側に軽く当て、そのすき間から息を出す。声は出さない。",
-miss:"日本語の「フ」のように両唇で言う。歯を唇に当てないと /h/ に近く聞こえる。",
-groups:[
-["語頭","[f]ish|fɪʃ|魚|1;[f]ive|faɪv|5|1;[f]ood|fuːd|食べ物|1;[f]amily|ˈfæməli|家族|1;[f]oot|fʊt|足|1;[f]ly|flaɪ|飛ぶ|1;[f]riend|frend|友達|1;[ph]one|foʊn|電話|1;[ph]oto|ˈfoʊtoʊ|写真|1;[f]ee|fiː|料金|3;[f]ile|faɪl|ファイル|3"],
-["語中","co[ff]ee|ˈkɔːfi|コーヒー|1;a[f]ter|ˈæftɚ|〜のあとで|1;be[f]ore|bɪˈfɔːr|〜の前に|1;o[ff]ice|ˈɔːfɪs|事務所|1;break[f]ast|ˈbrekfəst|朝食|1;di[ff]erent|ˈdɪfrənt|違う|1;tele[ph]one|ˈteləfoʊn|電話|1;per[f]ect|ˈpɝːfɪkt|完ぺきな|2;tra[ff]ic|ˈtræfɪk|交通|2;pro[f]it|ˈprɑːfɪt|利益|3"],
-["語尾","i[f]|ɪf|もし|1;o[ff]|ɔːf|離れて|1;hal[f]|hæf|半分|1;li[f]e|laɪf|生活|1;kni[f]e|naɪf|ナイフ|1;lea[f]|liːf|葉|1;enou[gh]|ɪˈnʌf|十分な|1;lau[gh]|læf|笑う|1;chie[f]|tʃiːf|長|2;sta[ff]|stæf|職員|3"]]},
-{id:"c_v",ipa:"v",cat:"cons",key:"very",sp:"v",
-tip:"/f/ と同じ形（上の前歯を下唇に当てる）で、声を出す。",
-miss:"日本語の「ブ」で代用して /b/ になる。very が berry に聞こえる。",
-groups:[
-["語頭","[v]ery|ˈveri|とても|1;[v]oice|vɔɪs|声|1;[v]isit|ˈvɪzɪt|訪れる|1;[v]egetable|ˈvedʒtəbəl|野菜|1;[v]iew|vjuː|眺め|1;[v]acation|veɪˈkeɪʃən|休暇|1;[v]ideo|ˈvɪdioʊ|動画|1;[v]illage|ˈvɪlɪdʒ|村|2;[v]alue|ˈvæljuː|価値|2;[v]endor|ˈvendɚ|販売業者|3"],
-["語中","e[v]ery|ˈevri|すべての|1;ne[v]er|ˈnevɚ|一度も〜ない|1;e[v]ening|ˈiːvnɪŋ|夕方|1;o[v]er|ˈoʊvɚ|〜を越えて|1;ri[v]er|ˈrɪvɚ|川|1;tra[v]el|ˈtrævəl|旅行する|1;lo[v]ely|ˈlʌvli|すてきな|1;ele[v]en|ɪˈlevən|11|1;ser[v]ice|ˈsɝːvɪs|サービス|1;ad[v]ice|ədˈvaɪs|助言|2;deli[v]ery|dɪˈlɪvəri|配達|3"],
-["語尾","li[v]e|lɪv|住む|1;lo[v]e|lʌv|愛する|1;ha[v]e|hæv|持っている|1;gi[v]e|ɡɪv|与える|1;fi[v]e|faɪv|5|1;mo[v]e|muːv|動く|1;dri[v]e|draɪv|運転する|1;lea[v]e|liːv|去る|1;arri[v]e|əˈraɪv|到着する|1;recei[v]e|rɪˈsiːv|受け取る|2"]]},
-{id:"c_th",ipa:"θ",cat:"cons",key:"think",sp:"th",
-tip:"舌先を上の前歯の先に軽く当て（歯の間から少し出してもよい）、すき間から息を出す。声は出さない。",
-miss:"「ス」や「サ行」で言う。think が sink、thank が sank に聞こえる。",
-groups:[
-["語頭","[th]ink|θɪŋk|思う|1;[th]ank|θæŋk|感謝する|1;[th]ree|θriː|3|1;[th]ing|θɪŋ|もの|1;[th]irty|ˈθɝːti|30|1;[th]ousand|ˈθaʊzənd|1000|1;[Th]ursday|ˈθɝːzdeɪ|木曜日|1;[th]in|θɪn|薄い|1;[th]eater|ˈθiːətɚ|劇場|1;[th]roat|θroʊt|のど|2;[th]eme|θiːm|テーマ|2"],
-["語中","bir[th]day|ˈbɝːθdeɪ|誕生日|1;no[th]ing|ˈnʌθɪŋ|何も〜ない|1;some[th]ing|ˈsʌmθɪŋ|何か|1;any[th]ing|ˈeniθɪŋ|何でも|1;every[th]ing|ˈevriθɪŋ|すべて|1;heal[th]y|ˈhelθi|健康な|2;au[th]or|ˈɔːθɚ|著者|2;me[th]od|ˈmeθəd|方法|2;ma[th]ematics|ˌmæθəˈmætɪks|数学|2"],
-["語尾","mou[th]|maʊθ|口|1;ma[th]|mæθ|数学|1;too[th]|tuːθ|歯|1;bo[th]|boʊθ|両方|1;nor[th]|nɔːrθ|北|1;sou[th]|saʊθ|南|1;mon[th]|mʌnθ|月|1;ba[th]|bæθ|入浴|1;heal[th]|helθ|健康|2;wor[th]|wɝːθ|価値がある|2;grow[th]|ɡroʊθ|成長|3"]]},
-{id:"c_dh",ipa:"ð",cat:"cons",key:"this",sp:"th",
-tip:"/θ/ と同じ舌の形で、声を出す。",
-miss:"「ザ」「ダ」で言う。this が「ジス」、mother が「マザー」になる。",
-groups:[
-["語頭","[th]is|ðɪs|これ|1;[th]at|ðæt|あれ|1;[th]e|ðə|その|1;[th]ey|ðeɪ|彼ら|1;[th]ere|ðer|そこに|1;[th]en|ðen|そのとき|1;[th]ese|ðiːz|これら|1;[th]ose|ðoʊz|それら|1;[th]an|ðæn|〜より|1;[th]em|ðem|彼らを|1;[th]ough|ðoʊ|〜だけれども|2;[th]us|ðʌs|したがって|2"],
-["語中","mo[th]er|ˈmʌðɚ|母|1;fa[th]er|ˈfɑːðɚ|父|1;bro[th]er|ˈbrʌðɚ|兄弟|1;o[th]er|ˈʌðɚ|ほかの|1;wea[th]er|ˈweðɚ|天気|1;toge[th]er|təˈɡeðɚ|一緒に|1;wi[th]out|wɪˈðaʊt|〜なしで|1;ei[th]er|ˈiːðɚ|どちらか|2;nei[th]er|ˈniːðɚ|どちらも〜ない|2;ra[th]er|ˈræðɚ|むしろ|2;fur[th]er|ˈfɝːðɚ|さらに|3"],
-["語尾","wi[th]|wɪð|〜と一緒に|1;brea[th]e|briːð|呼吸する|2;clo[th]e|kloʊð|服を着せる|2;smoo[th]|smuːð|なめらかな|2;ba[th]e|beɪð|入浴させる|2"]]},
-{id:"c_s",ipa:"s",cat:"cons",key:"see",sp:"s, ss, c, ce, sc",
-tip:"舌先を上の歯ぐきに近づけ、細いすき間から息を出す。声は出さない。",
-miss:"si が「シ」になる。sea が she に、sit が「シット」に聞こえる。",
-groups:[
-["語頭","[s]ee|siː|見る|1;[s]it|sɪt|座る|1;[s]ix|sɪks|6|1;[s]un|sʌn|太陽|1;[s]ay|seɪ|言う|1;[s]ister|ˈsɪstɚ|姉妹|1;[s]tation|ˈsteɪʃən|駅|1;[c]ity|ˈsɪti|都市|1;[c]enter|ˈsentɚ|中心|1;[sc]ience|ˈsaɪəns|科学|1;[s]ales|seɪlz|売上|3;[s]ign|saɪn|署名する|3"],
-["語中","ba[s]ket|ˈbæskɪt|かご|1;le[ss]on|ˈlesən|授業|1;gla[ss]es|ˈɡlæsɪz|めがね|1;pen[c]il|ˈpensəl|鉛筆|1;de[c]ide|dɪˈsaɪd|決める|1;ba[s]eball|ˈbeɪsbɔːl|野球|1;me[ss]age|ˈmesɪdʒ|伝言|1;in[s]ide|ˌɪnˈsaɪd|内側|1;a[ss]ist|əˈsɪst|手伝う|3;re[c]eipt|rɪˈsiːt|領収書|3"],
-["語尾","bu[s]|bʌs|バス|1;ye[s]|jes|はい|1;cla[ss]|klæs|授業|1;mi[ss]|mɪs|逃す|1;ni[ce]|naɪs|すてきな|1;ri[ce]|raɪs|米|1;pla[ce]|pleɪs|場所|1;hou[s]e|haʊs|家|1;book[s]|bʊks|本（複数）|1;offi[ce]|ˈɔːfɪs|事務所|1;pri[ce]|praɪs|価格|3"]]},
-{id:"c_z",ipa:"z",cat:"cons",key:"zoo",sp:"z, s, zz, x",
-tip:"/s/ と同じ舌の位置で、声を出す。のどがふるえるのを確かめる。",
-miss:"舌が歯ぐきについて「ヅ」になる。語尾の -s（dogs など）を /s/ で言ってしまう。",
-groups:[
-["語頭","[z]oo|zuː|動物園|1;[z]ero|ˈzɪroʊ|0|1;[z]ebra|ˈziːbrə|シマウマ|1;[z]one|zoʊn|地帯|2;[z]ip|zɪp|ファスナー|2"],
-["語中","ea[s]y|ˈiːzi|簡単な|1;bu[s]y|ˈbɪzi|忙しい|1;mu[s]ic|ˈmjuːzɪk|音楽|1;pre[s]ent|ˈprezənt|プレゼント|1;vi[s]it|ˈvɪzɪt|訪れる|1;cra[z]y|ˈkreɪzi|ばかげた|1;la[z]y|ˈleɪzi|怠けた|1;maga[z]ine|ˌmæɡəˈziːn|雑誌|1;pu[zz]le|ˈpʌzəl|パズル|1;Tue[s]day|ˈtuːzdeɪ|火曜日|1;bu[s]iness|ˈbɪznɪs|仕事|1;e[x]ample|ɪɡˈzæmpəl|例|1;de[s]ign|dɪˈzaɪn|設計|2;po[s]ition|pəˈzɪʃən|位置、職|2;re[s]ult|rɪˈzʌlt|結果|2"],
-["語尾","i[s]|ɪz|〜である|1;ha[s]|hæz|持っている|1;wa[s]|wʌz|〜だった|1;becau[s]e|bɪˈkɔːz|なぜなら|1;plea[s]e|pliːz|どうぞ|1;no[s]e|noʊz|鼻|1;ro[s]e|roʊz|バラ|1;clo[s]e|kloʊz|閉める|1;si[z]e|saɪz|大きさ|1;dog[s]|dɔːɡz|犬（複数）|1;pri[z]e|praɪz|賞|2"]]},
-{id:"c_sh",ipa:"ʃ",cat:"cons",key:"she",sp:"sh, ti, ci, s, ch",
-tip:"唇を少し丸めて前に出し、舌を /s/ より少し奥に引いて息を出す。声は出さない。",
-miss:"唇を丸めずに言うと /s/ との差が小さくなる。she と see を言い分ける。",
-groups:[
-["語頭","[sh]e|ʃiː|彼女|1;[sh]ip|ʃɪp|船|1;[sh]op|ʃɑːp|店|1;[sh]oe|ʃuː|靴|1;[sh]ort|ʃɔːrt|短い|1;[sh]ow|ʃoʊ|見せる|1;[sh]are|ʃer|共有する|1;[s]ure|ʃʊr|確かな|1;[s]ugar|ˈʃʊɡɚ|砂糖|1;[sh]ipping|ˈʃɪpɪŋ|配送|3;[sh]ift|ʃɪft|勤務シフト|3"],
-["語中","sta[ti]on|ˈsteɪʃən|駅|1;spe[ci]al|ˈspeʃəl|特別な|1;o[c]ean|ˈoʊʃən|海|1;wa[sh]ing|ˈwɑːʃɪŋ|洗濯|1;informa[ti]on|ˌɪnfɚˈmeɪʃən|情報|1;na[ti]on|ˈneɪʃən|国家|2;ma[ch]ine|məˈʃiːn|機械|2;fa[sh]ion|ˈfæʃən|流行|2;pre[ss]ure|ˈpreʃɚ|圧力|2;offi[ci]al|əˈfɪʃəl|公式の|3;in[s]urance|ɪnˈʃʊrəns|保険|3"],
-["語尾","fi[sh]|fɪʃ|魚|1;wa[sh]|wɑːʃ|洗う|1;di[sh]|dɪʃ|皿|1;pu[sh]|pʊʃ|押す|1;bru[sh]|brʌʃ|ブラシ|1;Engli[sh]|ˈɪŋɡlɪʃ|英語|1;ca[sh]|kæʃ|現金|1;fre[sh]|freʃ|新鮮な|1;fini[sh]|ˈfɪnɪʃ|終える|1"]]},
-{id:"c_zh",ipa:"ʒ",cat:"cons",key:"measure",sp:"s, g",
-tip:"/ʃ/ と同じ形で、声を出す。舌はどこにもつけない。",
-miss:"「ジ」で言うと舌が上あごについて /dʒ/ になる。",
-groups:[
-["語中（s）","u[s]ual|ˈjuːʒuəl|ふつうの|1;u[s]ually|ˈjuːʒuəli|ふつうは|1;televi[s]ion|ˈteləvɪʒən|テレビ|1;trea[s]ure|ˈtreʒɚ|宝物|1;A[s]ia|ˈeɪʒə|アジア|1;mea[s]ure|ˈmeʒɚ|測る|2;plea[s]ure|ˈpleʒɚ|喜び|2;lei[s]ure|ˈliːʒɚ|余暇|2;vi[s]ion|ˈvɪʒən|視力|2;deci[s]ion|dɪˈsɪʒən|決定|2;ver[s]ion|ˈvɝːʒən|版|2;occa[s]ion|əˈkeɪʒən|機会|2;ca[s]ual|ˈkæʒuəl|気軽な|2;conclu[s]ion|kənˈkluːʒən|結論|3;revi[s]ion|rɪˈvɪʒən|修正|3"],
-["語尾（g）","gara[g]e|ɡəˈrɑːʒ|ガレージ|1;bei[g]e|beɪʒ|ベージュ|2;massa[g]e|məˈsɑːʒ|マッサージ|2"]]},
-{id:"c_h",ipa:"h",cat:"cons",key:"hat",sp:"h, wh",
-tip:"口を次の母音の形にしておき、のどから息だけを出す。",
-miss:"「フ」の前で唇がすぼまり /f/ に近くなる。who は唇を使わず、のどから息を出す。",
-groups:[
-["語頭","[h]at|hæt|帽子|1;[h]ouse|haʊs|家|1;[h]appy|ˈhæpi|幸せな|1;[h]ead|hed|頭|1;[h]and|hænd|手|1;[h]ome|hoʊm|家|1;[h]ot|hɑːt|暑い|1;[h]ear|hɪr|聞こえる|1;[h]elp|help|助ける|1;[h]ospital|ˈhɑːspɪtəl|病院|1;[h]otel|hoʊˈtel|ホテル|1;[h]oliday|ˈhɑːlədeɪ|休日|1;[wh]o|huː|誰|1;[wh]ole|hoʊl|全体の|2;[h]uman|ˈhjuːmən|人間|2;[h]ire|haɪɚ|雇う|3;[h]eadquarters|ˈhedkwɔːrtɚz|本社|3"],
-["語中","be[h]ind|bɪˈhaɪnd|後ろに|1;un[h]appy|ʌnˈhæpi|不幸な|1;a[h]ead|əˈhed|前方に|2;per[h]aps|pɚˈhæps|たぶん|2;be[h]ave|bɪˈheɪv|ふるまう|2;re[h]earsal|rɪˈhɝːsəl|リハーサル|2;some[h]ow|ˈsʌmhaʊ|なんとか|2;neighbor[h]ood|ˈneɪbɚhʊd|近所|2;child[h]ood|ˈtʃaɪldhʊd|子ども時代|2;ware[h]ouse|ˈwerhaʊs|倉庫|3"]]},
-{id:"c_ch",ipa:"tʃ",cat:"cons",key:"chair",sp:"ch, tch, t",
-tip:"舌先を歯ぐきにつけて息を止め、唇を少し前に出して /ʃ/ の形で一気に出す。声は出さない。",
-miss:"語尾に「チ」と母音をつける。watch が「ウォッチ」になる。",
-groups:[
-["語頭","[ch]air|tʃer|いす|1;[ch]ild|tʃaɪld|子ども|1;[ch]eese|tʃiːz|チーズ|1;[ch]icken|ˈtʃɪkɪn|鶏肉|1;[ch]eap|tʃiːp|安い|1;[ch]ange|tʃeɪndʒ|変える|1;[ch]oose|tʃuːz|選ぶ|1;[ch]ocolate|ˈtʃɑːklət|チョコレート|1;[ch]eck|tʃek|確認する|1;[ch]ance|tʃæns|機会|1;[ch]arge|tʃɑːrdʒ|料金|3"],
-["語中","ki[tch]en|ˈkɪtʃən|台所|1;tea[ch]er|ˈtiːtʃɚ|先生|1;pic[t]ure|ˈpɪktʃɚ|絵、写真|1;na[t]ure|ˈneɪtʃɚ|自然|1;fu[t]ure|ˈfjuːtʃɚ|未来|1;ques[t]ion|ˈkwestʃən|質問|1;ac[t]ually|ˈæktʃuəli|実は|1;furni[t]ure|ˈfɝːnɪtʃɚ|家具|2;pur[ch]ase|ˈpɝːtʃəs|購入する|3"],
-["語尾","lun[ch]|lʌntʃ|昼食|1;mu[ch]|mʌtʃ|たくさん|1;whi[ch]|wɪtʃ|どちら|1;tea[ch]|tiːtʃ|教える|1;wa[tch]|wɑːtʃ|見る、腕時計|1;ca[tch]|kætʃ|捕まえる|1;bea[ch]|biːtʃ|浜辺|1;Mar[ch]|mɑːrtʃ|3月|1;swi[tch]|swɪtʃ|スイッチ|2;resear[ch]|ˈriːsɝːtʃ|研究|2;bran[ch]|bræntʃ|支店|3"]]},
-{id:"c_j",ipa:"dʒ",cat:"cons",key:"job",sp:"j, g, dg, ge",
-tip:"/tʃ/ と同じ形で、声を出す。",
-miss:"語尾に「ジ」と母音をつける。page が「ページ」になる。",
-groups:[
-["語頭","[j]ob|dʒɑːb|仕事|1;[j]uice|dʒuːs|ジュース|1;[J]une|dʒuːn|6月|1;[j]ump|dʒʌmp|跳ぶ|1;[J]apan|dʒəˈpæn|日本|1;[j]oin|dʒɔɪn|参加する|1;[j]acket|ˈdʒækɪt|上着|1;[g]ym|dʒɪm|ジム|1;[g]entle|ˈdʒentəl|やさしい|2;[g]iant|ˈdʒaɪənt|巨人|2;[j]ourney|ˈdʒɝːni|旅|2"],
-["語中","ma[g]ic|ˈmædʒɪk|魔法|1;ve[g]etable|ˈvedʒtəbəl|野菜|1;dan[g]erous|ˈdeɪndʒɚəs|危険な|1;en[j]oy|ɪnˈdʒɔɪ|楽しむ|1;sub[j]ect|ˈsʌbdʒekt|教科、件名|1;ener[g]y|ˈenɚdʒi|エネルギー|2;ma[j]or|ˈmeɪdʒɚ|主要な|2;ima[g]ine|ɪˈmædʒɪn|想像する|2;pro[j]ect|ˈprɑːdʒekt|計画|3;a[g]enda|əˈdʒendə|議題|3;bu[dg]et|ˈbʌdʒɪt|予算|3"],
-["語尾","pa[ge]|peɪdʒ|ページ|1;a[ge]|eɪdʒ|年齢|1;lar[ge]|lɑːrdʒ|大きい|1;oran[ge]|ˈɔːrɪndʒ|オレンジ|1;chan[ge]|tʃeɪndʒ|変える|1;bri[dge]|brɪdʒ|橋|1;messa[ge]|ˈmesɪdʒ|伝言|1;colle[ge]|ˈkɑːlɪdʒ|大学|1;e[dge]|edʒ|端|2;knowle[dge]|ˈnɑːlɪdʒ|知識|2;packa[ge]|ˈpækɪdʒ|小包|3"]]},
-{id:"c_m",ipa:"m",cat:"cons",key:"milk",sp:"m, mm, mb, mn",
-tip:"唇を閉じたまま、鼻から声を出す。",
-miss:"語尾の m を「ム」と母音つきで言う。または唇を閉じずに「ン」で済ませる。",
-groups:[
-["語頭","[m]ilk|mɪlk|牛乳|1;[m]other|ˈmʌðɚ|母|1;[m]oney|ˈmʌni|お金|1;[m]orning|ˈmɔːrnɪŋ|朝|1;[m]usic|ˈmjuːzɪk|音楽|1;[m]an|mæn|男性|1;[m]eet|miːt|会う|1;[m]ake|meɪk|作る|1;[m]ail|meɪl|郵便|1;[m]eeting|ˈmiːtɪŋ|会議|3;[m]anager|ˈmænɪdʒɚ|管理者|3"],
-["語中","su[mm]er|ˈsʌmɚ|夏|1;le[m]on|ˈlemən|レモン|1;nu[m]ber|ˈnʌmbɚ|数|1;fa[m]ily|ˈfæməli|家族|1;ca[m]era|ˈkæmrə|カメラ|1;ani[m]al|ˈænəməl|動物|1;re[m]ember|rɪˈmembɚ|覚えている|1;i[m]portant|ɪmˈpɔːrtənt|重要な|1;ha[mm]er|ˈhæmɚ|金づち|2;co[mm]ittee|kəˈmɪti|委員会|3"],
-["語尾","ti[m]e|taɪm|時間|1;na[m]e|neɪm|名前|1;ho[m]e|hoʊm|家|1;ga[m]e|ɡeɪm|試合|1;roo[m]|ruːm|部屋|1;drea[m]|driːm|夢|1;tea[m]|tiːm|チーム|1;autu[mn]|ˈɔːtəm|秋|1;cli[mb]|klaɪm|登る|2;for[m]|fɔːrm|用紙|3;ite[m]|ˈaɪtəm|品目|3"]]},
-{id:"c_n",ipa:"n",cat:"cons",key:"nine",sp:"n, nn, kn, gn",
-tip:"舌先を上の歯ぐきにつけて、鼻から声を出す。",
-miss:"語尾で舌先が歯ぐきにつかず、日本語の「ン」になる。ten は最後に舌先を歯ぐきにつける。",
-groups:[
-["語頭","[n]ine|naɪn|9|1;[n]ose|noʊz|鼻|1;[n]ame|neɪm|名前|1;[n]ew|nuː|新しい|1;[n]ight|naɪt|夜|1;[n]umber|ˈnʌmbɚ|数|1;[n]ice|naɪs|すてきな|1;[kn]ow|noʊ|知っている|1;[kn]ife|naɪf|ナイフ|1;[n]otice|ˈnoʊtɪs|通知|3;[n]egotiate|nɪˈɡoʊʃieɪt|交渉する|3"],
-["語中","di[nn]er|ˈdɪnɚ|夕食|1;ba[n]ana|bəˈnænə|バナナ|1;mo[n]ey|ˈmʌni|お金|1;Ja[n]uary|ˈdʒænjueri|1月|1;fi[n]ally|ˈfaɪnəli|ついに|1;te[nn]is|ˈtenɪs|テニス|1;mi[n]ute|ˈmɪnɪt|分|1;ho[n]est|ˈɑːnɪst|正直な|2;pla[n]et|ˈplænɪt|惑星|2;a[nn]ual|ˈænjuəl|年1回の|3"],
-["語尾","te[n]|ten|10|1;su[n]|sʌn|太陽|1;pe[n]|pen|ペン|1;ca[n]|kæn|〜できる|1;ru[n]|rʌn|走る|1;trai[n]|treɪn|電車|1;o[n]e|wʌn|1|1;dow[n]|daʊn|下へ|1;gree[n]|ɡriːn|緑|1;pla[n]|plæn|計画|1;si[gn]|saɪn|署名する|3;loa[n]|loʊn|ローン|3"]]},
-{id:"c_ng",ipa:"ŋ",cat:"cons",key:"sing",sp:"ng, n（k / g の前）",
-tip:"舌の奥を上あごの奥につけて、鼻から声を出す。最後に「グ」をつけない。",
-miss:"sing を「シング」と g をはっきり言う。thing と thin の違いは、舌の奥がつくか舌先がつくか。",
-groups:[
-["ng（語尾）","si[ng]|sɪŋ|歌う|1;ki[ng]|kɪŋ|王|1;ri[ng]|rɪŋ|指輪、鳴る|1;lo[ng]|lɔːŋ|長い|1;so[ng]|sɔːŋ|歌|1;you[ng]|jʌŋ|若い|1;thi[ng]|θɪŋ|もの|1;wro[ng]|rɔːŋ|間違った|1;morni[ng]|ˈmɔːrnɪŋ|朝|1;eveni[ng]|ˈiːvnɪŋ|夕方|1;buildi[ng]|ˈbɪldɪŋ|建物|1;shoppi[ng]|ˈʃɑːpɪŋ|買い物|1;meeti[ng]|ˈmiːtɪŋ|会議|3"],
-["ng（語中）","si[ng]ing|ˈsɪŋɪŋ|歌うこと|1;ha[ng]er|ˈhæŋɚ|ハンガー|1;ri[ng]ing|ˈrɪŋɪŋ|鳴っている|1;Washi[ng]ton|ˈwɑːʃɪŋtən|ワシントン|1;si[ng]er|ˈsɪŋɚ|歌手|2;ki[ng]dom|ˈkɪŋdəm|王国|2;le[n]gth|leŋθ|長さ|2"],
-["n＋k / g","thi[n]k|θɪŋk|思う|1;ba[n]k|bæŋk|銀行|1;dri[n]k|drɪŋk|飲む|1;pi[n]k|pɪŋk|ピンク|1;tha[n]k|θæŋk|感謝する|1;u[n]cle|ˈʌŋkəl|おじ|1;E[n]glish|ˈɪŋɡlɪʃ|英語|1;fi[n]ger|ˈfɪŋɡɚ|指|1;hu[n]gry|ˈhʌŋɡri|空腹の|1;a[n]gry|ˈæŋɡri|怒った|1;la[n]guage|ˈlæŋɡwɪdʒ|言語|2"]]},
-{id:"c_l",ipa:"l",cat:"cons",key:"light",sp:"l, ll",
-tip:"舌先を上の歯ぐきにしっかりつけたまま、舌の両側から声を出す。語尾では舌先をつけたまま「ウ」に近い響きになる。",
-miss:"舌先を弾いて日本語のラ行で言う。light が right に聞こえる。",
-groups:[
-["語頭","[l]ight|laɪt|光|1;[l]ook|lʊk|見る|1;[l]ive|lɪv|住む|1;[l]ove|lʌv|愛する|1;[l]eft|left|左|1;[l]ong|lɔːŋ|長い|1;[l]etter|ˈletɚ|手紙|1;[l]unch|lʌntʃ|昼食|1;[l]ead|liːd|導く|2;[l]ocal|ˈloʊkəl|地元の|2;[l]ease|liːs|賃貸契約|3"],
-["子音のあと","b[l]ue|bluː|青|1;g[l]ass|ɡlæs|コップ|1;f[l]y|flaɪ|飛ぶ|1;p[l]ay|pleɪ|遊ぶ|1;c[l]ean|kliːn|きれいな|1;s[l]ow|sloʊ|遅い|1;c[l]ient|ˈklaɪənt|顧客|3"],
-["語中","he[ll]o|həˈloʊ|こんにちは|1;co[l]or|ˈkʌlɚ|色|1;fami[l]y|ˈfæməli|家族|1;ye[ll]ow|ˈjeloʊ|黄色|1;on[l]y|ˈoʊnli|〜だけ|1;co[ll]ect|kəˈlekt|集める|2;ba[l]ance|ˈbæləns|残高|3"],
-["語尾","a[ll]|ɔːl|すべて|1;ba[ll]|bɔːl|ボール|1;te[ll]|tel|伝える|1;fee[l]|fiːl|感じる|1;schoo[l]|skuːl|学校|1;mi[l]k|mɪlk|牛乳|1;fu[ll]|fʊl|いっぱいの|1;tab[l]e|ˈteɪbəl|テーブル|1;emai[l]|ˈiːmeɪl|メール|3"]]},
-{id:"c_r",ipa:"r",cat:"cons",key:"right",sp:"r, rr, wr",
-tip:"唇を少し丸め、舌先をどこにもつけずに奥へ引いて声を出す。小さく「ウ」と言う準備をしてから始めると出しやすい。",
-miss:"舌先を上あごに弾いて日本語のラ行で言う。right が light に聞こえる。",
-groups:[
-["語頭","[r]ight|raɪt|右、正しい|1;[r]ed|red|赤|1;[r]ead|riːd|読む|1;[r]un|rʌn|走る|1;[r]ice|raɪs|米|1;[r]oom|ruːm|部屋|1;[r]ain|reɪn|雨|1;[r]iver|ˈrɪvɚ|川|1;[wr]ite|raɪt|書く|1;[wr]ong|rɔːŋ|間違った|1;[r]eport|rɪˈpɔːrt|報告|2;[r]eceipt|rɪˈsiːt|領収書|3"],
-["子音のあと","t[r]ain|treɪn|電車|1;d[r]ink|drɪŋk|飲む|1;b[r]own|braʊn|茶色|1;g[r]een|ɡriːn|緑|1;c[r]y|kraɪ|泣く|1;f[r]iend|frend|友達|1;p[r]esent|ˈprezənt|プレゼント|1;th[r]ee|θriː|3|1;f[r]y|fraɪ|揚げる|2;p[r]ice|praɪs|価格|3"],
-["語中","so[rr]y|ˈsɑːri|ごめんなさい|1;ve[r]y|ˈveri|とても|1;ca[rr]y|ˈkæri|運ぶ|1;a[r]ound|əˈraʊnd|周りに|1;pa[r]ent|ˈperənt|親|1;hu[rr]y|ˈhɝːi|急ぐ|1;tomo[rr]ow|təˈmɑːroʊ|明日|1;co[rr]ect|kəˈrekt|正しい|2"]]},
-{id:"c_w",ipa:"w",cat:"cons",key:"water",sp:"w, wh, u, o",
-tip:"唇を小さく丸めて前に突き出し、そこから次の母音へ一気に開く。",
-miss:"唇を丸めずに始める。woman が「ウーマン」、wood が「ウッド」になる。",
-groups:[
-["語頭（w）","[w]ater|ˈwɑːtɚ|水|1;[w]e|wiː|私たち|1;[w]ant|wɑːnt|欲しい|1;[w]alk|wɔːk|歩く|1;[w]ork|wɝːk|働く|1;[w]eek|wiːk|週|1;[w]in|wɪn|勝つ|1;[w]indow|ˈwɪndoʊ|窓|1;[w]oman|ˈwʊmən|女性|1;[w]ood|wʊd|木材|1;[w]arranty|ˈwɔːrənti|保証書|3;[w]arehouse|ˈwerhaʊs|倉庫|3"],
-["語頭（wh）","[wh]at|wɑːt|何|1;[wh]en|wen|いつ|1;[wh]ere|wer|どこ|1;[wh]ite|waɪt|白|1;[wh]y|waɪ|なぜ|1;[wh]ich|wɪtʃ|どちら|1"],
-["子音のあと・語中","q[u]een|kwiːn|女王|1;q[u]estion|ˈkwestʃən|質問|1;s[w]im|swɪm|泳ぐ|1;t[w]elve|twelv|12|1;bet[w]een|bɪˈtwiːn|〜の間に|1;a[w]ay|əˈweɪ|離れて|1;al[w]ays|ˈɔːlweɪz|いつも|1;sand[w]ich|ˈsænwɪtʃ|サンドイッチ|1;[o]ne|wʌn|1|1;q[u]ality|ˈkwɑːləti|品質|3"]]},
-{id:"c_y",ipa:"j",cat:"cons",key:"yes",sp:"y, u, ew, i",
-tip:"舌の中ほどを上あごに近づけ、「イ」の形から次の母音へ移る。",
-miss:"year と ear を同じに言う。year は「イ」の形から始める。発音記号の /j/ は日本語の「ヤ行」の音で、j の文字とは違う。",
-groups:[
-["y","[y]es|jes|はい|1;[y]ou|juː|あなた|1;[y]ellow|ˈjeloʊ|黄色|1;[y]ear|jɪr|年|1;[y]oung|jʌŋ|若い|1;[y]esterday|ˈjestɚdeɪ|昨日|1;[y]et|jet|まだ|1;[y]oga|ˈjoʊɡə|ヨガ|1;[y]ogurt|ˈjoʊɡɚt|ヨーグルト|1;[y]ard|jɑːrd|庭|2"],
-["u / ew（ユー）","[u]se|juːz|使う|1;m[u]sic|ˈmjuːzɪk|音楽|1;c[u]te|kjuːt|かわいい|1;[u]niform|ˈjuːnəfɔːrm|制服|1;[u]niversity|ˌjuːnəˈvɝːsəti|大学|1;comp[u]ter|kəmˈpjuːtɚ|コンピューター|1;men[u]|ˈmenjuː|メニュー|1;[u]sual|ˈjuːʒuəl|ふつうの|1;f[ew]|fjuː|少数の|1;h[u]ge|hjuːdʒ|巨大な|2;val[u]e|ˈvæljuː|価値|2"],
-["その他","on[i]on|ˈʌnjən|たまねぎ|1;mill[i]on|ˈmɪljən|100万|1;Jan[u]ary|ˈdʒænjueri|1月|1;famil[i]ar|fəˈmɪljɚ|よく知っている|2;reg[u]lar|ˈreɡjəlɚ|定期的な|2;b[eau]ty|ˈbjuːti|美しさ|2"]]}
+ {
+  "id": "c_p",
+  "ipa": "p",
+  "cat": "cons",
+  "key": "pen",
+  "sp": "p, pp",
+  "tip": "唇を閉じて息をためてから、一気にパッと離す。声は出さない。語頭では息を強めに出す。",
+  "miss": "日本語の「プ」のように母音「ウ」を足してしまう。cup が「カップ」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[p]en|pen|ペン|1;[p]ark|pɑːrk|公園|1;[p]eople|ˈpiːpəl|人々|1;[p]ay|peɪ|支払う|1;[p]lace|pleɪs|場所|1;[p]ost|poʊst|郵便|1;[p]ush|pʊʃ|押す|1;[p]rice|praɪs|価格|3;[p]olicy|ˈpɑːləsi|方針|3;[p]urchase|ˈpɝːtʃəs|購入する|3"
+   ],
+   [
+    "語中",
+    "ha[pp]y|ˈhæpi|幸せな|1;a[pp]le|ˈæpəl|りんご|1;o[p]en|ˈoʊpən|開ける|1;pa[p]er|ˈpeɪpɚ|紙|1;com[p]uter|kəmˈpjuːtɚ|コンピューター|1;sho[pp]ing|ˈʃɑːpɪŋ|買い物|1;su[pp]ort|səˈpɔːrt|支える|2;ex[p]ect|ɪkˈspekt|予期する|2;ca[p]tain|ˈkæptən|船長|2;re[p]air|rɪˈper|修理する|3"
+   ],
+   [
+    "語尾",
+    "cu[p]|kʌp|カップ|1;sto[p]|stɑːp|止まる|1;ma[p]|mæp|地図|1;hel[p]|help|助ける|1;kee[p]|kiːp|保つ|1;slee[p]|sliːp|眠る|1;jum[p]|dʒʌmp|跳ぶ|1;shi[p]|ʃɪp|船|1;tri[p]|trɪp|旅行|1;grou[p]|ɡruːp|グループ|1;ste[p]|step|段階|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[p]ack|pæk|詰める|1;[p]ain|peɪn|痛み|1;[p]aint|peɪnt|塗る・絵の具|1;[p]an|pæn|平鍋|1;[p]ancake|ˈpænkeɪk|パンケーキ|1;[p]ants|pænts|ズボン|1;[p]ass|pæs|通る・渡す|1;[p]assenger|ˈpæsəndʒɚ|乗客|1;[p]assword|ˈpæswɝːd|パスワード|1;[p]ast|pæst|過去の・過去|1;[p]ath|pæθ|小道|1;[p]attern|ˈpætɚn|模様・型|1;[p]eace|piːs|平和|1;[p]each|piːtʃ|桃|1;[p]eanut|ˈpiːnʌt|ピーナッツ|1;[p]epper|ˈpepɚ|こしょう・ピーマン|1;[p]ercent|pɚˈsent|パーセント|1;[p]et|pet|ペット|1;[p]iano|piˈænoʊ|ピアノ|1;[p]ick|pɪk|選ぶ・拾う|1;[p]ig|pɪɡ|豚|1;[p]illow|ˈpɪloʊ|枕|1;[p]ilot|ˈpaɪlət|操縦士|1;[p]ipe|paɪp|管|1;[p]lastic|ˈplæstɪk|プラスチック|1;[p]late|pleɪt|皿|1;[p]lenty|ˈplenti|たくさん|1;[p]lug|plʌɡ|プラグ・差し込む|1;[p]lus|plʌs|足す・プラス|1;[p]oem|ˈpoʊəm|詩|1;[p]olite|pəˈlaɪt|礼儀正しい|1;[p]ot|pɑːt|鍋|1;[p]otato|pəˈteɪtoʊ|じゃがいも|1;[p]ound|paʊnd|ポンド|1;[p]ractice|ˈpræktɪs|練習|1;[p]resident|ˈprezədənt|大統領・社長|1;[p]ress|pres|押す|1;[p]rint|prɪnt|印刷する|1;[p]rinter|ˈprɪntɚ|プリンター|1;[p]rivate|ˈpraɪvət|私的な|1;[p]robably|ˈprɑːbəbli|おそらく|1;[p]rogram|ˈproʊɡræm|番組・プログラム|1;[p]romise|ˈprɑːməs|約束する|1;[p]rotect|prəˈtekt|守る|1;[p]roud|praʊd|誇りに思う|1;[p]ublic|ˈpʌblɪk|公共の|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_b",
+  "ipa": "b",
+  "cat": "cons",
+  "key": "bag",
+  "sp": "b, bb",
+  "tip": "/p/ と同じ唇の形で、のどをふるわせて声を出す。",
+  "miss": "語尾の b に「ブ」と母音をつける。job が「ジョブ」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[b]ag|bæɡ|かばん|1;[b]ook|bʊk|本|1;[b]ig|bɪɡ|大きい|1;[b]oy|bɔɪ|男の子|1;[b]ed|bed|ベッド|1;[b]lue|bluː|青|1;[b]rother|ˈbrʌðɚ|兄弟|1;[b]uy|baɪ|買う|1;[b]ill|bɪl|請求書|3;[b]ranch|bræntʃ|支店|3"
+   ],
+   [
+    "語中",
+    "ta[b]le|ˈteɪbəl|テーブル|1;ba[b]y|ˈbeɪbi|赤ちゃん|1;ho[bb]y|ˈhɑːbi|趣味|1;ra[bb]it|ˈræbɪt|うさぎ|1;num[b]er|ˈnʌmbɚ|数|1;a[b]out|əˈbaʊt|約、〜について|1;pro[b]lem|ˈprɑːbləm|問題|1;Novem[b]er|noʊˈvembɚ|11月|1;ru[bb]er|ˈrʌbɚ|ゴム|2;neigh[b]or|ˈneɪbɚ|隣人|2"
+   ],
+   [
+    "語尾",
+    "jo[b]|dʒɑːb|仕事|1;clu[b]|klʌb|クラブ|1;we[b]|web|ウェブ|2;ru[b]|rʌb|こする|2;ca[b]|kæb|タクシー|2;tu[b]|tʌb|浴槽|2;gra[b]|ɡræb|つかむ|2;tu[b]e|tuːb|管|2;bul[b]|bʌlb|電球|2;descri[b]e|dɪˈskraɪb|説明する|2;subscri[b]e|səbˈskraɪb|定期購読する|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[b]lock|blɑːk|区画・妨げる|1;[b]orrow|ˈbɑːroʊ|借りる|1;[b]oss|bɑːs|上司|1;[b]ottom|ˈbɑːtəm|底|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_t",
+  "ipa": "t",
+  "cat": "cons",
+  "key": "ten",
+  "sp": "t, tt, ed",
+  "tip": "舌先を上の歯ぐきにつけて息を止め、離すときに息を出す。声は出さない。",
+  "miss": "「ト」と母音「オ」をつける。語尾の t は軽く止めるだけでよい。アメリカ英語では water の t がラ行に近く聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[t]en|ten|10|1;[t]ime|taɪm|時間|1;[t]alk|tɔːk|話す|1;[t]ea|tiː|お茶|1;[t]rain|treɪn|電車|1;[t]oday|təˈdeɪ|今日|1;[t]urn|tɝːn|曲がる|1;[t]icket|ˈtɪkɪt|切符|1;[t]able|ˈteɪbəl|テーブル|1;[t]ax|tæks|税金|3"
+   ],
+   [
+    "語中",
+    "wa[t]er|ˈwɑːtɚ|水|1;le[tt]er|ˈletɚ|手紙|1;bu[tt]er|ˈbʌtɚ|バター|1;ci[t]y|ˈsɪti|都市|1;pre[tt]y|ˈprɪti|かなり|1;hospi[t]al|ˈhɑːspɪtəl|病院|1;in[t]eresting|ˈɪntrəstɪŋ|おもしろい|1;ho[t]el|hoʊˈtel|ホテル|1;Sa[t]urday|ˈsætɚdeɪ|土曜日|1;da[t]a|ˈdeɪtə|データ|3"
+   ],
+   [
+    "語尾",
+    "ca[t]|kæt|猫|1;ea[t]|iːt|食べる|1;ho[t]|hɑːt|暑い|1;ge[t]|ɡet|得る|1;nigh[t]|naɪt|夜|1;las[t]|læst|最後の|1;wan[t]|wɑːnt|欲しい|1;ask[ed]|æskt|尋ねた|1;look[ed]|lʊkt|見た|1;repor[t]|rɪˈpɔːrt|報告|2;receip[t]|rɪˈsiːt|領収書|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[t]ail|teɪl|尾|1;[t]ake|teɪk|取る|1;[t]all|tɔːl|背の高い|1;[t]aste|teɪst|味|1;[t]ent|tent|テント|1;[t]errible|ˈterəbəl|ひどい|1;[t]ext|tekst|文章|1;[t]ired|taɪrd|疲れた|1;[t]itle|ˈtaɪtəl|題名|1;[t]oast|toʊst|トースト|1;[t]rash|træʃ|ごみ|1;[t]rouble|ˈtrʌbəl|困ったこと|1;[t]ruck|trʌk|トラック|1;[t]ruth|truːθ|真実|1;[t]unnel|ˈtʌnəl|トンネル|1;[t]wice|twaɪs|2回|1;[t]ype|taɪp|種類|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_d",
+  "ipa": "d",
+  "cat": "cons",
+  "key": "dog",
+  "sp": "d, dd, ed",
+  "tip": "/t/ と同じ舌の位置で、声を出す。",
+  "miss": "語尾に「ド」と母音をつける。bed が「ベッド」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[d]og|dɔːɡ|犬|1;[d]ay|deɪ|日|1;[d]oor|dɔːr|ドア|1;[d]esk|desk|机|1;[d]rink|drɪŋk|飲む|1;[d]inner|ˈdɪnɚ|夕食|1;[d]ance|dæns|踊る|1;[d]octor|ˈdɑːktɚ|医者|1;[d]eadline|ˈdedlaɪn|締め切り|3;[d]elivery|dɪˈlɪvəri|配達|3"
+   ],
+   [
+    "語中",
+    "mi[dd]le|ˈmɪdəl|真ん中|1;Mon[d]ay|ˈmʌndeɪ|月曜日|1;win[d]ow|ˈwɪndoʊ|窓|1;stu[d]ent|ˈstuːdənt|学生|1;bo[d]y|ˈbɑːdi|体|1;rea[d]y|ˈredi|準備ができた|1;or[d]er|ˈɔːrdɚ|注文|1;la[dd]er|ˈlædɚ|はしご|2;we[dd]ing|ˈwedɪŋ|結婚式|2;sche[d]ule|ˈskedʒuːl|予定|3"
+   ],
+   [
+    "語尾",
+    "be[d]|bed|ベッド|1;re[d]|red|赤|1;goo[d]|ɡʊd|よい|1;foo[d]|fuːd|食べ物|1;han[d]|hænd|手|1;frien[d]|frend|友達|1;col[d]|koʊld|寒い|1;nee[d]|niːd|必要とする|1;play[ed]|pleɪd|遊んだ|1;call[ed]|kɔːld|電話した|1;recor[d]|ˈrekɚd|記録|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "a[dd]ress|ˈædres|住所|1;[d]ocument|ˈdɑːkjəmənt|書類|2;[d]olphin|ˈdɑːlfɪn|イルカ|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_k",
+  "ipa": "k",
+  "cat": "cons",
+  "key": "cat",
+  "sp": "c, k, ck, ch, qu",
+  "tip": "舌の奥を上あごの奥につけて息を止め、一気に離す。声は出さない。",
+  "miss": "語尾に「ク」と母音をつける。book が「ブック」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[c]at|kæt|猫|1;[c]ar|kɑːr|車|1;[k]ey|kiː|かぎ|1;[k]itchen|ˈkɪtʃən|台所|1;[c]ome|kʌm|来る|1;[c]ook|kʊk|料理する|1;[k]ind|kaɪnd|親切な|1;[qu]een|kwiːn|女王|1;[qu]ick|kwɪk|速い|1;[c]ustomer|ˈkʌstəmɚ|顧客|3;[c]ontract|ˈkɑːntrækt|契約|3"
+   ],
+   [
+    "語中",
+    "s[ch]ool|skuːl|学校|1;ba[k]er|ˈbeɪkɚ|パン屋|1;po[ck]et|ˈpɑːkɪt|ポケット|1;a[c]tor|ˈæktɚ|俳優|1;ba[ck]pack|ˈbækpæk|リュック|1;mar[k]et|ˈmɑːrkɪt|市場|1;se[c]ond|ˈsekənd|2番目の|1;wee[k]end|ˈwiːkend|週末|1;ro[ck]et|ˈrɑːkɪt|ロケット|2;a[cc]ount|əˈkaʊnt|口座|3"
+   ],
+   [
+    "語尾",
+    "boo[k]|bʊk|本|1;ba[ck]|bæk|後ろ|1;wal[k]|wɔːk|歩く|1;mil[k]|mɪlk|牛乳|1;dar[k]|dɑːrk|暗い|1;thin[k]|θɪŋk|思う|1;clo[ck]|klɑːk|時計|1;ca[k]e|keɪk|ケーキ|1;che[ck]|tʃek|確認する|1;ban[k]|bæŋk|銀行|1;stoma[ch]|ˈstʌmək|胃|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[c]ommon|ˈkɑːmən|共通の・よくある|1;[c]ost|kɑːst|費用|1;[k]angaroo|ˌkæŋɡəˈruː|カンガルー|1;[k]ick|kɪk|蹴る|1;[k]id|kɪd|子ども|1;[k]ilometer|kəˈlɑːmətɚ|キロメートル|1;[k]iss|kɪs|キスする|1;[q]uiet|ˈkwaɪət|静かな|1;[q]uite|kwaɪt|かなり|1;[q]uiz|kwɪz|小テスト|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_g",
+  "ipa": "ɡ",
+  "cat": "cons",
+  "key": "go",
+  "sp": "g, gg, gu",
+  "tip": "/k/ と同じ舌の位置で、声を出す。",
+  "miss": "語尾の g に「グ」と母音をつける。bag が「バッグ」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[g]o|ɡoʊ|行く|1;[g]ame|ɡeɪm|試合|1;[g]ive|ɡɪv|与える|1;[g]irl|ɡɝːl|女の子|1;[g]arden|ˈɡɑːrdən|庭|1;[g]reen|ɡriːn|緑|1;[g]lass|ɡlæs|コップ|1;[g]uess|ɡes|推測する|1;[g]uitar|ɡɪˈtɑːr|ギター|1;[g]oal|ɡoʊl|目標|2;[g]uarantee|ˌɡærənˈtiː|保証|3"
+   ],
+   [
+    "語中",
+    "a[g]o|əˈɡoʊ|〜前に|1;su[g]ar|ˈʃʊɡɚ|砂糖|1;bi[gg]er|ˈbɪɡɚ|より大きい|1;ti[g]er|ˈtaɪɡɚ|トラ|1;En[g]lish|ˈɪŋɡlɪʃ|英語|1;a[g]ain|əˈɡen|再び|1;for[g]et|fɚˈɡet|忘れる|1;re[g]ular|ˈreɡjəlɚ|定期的な|2;lan[g]uage|ˈlæŋɡwɪdʒ|言語|2;ba[gg]age|ˈbæɡɪdʒ|手荷物|3"
+   ],
+   [
+    "語尾",
+    "ba[g]|bæɡ|かばん|1;bi[g]|bɪɡ|大きい|1;do[g]|dɔːɡ|犬|1;le[g]|leɡ|脚|1;e[gg]|eɡ|卵|1;fla[g]|flæɡ|旗|1;hu[g]|hʌɡ|抱きしめる|2;dru[g]|drʌɡ|薬|2;dialo[g]ue|ˈdaɪəlɔːɡ|対話|2;catalo[g]|ˈkætəlɔːɡ|カタログ|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[g]as|ɡæs|ガス|1;[g]ate|ɡeɪt|門|1;[g]ift|ɡɪft|贈り物|1;[g]lad|ɡlæd|うれしい|1;[g]love|ɡlʌv|手袋|1;[g]old|ɡoʊld|金|1;[g]olf|ɡɑːlf|ゴルフ|1;[g]overnment|ˈɡʌvɚnmənt|政府|1;[g]rade|ɡreɪd|学年・成績|1;[g]rape|ɡreɪp|ぶどう|1;[g]ray|ɡreɪ|灰色|1;[g]uest|ɡest|客|1;[g]uide|ɡaɪd|案内する|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_f",
+  "ipa": "f",
+  "cat": "cons",
+  "key": "fish",
+  "sp": "f, ff, ph, gh",
+  "tip": "上の前歯を下唇の内側に軽く当て、そのすき間から息を出す。声は出さない。",
+  "miss": "日本語の「フ」のように両唇で言う。歯を唇に当てないと /h/ に近く聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[f]ish|fɪʃ|魚|1;[f]ive|faɪv|5|1;[f]ood|fuːd|食べ物|1;[f]amily|ˈfæməli|家族|1;[f]oot|fʊt|足|1;[f]ly|flaɪ|飛ぶ|1;[f]riend|frend|友達|1;[ph]one|foʊn|電話|1;[ph]oto|ˈfoʊtoʊ|写真|1;[f]ee|fiː|料金|3;[f]ile|faɪl|ファイル|3"
+   ],
+   [
+    "語中",
+    "co[ff]ee|ˈkɔːfi|コーヒー|1;a[f]ter|ˈæftɚ|〜のあとで|1;be[f]ore|bɪˈfɔːr|〜の前に|1;o[ff]ice|ˈɔːfɪs|事務所|1;break[f]ast|ˈbrekfəst|朝食|1;di[ff]erent|ˈdɪfrənt|違う|1;tele[ph]one|ˈteləfoʊn|電話|1;per[f]ect|ˈpɝːfɪkt|完ぺきな|2;tra[ff]ic|ˈtræfɪk|交通|2;pro[f]it|ˈprɑːfɪt|利益|3"
+   ],
+   [
+    "語尾",
+    "i[f]|ɪf|もし|1;o[ff]|ɔːf|離れて|1;hal[f]|hæf|半分|1;li[f]e|laɪf|生活|1;kni[f]e|naɪf|ナイフ|1;lea[f]|liːf|葉|1;enou[gh]|ɪˈnʌf|十分な|1;lau[gh]|læf|笑う|1;chie[f]|tʃiːf|長|2;sta[ff]|stæf|職員|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[f]og|fɑːɡ|霧|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_v",
+  "ipa": "v",
+  "cat": "cons",
+  "key": "very",
+  "sp": "v",
+  "tip": "/f/ と同じ形（上の前歯を下唇に当てる）で、声を出す。",
+  "miss": "日本語の「ブ」で代用して /b/ になる。very が berry に聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[v]ery|ˈveri|とても|1;[v]oice|vɔɪs|声|1;[v]isit|ˈvɪzɪt|訪れる|1;[v]egetable|ˈvedʒtəbəl|野菜|1;[v]iew|vjuː|眺め|1;[v]acation|veɪˈkeɪʃən|休暇|1;[v]ideo|ˈvɪdioʊ|動画|1;[v]illage|ˈvɪlɪdʒ|村|2;[v]alue|ˈvæljuː|価値|2;[v]endor|ˈvendɚ|販売業者|3"
+   ],
+   [
+    "語中",
+    "e[v]ery|ˈevri|すべての|1;ne[v]er|ˈnevɚ|一度も〜ない|1;e[v]ening|ˈiːvnɪŋ|夕方|1;o[v]er|ˈoʊvɚ|〜を越えて|1;ri[v]er|ˈrɪvɚ|川|1;tra[v]el|ˈtrævəl|旅行する|1;lo[v]ely|ˈlʌvli|すてきな|1;ele[v]en|ɪˈlevən|11|1;ser[v]ice|ˈsɝːvɪs|サービス|1;ad[v]ice|ədˈvaɪs|助言|2;deli[v]ery|dɪˈlɪvəri|配達|3"
+   ],
+   [
+    "語尾",
+    "li[v]e|lɪv|住む|1;lo[v]e|lʌv|愛する|1;ha[v]e|hæv|持っている|1;gi[v]e|ɡɪv|与える|1;fi[v]e|faɪv|5|1;mo[v]e|muːv|動く|1;dri[v]e|draɪv|運転する|1;lea[v]e|liːv|去る|1;arri[v]e|əˈraɪv|到着する|1;recei[v]e|rɪˈsiːv|受け取る|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[v]alley|ˈvæli|谷|1;[v]an|væn|バン|1;[v]itamin|ˈvaɪtəmən|ビタミン|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_th",
+  "ipa": "θ",
+  "cat": "cons",
+  "key": "think",
+  "sp": "th",
+  "tip": "舌先を上の前歯の先に軽く当て（歯の間から少し出してもよい）、すき間から息を出す。声は出さない。",
+  "miss": "「ス」や「サ行」で言う。think が sink、thank が sank に聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[th]ink|θɪŋk|思う|1;[th]ank|θæŋk|感謝する|1;[th]ree|θriː|3|1;[th]ing|θɪŋ|もの|1;[th]irty|ˈθɝːti|30|1;[th]ousand|ˈθaʊzənd|1000|1;[Th]ursday|ˈθɝːzdeɪ|木曜日|1;[th]in|θɪn|薄い|1;[th]eater|ˈθiːətɚ|劇場|1;[th]roat|θroʊt|のど|2;[th]eme|θiːm|テーマ|2"
+   ],
+   [
+    "語中",
+    "bir[th]day|ˈbɝːθdeɪ|誕生日|1;no[th]ing|ˈnʌθɪŋ|何も〜ない|1;some[th]ing|ˈsʌmθɪŋ|何か|1;any[th]ing|ˈeniθɪŋ|何でも|1;every[th]ing|ˈevriθɪŋ|すべて|1;heal[th]y|ˈhelθi|健康な|2;au[th]or|ˈɔːθɚ|著者|2;me[th]od|ˈmeθəd|方法|2;ma[th]ematics|ˌmæθəˈmætɪks|数学|2"
+   ],
+   [
+    "語尾",
+    "mou[th]|maʊθ|口|1;ma[th]|mæθ|数学|1;too[th]|tuːθ|歯|1;bo[th]|boʊθ|両方|1;nor[th]|nɔːrθ|北|1;sou[th]|saʊθ|南|1;mon[th]|mʌnθ|月|1;ba[th]|bæθ|入浴|1;heal[th]|helθ|健康|2;wor[th]|wɝːθ|価値がある|2;grow[th]|ɡroʊθ|成長|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "ba[th]room|ˈbæθruːm|浴室・トイレ|1;brea[th]|breθ|息|2;clo[th]|klɔːθ|布|2;[th]ick|θɪk|厚い|1;[th]ief|θiːf|泥棒|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_dh",
+  "ipa": "ð",
+  "cat": "cons",
+  "key": "this",
+  "sp": "th",
+  "tip": "/θ/ と同じ舌の形で、声を出す。",
+  "miss": "「ザ」「ダ」で言う。this が「ジス」、mother が「マザー」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[th]is|ðɪs|これ|1;[th]at|ðæt|あれ|1;[th]e|ðə|その|1;[th]ey|ðeɪ|彼ら|1;[th]ere|ðer|そこに|1;[th]en|ðen|そのとき|1;[th]ese|ðiːz|これら|1;[th]ose|ðoʊz|それら|1;[th]an|ðæn|〜より|1;[th]em|ðem|彼らを|1;[th]ough|ðoʊ|〜だけれども|2;[th]us|ðʌs|したがって|2"
+   ],
+   [
+    "語中",
+    "mo[th]er|ˈmʌðɚ|母|1;fa[th]er|ˈfɑːðɚ|父|1;bro[th]er|ˈbrʌðɚ|兄弟|1;o[th]er|ˈʌðɚ|ほかの|1;wea[th]er|ˈweðɚ|天気|1;toge[th]er|təˈɡeðɚ|一緒に|1;wi[th]out|wɪˈðaʊt|〜なしで|1;ei[th]er|ˈiːðɚ|どちらか|2;nei[th]er|ˈniːðɚ|どちらも〜ない|2;ra[th]er|ˈræðɚ|むしろ|2;fur[th]er|ˈfɝːðɚ|さらに|3"
+   ],
+   [
+    "語尾",
+    "wi[th]|wɪð|〜と一緒に|1;brea[th]e|briːð|呼吸する|2;clo[th]e|kloʊð|服を着せる|2;smoo[th]|smuːð|なめらかな|2;ba[th]e|beɪð|入浴させる|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "al[th]ough|ɔːlˈðoʊ|〜だけれども|2;ano[th]er|əˈnʌðɚ|もうひとつの|1;clo[th]es|kloʊðz|衣服|1;grandfa[th]er|ˈɡrænfɑːðɚ|祖父|1;grandmo[th]er|ˈɡrændmʌðɚ|祖母|1;[th]emselves|ðəmˈselvz|彼ら自身|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_s",
+  "ipa": "s",
+  "cat": "cons",
+  "key": "see",
+  "sp": "s, ss, c, ce, sc",
+  "tip": "舌先を上の歯ぐきに近づけ、細いすき間から息を出す。声は出さない。",
+  "miss": "si が「シ」になる。sea が she に、sit が「シット」に聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[s]ee|siː|見る|1;[s]it|sɪt|座る|1;[s]ix|sɪks|6|1;[s]un|sʌn|太陽|1;[s]ay|seɪ|言う|1;[s]ister|ˈsɪstɚ|姉妹|1;[s]tation|ˈsteɪʃən|駅|1;[c]ity|ˈsɪti|都市|1;[c]enter|ˈsentɚ|中心|1;[sc]ience|ˈsaɪəns|科学|1;[s]ales|seɪlz|売上|3;[s]ign|saɪn|署名する|3"
+   ],
+   [
+    "語中",
+    "ba[s]ket|ˈbæskɪt|かご|1;le[ss]on|ˈlesən|授業|1;gla[ss]es|ˈɡlæsɪz|めがね|1;pen[c]il|ˈpensəl|鉛筆|1;de[c]ide|dɪˈsaɪd|決める|1;ba[s]eball|ˈbeɪsbɔːl|野球|1;me[ss]age|ˈmesɪdʒ|伝言|1;in[s]ide|ˌɪnˈsaɪd|内側|1;a[ss]ist|əˈsɪst|手伝う|3;re[c]eipt|rɪˈsiːt|領収書|3"
+   ],
+   [
+    "語尾",
+    "bu[s]|bʌs|バス|1;ye[s]|jes|はい|1;cla[ss]|klæs|授業|1;mi[ss]|mɪs|逃す|1;ni[ce]|naɪs|すてきな|1;ri[ce]|raɪs|米|1;pla[ce]|pleɪs|場所|1;hou[s]e|haʊs|家|1;book[s]|bʊks|本（複数）|1;offi[ce]|ˈɔːfɪs|事務所|1;pri[ce]|praɪs|価格|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[s]ad|sæd|悲しい|1;[s]afe|seɪf|安全な|1;[s]afety|ˈseɪfti|安全|1;[s]ail|seɪl|航海する|1;[s]alad|ˈsæləd|サラダ|1;[s]alt|sɔːlt|塩|1;[s]and|sænd|砂|1;[s]auce|sɔːs|ソース|1;[s]ausage|ˈsɔːsɪdʒ|ソーセージ|1;[s]ave|seɪv|救う|1;[s]creen|skriːn|画面|1;[s]earch|sɝːtʃ|探す|1;[s]eat|siːt|座席|1;[s]ecret|ˈsiːkrət|秘密|1;[s]eed|siːd|種|1;[s]eem|siːm|〜のように見える|1;[s]ell|sel|売る|1;[s]entence|ˈsentəns|文|1;[S]eptember|sepˈtembɚ|9月|1;[s]even|ˈsevən|7|1;[s]everal|ˈsevrəl|いくつかの|1;[s]ide|saɪd|側面|1;[s]ilent|ˈsaɪlənt|静かな|1;[s]ilver|ˈsɪlvɚ|銀|1;[s]imple|ˈsɪmpəl|簡単な|1;[s]ince|sɪns|〜以来|1;[s]ingle|ˈsɪŋɡəl|たった一つの|1;[s]ink|sɪŋk|沈む|1;[s]kin|skɪn|皮膚|1;[s]kirt|skɝːt|スカート|1;[s]ky|skaɪ|空|1;[s]lide|slaɪd|滑る|1;[s]mile|smaɪl|ほほ笑む|1;[s]moke|smoʊk|煙|1;[s]nake|sneɪk|ヘビ|1;[s]ock|sɑːk|靴下|1;[s]oft|sɔːft|柔らかい|1;[s]omeone|ˈsʌmwʌn|誰か|1;[s]ometimes|ˈsʌmtaɪmz|時々|1;[s]omewhere|ˈsʌmwer|どこかに|1;[s]peed|spiːd|速さ|1;[s]pell|spel|つづる|1;[s]pend|spend|費やす|1;[s]poon|spuːn|スプーン|1;[s]pring|sprɪŋ|春|1;[s]tamp|stæmp|切手|1;[s]tand|stænd|立つ|1;[s]tay|steɪ|滞在する|1;[s]teal|stiːl|盗む|1;[s]tick|stɪk|棒|1;[s]till|stɪl|まだ|1;[s]tone|stoʊn|石|1;[s]traight|streɪt|まっすぐに|1;[s]trange|streɪndʒ|奇妙な|1;[s]treet|striːt|通り|1;[s]tudy|ˈstʌdi|勉強する|1;[s]ubway|ˈsʌbweɪ|地下鉄|1;[s]uch|sʌtʃ|そのような|1;[s]uit|suːt|スーツ|1;[s]uitcase|ˈsuːtkeɪs|スーツケース|1;[s]urprise|sɚˈpraɪz|驚かせる|1;[s]weet|swiːt|甘い|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_z",
+  "ipa": "z",
+  "cat": "cons",
+  "key": "zoo",
+  "sp": "z, s, zz, x",
+  "tip": "/s/ と同じ舌の位置で、声を出す。のどがふるえるのを確かめる。",
+  "miss": "舌が歯ぐきについて「ヅ」になる。語尾の -s（dogs など）を /s/ で言ってしまう。",
+  "groups": [
+   [
+    "語頭",
+    "[z]oo|zuː|動物園|1;[z]ero|ˈzɪroʊ|0|1;[z]ebra|ˈziːbrə|シマウマ|1;[z]one|zoʊn|地帯|2;[z]ip|zɪp|ファスナー|2"
+   ],
+   [
+    "語中",
+    "ea[s]y|ˈiːzi|簡単な|1;bu[s]y|ˈbɪzi|忙しい|1;mu[s]ic|ˈmjuːzɪk|音楽|1;pre[s]ent|ˈprezənt|プレゼント|1;vi[s]it|ˈvɪzɪt|訪れる|1;cra[z]y|ˈkreɪzi|ばかげた|1;la[z]y|ˈleɪzi|怠けた|1;maga[z]ine|ˌmæɡəˈziːn|雑誌|1;pu[zz]le|ˈpʌzəl|パズル|1;Tue[s]day|ˈtuːzdeɪ|火曜日|1;bu[s]iness|ˈbɪznɪs|仕事|1;e[x]ample|ɪɡˈzæmpəl|例|1;de[s]ign|dɪˈzaɪn|設計|2;po[s]ition|pəˈzɪʃən|位置、職|2;re[s]ult|rɪˈzʌlt|結果|2"
+   ],
+   [
+    "語尾",
+    "i[s]|ɪz|〜である|1;ha[s]|hæz|持っている|1;wa[s]|wʌz|〜だった|1;becau[s]e|bɪˈkɔːz|なぜなら|1;plea[s]e|pliːz|どうぞ|1;no[s]e|noʊz|鼻|1;ro[s]e|roʊz|バラ|1;clo[s]e|kloʊz|閉める|1;si[z]e|saɪz|大きさ|1;dog[s]|dɔːɡz|犬（複数）|1;pri[z]e|praɪz|賞|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[z]ipper|ˈzɪpɚ|ファスナー|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_sh",
+  "ipa": "ʃ",
+  "cat": "cons",
+  "key": "she",
+  "sp": "sh, ti, ci, s, ch",
+  "tip": "唇を少し丸めて前に出し、舌を /s/ より少し奥に引いて息を出す。声は出さない。",
+  "miss": "唇を丸めずに言うと /s/ との差が小さくなる。she と see を言い分ける。",
+  "groups": [
+   [
+    "語頭",
+    "[sh]e|ʃiː|彼女|1;[sh]ip|ʃɪp|船|1;[sh]op|ʃɑːp|店|1;[sh]oe|ʃuː|靴|1;[sh]ort|ʃɔːrt|短い|1;[sh]ow|ʃoʊ|見せる|1;[sh]are|ʃer|共有する|1;[s]ure|ʃʊr|確かな|1;[s]ugar|ˈʃʊɡɚ|砂糖|1;[sh]ipping|ˈʃɪpɪŋ|配送|3;[sh]ift|ʃɪft|勤務シフト|3"
+   ],
+   [
+    "語中",
+    "sta[ti]on|ˈsteɪʃən|駅|1;spe[ci]al|ˈspeʃəl|特別な|1;o[c]ean|ˈoʊʃən|海|1;wa[sh]ing|ˈwɑːʃɪŋ|洗濯|1;informa[ti]on|ˌɪnfɚˈmeɪʃən|情報|1;na[ti]on|ˈneɪʃən|国家|2;ma[ch]ine|məˈʃiːn|機械|2;fa[sh]ion|ˈfæʃən|流行|2;pre[ss]ure|ˈpreʃɚ|圧力|2;offi[ci]al|əˈfɪʃəl|公式の|3;in[s]urance|ɪnˈʃʊrəns|保険|3"
+   ],
+   [
+    "語尾",
+    "fi[sh]|fɪʃ|魚|1;wa[sh]|wɑːʃ|洗う|1;di[sh]|dɪʃ|皿|1;pu[sh]|pʊʃ|押す|1;bru[sh]|brʌʃ|ブラシ|1;Engli[sh]|ˈɪŋɡlɪʃ|英語|1;ca[sh]|kæʃ|現金|1;fre[sh]|freʃ|新鮮な|1;fini[sh]|ˈfɪnɪʃ|終える|1"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[sh]ape|ʃeɪp|形|1;[sh]eet|ʃiːt|シーツ|1;[sh]elf|ʃelf|棚|1;[sh]ine|ʃaɪn|輝く|1;[sh]oot|ʃuːt|撃つ|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_zh",
+  "ipa": "ʒ",
+  "cat": "cons",
+  "key": "measure",
+  "sp": "s, g",
+  "tip": "/ʃ/ と同じ形で、声を出す。舌はどこにもつけない。",
+  "miss": "「ジ」で言うと舌が上あごについて /dʒ/ になる。",
+  "groups": [
+   [
+    "語中（s）",
+    "u[s]ual|ˈjuːʒuəl|ふつうの|1;u[s]ually|ˈjuːʒuəli|ふつうは|1;televi[s]ion|ˈteləvɪʒən|テレビ|1;trea[s]ure|ˈtreʒɚ|宝物|1;A[s]ia|ˈeɪʒə|アジア|1;mea[s]ure|ˈmeʒɚ|測る|2;plea[s]ure|ˈpleʒɚ|喜び|2;lei[s]ure|ˈliːʒɚ|余暇|2;vi[s]ion|ˈvɪʒən|視力|2;deci[s]ion|dɪˈsɪʒən|決定|2;ver[s]ion|ˈvɝːʒən|版|2;occa[s]ion|əˈkeɪʒən|機会|2;ca[s]ual|ˈkæʒuəl|気軽な|2;conclu[s]ion|kənˈkluːʒən|結論|3;revi[s]ion|rɪˈvɪʒən|修正|3"
+   ],
+   [
+    "語尾（g）",
+    "gara[g]e|ɡəˈrɑːʒ|ガレージ|1;bei[g]e|beɪʒ|ベージュ|2;massa[g]e|məˈsɑːʒ|マッサージ|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "unu[s]ual|ənˈjuːʒuəl|珍しい|2;vi[s]ual|ˈvɪʒuəl|視覚の|2"
+   ]
+  ]
+ },
+ {
+  "id": "c_h",
+  "ipa": "h",
+  "cat": "cons",
+  "key": "hat",
+  "sp": "h, wh",
+  "tip": "口を次の母音の形にしておき、のどから息だけを出す。",
+  "miss": "「フ」の前で唇がすぼまり /f/ に近くなる。who は唇を使わず、のどから息を出す。",
+  "groups": [
+   [
+    "語頭",
+    "[h]at|hæt|帽子|1;[h]ouse|haʊs|家|1;[h]appy|ˈhæpi|幸せな|1;[h]ead|hed|頭|1;[h]and|hænd|手|1;[h]ome|hoʊm|家|1;[h]ot|hɑːt|暑い|1;[h]ear|hɪr|聞こえる|1;[h]elp|help|助ける|1;[h]ospital|ˈhɑːspɪtəl|病院|1;[h]otel|hoʊˈtel|ホテル|1;[h]oliday|ˈhɑːlədeɪ|休日|1;[wh]o|huː|誰|1;[wh]ole|hoʊl|全体の|2;[h]uman|ˈhjuːmən|人間|2;[h]ire|haɪɚ|雇う|3;[h]eadquarters|ˈhedkwɔːrtɚz|本社|3"
+   ],
+   [
+    "語中",
+    "be[h]ind|bɪˈhaɪnd|後ろに|1;un[h]appy|ʌnˈhæpi|不幸な|1;a[h]ead|əˈhed|前方に|2;per[h]aps|pɚˈhæps|たぶん|2;be[h]ave|bɪˈheɪv|ふるまう|2;re[h]earsal|rɪˈhɝːsəl|リハーサル|2;some[h]ow|ˈsʌmhaʊ|なんとか|2;neighbor[h]ood|ˈneɪbɚhʊd|近所|2;child[h]ood|ˈtʃaɪldhʊd|子ども時代|2;ware[h]ouse|ˈwerhaʊs|倉庫|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[h]abit|ˈhæbət|習慣|1;[h]allway|ˈhɔːlweɪ|廊下|1;[h]andsome|ˈhænsəm|ハンサムな|1;[h]appen|ˈhæpən|起こる|1;[h]eadache|ˈhedeɪk|頭痛|1;[h]eight|haɪt|高さ・身長|1;[h]elpful|ˈhelpfəl|役に立つ|1;[h]ers|hɝːz|彼女のもの|1;[h]erself|hɚˈself|彼女自身|1;[h]ide|haɪd|隠す|1;[h]ill|hɪl|丘|1;[h]im|hɪm|彼を・彼に|1;[h]imself|hɪmˈself|彼自身|1;[h]istory|ˈhɪstɚi|歴史|1;[h]it|hɪt|打つ|1;[h]old|hoʊld|持つ・保つ|1;[h]ole|hoʊl|穴|1;[h]omework|ˈhoʊmwɝːk|宿題|1;[h]oney|ˈhʌni|はちみつ|1;[h]owever|haʊˈevɚ|しかし|1;[h]usband|ˈhʌzbənd|夫|1;[wh]ose|huːz|誰の|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_ch",
+  "ipa": "tʃ",
+  "cat": "cons",
+  "key": "chair",
+  "sp": "ch, tch, t",
+  "tip": "舌先を歯ぐきにつけて息を止め、唇を少し前に出して /ʃ/ の形で一気に出す。声は出さない。",
+  "miss": "語尾に「チ」と母音をつける。watch が「ウォッチ」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[ch]air|tʃer|いす|1;[ch]ild|tʃaɪld|子ども|1;[ch]eese|tʃiːz|チーズ|1;[ch]icken|ˈtʃɪkɪn|鶏肉|1;[ch]eap|tʃiːp|安い|1;[ch]ange|tʃeɪndʒ|変える|1;[ch]oose|tʃuːz|選ぶ|1;[ch]ocolate|ˈtʃɑːklət|チョコレート|1;[ch]eck|tʃek|確認する|1;[ch]ance|tʃæns|機会|1;[ch]arge|tʃɑːrdʒ|料金|3"
+   ],
+   [
+    "語中",
+    "ki[tch]en|ˈkɪtʃən|台所|1;tea[ch]er|ˈtiːtʃɚ|先生|1;pic[t]ure|ˈpɪktʃɚ|絵、写真|1;na[t]ure|ˈneɪtʃɚ|自然|1;fu[t]ure|ˈfjuːtʃɚ|未来|1;ques[t]ion|ˈkwestʃən|質問|1;ac[t]ually|ˈæktʃuəli|実は|1;furni[t]ure|ˈfɝːnɪtʃɚ|家具|2;pur[ch]ase|ˈpɝːtʃəs|購入する|3"
+   ],
+   [
+    "語尾",
+    "lun[ch]|lʌntʃ|昼食|1;mu[ch]|mʌtʃ|たくさん|1;whi[ch]|wɪtʃ|どちら|1;tea[ch]|tiːtʃ|教える|1;wa[tch]|wɑːtʃ|見る、腕時計|1;ca[tch]|kætʃ|捕まえる|1;bea[ch]|biːtʃ|浜辺|1;Mar[ch]|mɑːrtʃ|3月|1;swi[tch]|swɪtʃ|スイッチ|2;resear[ch]|ˈriːsɝːtʃ|研究|2;bran[ch]|bræntʃ|支店|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[ch]op|tʃɑːp|刻む|2"
+   ]
+  ]
+ },
+ {
+  "id": "c_j",
+  "ipa": "dʒ",
+  "cat": "cons",
+  "key": "job",
+  "sp": "j, g, dg, ge",
+  "tip": "/tʃ/ と同じ形で、声を出す。",
+  "miss": "語尾に「ジ」と母音をつける。page が「ページ」になる。",
+  "groups": [
+   [
+    "語頭",
+    "[j]ob|dʒɑːb|仕事|1;[j]uice|dʒuːs|ジュース|1;[J]une|dʒuːn|6月|1;[j]ump|dʒʌmp|跳ぶ|1;[J]apan|dʒəˈpæn|日本|1;[j]oin|dʒɔɪn|参加する|1;[j]acket|ˈdʒækɪt|上着|1;[g]ym|dʒɪm|ジム|1;[g]entle|ˈdʒentəl|やさしい|2;[g]iant|ˈdʒaɪənt|巨人|2;[j]ourney|ˈdʒɝːni|旅|2"
+   ],
+   [
+    "語中",
+    "ma[g]ic|ˈmædʒɪk|魔法|1;ve[g]etable|ˈvedʒtəbəl|野菜|1;dan[g]erous|ˈdeɪndʒɚəs|危険な|1;en[j]oy|ɪnˈdʒɔɪ|楽しむ|1;sub[j]ect|ˈsʌbdʒekt|教科、件名|1;ener[g]y|ˈenɚdʒi|エネルギー|2;ma[j]or|ˈmeɪdʒɚ|主要な|2;ima[g]ine|ɪˈmædʒɪn|想像する|2;pro[j]ect|ˈprɑːdʒekt|計画|3;a[g]enda|əˈdʒendə|議題|3;bu[dg]et|ˈbʌdʒɪt|予算|3"
+   ],
+   [
+    "語尾",
+    "pa[ge]|peɪdʒ|ページ|1;a[ge]|eɪdʒ|年齢|1;lar[ge]|lɑːrdʒ|大きい|1;oran[ge]|ˈɔːrɪndʒ|オレンジ|1;chan[ge]|tʃeɪndʒ|変える|1;bri[dge]|brɪdʒ|橋|1;messa[ge]|ˈmesɪdʒ|伝言|1;colle[ge]|ˈkɑːlɪdʒ|大学|1;e[dge]|edʒ|端|2;knowle[dge]|ˈnɑːlɪdʒ|知識|2;packa[ge]|ˈpækɪdʒ|小包|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[g]eography|dʒiˈɑːɡrəfi|地理|1;[j]am|dʒæm|ジャム|1;[j]eans|dʒiːnz|ジーンズ|1;[j]elly|ˈdʒeli|ゼリー|1;[j]og|dʒɑːɡ|ジョギングする|1;[j]oke|dʒoʊk|冗談|1;[j]unior|ˈdʒuːnjɚ|年下の・下級の|1;[j]ust|dʒʌst|ちょうど・ただ|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_m",
+  "ipa": "m",
+  "cat": "cons",
+  "key": "milk",
+  "sp": "m, mm, mb, mn",
+  "tip": "唇を閉じたまま、鼻から声を出す。",
+  "miss": "語尾の m を「ム」と母音つきで言う。または唇を閉じずに「ン」で済ませる。",
+  "groups": [
+   [
+    "語頭",
+    "[m]ilk|mɪlk|牛乳|1;[m]other|ˈmʌðɚ|母|1;[m]oney|ˈmʌni|お金|1;[m]orning|ˈmɔːrnɪŋ|朝|1;[m]usic|ˈmjuːzɪk|音楽|1;[m]an|mæn|男性|1;[m]eet|miːt|会う|1;[m]ake|meɪk|作る|1;[m]ail|meɪl|郵便|1;[m]eeting|ˈmiːtɪŋ|会議|3;[m]anager|ˈmænɪdʒɚ|管理者|3"
+   ],
+   [
+    "語中",
+    "su[mm]er|ˈsʌmɚ|夏|1;le[m]on|ˈlemən|レモン|1;nu[m]ber|ˈnʌmbɚ|数|1;fa[m]ily|ˈfæməli|家族|1;ca[m]era|ˈkæmrə|カメラ|1;ani[m]al|ˈænəməl|動物|1;re[m]ember|rɪˈmembɚ|覚えている|1;i[m]portant|ɪmˈpɔːrtənt|重要な|1;ha[mm]er|ˈhæmɚ|金づち|2;co[mm]ittee|kəˈmɪti|委員会|3"
+   ],
+   [
+    "語尾",
+    "ti[m]e|taɪm|時間|1;na[m]e|neɪm|名前|1;ho[m]e|hoʊm|家|1;ga[m]e|ɡeɪm|試合|1;roo[m]|ruːm|部屋|1;drea[m]|driːm|夢|1;tea[m]|tiːm|チーム|1;autu[mn]|ˈɔːtəm|秋|1;cli[mb]|klaɪm|登る|2;for[m]|fɔːrm|用紙|3;ite[m]|ˈaɪtəm|品目|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[m]ain|meɪn|主な|1;[m]akeup|ˈmeɪkʌp|化粧|1;[m]ale|meɪl|男性の・雄の|1;[m]all|mɔːl|ショッピングモール|1;[m]atch|mætʃ|試合・合う|1;[m]atter|ˈmætɚ|事柄・重要である|1;[m]aybe|ˈmeɪbi|たぶん|1;[m]eal|miːl|食事|1;[m]ean|miːn|意味する|1;[m]eaning|ˈmiːnɪŋ|意味|1;[m]eat|miːt|肉|1;[m]edicine|ˈmedəsən|薬|1;[m]elt|melt|溶ける|1;[m]etal|ˈmetəl|金属|1;[m]eter|ˈmiːtɚ|メートル・計器|1;[m]icrowave|ˈmaɪkrəweɪv|電子レンジ|1;[m]ile|maɪl|マイル|1;[m]irror|ˈmɪrɚ|鏡|1;[m]ix|mɪks|混ぜる|1;[m]odel|ˈmɑːdəl|模型・モデル|1;[m]odern|ˈmɑːdɚn|現代の|1;[m]otor|ˈmoʊtɚ|モーター|1;[m]ouse|maʊs|ねずみ・マウス|1;[m]ushroom|ˈmʌʃruːm|きのこ|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_n",
+  "ipa": "n",
+  "cat": "cons",
+  "key": "nine",
+  "sp": "n, nn, kn, gn",
+  "tip": "舌先を上の歯ぐきにつけて、鼻から声を出す。",
+  "miss": "語尾で舌先が歯ぐきにつかず、日本語の「ン」になる。ten は最後に舌先を歯ぐきにつける。",
+  "groups": [
+   [
+    "語頭",
+    "[n]ine|naɪn|9|1;[n]ose|noʊz|鼻|1;[n]ame|neɪm|名前|1;[n]ew|nuː|新しい|1;[n]ight|naɪt|夜|1;[n]umber|ˈnʌmbɚ|数|1;[n]ice|naɪs|すてきな|1;[kn]ow|noʊ|知っている|1;[kn]ife|naɪf|ナイフ|1;[n]otice|ˈnoʊtɪs|通知|3;[n]egotiate|nɪˈɡoʊʃieɪt|交渉する|3"
+   ],
+   [
+    "語中",
+    "di[nn]er|ˈdɪnɚ|夕食|1;ba[n]ana|bəˈnænə|バナナ|1;mo[n]ey|ˈmʌni|お金|1;Ja[n]uary|ˈdʒænjueri|1月|1;fi[n]ally|ˈfaɪnəli|ついに|1;te[nn]is|ˈtenɪs|テニス|1;mi[n]ute|ˈmɪnɪt|分|1;ho[n]est|ˈɑːnɪst|正直な|2;pla[n]et|ˈplænɪt|惑星|2;a[nn]ual|ˈænjuəl|年1回の|3"
+   ],
+   [
+    "語尾",
+    "te[n]|ten|10|1;su[n]|sʌn|太陽|1;pe[n]|pen|ペン|1;ca[n]|kæn|〜できる|1;ru[n]|rʌn|走る|1;trai[n]|treɪn|電車|1;o[n]e|wʌn|1|1;dow[n]|daʊn|下へ|1;gree[n]|ɡriːn|緑|1;pla[n]|plæn|計画|1;si[gn]|saɪn|署名する|3;loa[n]|loʊn|ローン|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "k[n]ee|niː|膝|1;k[n]ock|nɑːk|ノックする|1;[n]ap|næp|昼寝|1;[n]ecessary|ˈnesəseri|必要な|1;[n]eck|nek|首|1;[n]ervous|ˈnɝːvəs|緊張した|1;[n]etwork|ˈnetwɝːk|ネットワーク|1;[n]ext|nekst|次の|1;[n]obody|ˈnoʊbɑːdi|誰も〜ない|1;[n]ovel|ˈnɑːvəl|小説|1;[n]ut|nʌt|木の実・ナット|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_ng",
+  "ipa": "ŋ",
+  "cat": "cons",
+  "key": "sing",
+  "sp": "ng, n（k / g の前）",
+  "tip": "舌の奥を上あごの奥につけて、鼻から声を出す。最後に「グ」をつけない。",
+  "miss": "sing を「シング」と g をはっきり言う。thing と thin の違いは、舌の奥がつくか舌先がつくか。",
+  "groups": [
+   [
+    "ng（語尾）",
+    "si[ng]|sɪŋ|歌う|1;ki[ng]|kɪŋ|王|1;ri[ng]|rɪŋ|指輪、鳴る|1;lo[ng]|lɔːŋ|長い|1;so[ng]|sɔːŋ|歌|1;you[ng]|jʌŋ|若い|1;thi[ng]|θɪŋ|もの|1;wro[ng]|rɔːŋ|間違った|1;morni[ng]|ˈmɔːrnɪŋ|朝|1;eveni[ng]|ˈiːvnɪŋ|夕方|1;buildi[ng]|ˈbɪldɪŋ|建物|1;shoppi[ng]|ˈʃɑːpɪŋ|買い物|1;meeti[ng]|ˈmiːtɪŋ|会議|3"
+   ],
+   [
+    "ng（語中）",
+    "si[ng]ing|ˈsɪŋɪŋ|歌うこと|1;ha[ng]er|ˈhæŋɚ|ハンガー|1;ri[ng]ing|ˈrɪŋɪŋ|鳴っている|1;Washi[ng]ton|ˈwɑːʃɪŋtən|ワシントン|1;si[ng]er|ˈsɪŋɚ|歌手|2;ki[ng]dom|ˈkɪŋdəm|王国|2;le[n]gth|leŋθ|長さ|2"
+   ],
+   [
+    "n＋k / g",
+    "thi[n]k|θɪŋk|思う|1;ba[n]k|bæŋk|銀行|1;dri[n]k|drɪŋk|飲む|1;pi[n]k|pɪŋk|ピンク|1;tha[n]k|θæŋk|感謝する|1;u[n]cle|ˈʌŋkəl|おじ|1;E[n]glish|ˈɪŋɡlɪʃ|英語|1;fi[n]ger|ˈfɪŋɡɚ|指|1;hu[n]gry|ˈhʌŋɡri|空腹の|1;a[n]gry|ˈæŋɡri|怒った|1;la[n]guage|ˈlæŋɡwɪdʒ|言語|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "alo[ng]|əˈlɔːŋ|沿って|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_l",
+  "ipa": "l",
+  "cat": "cons",
+  "key": "light",
+  "sp": "l, ll",
+  "tip": "舌先を上の歯ぐきにしっかりつけたまま、舌の両側から声を出す。語尾では舌先をつけたまま「ウ」に近い響きになる。",
+  "miss": "舌先を弾いて日本語のラ行で言う。light が right に聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[l]ight|laɪt|光|1;[l]ook|lʊk|見る|1;[l]ive|lɪv|住む|1;[l]ove|lʌv|愛する|1;[l]eft|left|左|1;[l]ong|lɔːŋ|長い|1;[l]etter|ˈletɚ|手紙|1;[l]unch|lʌntʃ|昼食|1;[l]ead|liːd|導く|2;[l]ocal|ˈloʊkəl|地元の|2;[l]ease|liːs|賃貸契約|3"
+   ],
+   [
+    "子音のあと",
+    "b[l]ue|bluː|青|1;g[l]ass|ɡlæs|コップ|1;f[l]y|flaɪ|飛ぶ|1;p[l]ay|pleɪ|遊ぶ|1;c[l]ean|kliːn|きれいな|1;s[l]ow|sloʊ|遅い|1;c[l]ient|ˈklaɪənt|顧客|3"
+   ],
+   [
+    "語中",
+    "he[ll]o|həˈloʊ|こんにちは|1;co[l]or|ˈkʌlɚ|色|1;fami[l]y|ˈfæməli|家族|1;ye[ll]ow|ˈjeloʊ|黄色|1;on[l]y|ˈoʊnli|〜だけ|1;co[ll]ect|kəˈlekt|集める|2;ba[l]ance|ˈbæləns|残高|3"
+   ],
+   [
+    "語尾",
+    "a[ll]|ɔːl|すべて|1;ba[ll]|bɔːl|ボール|1;te[ll]|tel|伝える|1;fee[l]|fiːl|感じる|1;schoo[l]|skuːl|学校|1;mi[l]k|mɪlk|牛乳|1;fu[ll]|fʊl|いっぱいの|1;tab[l]e|ˈteɪbəl|テーブル|1;emai[l]|ˈiːmeɪl|メール|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[l]abel|ˈleɪbəl|ラベル|1;[l]ady|ˈleɪdi|女性|1;[l]ake|leɪk|湖|1;[l]amp|læmp|ランプ|1;[l]and|lænd|土地・陸|1;[l]aptop|ˈlæptɑːp|ノートパソコン|1;[l]ate|leɪt|遅れた|1;[l]ater|ˈleɪtɚ|後で|1;[l]aundry|ˈlɔːndri|洗濯物・洗濯|1;[l]ay|leɪ|置く|1;[l]east|liːst|最も少ない|1;[l]end|lend|貸す|1;[l]ess|les|より少ない|1;[l]et|let|〜させる|1;[l]evel|ˈlevəl|水準・段階|1;[l]ibrary|ˈlaɪbreri|図書館|1;[l]id|lɪd|ふた|1;[l]ie|laɪ|横になる・うそをつく|1;[l]ift|lɪft|持ち上げる|1;[l]imit|ˈlɪmət|制限|1;[l]ine|laɪn|線・列|1;[l]ink|lɪŋk|つながり・リンク|1;[l]ist|lɪst|一覧|1;[l]ittle|ˈlɪtəl|小さい・少しの|1;[l]ock|lɑːk|鍵をかける|1;[l]onely|ˈloʊnli|寂しい|1;[l]ose|luːz|失う・負ける|1;[l]ow|loʊ|低い|1;[l]uck|lʌk|運|1;[l]ucky|ˈlʌki|運のよい|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_r",
+  "ipa": "r",
+  "cat": "cons",
+  "key": "right",
+  "sp": "r, rr, wr",
+  "tip": "唇を少し丸め、舌先をどこにもつけずに奥へ引いて声を出す。小さく「ウ」と言う準備をしてから始めると出しやすい。",
+  "miss": "舌先を上あごに弾いて日本語のラ行で言う。right が light に聞こえる。",
+  "groups": [
+   [
+    "語頭",
+    "[r]ight|raɪt|右、正しい|1;[r]ed|red|赤|1;[r]ead|riːd|読む|1;[r]un|rʌn|走る|1;[r]ice|raɪs|米|1;[r]oom|ruːm|部屋|1;[r]ain|reɪn|雨|1;[r]iver|ˈrɪvɚ|川|1;[wr]ite|raɪt|書く|1;[wr]ong|rɔːŋ|間違った|1;[r]eport|rɪˈpɔːrt|報告|2;[r]eceipt|rɪˈsiːt|領収書|3"
+   ],
+   [
+    "子音のあと",
+    "t[r]ain|treɪn|電車|1;d[r]ink|drɪŋk|飲む|1;b[r]own|braʊn|茶色|1;g[r]een|ɡriːn|緑|1;c[r]y|kraɪ|泣く|1;f[r]iend|frend|友達|1;p[r]esent|ˈprezənt|プレゼント|1;th[r]ee|θriː|3|1;f[r]y|fraɪ|揚げる|2;p[r]ice|praɪs|価格|3"
+   ],
+   [
+    "語中",
+    "so[rr]y|ˈsɑːri|ごめんなさい|1;ve[r]y|ˈveri|とても|1;ca[rr]y|ˈkæri|運ぶ|1;a[r]ound|əˈraʊnd|周りに|1;pa[r]ent|ˈperənt|親|1;hu[rr]y|ˈhɝːi|急ぐ|1;tomo[rr]ow|təˈmɑːroʊ|明日|1;co[rr]ect|kəˈrekt|正しい|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "ac[r]oss|əˈkrɔːs|横切って|1;[r]ace|reɪs|競争|1;[r]adio|ˈreɪdioʊ|ラジオ|1;[r]aise|reɪz|上げる|1;[r]each|riːtʃ|届く|1;[r]eal|riːl|本当の|1;[r]eally|ˈriːli|本当に|1;[r]eason|ˈriːzən|理由|1;[r]ecycle|riˈsaɪkəl|再利用する|1;[r]elax|rɪˈlæks|くつろぐ|1;[r]ent|rent|借りる|1;[r]epeat|rɪˈpiːt|繰り返す|1;[r]eply|rɪˈplaɪ|返事をする|1;[r]espect|rɪˈspekt|尊敬する|1;[r]est|rest|休む|1;[r]estaurant|ˈrestɚɑːnt|レストラン|1;[r]eturn|rɪˈtɝːn|戻る|1;[r]ich|rɪtʃ|裕福な|1;[r]ide|raɪd|乗る|1;[r]ise|raɪz|上がる|1;[r]obot|ˈroʊbɑːt|ロボット|1;[r]oof|ruːf|屋根|1;[r]ope|roʊp|ロープ|1;[r]ow|roʊ|列|1;[wr]iter|ˈraɪtɚ|作家|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_w",
+  "ipa": "w",
+  "cat": "cons",
+  "key": "water",
+  "sp": "w, wh, u, o",
+  "tip": "唇を小さく丸めて前に突き出し、そこから次の母音へ一気に開く。",
+  "miss": "唇を丸めずに始める。woman が「ウーマン」、wood が「ウッド」になる。",
+  "groups": [
+   [
+    "語頭（w）",
+    "[w]ater|ˈwɑːtɚ|水|1;[w]e|wiː|私たち|1;[w]ant|wɑːnt|欲しい|1;[w]alk|wɔːk|歩く|1;[w]ork|wɝːk|働く|1;[w]eek|wiːk|週|1;[w]in|wɪn|勝つ|1;[w]indow|ˈwɪndoʊ|窓|1;[w]oman|ˈwʊmən|女性|1;[w]ood|wʊd|木材|1;[w]arranty|ˈwɔːrənti|保証書|3;[w]arehouse|ˈwerhaʊs|倉庫|3"
+   ],
+   [
+    "語頭（wh）",
+    "[wh]at|wɑːt|何|1;[wh]en|wen|いつ|1;[wh]ere|wer|どこ|1;[wh]ite|waɪt|白|1;[wh]y|waɪ|なぜ|1;[wh]ich|wɪtʃ|どちら|1"
+   ],
+   [
+    "子音のあと・語中",
+    "q[u]een|kwiːn|女王|1;q[u]estion|ˈkwestʃən|質問|1;s[w]im|swɪm|泳ぐ|1;t[w]elve|twelv|12|1;bet[w]een|bɪˈtwiːn|〜の間に|1;a[w]ay|əˈweɪ|離れて|1;al[w]ays|ˈɔːlweɪz|いつも|1;sand[w]ich|ˈsænwɪtʃ|サンドイッチ|1;[o]ne|wʌn|1|1;q[u]ality|ˈkwɑːləti|品質|3"
+   ],
+   [
+    "よく使う単語（追加）",
+    "[o]nce|wʌns|一度|1;[w]ake|weɪk|目を覚ます|1;[w]all|wɔːl|壁|1;[w]aste|weɪst|無駄にする|1;[w]ave|weɪv|波|1;[w]eak|wiːk|弱い|1;[w]elcome|ˈwelkəm|歓迎する|1;[w]ell|wel|上手に|1;[w]est|west|西|1;[w]et|wet|ぬれた|1;[w]heel|wiːl|車輪|1;[w]hile|waɪl|〜する間に|1;[w]ide|waɪd|幅の広い|1;[w]ife|waɪf|妻|1;[w]ild|waɪld|野生の|1;[w]ill|wɪl|〜だろう|1;[w]ind|wɪnd|風|1;[w]ine|waɪn|ワイン|1;[w]ing|wɪŋ|翼|1;[w]inter|ˈwɪntɚ|冬|1;[w]ish|wɪʃ|願う|1;[w]onderful|ˈwʌndɚfəl|すばらしい|1;[w]orry|ˈwɝːi|心配する|1"
+   ]
+  ]
+ },
+ {
+  "id": "c_y",
+  "ipa": "j",
+  "cat": "cons",
+  "key": "yes",
+  "sp": "y, u, ew, i",
+  "tip": "舌の中ほどを上あごに近づけ、「イ」の形から次の母音へ移る。",
+  "miss": "year と ear を同じに言う。year は「イ」の形から始める。発音記号の /j/ は日本語の「ヤ行」の音で、j の文字とは違う。",
+  "groups": [
+   [
+    "y",
+    "[y]es|jes|はい|1;[y]ou|juː|あなた|1;[y]ellow|ˈjeloʊ|黄色|1;[y]ear|jɪr|年|1;[y]oung|jʌŋ|若い|1;[y]esterday|ˈjestɚdeɪ|昨日|1;[y]et|jet|まだ|1;[y]oga|ˈjoʊɡə|ヨガ|1;[y]ogurt|ˈjoʊɡɚt|ヨーグルト|1;[y]ard|jɑːrd|庭|2"
+   ],
+   [
+    "u / ew（ユー）",
+    "[u]se|juːz|使う|1;m[u]sic|ˈmjuːzɪk|音楽|1;c[u]te|kjuːt|かわいい|1;[u]niform|ˈjuːnəfɔːrm|制服|1;[u]niversity|ˌjuːnəˈvɝːsəti|大学|1;comp[u]ter|kəmˈpjuːtɚ|コンピューター|1;men[u]|ˈmenjuː|メニュー|1;[u]sual|ˈjuːʒuəl|ふつうの|1;f[ew]|fjuː|少数の|1;h[u]ge|hjuːdʒ|巨大な|2;val[u]e|ˈvæljuː|価値|2"
+   ],
+   [
+    "その他",
+    "on[i]on|ˈʌnjən|たまねぎ|1;mill[i]on|ˈmɪljən|100万|1;Jan[u]ary|ˈdʒænjueri|1月|1;famil[i]ar|fəˈmɪljɚ|よく知っている|2;reg[u]lar|ˈreɡjəlɚ|定期的な|2;b[eau]ty|ˈbjuːti|美しさ|2"
+   ],
+   [
+    "よく使う単語（追加）",
+    "b[eau]tiful|ˈbjuːtəfəl|美しい|1;comm[u]nicate|kəˈmjuːnəkeɪt|伝え合う|2;comm[u]nity|kəˈmjuːnəti|地域社会|2;m[u]seum|mjuˈziːəm|博物館・美術館|1;[u]seful|ˈjuːsfəl|役に立つ|1"
+   ]
+  ]
+ }
 ];
 const CPAIRS=[["light","laɪt","right","raɪt","l / r"],["lead","liːd","read","riːd","l / r"],["glass","ɡlæs","grass","ɡræs","l / r"],["collect","kəˈlekt","correct","kəˈrekt","l / r"],["lock","lɑːk","rock","rɑːk","l / r"],["long","lɔːŋ","wrong","rɔːŋ","l / r"],["fly","flaɪ","fry","fraɪ","l / r"],["berry","ˈberi","very","ˈveri","b / v"],["best","best","vest","vest","b / v"],["boat","boʊt","vote","voʊt","b / v"],["ban","bæn","van","væn","b / v"],["sink","sɪŋk","think","θɪŋk","s / θ"],["mouse","maʊs","mouth","maʊθ","s / θ"],["sank","sæŋk","thank","θæŋk","s / θ"],["sick","sɪk","thick","θɪk","s / θ"],["close","kloʊz","clothe","kloʊð","z / ð"],["breeze","briːz","breathe","briːð","z / ð"],["see","siː","she","ʃiː","s / ʃ"],["sip","sɪp","ship","ʃɪp","s / ʃ"],["save","seɪv","shave","ʃeɪv","s / ʃ"],["seat","siːt","sheet","ʃiːt","s / ʃ"],["fall","fɔːl","hall","hɔːl","f / h"],["fat","fæt","hat","hæt","f / h"],["thin","θɪn","thing","θɪŋ","n / ŋ"],["ran","ræn","rang","ræŋ","n / ŋ"],["sin","sɪn","sing","sɪŋ","n / ŋ"]];
 P.push(...PC);PAIRS.push(...CPAIRS);
+
+/* VOCABULARY AND RECORDING PLAN */
+const VOCAB_HEADWORDS=["sit", "big", "fish", "milk", "this", "live", "give", "dinner", "listen", "visit", "finish", "ship", "city", "issue", "invoice", "shipping", "gym", "system", "symbol", "typical", "rhythm", "build", "building", "guilty", "English", "pretty", "women", "business", "message", "village", "package", "activity", "begin", "beginning", "brick", "bring", "cinema", "citizen", "click", "condition", "consider", "continue", "delicious", "dictionary", "difference", "difficult", "dig", "distance", "electricity", "fill", "film", "fix", "ill", "image", "improve", "include", "insect", "instead", "instrument", "international", "internet", "interview", "introduce", "invent", "invitation", "it", "its", "itself", "bed", "red", "ten", "pen", "leg", "egg", "help", "send", "best", "test", "present", "member", "schedule", "agenda", "expense", "head", "bread", "breakfast", "weather", "heavy", "ready", "health", "measure", "threat", "said", "again", "says", "any", "many", "friend", "bury", "accept", "adventure", "already", "bedroom", "benefit", "better", "celebrate", "century", "cherry", "chest", "clever", "connect", "dead", "dentist", "depend", "desert", "develop", "direction", "dress", "education", "effect", "effort", "elbow", "electric", "elephant", "else", "empty", "end", "enemy", "engine", "enter", "fence", "festival", "cat", "bag", "hat", "map", "hand", "back", "black", "thank", "plan", "apple", "happy", "family", "actually", "traffic", "challenge", "capital", "standard", "manager", "cancel", "annual", "analysis", "candidate", "balance", "ask", "glass", "last", "can't", "dance", "answer", "laugh", "aunt", "absent", "accident", "act", "action", "active", "add", "advance", "advantage", "advertise", "album", "ankle", "band", "battery", "blanket", "cabbage", "camp", "candle", "candy", "carrot", "castle", "contact", "damage", "fact", "factory", "fan", "fast", "fat", "flat", "cup", "bus", "run", "sun", "fun", "jump", "lunch", "must", "number", "Sunday", "subject", "function", "budget", "son", "come", "some", "love", "Monday", "money", "month", "other", "above", "company", "wonder", "country", "young", "double", "enough", "touch", "does", "blood", "flood", "adult", "among", "become", "button", "comfort", "discuss", "dozen", "duck", "dust", "oven", "ugly", "understand", "up", "book", "look", "cook", "good", "wood", "foot", "stood", "took", "shook", "wool", "hook", "put", "pull", "push", "full", "sugar", "pudding", "bush", "could", "would", "should", "woman", "wolf", "goodbye", "hoodie", "input", "childhood", "neighborhood", "books", "looked", "about", "ago", "away", "banana", "Japan", "sofa", "pizza", "idea", "attend", "available", "account", "lemon", "second", "computer", "today", "person", "season", "collect", "position", "confirm", "problem", "moment", "children", "garden", "support", "suppose", "success", "circus", "famous", "dangerous", "pencil", "possible", "opinion", "umbrella", "until", "teacher", "butter", "water", "father", "mother", "sister", "player", "leader", "speaker", "over", "after", "under", "order", "paper", "customer", "deliver", "doctor", "actor", "visitor", "color", "favorite", "elevator", "director", "dollar", "popular", "calendar", "regular", "picture", "nature", "future", "see", "tree", "three", "feel", "meet", "sheep", "week", "need", "sleep", "green", "fee", "employee", "eat", "tea", "sea", "read", "team", "clean", "leave", "increase", "lease", "me", "we", "complete", "piece", "believe", "police", "people", "receive", "machine", "receipt", "agree", "agreement", "bean", "beef", "ceiling", "deal", "deep", "degree", "detail", "disease", "each", "eagle", "east", "fever", "free", "food", "moon", "soon", "room", "school", "cool", "too", "zoo", "pool", "tooth", "rule", "June", "flu", "student", "super", "blue", "true", "due", "new", "flew", "crew", "do", "two", "move", "who", "group", "soup", "you", "fruit", "juice", "afternoon", "balloon", "chew", "duty", "hot", "stop", "box", "top", "job", "clock", "shop", "not", "lot", "got", "rock", "bottle", "hobby", "copy", "college", "sorry", "option", "project", "contract", "watch", "want", "what", "drama", "pasta", "pajamas", "calm", "palm", "spa", "knowledge", "opposite", "saw", "draw", "straw", "law", "awful", "caught", "taught", "daughter", "August", "because", "autumn", "author", "audit", "thought", "bought", "brought", "walk", "talk", "all", "ball", "call", "small", "also", "always", "long", "song", "strong", "coffee", "often", "loss", "offer", "online", "bird", "girl", "first", "shirt", "third", "thirsty", "birthday", "firm", "her", "service", "serve", "term", "refer", "version", "turn", "nurse", "hurt", "Thursday", "purple", "church", "purchase", "work", "word", "world", "worse", "learn", "early", "research", "journey", "certain", "circle", "dirty", "earth", "emergency", "cake", "name", "make", "game", "plane", "same", "date", "rate", "table", "baby", "station", "location", "agent", "rain", "train", "wait", "mail", "day", "play", "say", "paid", "display", "delay", "eight", "they", "break", "great", "weight", "survey", "able", "ache", "afraid", "aid", "aim", "amazing", "bacon", "bake", "basic", "blame", "brain", "brave", "cafe", "cage", "case", "chain", "complain", "contain", "conversation", "daily", "danger", "eighteen", "eighty", "face", "fail", "time", "like", "five", "nice", "write", "white", "life", "price", "site", "file", "kind", "find", "child", "mind", "climate", "client", "night", "light", "right", "high", "flight", "my", "fly", "why", "try", "pie", "tie", "buy", "eye", "supply", "alive", "apologize", "apply", "beside", "bicycle", "bike", "biology", "bite", "blind", "bright", "deny", "diary", "die", "divide", "dry", "fight", "fire", "ice", "iron", "island", "boy", "toy", "enjoy", "joy", "annoy", "destroy", "loyal", "royal", "employ", "employment", "oil", "coin", "voice", "noise", "point", "join", "boil", "toilet", "choice", "avoid", "appointment", "joint", "moist", "oyster", "poison", "soil", "spoil", "voyage", "house", "out", "mouth", "sound", "round", "ground", "loud", "cloud", "hour", "south", "thousand", "mountain", "count", "amount", "announce", "discount", "now", "how", "cow", "down", "town", "brown", "flower", "towel", "shower", "allow", "crowd", "power", "aloud", "blouse", "doubt", "ours", "ourselves", "outside", "go", "no", "so", "home", "hope", "note", "phone", "close", "open", "only", "cold", "old", "hotel", "photo", "total", "boat", "road", "coat", "soap", "approach", "loan", "know", "show", "snow", "slow", "grow", "own", "follow", "toe", "shoulder", "though", "alone", "blow", "bone", "bowl", "coast", "coconut", "code", "control", "okay", "near", "ear", "hear", "dear", "year", "clear", "fear", "tear", "appear", "beard", "beer", "deer", "cheer", "career", "engineer", "volunteer", "here", "period", "experience", "serious", "pier", "weird", "material", "cereal", "hearing", "nearly", "rear", "series", "severe", "sincere", "hair", "chair", "air", "airport", "stairs", "fair", "pair", "affair", "repair", "care", "share", "square", "careful", "scared", "compare", "prepare", "aware", "fare", "bear", "wear", "pear", "there", "where", "their", "parent", "very", "America", "vary", "area", "character", "marry", "narrow", "car", "star", "far", "card", "park", "dark", "hard", "arm", "farm", "start", "part", "smart", "March", "scarf", "charge", "party", "market", "artist", "apartment", "department", "depart", "target", "cargo", "heart", "guard", "alarm", "argue", "art", "garbage", "jar", "shark", "sharp", "for", "short", "sport", "horse", "morning", "north", "fork", "important", "report", "organize", "form", "forward", "more", "store", "before", "score", "door", "floor", "four", "course", "pour", "board", "warm", "war", "quarter", "warning", "award", "boring", "corner", "normal", "pork", "storm", "pay", "place", "post", "policy", "shopping", "expect", "captain", "keep", "trip", "step", "pack", "pain", "paint", "pan", "pancake", "pants", "pass", "passenger", "password", "past", "path", "pattern", "peace", "peach", "peanut", "pepper", "percent", "pet", "piano", "pick", "pig", "pillow", "pilot", "pipe", "plastic", "plate", "plenty", "plug", "plus", "poem", "polite", "pot", "potato", "pound", "practice", "president", "press", "print", "printer", "private", "probably", "program", "promise", "protect", "proud", "public", "brother", "bill", "branch", "rabbit", "November", "rubber", "neighbor", "club", "web", "rub", "cab", "tub", "grab", "tube", "bulb", "describe", "subscribe", "block", "borrow", "boss", "bottom", "ticket", "tax", "letter", "hospital", "interesting", "Saturday", "data", "get", "asked", "tail", "take", "tall", "taste", "tent", "terrible", "text", "tired", "title", "toast", "trash", "trouble", "truck", "truth", "tunnel", "twice", "type", "dog", "desk", "drink", "deadline", "delivery", "middle", "window", "body", "ladder", "wedding", "played", "called", "record", "address", "document", "dolphin", "key", "kitchen", "queen", "quick", "baker", "pocket", "backpack", "weekend", "rocket", "think", "check", "bank", "stomach", "common", "cost", "kangaroo", "kick", "kid", "kilometer", "kiss", "quiet", "quite", "quiz", "guess", "guitar", "goal", "guarantee", "bigger", "tiger", "forget", "language", "baggage", "flag", "hug", "drug", "dialogue", "catalog", "gas", "gate", "gift", "glad", "glove", "gold", "golf", "government", "grade", "grape", "gray", "guest", "guide", "office", "different", "telephone", "perfect", "profit", "if", "off", "half", "knife", "leaf", "chief", "staff", "fog", "vegetable", "view", "vacation", "video", "value", "vendor", "every", "never", "evening", "river", "travel", "lovely", "eleven", "advice", "have", "drive", "arrive", "valley", "van", "vitamin", "thing", "thirty", "thin", "theater", "throat", "theme", "nothing", "something", "anything", "everything", "healthy", "method", "mathematics", "math", "both", "bath", "worth", "growth", "bathroom", "breath", "cloth", "thick", "thief", "that", "the", "then", "these", "those", "than", "them", "thus", "together", "without", "either", "neither", "rather", "further", "with", "breathe", "clothe", "smooth", "bathe", "although", "another", "clothes", "grandfather", "grandmother", "themselves", "six", "center", "science", "sales", "sign", "basket", "lesson", "glasses", "decide", "baseball", "inside", "assist", "yes", "class", "miss", "rice", "sad", "safe", "safety", "sail", "salad", "salt", "sand", "sauce", "sausage", "save", "screen", "search", "seat", "secret", "seed", "seem", "sell", "sentence", "September", "seven", "several", "side", "silent", "silver", "simple", "since", "single", "sink", "skin", "skirt", "sky", "slide", "smile", "smoke", "snake", "sock", "soft", "someone", "sometimes", "somewhere", "speed", "spell", "spend", "spoon", "spring", "stamp", "stand", "stay", "steal", "stick", "still", "stone", "straight", "strange", "street", "study", "subway", "such", "suit", "suitcase", "surprise", "sweet", "zero", "zebra", "zone", "zip", "easy", "busy", "music", "crazy", "lazy", "magazine", "puzzle", "Tuesday", "example", "design", "result", "is", "has", "was", "please", "nose", "rose", "size", "dogs", "prize", "zipper", "she", "shoe", "sure", "shift", "special", "ocean", "washing", "information", "nation", "fashion", "pressure", "official", "insurance", "wash", "dish", "brush", "cash", "fresh", "shape", "sheet", "shelf", "shine", "shoot", "usual", "usually", "television", "treasure", "Asia", "pleasure", "leisure", "vision", "decision", "occasion", "casual", "conclusion", "revision", "garage", "beige", "massage", "unusual", "visual", "holiday", "whole", "human", "hire", "headquarters", "behind", "unhappy", "ahead", "perhaps", "behave", "rehearsal", "somehow", "warehouse", "habit", "hallway", "handsome", "happen", "headache", "height", "helpful", "hers", "herself", "hide", "hill", "him", "himself", "history", "hit", "hold", "hole", "homework", "honey", "however", "husband", "whose", "cheese", "chicken", "cheap", "change", "choose", "chocolate", "chance", "question", "furniture", "much", "which", "teach", "catch", "beach", "switch", "chop", "jacket", "gentle", "giant", "magic", "energy", "major", "imagine", "page", "age", "large", "orange", "bridge", "edge", "geography", "jam", "jeans", "jelly", "jog", "joke", "junior", "just", "man", "meeting", "summer", "camera", "animal", "remember", "hammer", "committee", "dream", "climb", "item", "main", "makeup", "male", "mall", "match", "matter", "maybe", "meal", "mean", "meaning", "meat", "medicine", "melt", "metal", "meter", "microwave", "mile", "mirror", "mix", "model", "modern", "motor", "mouse", "mushroom", "nine", "notice", "negotiate", "January", "finally", "tennis", "minute", "honest", "planet", "can", "one", "knee", "knock", "nap", "necessary", "neck", "nervous", "network", "next", "nobody", "novel", "nut", "sing", "king", "ring", "wrong", "singing", "hanger", "ringing", "Washington", "singer", "kingdom", "length", "pink", "uncle", "finger", "hungry", "angry", "along", "left", "lead", "local", "hello", "yellow", "tell", "email", "label", "lady", "lake", "lamp", "land", "laptop", "late", "later", "laundry", "lay", "least", "lend", "less", "let", "level", "library", "lid", "lie", "lift", "limit", "line", "link", "list", "little", "lock", "lonely", "lose", "low", "luck", "lucky", "cry", "fry", "carry", "around", "hurry", "tomorrow", "correct", "across", "race", "radio", "raise", "reach", "real", "really", "reason", "recycle", "relax", "rent", "repeat", "reply", "respect", "rest", "restaurant", "return", "rich", "ride", "rise", "robot", "roof", "rope", "row", "writer", "win", "warranty", "when", "swim", "twelve", "between", "sandwich", "quality", "once", "wake", "wall", "waste", "wave", "weak", "welcome", "well", "west", "wet", "wheel", "while", "wide", "wife", "wild", "will", "wind", "wine", "wing", "winter", "wish", "wonderful", "worry", "yesterday", "yet", "yoga", "yogurt", "yard", "use", "cute", "uniform", "university", "menu", "few", "huge", "onion", "million", "familiar", "beauty", "beautiful", "communicate", "community", "museum", "useful"];
+const VOCAB_LOOKUP={"sit": {"ja": "座る"}, "big": {"ja": "大きい"}, "fish": {"ja": "魚"}, "milk": {"ja": "牛乳"}, "this": {"ja": "これ"}, "live": {"ja": "住む"}, "give": {"ja": "与える"}, "dinner": {"ja": "夕食"}, "listen": {"ja": "聞く"}, "visit": {"ja": "訪れる"}, "finish": {"ja": "終える"}, "ship": {"ja": "船"}, "city": {"ja": "都市"}, "issue": {"ja": "問題、発行する"}, "invoice": {"ja": "請求書"}, "shipping": {"ja": "配送"}, "gym": {"ja": "ジム"}, "system": {"ja": "仕組み"}, "symbol": {"ja": "記号"}, "typical": {"ja": "典型的な"}, "rhythm": {"ja": "リズム"}, "build": {"ja": "建てる"}, "building": {"ja": "建物"}, "guilty": {"ja": "有罪の"}, "english": {"ja": "英語"}, "pretty": {"ja": "かなり、かわいい"}, "women": {"ja": "女性たち"}, "business": {"ja": "仕事"}, "message": {"ja": "伝言"}, "village": {"ja": "村"}, "package": {"ja": "小包"}, "activity": {"ja": "活動"}, "begin": {"ja": "始める"}, "beginning": {"ja": "始まり"}, "brick": {"ja": "れんが"}, "bring": {"ja": "持ってくる"}, "cinema": {"ja": "映画館"}, "citizen": {"ja": "市民"}, "click": {"ja": "クリックする"}, "condition": {"ja": "状態"}, "consider": {"ja": "よく考える"}, "continue": {"ja": "続ける"}, "delicious": {"ja": "おいしい"}, "dictionary": {"ja": "辞書"}, "difference": {"ja": "違い"}, "difficult": {"ja": "難しい"}, "dig": {"ja": "掘る"}, "distance": {"ja": "距離"}, "electricity": {"ja": "電気"}, "fill": {"ja": "満たす"}, "film": {"ja": "映画・フィルム"}, "fix": {"ja": "直す"}, "ill": {"ja": "病気の"}, "image": {"ja": "画像・印象"}, "improve": {"ja": "改善する"}, "include": {"ja": "含む"}, "insect": {"ja": "昆虫"}, "instead": {"ja": "代わりに"}, "instrument": {"ja": "楽器・器具"}, "international": {"ja": "国際的な"}, "internet": {"ja": "インターネット"}, "interview": {"ja": "面接・インタビュー"}, "introduce": {"ja": "紹介する"}, "invent": {"ja": "発明する"}, "invitation": {"ja": "招待"}, "it": {"ja": "それは・それを"}, "its": {"ja": "それの"}, "itself": {"ja": "それ自身"}, "bed": {"ja": "ベッド"}, "red": {"ja": "赤"}, "ten": {"ja": "10"}, "pen": {"ja": "ペン"}, "leg": {"ja": "脚"}, "egg": {"ja": "卵"}, "help": {"ja": "助ける"}, "send": {"ja": "送る"}, "best": {"ja": "最もよい"}, "test": {"ja": "テスト"}, "present": {"ja": "プレゼント"}, "member": {"ja": "一員"}, "schedule": {"ja": "予定"}, "agenda": {"ja": "議題"}, "expense": {"ja": "費用"}, "head": {"ja": "頭"}, "bread": {"ja": "パン"}, "breakfast": {"ja": "朝食"}, "weather": {"ja": "天気"}, "heavy": {"ja": "重い"}, "ready": {"ja": "準備ができた"}, "health": {"ja": "健康"}, "measure": {"ja": "測る"}, "threat": {"ja": "脅威"}, "said": {"ja": "言った"}, "again": {"ja": "再び"}, "says": {"ja": "言う（三単現）"}, "any": {"ja": "いくらかの"}, "many": {"ja": "たくさんの"}, "friend": {"ja": "友達"}, "bury": {"ja": "埋める"}, "accept": {"ja": "受け入れる"}, "adventure": {"ja": "冒険"}, "already": {"ja": "すでに"}, "bedroom": {"ja": "寝室"}, "benefit": {"ja": "利益"}, "better": {"ja": "よりよい"}, "celebrate": {"ja": "祝う"}, "century": {"ja": "世紀"}, "cherry": {"ja": "さくらんぼ"}, "chest": {"ja": "胸"}, "clever": {"ja": "賢い"}, "connect": {"ja": "つなぐ"}, "dead": {"ja": "死んでいる"}, "dentist": {"ja": "歯科医"}, "depend": {"ja": "頼る"}, "desert": {"ja": "砂漠"}, "develop": {"ja": "発展させる"}, "direction": {"ja": "方向"}, "dress": {"ja": "ドレス・服を着る"}, "education": {"ja": "教育"}, "effect": {"ja": "影響"}, "effort": {"ja": "努力"}, "elbow": {"ja": "ひじ"}, "electric": {"ja": "電気の"}, "elephant": {"ja": "ゾウ"}, "else": {"ja": "ほかの"}, "empty": {"ja": "空の"}, "end": {"ja": "終わり"}, "enemy": {"ja": "敵"}, "engine": {"ja": "エンジン"}, "enter": {"ja": "入る"}, "fence": {"ja": "フェンス"}, "festival": {"ja": "祭り"}, "cat": {"ja": "猫"}, "bag": {"ja": "かばん"}, "hat": {"ja": "帽子"}, "map": {"ja": "地図"}, "hand": {"ja": "手"}, "back": {"ja": "後ろ"}, "black": {"ja": "黒"}, "thank": {"ja": "感謝する"}, "plan": {"ja": "計画"}, "apple": {"ja": "りんご"}, "happy": {"ja": "幸せな"}, "family": {"ja": "家族"}, "actually": {"ja": "実は"}, "traffic": {"ja": "交通"}, "challenge": {"ja": "挑戦"}, "capital": {"ja": "首都、資本"}, "standard": {"ja": "標準"}, "manager": {"ja": "管理者"}, "cancel": {"ja": "取り消す"}, "annual": {"ja": "年1回の"}, "analysis": {"ja": "分析"}, "candidate": {"ja": "候補者"}, "balance": {"ja": "残高"}, "ask": {"ja": "尋ねる"}, "glass": {"ja": "コップ"}, "last": {"ja": "最後の"}, "can't": {"ja": "できない"}, "dance": {"ja": "踊る"}, "answer": {"ja": "答え"}, "laugh": {"ja": "笑う"}, "aunt": {"ja": "おば"}, "absent": {"ja": "欠席している"}, "accident": {"ja": "事故"}, "act": {"ja": "行動する"}, "action": {"ja": "行動"}, "active": {"ja": "活動的な"}, "add": {"ja": "加える"}, "advance": {"ja": "進歩"}, "advantage": {"ja": "利点"}, "advertise": {"ja": "広告を出す"}, "album": {"ja": "アルバム"}, "ankle": {"ja": "足首"}, "band": {"ja": "バンド"}, "battery": {"ja": "電池"}, "blanket": {"ja": "毛布"}, "cabbage": {"ja": "キャベツ"}, "camp": {"ja": "キャンプ"}, "candle": {"ja": "ろうそく"}, "candy": {"ja": "あめ"}, "carrot": {"ja": "にんじん"}, "castle": {"ja": "城"}, "contact": {"ja": "連絡する"}, "damage": {"ja": "損害"}, "fact": {"ja": "事実"}, "factory": {"ja": "工場"}, "fan": {"ja": "扇風機・ファン"}, "fast": {"ja": "速い"}, "fat": {"ja": "太った"}, "flat": {"ja": "平らな"}, "cup": {"ja": "カップ"}, "bus": {"ja": "バス"}, "run": {"ja": "走る"}, "sun": {"ja": "太陽"}, "fun": {"ja": "楽しみ"}, "jump": {"ja": "跳ぶ"}, "lunch": {"ja": "昼食"}, "must": {"ja": "〜しなければならない"}, "number": {"ja": "数"}, "sunday": {"ja": "日曜日"}, "subject": {"ja": "教科、件名"}, "function": {"ja": "機能"}, "budget": {"ja": "予算"}, "son": {"ja": "息子"}, "come": {"ja": "来る"}, "some": {"ja": "いくつかの"}, "love": {"ja": "愛する"}, "monday": {"ja": "月曜日"}, "money": {"ja": "お金"}, "month": {"ja": "月"}, "other": {"ja": "ほかの"}, "above": {"ja": "上に"}, "company": {"ja": "会社"}, "wonder": {"ja": "不思議に思う"}, "country": {"ja": "国"}, "young": {"ja": "若い"}, "double": {"ja": "2倍の"}, "enough": {"ja": "十分な"}, "touch": {"ja": "触れる"}, "does": {"ja": "する（三単現）"}, "blood": {"ja": "血"}, "flood": {"ja": "洪水"}, "adult": {"ja": "大人"}, "among": {"ja": "〜の間に"}, "become": {"ja": "〜になる"}, "button": {"ja": "ボタン"}, "comfort": {"ja": "心地よさ"}, "discuss": {"ja": "話し合う"}, "dozen": {"ja": "12個"}, "duck": {"ja": "アヒル"}, "dust": {"ja": "ほこり"}, "oven": {"ja": "オーブン"}, "ugly": {"ja": "醜い"}, "understand": {"ja": "理解する"}, "up": {"ja": "上へ"}, "book": {"ja": "本"}, "look": {"ja": "見る"}, "cook": {"ja": "料理する"}, "good": {"ja": "よい"}, "wood": {"ja": "木材"}, "foot": {"ja": "足"}, "stood": {"ja": "立った"}, "took": {"ja": "取った"}, "shook": {"ja": "振った"}, "wool": {"ja": "羊毛"}, "hook": {"ja": "フック"}, "put": {"ja": "置く"}, "pull": {"ja": "引く"}, "push": {"ja": "押す"}, "full": {"ja": "いっぱいの"}, "sugar": {"ja": "砂糖"}, "pudding": {"ja": "プリン"}, "bush": {"ja": "茂み"}, "could": {"ja": "〜できた"}, "would": {"ja": "〜だろう"}, "should": {"ja": "〜すべき"}, "woman": {"ja": "女性"}, "wolf": {"ja": "オオカミ"}, "goodbye": {"ja": "さようなら"}, "hoodie": {"ja": "パーカー"}, "input": {"ja": "入力"}, "childhood": {"ja": "子ども時代"}, "neighborhood": {"ja": "近所"}, "books": {"ja": "本（複数）"}, "looked": {"ja": "見た"}, "about": {"ja": "約、〜について"}, "ago": {"ja": "〜前に"}, "away": {"ja": "離れて"}, "banana": {"ja": "バナナ"}, "japan": {"ja": "日本"}, "sofa": {"ja": "ソファ"}, "pizza": {"ja": "ピザ"}, "idea": {"ja": "考え"}, "attend": {"ja": "出席する"}, "available": {"ja": "利用できる"}, "account": {"ja": "口座、アカウント"}, "lemon": {"ja": "レモン"}, "second": {"ja": "2番目の、秒"}, "computer": {"ja": "コンピューター"}, "today": {"ja": "今日"}, "person": {"ja": "人"}, "season": {"ja": "季節"}, "collect": {"ja": "集める"}, "position": {"ja": "位置、職"}, "confirm": {"ja": "確認する"}, "problem": {"ja": "問題"}, "moment": {"ja": "瞬間"}, "children": {"ja": "子どもたち"}, "garden": {"ja": "庭"}, "support": {"ja": "支える"}, "suppose": {"ja": "思う"}, "success": {"ja": "成功"}, "circus": {"ja": "サーカス"}, "famous": {"ja": "有名な"}, "dangerous": {"ja": "危険な"}, "pencil": {"ja": "鉛筆"}, "possible": {"ja": "可能な"}, "opinion": {"ja": "意見"}, "umbrella": {"ja": "傘"}, "until": {"ja": "〜まで"}, "teacher": {"ja": "先生"}, "butter": {"ja": "バター"}, "water": {"ja": "水"}, "father": {"ja": "父"}, "mother": {"ja": "母"}, "sister": {"ja": "姉妹"}, "player": {"ja": "選手"}, "leader": {"ja": "リーダー"}, "speaker": {"ja": "話し手"}, "over": {"ja": "〜を越えて"}, "after": {"ja": "〜のあとで"}, "under": {"ja": "〜の下に"}, "order": {"ja": "注文"}, "paper": {"ja": "紙"}, "customer": {"ja": "顧客"}, "deliver": {"ja": "配達する"}, "doctor": {"ja": "医者"}, "actor": {"ja": "俳優"}, "visitor": {"ja": "訪問者"}, "color": {"ja": "色"}, "favorite": {"ja": "お気に入りの"}, "elevator": {"ja": "エレベーター"}, "director": {"ja": "責任者"}, "dollar": {"ja": "ドル"}, "popular": {"ja": "人気のある"}, "calendar": {"ja": "カレンダー"}, "regular": {"ja": "定期的な"}, "picture": {"ja": "絵、写真"}, "nature": {"ja": "自然"}, "future": {"ja": "未来"}, "see": {"ja": "見る"}, "tree": {"ja": "木"}, "three": {"ja": "3"}, "feel": {"ja": "感じる"}, "meet": {"ja": "会う"}, "sheep": {"ja": "羊"}, "week": {"ja": "週"}, "need": {"ja": "必要とする"}, "sleep": {"ja": "眠る"}, "green": {"ja": "緑"}, "fee": {"ja": "料金"}, "employee": {"ja": "従業員"}, "eat": {"ja": "食べる"}, "tea": {"ja": "お茶"}, "sea": {"ja": "海"}, "read": {"ja": "読む"}, "team": {"ja": "チーム"}, "clean": {"ja": "きれいな"}, "leave": {"ja": "去る"}, "increase": {"ja": "増える"}, "lease": {"ja": "賃貸契約"}, "me": {"ja": "私を"}, "we": {"ja": "私たち"}, "complete": {"ja": "完成させる"}, "piece": {"ja": "1切れ"}, "believe": {"ja": "信じる"}, "police": {"ja": "警察"}, "people": {"ja": "人々"}, "receive": {"ja": "受け取る"}, "machine": {"ja": "機械"}, "receipt": {"ja": "領収書"}, "agree": {"ja": "賛成する"}, "agreement": {"ja": "合意"}, "bean": {"ja": "豆"}, "beef": {"ja": "牛肉"}, "ceiling": {"ja": "天井"}, "deal": {"ja": "取引"}, "deep": {"ja": "深い"}, "degree": {"ja": "程度・学位"}, "detail": {"ja": "詳細"}, "disease": {"ja": "病気"}, "each": {"ja": "それぞれの"}, "eagle": {"ja": "ワシ"}, "east": {"ja": "東"}, "fever": {"ja": "熱"}, "free": {"ja": "自由な・無料の"}, "food": {"ja": "食べ物"}, "moon": {"ja": "月"}, "soon": {"ja": "すぐに"}, "room": {"ja": "部屋"}, "school": {"ja": "学校"}, "cool": {"ja": "涼しい"}, "too": {"ja": "〜も"}, "zoo": {"ja": "動物園"}, "pool": {"ja": "プール"}, "tooth": {"ja": "歯"}, "rule": {"ja": "規則"}, "june": {"ja": "6月"}, "flu": {"ja": "インフルエンザ"}, "student": {"ja": "学生"}, "super": {"ja": "すごい"}, "blue": {"ja": "青"}, "true": {"ja": "本当の"}, "due": {"ja": "期限の"}, "new": {"ja": "新しい"}, "flew": {"ja": "飛んだ"}, "crew": {"ja": "乗組員"}, "do": {"ja": "する"}, "two": {"ja": "2"}, "move": {"ja": "動く"}, "who": {"ja": "誰"}, "group": {"ja": "グループ"}, "soup": {"ja": "スープ"}, "you": {"ja": "あなた"}, "fruit": {"ja": "果物"}, "juice": {"ja": "ジュース"}, "afternoon": {"ja": "午後"}, "balloon": {"ja": "風船"}, "chew": {"ja": "かむ"}, "duty": {"ja": "義務・仕事"}, "hot": {"ja": "暑い"}, "stop": {"ja": "止まる"}, "box": {"ja": "箱"}, "top": {"ja": "頂上"}, "job": {"ja": "仕事"}, "clock": {"ja": "時計"}, "shop": {"ja": "店"}, "not": {"ja": "〜でない"}, "lot": {"ja": "たくさん"}, "got": {"ja": "得た"}, "rock": {"ja": "岩"}, "bottle": {"ja": "ビン"}, "hobby": {"ja": "趣味"}, "copy": {"ja": "写し"}, "college": {"ja": "大学"}, "sorry": {"ja": "ごめんなさい"}, "option": {"ja": "選択肢"}, "project": {"ja": "計画"}, "contract": {"ja": "契約"}, "watch": {"ja": "見る、腕時計"}, "want": {"ja": "欲しい"}, "what": {"ja": "何"}, "drama": {"ja": "ドラマ"}, "pasta": {"ja": "パスタ"}, "pajamas": {"ja": "パジャマ"}, "calm": {"ja": "落ち着いた"}, "palm": {"ja": "手のひら"}, "spa": {"ja": "温泉施設"}, "knowledge": {"ja": "知識"}, "opposite": {"ja": "反対の"}, "saw": {"ja": "見た"}, "draw": {"ja": "描く"}, "straw": {"ja": "ストロー"}, "law": {"ja": "法律"}, "awful": {"ja": "ひどい"}, "caught": {"ja": "捕まえた"}, "taught": {"ja": "教えた"}, "daughter": {"ja": "娘"}, "august": {"ja": "8月"}, "because": {"ja": "なぜなら"}, "autumn": {"ja": "秋"}, "author": {"ja": "著者"}, "audit": {"ja": "監査"}, "thought": {"ja": "思った"}, "bought": {"ja": "買った"}, "brought": {"ja": "持ってきた"}, "walk": {"ja": "歩く"}, "talk": {"ja": "話す"}, "all": {"ja": "すべて"}, "ball": {"ja": "ボール"}, "call": {"ja": "電話する"}, "small": {"ja": "小さい"}, "also": {"ja": "〜も"}, "always": {"ja": "いつも"}, "long": {"ja": "長い"}, "song": {"ja": "歌"}, "strong": {"ja": "強い"}, "coffee": {"ja": "コーヒー"}, "often": {"ja": "しばしば"}, "loss": {"ja": "損失"}, "offer": {"ja": "申し出る"}, "online": {"ja": "オンラインで"}, "bird": {"ja": "鳥"}, "girl": {"ja": "女の子"}, "first": {"ja": "最初の"}, "shirt": {"ja": "シャツ"}, "third": {"ja": "3番目の"}, "thirsty": {"ja": "のどが渇いた"}, "birthday": {"ja": "誕生日"}, "firm": {"ja": "会社"}, "her": {"ja": "彼女の"}, "service": {"ja": "サービス"}, "serve": {"ja": "出す、仕える"}, "term": {"ja": "期間、用語"}, "refer": {"ja": "参照する"}, "version": {"ja": "版"}, "turn": {"ja": "曲がる"}, "nurse": {"ja": "看護師"}, "hurt": {"ja": "傷つける"}, "thursday": {"ja": "木曜日"}, "purple": {"ja": "紫"}, "church": {"ja": "教会"}, "purchase": {"ja": "購入する"}, "work": {"ja": "働く"}, "word": {"ja": "単語"}, "world": {"ja": "世界"}, "worse": {"ja": "より悪い"}, "learn": {"ja": "学ぶ"}, "early": {"ja": "早い"}, "research": {"ja": "研究"}, "journey": {"ja": "旅"}, "certain": {"ja": "確かな"}, "circle": {"ja": "円"}, "dirty": {"ja": "汚れた"}, "earth": {"ja": "地球"}, "emergency": {"ja": "緊急事態"}, "cake": {"ja": "ケーキ"}, "name": {"ja": "名前"}, "make": {"ja": "作る"}, "game": {"ja": "試合"}, "plane": {"ja": "飛行機"}, "same": {"ja": "同じ"}, "date": {"ja": "日付"}, "rate": {"ja": "料金、割合"}, "table": {"ja": "テーブル"}, "baby": {"ja": "赤ちゃん"}, "station": {"ja": "駅"}, "location": {"ja": "場所"}, "agent": {"ja": "代理人"}, "rain": {"ja": "雨"}, "train": {"ja": "電車"}, "wait": {"ja": "待つ"}, "mail": {"ja": "郵便"}, "day": {"ja": "日"}, "play": {"ja": "遊ぶ"}, "say": {"ja": "言う"}, "paid": {"ja": "支払った"}, "display": {"ja": "展示する"}, "delay": {"ja": "遅れ"}, "eight": {"ja": "8"}, "they": {"ja": "彼ら"}, "break": {"ja": "壊す、休憩"}, "great": {"ja": "すばらしい"}, "weight": {"ja": "重さ"}, "survey": {"ja": "調査"}, "able": {"ja": "できる"}, "ache": {"ja": "痛み"}, "afraid": {"ja": "恐れている"}, "aid": {"ja": "援助"}, "aim": {"ja": "目標"}, "amazing": {"ja": "驚くほどの"}, "bacon": {"ja": "ベーコン"}, "bake": {"ja": "焼く"}, "basic": {"ja": "基本的な"}, "blame": {"ja": "責める"}, "brain": {"ja": "脳"}, "brave": {"ja": "勇敢な"}, "cafe": {"ja": "カフェ"}, "cage": {"ja": "かご"}, "case": {"ja": "場合"}, "chain": {"ja": "鎖"}, "complain": {"ja": "不満を言う"}, "contain": {"ja": "含む"}, "conversation": {"ja": "会話"}, "daily": {"ja": "毎日の"}, "danger": {"ja": "危険"}, "eighteen": {"ja": "18"}, "eighty": {"ja": "80"}, "face": {"ja": "顔"}, "fail": {"ja": "失敗する"}, "time": {"ja": "時間"}, "like": {"ja": "好き"}, "five": {"ja": "5"}, "nice": {"ja": "すてきな"}, "write": {"ja": "書く"}, "white": {"ja": "白"}, "life": {"ja": "生活"}, "price": {"ja": "価格"}, "site": {"ja": "用地、サイト"}, "file": {"ja": "ファイル"}, "kind": {"ja": "親切な"}, "find": {"ja": "見つける"}, "child": {"ja": "子ども"}, "mind": {"ja": "気にする"}, "climate": {"ja": "気候"}, "client": {"ja": "顧客"}, "night": {"ja": "夜"}, "light": {"ja": "光"}, "right": {"ja": "右、正しい"}, "high": {"ja": "高い"}, "flight": {"ja": "航空便"}, "my": {"ja": "私の"}, "fly": {"ja": "飛ぶ"}, "why": {"ja": "なぜ"}, "try": {"ja": "試す"}, "pie": {"ja": "パイ"}, "tie": {"ja": "ネクタイ"}, "buy": {"ja": "買う"}, "eye": {"ja": "目"}, "supply": {"ja": "供給"}, "alive": {"ja": "生きている"}, "apologize": {"ja": "謝る"}, "apply": {"ja": "応募する"}, "beside": {"ja": "〜のそばに"}, "bicycle": {"ja": "自転車"}, "bike": {"ja": "自転車"}, "biology": {"ja": "生物学"}, "bite": {"ja": "かむ"}, "blind": {"ja": "目が見えない"}, "bright": {"ja": "明るい"}, "deny": {"ja": "否定する"}, "diary": {"ja": "日記"}, "die": {"ja": "死ぬ"}, "divide": {"ja": "分ける"}, "dry": {"ja": "乾いた"}, "fight": {"ja": "戦う"}, "fire": {"ja": "火"}, "ice": {"ja": "氷"}, "iron": {"ja": "鉄・アイロン"}, "island": {"ja": "島"}, "boy": {"ja": "男の子"}, "toy": {"ja": "おもちゃ"}, "enjoy": {"ja": "楽しむ"}, "joy": {"ja": "喜び"}, "annoy": {"ja": "いらだたせる"}, "destroy": {"ja": "破壊する"}, "loyal": {"ja": "忠実な"}, "royal": {"ja": "王室の"}, "employ": {"ja": "雇う"}, "employment": {"ja": "雇用"}, "oil": {"ja": "油"}, "coin": {"ja": "硬貨"}, "voice": {"ja": "声"}, "noise": {"ja": "騒音"}, "point": {"ja": "点"}, "join": {"ja": "参加する"}, "boil": {"ja": "ゆでる"}, "toilet": {"ja": "トイレ"}, "choice": {"ja": "選択"}, "avoid": {"ja": "避ける"}, "appointment": {"ja": "約束、予約"}, "joint": {"ja": "関節・接合部"}, "moist": {"ja": "湿った"}, "oyster": {"ja": "かき"}, "poison": {"ja": "毒"}, "soil": {"ja": "土"}, "spoil": {"ja": "台無しにする"}, "voyage": {"ja": "航海"}, "house": {"ja": "家"}, "out": {"ja": "外へ"}, "mouth": {"ja": "口"}, "sound": {"ja": "音"}, "round": {"ja": "丸い"}, "ground": {"ja": "地面"}, "loud": {"ja": "うるさい"}, "cloud": {"ja": "雲"}, "hour": {"ja": "1時間"}, "south": {"ja": "南"}, "thousand": {"ja": "1000"}, "mountain": {"ja": "山"}, "count": {"ja": "数える"}, "amount": {"ja": "量、金額"}, "announce": {"ja": "発表する"}, "discount": {"ja": "割引"}, "now": {"ja": "今"}, "how": {"ja": "どのように"}, "cow": {"ja": "牛"}, "down": {"ja": "下へ"}, "town": {"ja": "町"}, "brown": {"ja": "茶色"}, "flower": {"ja": "花"}, "towel": {"ja": "タオル"}, "shower": {"ja": "シャワー"}, "allow": {"ja": "許す"}, "crowd": {"ja": "群衆"}, "power": {"ja": "力"}, "aloud": {"ja": "声を出して"}, "blouse": {"ja": "ブラウス"}, "doubt": {"ja": "疑い"}, "ours": {"ja": "私たちのもの"}, "ourselves": {"ja": "私たち自身"}, "outside": {"ja": "外に・外側"}, "go": {"ja": "行く"}, "no": {"ja": "いいえ"}, "so": {"ja": "だから"}, "home": {"ja": "家"}, "hope": {"ja": "望む"}, "note": {"ja": "メモ"}, "phone": {"ja": "電話"}, "close": {"ja": "閉める"}, "open": {"ja": "開ける"}, "only": {"ja": "〜だけ"}, "cold": {"ja": "寒い"}, "old": {"ja": "古い"}, "hotel": {"ja": "ホテル"}, "photo": {"ja": "写真"}, "total": {"ja": "合計"}, "boat": {"ja": "ボート"}, "road": {"ja": "道路"}, "coat": {"ja": "コート"}, "soap": {"ja": "石けん"}, "approach": {"ja": "近づく"}, "loan": {"ja": "ローン"}, "know": {"ja": "知っている"}, "show": {"ja": "見せる"}, "snow": {"ja": "雪"}, "slow": {"ja": "遅い"}, "grow": {"ja": "育つ"}, "own": {"ja": "自分自身の"}, "follow": {"ja": "ついていく"}, "toe": {"ja": "足の指"}, "shoulder": {"ja": "肩"}, "though": {"ja": "〜だけれども"}, "alone": {"ja": "ひとりで"}, "blow": {"ja": "吹く"}, "bone": {"ja": "骨"}, "bowl": {"ja": "ボウル"}, "coast": {"ja": "海岸"}, "coconut": {"ja": "ココナッツ"}, "code": {"ja": "コード"}, "control": {"ja": "管理する"}, "okay": {"ja": "大丈夫な"}, "near": {"ja": "近くに"}, "ear": {"ja": "耳"}, "hear": {"ja": "聞こえる"}, "dear": {"ja": "親愛なる"}, "year": {"ja": "年"}, "clear": {"ja": "はっきりした"}, "fear": {"ja": "恐怖"}, "tear": {"ja": "涙"}, "appear": {"ja": "現れる"}, "beard": {"ja": "あごひげ"}, "beer": {"ja": "ビール"}, "deer": {"ja": "シカ"}, "cheer": {"ja": "応援する"}, "career": {"ja": "経歴"}, "engineer": {"ja": "技術者"}, "volunteer": {"ja": "ボランティア"}, "here": {"ja": "ここに"}, "period": {"ja": "期間"}, "experience": {"ja": "経験"}, "serious": {"ja": "深刻な"}, "pier": {"ja": "桟橋"}, "weird": {"ja": "奇妙な"}, "material": {"ja": "材料、資料"}, "cereal": {"ja": "シリアル"}, "hearing": {"ja": "聴力・聞くこと"}, "nearly": {"ja": "ほとんど・もう少しで"}, "rear": {"ja": "後ろの"}, "series": {"ja": "シリーズ"}, "severe": {"ja": "厳しい"}, "sincere": {"ja": "誠実な"}, "hair": {"ja": "髪"}, "chair": {"ja": "いす"}, "air": {"ja": "空気"}, "airport": {"ja": "空港"}, "stairs": {"ja": "階段"}, "fair": {"ja": "公平な"}, "pair": {"ja": "1組"}, "affair": {"ja": "出来事"}, "repair": {"ja": "修理する"}, "care": {"ja": "世話、気にかける"}, "share": {"ja": "共有する"}, "square": {"ja": "正方形"}, "careful": {"ja": "注意深い"}, "scared": {"ja": "怖がった"}, "compare": {"ja": "比べる"}, "prepare": {"ja": "準備する"}, "aware": {"ja": "気づいている"}, "fare": {"ja": "運賃"}, "bear": {"ja": "クマ"}, "wear": {"ja": "着ている"}, "pear": {"ja": "洋ナシ"}, "there": {"ja": "そこに"}, "where": {"ja": "どこ"}, "their": {"ja": "彼らの"}, "parent": {"ja": "親"}, "very": {"ja": "とても"}, "america": {"ja": "アメリカ"}, "vary": {"ja": "異なる"}, "area": {"ja": "地域"}, "character": {"ja": "性格・登場人物"}, "marry": {"ja": "結婚する"}, "narrow": {"ja": "狭い"}, "car": {"ja": "車"}, "star": {"ja": "星"}, "far": {"ja": "遠い"}, "card": {"ja": "カード"}, "park": {"ja": "公園"}, "dark": {"ja": "暗い"}, "hard": {"ja": "難しい"}, "arm": {"ja": "腕"}, "farm": {"ja": "農場"}, "start": {"ja": "始める"}, "part": {"ja": "部分"}, "smart": {"ja": "賢い"}, "march": {"ja": "3月"}, "scarf": {"ja": "マフラー"}, "charge": {"ja": "料金"}, "party": {"ja": "パーティー"}, "market": {"ja": "市場"}, "artist": {"ja": "芸術家"}, "apartment": {"ja": "アパート"}, "department": {"ja": "部門"}, "depart": {"ja": "出発する"}, "target": {"ja": "目標"}, "cargo": {"ja": "貨物"}, "heart": {"ja": "心臓、心"}, "guard": {"ja": "警備員"}, "alarm": {"ja": "警報"}, "argue": {"ja": "言い争う"}, "art": {"ja": "美術"}, "garbage": {"ja": "ごみ"}, "jar": {"ja": "びん"}, "shark": {"ja": "サメ"}, "sharp": {"ja": "鋭い"}, "for": {"ja": "〜のために"}, "short": {"ja": "短い"}, "sport": {"ja": "スポーツ"}, "horse": {"ja": "馬"}, "morning": {"ja": "朝"}, "north": {"ja": "北"}, "fork": {"ja": "フォーク"}, "important": {"ja": "重要な"}, "report": {"ja": "報告"}, "organize": {"ja": "まとめる"}, "form": {"ja": "用紙"}, "forward": {"ja": "転送する"}, "more": {"ja": "もっと"}, "store": {"ja": "店"}, "before": {"ja": "〜の前に"}, "score": {"ja": "得点"}, "door": {"ja": "ドア"}, "floor": {"ja": "床、階"}, "four": {"ja": "4"}, "course": {"ja": "講座"}, "pour": {"ja": "注ぐ"}, "board": {"ja": "板、役員会"}, "warm": {"ja": "暖かい"}, "war": {"ja": "戦争"}, "quarter": {"ja": "4分の1"}, "warning": {"ja": "警告"}, "award": {"ja": "賞"}, "boring": {"ja": "退屈な"}, "corner": {"ja": "角"}, "normal": {"ja": "普通の"}, "pork": {"ja": "豚肉"}, "storm": {"ja": "嵐"}, "pay": {"ja": "支払う"}, "place": {"ja": "場所"}, "post": {"ja": "郵便"}, "policy": {"ja": "方針"}, "shopping": {"ja": "買い物"}, "expect": {"ja": "予期する"}, "captain": {"ja": "船長"}, "keep": {"ja": "保つ"}, "trip": {"ja": "旅行"}, "step": {"ja": "段階"}, "pack": {"ja": "詰める"}, "pain": {"ja": "痛み"}, "paint": {"ja": "塗る・絵の具"}, "pan": {"ja": "平鍋"}, "pancake": {"ja": "パンケーキ"}, "pants": {"ja": "ズボン"}, "pass": {"ja": "通る・渡す"}, "passenger": {"ja": "乗客"}, "password": {"ja": "パスワード"}, "past": {"ja": "過去の・過去"}, "path": {"ja": "小道"}, "pattern": {"ja": "模様・型"}, "peace": {"ja": "平和"}, "peach": {"ja": "桃"}, "peanut": {"ja": "ピーナッツ"}, "pepper": {"ja": "こしょう・ピーマン"}, "percent": {"ja": "パーセント"}, "pet": {"ja": "ペット"}, "piano": {"ja": "ピアノ"}, "pick": {"ja": "選ぶ・拾う"}, "pig": {"ja": "豚"}, "pillow": {"ja": "枕"}, "pilot": {"ja": "操縦士"}, "pipe": {"ja": "管"}, "plastic": {"ja": "プラスチック"}, "plate": {"ja": "皿"}, "plenty": {"ja": "たくさん"}, "plug": {"ja": "プラグ・差し込む"}, "plus": {"ja": "足す・プラス"}, "poem": {"ja": "詩"}, "polite": {"ja": "礼儀正しい"}, "pot": {"ja": "鍋"}, "potato": {"ja": "じゃがいも"}, "pound": {"ja": "ポンド"}, "practice": {"ja": "練習"}, "president": {"ja": "大統領・社長"}, "press": {"ja": "押す"}, "print": {"ja": "印刷する"}, "printer": {"ja": "プリンター"}, "private": {"ja": "私的な"}, "probably": {"ja": "おそらく"}, "program": {"ja": "番組・プログラム"}, "promise": {"ja": "約束する"}, "protect": {"ja": "守る"}, "proud": {"ja": "誇りに思う"}, "public": {"ja": "公共の"}, "brother": {"ja": "兄弟"}, "bill": {"ja": "請求書"}, "branch": {"ja": "支店"}, "rabbit": {"ja": "うさぎ"}, "november": {"ja": "11月"}, "rubber": {"ja": "ゴム"}, "neighbor": {"ja": "隣人"}, "club": {"ja": "クラブ"}, "web": {"ja": "ウェブ"}, "rub": {"ja": "こする"}, "cab": {"ja": "タクシー"}, "tub": {"ja": "浴槽"}, "grab": {"ja": "つかむ"}, "tube": {"ja": "管"}, "bulb": {"ja": "電球"}, "describe": {"ja": "説明する"}, "subscribe": {"ja": "定期購読する"}, "block": {"ja": "区画・妨げる"}, "borrow": {"ja": "借りる"}, "boss": {"ja": "上司"}, "bottom": {"ja": "底"}, "ticket": {"ja": "切符"}, "tax": {"ja": "税金"}, "letter": {"ja": "手紙"}, "hospital": {"ja": "病院"}, "interesting": {"ja": "おもしろい"}, "saturday": {"ja": "土曜日"}, "data": {"ja": "データ"}, "get": {"ja": "得る"}, "asked": {"ja": "尋ねた"}, "tail": {"ja": "尾"}, "take": {"ja": "取る"}, "tall": {"ja": "背の高い"}, "taste": {"ja": "味"}, "tent": {"ja": "テント"}, "terrible": {"ja": "ひどい"}, "text": {"ja": "文章"}, "tired": {"ja": "疲れた"}, "title": {"ja": "題名"}, "toast": {"ja": "トースト"}, "trash": {"ja": "ごみ"}, "trouble": {"ja": "困ったこと"}, "truck": {"ja": "トラック"}, "truth": {"ja": "真実"}, "tunnel": {"ja": "トンネル"}, "twice": {"ja": "2回"}, "type": {"ja": "種類"}, "dog": {"ja": "犬"}, "desk": {"ja": "机"}, "drink": {"ja": "飲む"}, "deadline": {"ja": "締め切り"}, "delivery": {"ja": "配達"}, "middle": {"ja": "真ん中"}, "window": {"ja": "窓"}, "body": {"ja": "体"}, "ladder": {"ja": "はしご"}, "wedding": {"ja": "結婚式"}, "played": {"ja": "遊んだ"}, "called": {"ja": "電話した"}, "record": {"ja": "記録"}, "address": {"ja": "住所"}, "document": {"ja": "書類"}, "dolphin": {"ja": "イルカ"}, "key": {"ja": "かぎ"}, "kitchen": {"ja": "台所"}, "queen": {"ja": "女王"}, "quick": {"ja": "速い"}, "baker": {"ja": "パン屋"}, "pocket": {"ja": "ポケット"}, "backpack": {"ja": "リュック"}, "weekend": {"ja": "週末"}, "rocket": {"ja": "ロケット"}, "think": {"ja": "思う"}, "check": {"ja": "確認する"}, "bank": {"ja": "銀行"}, "stomach": {"ja": "胃"}, "common": {"ja": "共通の・よくある"}, "cost": {"ja": "費用"}, "kangaroo": {"ja": "カンガルー"}, "kick": {"ja": "蹴る"}, "kid": {"ja": "子ども"}, "kilometer": {"ja": "キロメートル"}, "kiss": {"ja": "キスする"}, "quiet": {"ja": "静かな"}, "quite": {"ja": "かなり"}, "quiz": {"ja": "小テスト"}, "guess": {"ja": "推測する"}, "guitar": {"ja": "ギター"}, "goal": {"ja": "目標"}, "guarantee": {"ja": "保証"}, "bigger": {"ja": "より大きい"}, "tiger": {"ja": "トラ"}, "forget": {"ja": "忘れる"}, "language": {"ja": "言語"}, "baggage": {"ja": "手荷物"}, "flag": {"ja": "旗"}, "hug": {"ja": "抱きしめる"}, "drug": {"ja": "薬"}, "dialogue": {"ja": "対話"}, "catalog": {"ja": "カタログ"}, "gas": {"ja": "ガス"}, "gate": {"ja": "門"}, "gift": {"ja": "贈り物"}, "glad": {"ja": "うれしい"}, "glove": {"ja": "手袋"}, "gold": {"ja": "金"}, "golf": {"ja": "ゴルフ"}, "government": {"ja": "政府"}, "grade": {"ja": "学年・成績"}, "grape": {"ja": "ぶどう"}, "gray": {"ja": "灰色"}, "guest": {"ja": "客"}, "guide": {"ja": "案内する"}, "office": {"ja": "事務所"}, "different": {"ja": "違う"}, "telephone": {"ja": "電話"}, "perfect": {"ja": "完ぺきな"}, "profit": {"ja": "利益"}, "if": {"ja": "もし"}, "off": {"ja": "離れて"}, "half": {"ja": "半分"}, "knife": {"ja": "ナイフ"}, "leaf": {"ja": "葉"}, "chief": {"ja": "長"}, "staff": {"ja": "職員"}, "fog": {"ja": "霧"}, "vegetable": {"ja": "野菜"}, "view": {"ja": "眺め"}, "vacation": {"ja": "休暇"}, "video": {"ja": "動画"}, "value": {"ja": "価値"}, "vendor": {"ja": "販売業者"}, "every": {"ja": "すべての"}, "never": {"ja": "一度も〜ない"}, "evening": {"ja": "夕方"}, "river": {"ja": "川"}, "travel": {"ja": "旅行する"}, "lovely": {"ja": "すてきな"}, "eleven": {"ja": "11"}, "advice": {"ja": "助言"}, "have": {"ja": "持っている"}, "drive": {"ja": "運転する"}, "arrive": {"ja": "到着する"}, "valley": {"ja": "谷"}, "van": {"ja": "バン"}, "vitamin": {"ja": "ビタミン"}, "thing": {"ja": "もの"}, "thirty": {"ja": "30"}, "thin": {"ja": "薄い"}, "theater": {"ja": "劇場"}, "throat": {"ja": "のど"}, "theme": {"ja": "テーマ"}, "nothing": {"ja": "何も〜ない"}, "something": {"ja": "何か"}, "anything": {"ja": "何でも"}, "everything": {"ja": "すべて"}, "healthy": {"ja": "健康な"}, "method": {"ja": "方法"}, "mathematics": {"ja": "数学"}, "math": {"ja": "数学"}, "both": {"ja": "両方"}, "bath": {"ja": "入浴"}, "worth": {"ja": "価値がある"}, "growth": {"ja": "成長"}, "bathroom": {"ja": "浴室・トイレ"}, "breath": {"ja": "息"}, "cloth": {"ja": "布"}, "thick": {"ja": "厚い"}, "thief": {"ja": "泥棒"}, "that": {"ja": "あれ"}, "the": {"ja": "その"}, "then": {"ja": "そのとき"}, "these": {"ja": "これら"}, "those": {"ja": "それら"}, "than": {"ja": "〜より"}, "them": {"ja": "彼らを"}, "thus": {"ja": "したがって"}, "together": {"ja": "一緒に"}, "without": {"ja": "〜なしで"}, "either": {"ja": "どちらか"}, "neither": {"ja": "どちらも〜ない"}, "rather": {"ja": "むしろ"}, "further": {"ja": "さらに"}, "with": {"ja": "〜と一緒に"}, "breathe": {"ja": "呼吸する"}, "clothe": {"ja": "服を着せる"}, "smooth": {"ja": "なめらかな"}, "bathe": {"ja": "入浴させる"}, "although": {"ja": "〜だけれども"}, "another": {"ja": "もうひとつの"}, "clothes": {"ja": "衣服"}, "grandfather": {"ja": "祖父"}, "grandmother": {"ja": "祖母"}, "themselves": {"ja": "彼ら自身"}, "six": {"ja": "6"}, "center": {"ja": "中心"}, "science": {"ja": "科学"}, "sales": {"ja": "売上"}, "sign": {"ja": "署名する"}, "basket": {"ja": "かご"}, "lesson": {"ja": "授業"}, "glasses": {"ja": "めがね"}, "decide": {"ja": "決める"}, "baseball": {"ja": "野球"}, "inside": {"ja": "内側"}, "assist": {"ja": "手伝う"}, "yes": {"ja": "はい"}, "class": {"ja": "授業"}, "miss": {"ja": "逃す"}, "rice": {"ja": "米"}, "sad": {"ja": "悲しい"}, "safe": {"ja": "安全な"}, "safety": {"ja": "安全"}, "sail": {"ja": "航海する"}, "salad": {"ja": "サラダ"}, "salt": {"ja": "塩"}, "sand": {"ja": "砂"}, "sauce": {"ja": "ソース"}, "sausage": {"ja": "ソーセージ"}, "save": {"ja": "救う"}, "screen": {"ja": "画面"}, "search": {"ja": "探す"}, "seat": {"ja": "座席"}, "secret": {"ja": "秘密"}, "seed": {"ja": "種"}, "seem": {"ja": "〜のように見える"}, "sell": {"ja": "売る"}, "sentence": {"ja": "文"}, "september": {"ja": "9月"}, "seven": {"ja": "7"}, "several": {"ja": "いくつかの"}, "side": {"ja": "側面"}, "silent": {"ja": "静かな"}, "silver": {"ja": "銀"}, "simple": {"ja": "簡単な"}, "since": {"ja": "〜以来"}, "single": {"ja": "たった一つの"}, "sink": {"ja": "沈む"}, "skin": {"ja": "皮膚"}, "skirt": {"ja": "スカート"}, "sky": {"ja": "空"}, "slide": {"ja": "滑る"}, "smile": {"ja": "ほほ笑む"}, "smoke": {"ja": "煙"}, "snake": {"ja": "ヘビ"}, "sock": {"ja": "靴下"}, "soft": {"ja": "柔らかい"}, "someone": {"ja": "誰か"}, "sometimes": {"ja": "時々"}, "somewhere": {"ja": "どこかに"}, "speed": {"ja": "速さ"}, "spell": {"ja": "つづる"}, "spend": {"ja": "費やす"}, "spoon": {"ja": "スプーン"}, "spring": {"ja": "春"}, "stamp": {"ja": "切手"}, "stand": {"ja": "立つ"}, "stay": {"ja": "滞在する"}, "steal": {"ja": "盗む"}, "stick": {"ja": "棒"}, "still": {"ja": "まだ"}, "stone": {"ja": "石"}, "straight": {"ja": "まっすぐに"}, "strange": {"ja": "奇妙な"}, "street": {"ja": "通り"}, "study": {"ja": "勉強する"}, "subway": {"ja": "地下鉄"}, "such": {"ja": "そのような"}, "suit": {"ja": "スーツ"}, "suitcase": {"ja": "スーツケース"}, "surprise": {"ja": "驚かせる"}, "sweet": {"ja": "甘い"}, "zero": {"ja": "0"}, "zebra": {"ja": "シマウマ"}, "zone": {"ja": "地帯"}, "zip": {"ja": "ファスナー"}, "easy": {"ja": "簡単な"}, "busy": {"ja": "忙しい"}, "music": {"ja": "音楽"}, "crazy": {"ja": "ばかげた"}, "lazy": {"ja": "怠けた"}, "magazine": {"ja": "雑誌"}, "puzzle": {"ja": "パズル"}, "tuesday": {"ja": "火曜日"}, "example": {"ja": "例"}, "design": {"ja": "設計"}, "result": {"ja": "結果"}, "is": {"ja": "〜である"}, "has": {"ja": "持っている"}, "was": {"ja": "〜だった"}, "please": {"ja": "どうぞ"}, "nose": {"ja": "鼻"}, "rose": {"ja": "バラ"}, "size": {"ja": "大きさ"}, "dogs": {"ja": "犬（複数）"}, "prize": {"ja": "賞"}, "zipper": {"ja": "ファスナー"}, "she": {"ja": "彼女"}, "shoe": {"ja": "靴"}, "sure": {"ja": "確かな"}, "shift": {"ja": "勤務シフト"}, "special": {"ja": "特別な"}, "ocean": {"ja": "海"}, "washing": {"ja": "洗濯"}, "information": {"ja": "情報"}, "nation": {"ja": "国家"}, "fashion": {"ja": "流行"}, "pressure": {"ja": "圧力"}, "official": {"ja": "公式の"}, "insurance": {"ja": "保険"}, "wash": {"ja": "洗う"}, "dish": {"ja": "皿"}, "brush": {"ja": "ブラシ"}, "cash": {"ja": "現金"}, "fresh": {"ja": "新鮮な"}, "shape": {"ja": "形"}, "sheet": {"ja": "シーツ"}, "shelf": {"ja": "棚"}, "shine": {"ja": "輝く"}, "shoot": {"ja": "撃つ"}, "usual": {"ja": "ふつうの"}, "usually": {"ja": "ふつうは"}, "television": {"ja": "テレビ"}, "treasure": {"ja": "宝物"}, "asia": {"ja": "アジア"}, "pleasure": {"ja": "喜び"}, "leisure": {"ja": "余暇"}, "vision": {"ja": "視力"}, "decision": {"ja": "決定"}, "occasion": {"ja": "機会"}, "casual": {"ja": "気軽な"}, "conclusion": {"ja": "結論"}, "revision": {"ja": "修正"}, "garage": {"ja": "ガレージ"}, "beige": {"ja": "ベージュ"}, "massage": {"ja": "マッサージ"}, "unusual": {"ja": "珍しい"}, "visual": {"ja": "視覚の"}, "holiday": {"ja": "休日"}, "whole": {"ja": "全体の"}, "human": {"ja": "人間"}, "hire": {"ja": "雇う"}, "headquarters": {"ja": "本社"}, "behind": {"ja": "後ろに"}, "unhappy": {"ja": "不幸な"}, "ahead": {"ja": "前方に"}, "perhaps": {"ja": "たぶん"}, "behave": {"ja": "ふるまう"}, "rehearsal": {"ja": "リハーサル"}, "somehow": {"ja": "なんとか"}, "warehouse": {"ja": "倉庫"}, "habit": {"ja": "習慣"}, "hallway": {"ja": "廊下"}, "handsome": {"ja": "ハンサムな"}, "happen": {"ja": "起こる"}, "headache": {"ja": "頭痛"}, "height": {"ja": "高さ・身長"}, "helpful": {"ja": "役に立つ"}, "hers": {"ja": "彼女のもの"}, "herself": {"ja": "彼女自身"}, "hide": {"ja": "隠す"}, "hill": {"ja": "丘"}, "him": {"ja": "彼を・彼に"}, "himself": {"ja": "彼自身"}, "history": {"ja": "歴史"}, "hit": {"ja": "打つ"}, "hold": {"ja": "持つ・保つ"}, "hole": {"ja": "穴"}, "homework": {"ja": "宿題"}, "honey": {"ja": "はちみつ"}, "however": {"ja": "しかし"}, "husband": {"ja": "夫"}, "whose": {"ja": "誰の"}, "cheese": {"ja": "チーズ"}, "chicken": {"ja": "鶏肉"}, "cheap": {"ja": "安い"}, "change": {"ja": "変える"}, "choose": {"ja": "選ぶ"}, "chocolate": {"ja": "チョコレート"}, "chance": {"ja": "機会"}, "question": {"ja": "質問"}, "furniture": {"ja": "家具"}, "much": {"ja": "たくさん"}, "which": {"ja": "どちら"}, "teach": {"ja": "教える"}, "catch": {"ja": "捕まえる"}, "beach": {"ja": "浜辺"}, "switch": {"ja": "スイッチ"}, "chop": {"ja": "刻む"}, "jacket": {"ja": "上着"}, "gentle": {"ja": "やさしい"}, "giant": {"ja": "巨人"}, "magic": {"ja": "魔法"}, "energy": {"ja": "エネルギー"}, "major": {"ja": "主要な"}, "imagine": {"ja": "想像する"}, "page": {"ja": "ページ"}, "age": {"ja": "年齢"}, "large": {"ja": "大きい"}, "orange": {"ja": "オレンジ"}, "bridge": {"ja": "橋"}, "edge": {"ja": "端"}, "geography": {"ja": "地理"}, "jam": {"ja": "ジャム"}, "jeans": {"ja": "ジーンズ"}, "jelly": {"ja": "ゼリー"}, "jog": {"ja": "ジョギングする"}, "joke": {"ja": "冗談"}, "junior": {"ja": "年下の・下級の"}, "just": {"ja": "ちょうど・ただ"}, "man": {"ja": "男性"}, "meeting": {"ja": "会議"}, "summer": {"ja": "夏"}, "camera": {"ja": "カメラ"}, "animal": {"ja": "動物"}, "remember": {"ja": "覚えている"}, "hammer": {"ja": "金づち"}, "committee": {"ja": "委員会"}, "dream": {"ja": "夢"}, "climb": {"ja": "登る"}, "item": {"ja": "品目"}, "main": {"ja": "主な"}, "makeup": {"ja": "化粧"}, "male": {"ja": "男性の・雄の"}, "mall": {"ja": "ショッピングモール"}, "match": {"ja": "試合・合う"}, "matter": {"ja": "事柄・重要である"}, "maybe": {"ja": "たぶん"}, "meal": {"ja": "食事"}, "mean": {"ja": "意味する"}, "meaning": {"ja": "意味"}, "meat": {"ja": "肉"}, "medicine": {"ja": "薬"}, "melt": {"ja": "溶ける"}, "metal": {"ja": "金属"}, "meter": {"ja": "メートル・計器"}, "microwave": {"ja": "電子レンジ"}, "mile": {"ja": "マイル"}, "mirror": {"ja": "鏡"}, "mix": {"ja": "混ぜる"}, "model": {"ja": "模型・モデル"}, "modern": {"ja": "現代の"}, "motor": {"ja": "モーター"}, "mouse": {"ja": "ねずみ・マウス"}, "mushroom": {"ja": "きのこ"}, "nine": {"ja": "9"}, "notice": {"ja": "通知"}, "negotiate": {"ja": "交渉する"}, "january": {"ja": "1月"}, "finally": {"ja": "ついに"}, "tennis": {"ja": "テニス"}, "minute": {"ja": "分"}, "honest": {"ja": "正直な"}, "planet": {"ja": "惑星"}, "can": {"ja": "〜できる"}, "one": {"ja": "1"}, "knee": {"ja": "膝"}, "knock": {"ja": "ノックする"}, "nap": {"ja": "昼寝"}, "necessary": {"ja": "必要な"}, "neck": {"ja": "首"}, "nervous": {"ja": "緊張した"}, "network": {"ja": "ネットワーク"}, "next": {"ja": "次の"}, "nobody": {"ja": "誰も〜ない"}, "novel": {"ja": "小説"}, "nut": {"ja": "木の実・ナット"}, "sing": {"ja": "歌う"}, "king": {"ja": "王"}, "ring": {"ja": "指輪、鳴る"}, "wrong": {"ja": "間違った"}, "singing": {"ja": "歌うこと"}, "hanger": {"ja": "ハンガー"}, "ringing": {"ja": "鳴っている"}, "washington": {"ja": "ワシントン"}, "singer": {"ja": "歌手"}, "kingdom": {"ja": "王国"}, "length": {"ja": "長さ"}, "pink": {"ja": "ピンク"}, "uncle": {"ja": "おじ"}, "finger": {"ja": "指"}, "hungry": {"ja": "空腹の"}, "angry": {"ja": "怒った"}, "along": {"ja": "沿って"}, "left": {"ja": "左"}, "lead": {"ja": "導く"}, "local": {"ja": "地元の"}, "hello": {"ja": "こんにちは"}, "yellow": {"ja": "黄色"}, "tell": {"ja": "伝える"}, "email": {"ja": "メール"}, "label": {"ja": "ラベル"}, "lady": {"ja": "女性"}, "lake": {"ja": "湖"}, "lamp": {"ja": "ランプ"}, "land": {"ja": "土地・陸"}, "laptop": {"ja": "ノートパソコン"}, "late": {"ja": "遅れた"}, "later": {"ja": "後で"}, "laundry": {"ja": "洗濯物・洗濯"}, "lay": {"ja": "置く"}, "least": {"ja": "最も少ない"}, "lend": {"ja": "貸す"}, "less": {"ja": "より少ない"}, "let": {"ja": "〜させる"}, "level": {"ja": "水準・段階"}, "library": {"ja": "図書館"}, "lid": {"ja": "ふた"}, "lie": {"ja": "横になる・うそをつく"}, "lift": {"ja": "持ち上げる"}, "limit": {"ja": "制限"}, "line": {"ja": "線・列"}, "link": {"ja": "つながり・リンク"}, "list": {"ja": "一覧"}, "little": {"ja": "小さい・少しの"}, "lock": {"ja": "鍵をかける"}, "lonely": {"ja": "寂しい"}, "lose": {"ja": "失う・負ける"}, "low": {"ja": "低い"}, "luck": {"ja": "運"}, "lucky": {"ja": "運のよい"}, "cry": {"ja": "泣く"}, "fry": {"ja": "揚げる"}, "carry": {"ja": "運ぶ"}, "around": {"ja": "周りに"}, "hurry": {"ja": "急ぐ"}, "tomorrow": {"ja": "明日"}, "correct": {"ja": "正しい"}, "across": {"ja": "横切って"}, "race": {"ja": "競争"}, "radio": {"ja": "ラジオ"}, "raise": {"ja": "上げる"}, "reach": {"ja": "届く"}, "real": {"ja": "本当の"}, "really": {"ja": "本当に"}, "reason": {"ja": "理由"}, "recycle": {"ja": "再利用する"}, "relax": {"ja": "くつろぐ"}, "rent": {"ja": "借りる"}, "repeat": {"ja": "繰り返す"}, "reply": {"ja": "返事をする"}, "respect": {"ja": "尊敬する"}, "rest": {"ja": "休む"}, "restaurant": {"ja": "レストラン"}, "return": {"ja": "戻る"}, "rich": {"ja": "裕福な"}, "ride": {"ja": "乗る"}, "rise": {"ja": "上がる"}, "robot": {"ja": "ロボット"}, "roof": {"ja": "屋根"}, "rope": {"ja": "ロープ"}, "row": {"ja": "列"}, "writer": {"ja": "作家"}, "win": {"ja": "勝つ"}, "warranty": {"ja": "保証書"}, "when": {"ja": "いつ"}, "swim": {"ja": "泳ぐ"}, "twelve": {"ja": "12"}, "between": {"ja": "〜の間に"}, "sandwich": {"ja": "サンドイッチ"}, "quality": {"ja": "品質"}, "once": {"ja": "一度"}, "wake": {"ja": "目を覚ます"}, "wall": {"ja": "壁"}, "waste": {"ja": "無駄にする"}, "wave": {"ja": "波"}, "weak": {"ja": "弱い"}, "welcome": {"ja": "歓迎する"}, "well": {"ja": "上手に"}, "west": {"ja": "西"}, "wet": {"ja": "ぬれた"}, "wheel": {"ja": "車輪"}, "while": {"ja": "〜する間に"}, "wide": {"ja": "幅の広い"}, "wife": {"ja": "妻"}, "wild": {"ja": "野生の"}, "will": {"ja": "〜だろう"}, "wind": {"ja": "風"}, "wine": {"ja": "ワイン"}, "wing": {"ja": "翼"}, "winter": {"ja": "冬"}, "wish": {"ja": "願う"}, "wonderful": {"ja": "すばらしい"}, "worry": {"ja": "心配する"}, "yesterday": {"ja": "昨日"}, "yet": {"ja": "まだ"}, "yoga": {"ja": "ヨガ"}, "yogurt": {"ja": "ヨーグルト"}, "yard": {"ja": "庭"}, "use": {"ja": "使う"}, "cute": {"ja": "かわいい"}, "uniform": {"ja": "制服"}, "university": {"ja": "大学"}, "menu": {"ja": "メニュー"}, "few": {"ja": "少数の"}, "huge": {"ja": "巨大な"}, "onion": {"ja": "たまねぎ"}, "million": {"ja": "100万"}, "familiar": {"ja": "よく知っている"}, "beauty": {"ja": "美しさ"}, "beautiful": {"ja": "美しい"}, "communicate": {"ja": "伝え合う"}, "community": {"ja": "地域社会"}, "museum": {"ja": "博物館・美術館"}, "useful": {"ja": "役に立つ"}};
+const RECORDED_COUNT=810;
+const REC_ENTRIES=[["live", "I live here."], ["women", "women."], ["activity", "activity."], ["begin", "begin."], ["beginning", "beginning."], ["brick", "brick."], ["bring", "bring."], ["cinema", "cinema."], ["citizen", "citizen."], ["click", "click."], ["condition", "condition."], ["consider", "consider."], ["continue", "continue."], ["delicious", "delicious."], ["dictionary", "dictionary."], ["difference", "difference."], ["difficult", "difficult."], ["dig", "dig."], ["distance", "distance."], ["electricity", "electricity."], ["fill", "fill."], ["film", "film."], ["fix", "fix."], ["ill", "ill."], ["image", "image."], ["improve", "improve."], ["include", "include."], ["insect", "insect."], ["instead", "instead."], ["instrument", "instrument."], ["international", "international."], ["internet", "internet."], ["interview", "interview."], ["introduce", "introduce."], ["invent", "invent."], ["invitation", "invitation."], ["it", "it."], ["its", "its."], ["itself", "itself."], ["red", "red."], ["present", "A birthday present."], ["heavy", "heavy."], ["accept", "accept."], ["adventure", "adventure."], ["already", "already."], ["bedroom", "bedroom."], ["benefit", "benefit."], ["better", "better."], ["celebrate", "celebrate."], ["century", "century."], ["cherry", "cherry."], ["chest", "chest."], ["clever", "clever."], ["connect", "connect."], ["dead", "dead."], ["dentist", "dentist."], ["depend", "depend."], ["desert", "A hot desert."], ["develop", "develop."], ["direction", "direction."], ["dress", "dress."], ["education", "education."], ["effect", "effect."], ["effort", "effort."], ["elbow", "elbow."], ["electric", "electric."], ["elephant", "elephant."], ["else", "else."], ["empty", "empty."], ["end", "end."], ["enemy", "enemy."], ["engine", "engine."], ["enter", "enter."], ["fence", "fence."], ["festival", "festival."], ["capital", "capital."], ["absent", "absent."], ["accident", "accident."], ["act", "act."], ["action", "action."], ["active", "active."], ["add", "add."], ["advance", "advance."], ["advantage", "advantage."], ["advertise", "advertise."], ["album", "album."], ["ankle", "ankle."], ["band", "band."], ["battery", "battery."], ["blanket", "blanket."], ["cabbage", "cabbage."], ["camp", "camp."], ["candle", "candle."], ["candy", "candy."], ["carrot", "carrot."], ["castle", "castle."], ["contact", "contact."], ["damage", "damage."], ["fact", "fact."], ["factory", "factory."], ["fan", "fan."], ["fast", "fast."], ["fat", "fat."], ["flat", "flat."], ["Sunday", "Sunday."], ["son", "son."], ["come", "come."], ["adult", "An adult."], ["among", "among."], ["become", "become."], ["button", "button."], ["comfort", "comfort."], ["discuss", "discuss."], ["dozen", "dozen."], ["duck", "duck."], ["dust", "dust."], ["oven", "oven."], ["ugly", "ugly."], ["understand", "understand."], ["up", "up."], ["good", "good."], ["sugar", "sugar."], ["pudding", "pudding."], ["bush", "bush."], ["goodbye", "goodbye."], ["hoodie", "hoodie."], ["input", "input."], ["attend", "attend."], ["opinion", "opinion."], ["umbrella", "umbrella."], ["until", "until."], ["mother", "mother."], ["three", "three."], ["feel", "feel."], ["read", "I read books every day."], ["increase", "Prices will increase."], ["agree", "agree."], ["agreement", "agreement."], ["bean", "bean."], ["beef", "beef."], ["ceiling", "ceiling."], ["deal", "deal."], ["deep", "deep."], ["degree", "degree."], ["detail", "detail."], ["disease", "disease."], ["each", "each."], ["eagle", "eagle."], ["east", "east."], ["fever", "fever."], ["free", "free."], ["too", "too."], ["afternoon", "afternoon."], ["balloon", "balloon."], ["chew", "chew."], ["duty", "duty."], ["project", "My school project."], ["contract", "Sign a contract."], ["opposite", "opposite."], ["offer", "offer."], ["online", "online."], ["turn", "turn."], ["certain", "certain."], ["circle", "circle."], ["dirty", "dirty."], ["earth", "earth."], ["emergency", "emergency."], ["wait", "wait."], ["able", "able."], ["ache", "ache."], ["afraid", "afraid."], ["aid", "aid."], ["aim", "aim."], ["amazing", "amazing."], ["bacon", "bacon."], ["bake", "bake."], ["basic", "basic."], ["blame", "blame."], ["brain", "brain."], ["brave", "brave."], ["cafe", "cafe."], ["cage", "cage."], ["case", "case."], ["chain", "chain."], ["complain", "complain."], ["contain", "contain."], ["conversation", "conversation."], ["daily", "daily."], ["danger", "danger."], ["eighteen", "eighteen."], ["eighty", "eighty."], ["face", "face."], ["fail", "fail."], ["price", "price."], ["site", "site."], ["file", "file."], ["climate", "climate."], ["alive", "alive."], ["apologize", "apologize."], ["apply", "apply."], ["beside", "beside."], ["bicycle", "bicycle."], ["bike", "bike."], ["biology", "biology."], ["bite", "bite."], ["blind", "blind."], ["bright", "bright."], ["deny", "deny."], ["diary", "diary."], ["die", "die."], ["divide", "divide."], ["dry", "dry."], ["fight", "fight."], ["fire", "fire."], ["ice", "ice."], ["iron", "iron."], ["island", "island."], ["joint", "joint."], ["moist", "moist."], ["oyster", "oyster."], ["poison", "poison."], ["soil", "soil."], ["spoil", "spoil."], ["voyage", "voyage."], ["sound", "sound."], ["aloud", "aloud."], ["blouse", "blouse."], ["doubt", "doubt."], ["ours", "ours."], ["ourselves", "ourselves."], ["outside", "outside."], ["close", "Please close the door."], ["photo", "photo."], ["total", "The total amount."], ["boat", "boat."], ["snow", "snow."], ["slow", "slow."], ["grow", "grow."], ["alone", "alone."], ["blow", "blow."], ["bone", "bone."], ["bowl", "bowl."], ["coast", "coast."], ["coconut", "coconut."], ["code", "code."], ["control", "control."], ["okay", "okay."], ["near", "near."], ["dear", "dear."], ["year", "year."], ["clear", "clear."], ["fear", "fear."], ["tear", "She shed a tear."], ["serious", "serious."], ["pier", "pier."], ["weird", "weird."], ["cereal", "cereal."], ["hearing", "hearing."], ["nearly", "nearly."], ["rear", "rear."], ["series", "series."], ["severe", "severe."], ["sincere", "sincere."], ["air", "air."], ["airport", "airport."], ["stairs", "stairs."], ["care", "care."], ["share", "share."], ["square", "square."], ["wear", "wear."], ["their", "their."], ["parent", "parent."], ["very", "very."], ["vary", "vary."], ["area", "area."], ["character", "character."], ["marry", "marry."], ["narrow", "narrow."], ["far", "far."], ["card", "card."], ["park", "park."], ["depart", "depart."], ["target", "target."], ["cargo", "cargo."], ["alarm", "alarm."], ["argue", "argue."], ["art", "art."], ["garbage", "garbage."], ["jar", "jar."], ["shark", "shark."], ["sharp", "sharp."], ["horse", "horse."], ["morning", "morning."], ["north", "north."], ["organize", "organize."], ["form", "form."], ["door", "door."], ["floor", "floor."], ["four", "four."], ["course", "course."], ["pour", "pour."], ["boring", "boring."], ["corner", "corner."], ["normal", "normal."], ["pork", "pork."], ["storm", "storm."], ["expect", "expect."], ["captain", "captain."], ["keep", "keep."], ["pack", "pack."], ["pain", "pain."], ["paint", "paint."], ["pan", "pan."], ["pancake", "pancake."], ["pants", "pants."], ["pass", "pass."], ["passenger", "passenger."], ["password", "password."], ["past", "past."], ["path", "path."], ["pattern", "pattern."], ["peace", "peace."], ["peach", "peach."], ["peanut", "peanut."], ["pepper", "pepper."], ["percent", "percent."], ["pet", "pet."], ["piano", "piano."], ["pick", "pick."], ["pig", "pig."], ["pillow", "pillow."], ["pilot", "pilot."], ["pipe", "pipe."], ["plastic", "plastic."], ["plate", "plate."], ["plenty", "plenty."], ["plug", "plug."], ["plus", "plus."], ["poem", "poem."], ["polite", "polite."], ["pot", "pot."], ["potato", "potato."], ["pound", "pound."], ["practice", "practice."], ["president", "president."], ["press", "press."], ["print", "print."], ["printer", "printer."], ["private", "private."], ["probably", "probably."], ["program", "program."], ["promise", "promise."], ["protect", "protect."], ["proud", "proud."], ["public", "public."], ["branch", "branch."], ["rabbit", "rabbit."], ["November", "November."], ["neighbor", "neighbor."], ["club", "club."], ["web", "web."], ["rub", "rub."], ["cab", "cab."], ["grab", "grab."], ["tube", "tube."], ["bulb", "bulb."], ["block", "block."], ["borrow", "borrow."], ["boss", "boss."], ["bottom", "bottom."], ["Saturday", "Saturday."], ["data", "data."], ["tail", "tail."], ["take", "take."], ["tall", "tall."], ["taste", "taste."], ["tent", "tent."], ["terrible", "terrible."], ["text", "text."], ["tired", "tired."], ["title", "title."], ["toast", "toast."], ["trash", "trash."], ["trouble", "trouble."], ["truck", "truck."], ["truth", "truth."], ["tunnel", "tunnel."], ["twice", "twice."], ["type", "type."], ["dog", "dog."], ["desk", "desk."], ["drink", "drink."], ["deadline", "deadline."], ["delivery", "delivery."], ["record", "A world record."], ["address", "My home address."], ["document", "A useful document."], ["dolphin", "dolphin."], ["key", "key."], ["kitchen", "kitchen."], ["queen", "queen."], ["quick", "quick."], ["baker", "baker."], ["pocket", "pocket."], ["stomach", "stomach."], ["common", "common."], ["cost", "cost."], ["kangaroo", "kangaroo."], ["kick", "kick."], ["kid", "kid."], ["kilometer", "kilometer."], ["kiss", "kiss."], ["quiet", "quiet."], ["quite", "quite."], ["quiz", "quiz."], ["tiger", "tiger."], ["forget", "forget."], ["baggage", "baggage."], ["flag", "flag."], ["gas", "gas."], ["gate", "gate."], ["gift", "gift."], ["glad", "glad."], ["glove", "glove."], ["gold", "gold."], ["golf", "golf."], ["government", "government."], ["grade", "grade."], ["grape", "grape."], ["gray", "gray."], ["guest", "guest."], ["guide", "guide."], ["office", "office."], ["different", "different."], ["fog", "fog."], ["vegetable", "vegetable."], ["view", "view."], ["vendor", "vendor."], ["every", "every."], ["valley", "valley."], ["van", "van."], ["vitamin", "vitamin."], ["math", "math."], ["bathroom", "bathroom."], ["breath", "breath."], ["cloth", "cloth."], ["thick", "thick."], ["thief", "thief."], ["although", "although."], ["another", "another."], ["clothes", "clothes."], ["grandfather", "grandfather."], ["grandmother", "grandmother."], ["themselves", "themselves."], ["sad", "sad."], ["safe", "safe."], ["safety", "safety."], ["sail", "sail."], ["salad", "salad."], ["salt", "salt."], ["sand", "sand."], ["sauce", "sauce."], ["sausage", "sausage."], ["save", "save."], ["screen", "screen."], ["search", "search."], ["seat", "seat."], ["secret", "secret."], ["seed", "seed."], ["seem", "seem."], ["sell", "sell."], ["sentence", "sentence."], ["September", "September."], ["seven", "seven."], ["several", "several."], ["side", "side."], ["silent", "silent."], ["silver", "silver."], ["simple", "simple."], ["since", "since."], ["single", "single."], ["sink", "sink."], ["skin", "skin."], ["skirt", "skirt."], ["sky", "sky."], ["slide", "slide."], ["smile", "smile."], ["smoke", "smoke."], ["snake", "snake."], ["sock", "sock."], ["soft", "soft."], ["someone", "someone."], ["sometimes", "sometimes."], ["somewhere", "somewhere."], ["speed", "speed."], ["spell", "spell."], ["spend", "spend."], ["spoon", "spoon."], ["spring", "spring."], ["stamp", "stamp."], ["stand", "stand."], ["stay", "stay."], ["steal", "steal."], ["stick", "stick."], ["still", "still."], ["stone", "stone."], ["straight", "straight."], ["strange", "strange."], ["street", "street."], ["study", "study."], ["subway", "subway."], ["such", "such."], ["suit", "suit."], ["suitcase", "suitcase."], ["surprise", "surprise."], ["sweet", "sweet."], ["magazine", "magazine."], ["zipper", "zipper."], ["shape", "shape."], ["sheet", "sheet."], ["shelf", "shelf."], ["shine", "shine."], ["shoot", "shoot."], ["television", "television."], ["unusual", "unusual."], ["visual", "visual."], ["habit", "habit."], ["hallway", "hallway."], ["handsome", "handsome."], ["happen", "happen."], ["headache", "headache."], ["height", "height."], ["helpful", "helpful."], ["hers", "hers."], ["herself", "herself."], ["hide", "hide."], ["hill", "hill."], ["him", "him."], ["himself", "himself."], ["history", "history."], ["hit", "hit."], ["hold", "hold."], ["hole", "hole."], ["homework", "homework."], ["honey", "honey."], ["however", "however."], ["husband", "husband."], ["whose", "whose."], ["much", "much."], ["which", "which."], ["teach", "teach."], ["switch", "switch."], ["chop", "chop."], ["jacket", "jacket."], ["gentle", "gentle."], ["geography", "geography."], ["jam", "jam."], ["jeans", "jeans."], ["jelly", "jelly."], ["jog", "jog."], ["joke", "joke."], ["junior", "junior."], ["just", "just."], ["main", "main."], ["makeup", "makeup."], ["male", "male."], ["mall", "mall."], ["match", "match."], ["matter", "matter."], ["maybe", "maybe."], ["meal", "meal."], ["mean", "mean."], ["meaning", "meaning."], ["meat", "meat."], ["medicine", "medicine."], ["melt", "melt."], ["metal", "metal."], ["meter", "meter."], ["microwave", "microwave."], ["mile", "mile."], ["mirror", "mirror."], ["mix", "mix."], ["model", "model."], ["modern", "modern."], ["motor", "motor."], ["mouse", "mouse."], ["mushroom", "mushroom."], ["minute", "One minute."], ["knee", "knee."], ["knock", "knock."], ["nap", "nap."], ["necessary", "necessary."], ["neck", "neck."], ["nervous", "nervous."], ["network", "network."], ["next", "next."], ["nobody", "nobody."], ["novel", "novel."], ["nut", "nut."], ["king", "king."], ["ring", "ring."], ["along", "along."], ["lead", "Please lead the way."], ["label", "label."], ["lady", "lady."], ["lake", "lake."], ["lamp", "lamp."], ["land", "land."], ["laptop", "laptop."], ["late", "late."], ["later", "later."], ["laundry", "laundry."], ["lay", "lay."], ["least", "least."], ["lend", "lend."], ["less", "less."], ["let", "let."], ["level", "level."], ["library", "library."], ["lid", "lid."], ["lie", "lie."], ["lift", "lift."], ["limit", "limit."], ["line", "line."], ["link", "link."], ["list", "list."], ["little", "little."], ["lock", "lock."], ["lonely", "lonely."], ["lose", "lose."], ["low", "low."], ["luck", "luck."], ["lucky", "lucky."], ["across", "across."], ["race", "race."], ["radio", "radio."], ["raise", "raise."], ["reach", "reach."], ["real", "real."], ["really", "really."], ["reason", "reason."], ["recycle", "recycle."], ["relax", "relax."], ["rent", "rent."], ["repeat", "repeat."], ["reply", "reply."], ["respect", "respect."], ["rest", "rest."], ["restaurant", "restaurant."], ["return", "return."], ["rich", "rich."], ["ride", "ride."], ["rise", "rise."], ["robot", "robot."], ["roof", "roof."], ["rope", "rope."], ["row", "A row of chairs."], ["writer", "writer."], ["win", "win."], ["twelve", "twelve."], ["quality", "quality."], ["once", "once."], ["wake", "wake."], ["wall", "wall."], ["waste", "waste."], ["wave", "wave."], ["weak", "weak."], ["welcome", "welcome."], ["well", "well."], ["west", "west."], ["wet", "wet."], ["wheel", "wheel."], ["while", "while."], ["wide", "wide."], ["wife", "wife."], ["wild", "wild."], ["will", "will."], ["wind", "A strong wind."], ["wine", "wine."], ["wing", "wing."], ["winter", "winter."], ["wish", "wish."], ["wonderful", "wonderful."], ["worry", "worry."], ["use", "Please use this."], ["beautiful", "beautiful."], ["communicate", "communicate."], ["community", "community."], ["museum", "museum."], ["useful", "useful."]];
 /*END*/
 
 /* ---------- layout data ---------- */
@@ -962,7 +1925,7 @@ const KEY="hatsuon_trainer_v1";
 const DEF={cMode:"fig",rate:1,slow:0.6,gap:0.6,repeat:1,audioSource:"eleven",playMode:"next",followPlay:false,readJa:false,accent:"us",voice:"",recSec:5,autoCmp:true,srLang:"en-US",font:"m",theme:"auto",order:"spell",qCount:10,qPairs:null,showIpa:true,showJa:true,mapMode:"chart",mapKind:"v"};
 let S={last:null,done:{},quizBest:0,set:{}};
 function normalizeState(s){
-  const o={last:null,done:{},quizBest:0,set:{}};
+  const o={last:null,done:{},quizBest:0,set:{},recordingSize:10,recordingBatch:0,recordingDone:[]};
   if(s&&typeof s==="object"){
     if(typeof s.last==="string")o.last=s.last;
     if(s.done&&typeof s.done==="object")for(const k in s.done)if(Array.isArray(s.done[k]))o.done[k]=s.done[k].filter(x=>typeof x==="string");
@@ -974,6 +1937,7 @@ function normalizeState(s){
   if(!["once","sound","next","all"].includes(o.set.playMode))o.set.playMode="next";
   o.set.followPlay=o.set.followPlay===true;
   if(!["eleven","device"].includes(o.set.audioSource))o.set.audioSource="eleven";
+  if(s&&typeof s==="object"){o.recordingSize=[1,5,10,20].includes(s.recordingSize)?s.recordingSize:10;o.recordingBatch=Math.max(0,Math.min(Math.ceil(REC_ENTRIES.length/o.recordingSize)-1,Math.floor(Number(s.recordingBatch)||0)));o.recordingDone=Array.isArray(s.recordingDone)?s.recordingDone.filter(x=>typeof x==="string"&&REC_ENTRIES.some(w=>w[0]===x)):[]}
   return o;
 }
 try{S=normalizeState(JSON.parse(localStorage.getItem(KEY)))}catch(e){S=normalizeState(null)}
@@ -1211,6 +2175,35 @@ function viewGroups(p){
 }
 function viewList(p){return viewGroups(p).flatMap(g=>g.words)}
 
+/* Recording preparation: plain text only, small adjustable batches. */
+function uniqueDoneCount(){
+  const valid=new Set(VOCAB_HEADWORDS.map(x=>x.toLowerCase()));
+  return new Set(P.flatMap(p=>doneList(p.id)).map(x=>x.toLowerCase()).filter(x=>valid.has(x))).size;
+}
+function recordingBatches(){
+  const n=S.recordingSize||10,out=[];
+  for(let i=0;i<REC_ENTRIES.length;i+=n)out.push(REC_ENTRIES.slice(i,i+n));
+  return out;
+}
+function recordingBatch(){const a=recordingBatches();return a[Math.min(S.recordingBatch||0,a.length-1)]||[]}
+function recordingText(){return recordingBatch().map(x=>x[1]).join("\n")}
+function recordingHTML(){
+  const batches=recordingBatches(),i=Math.min(S.recordingBatch||0,batches.length-1),batch=batches[i]||[],done=new Set(S.recordingDone||[]),marked=batch.length&&batch.every(x=>done.has(x[0]));
+  const count=REC_ENTRIES.filter(x=>done.has(x[0])).length;
+  return `<section class="recording-intro"><h2>音声収録リスト</h2><p>重複なし ${VOCAB_HEADWORDS.length.toLocaleString()}語 · ElevenLabs ${RECORDED_COUNT}語 · 収録待ち ${REC_ENTRIES.length}語</p><p>前回と同じJessica・アメリカ英語で、下の英語だけをコピーします。貼り付けで固まる場合は1語や5語に減らして試してください。短くしても直るとは限りません。</p><p>発音が複数ある語は短い文にしています。生成した音声は、このリストの順序と一緒に渡してください。単語部分を切り出して組み込みます。</p></section>
+  <div class="card"><div class="srow"><label for="recordingSize">1回に表示する単語数</label><select id="recordingSize">${[1,5,10,20].map(n=>`<option value="${n}" ${S.recordingSize===n?'selected':''}>${n}語ずつ</option>`).join('')}</select></div>
+  <div class="srow recording-batch"><div class="rhead"><strong>${i+1} / ${batches.length} · ${batch.length}語</strong><span>${marked?'作成済みマークあり':'未作成'}</span></div><label class="sr-only" for="recordingText">ElevenLabsに貼る原稿</label><textarea id="recordingText" readonly spellcheck="false">${esc(recordingText())}</textarea><div class="btnrow"><button class="btn-primary" data-act="recCopy">原稿をコピー</button><button class="btn-line" data-act="recDownload">この原稿をTXT保存</button></div><p class="recording-note">番号・日本語・音声タグは含みません。空白や改行だけでは一定の無音は保証されません。</p></div>
+  <div class="srow"><div class="btnrow"><button class="btn-line" data-act="recPrev" ${i===0?'disabled':''}>前へ</button><button class="btn-line" data-act="recMark">${marked?'作成済みマークを外す':'この分を作成済みにする'}</button><button class="btn-line" data-act="recNext" ${i>=batches.length-1?'disabled':''}>次へ</button></div><p class="recording-note">作成済みマーク ${count} / ${REC_ENTRIES.length}語。音声がアプリに組み込まれたことを示すものではありません。</p></div></div>
+  <details class="recording-targets"><summary>この原稿の対象単語・意味を確認</summary><ul>${batch.map(x=>{const w=VOCAB_LOOKUP[x[0].toLowerCase()];return `<li><strong>${esc(x[0])}</strong> · ${esc(w?w.ja:'')}</li>`}).join('')}</ul></details><div class="btnrow"><button class="btn-line" data-act="recDownloadAll">収録待ち全語をTXT保存</button><button class="btn-line" data-act="recHome">練習へ戻る</button></div>`;
+}
+function recordingDownload(all){
+  const body=(all?REC_ENTRIES:recordingBatch()).map(x=>x[1]).join("\n")+"\n";
+  const name=all?"hatsuon-recording-all.txt":`hatsuon-recording-${String((S.recordingBatch||0)+1).padStart(3,'0')}-${S.recordingSize}words.txt`;
+  if(dlNS){dlNS.save({filename:name,data:body}).then(()=>toast("TXTを保存しました")).catch(()=>toast("保存できませんでした。原稿をコピーしてください"));return}
+  const url=URL.createObjectURL(new Blob([body],{type:"text/plain;charset=utf-8"})),a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);a.remove()},500);
+}
+function openRecording(){stopPlayAll();speechGeneration++;stopRecordedAudio();try{speechSynthesis.cancel()}catch(e){}curW=null;view="recording";render();window.scrollTo(0,0)}
+
 /* ---------- render ---------- */
 function render(){
   document.body.dataset.view=view;
@@ -1218,7 +2211,8 @@ function render(){
   if(view==="phon"){const p=byId(curP);document.body.style.setProperty("--c",CATC[p.cat]);$top.innerHTML=topPhon(p);$main.innerHTML=phonHTML(p)}
   else{
     document.body.style.removeProperty("--c");
-    if(view==="map"){$top.innerHTML=`<h1>発音トレーナー</h1><span class="meta">${P.reduce((a,p)=>a+doneList(p.id).length,0)} / ${P.reduce((a,p)=>a+totalN(p),0)}語クリア</span>`;$main.innerHTML=mapHTML()}
+    if(view==="map"){$top.innerHTML=`<h1>発音トレーナー</h1><span class="meta">${uniqueDoneCount()} / ${VOCAB_HEADWORDS.length.toLocaleString()}語クリア</span>`;$main.innerHTML=mapHTML()}
+    else if(view==="recording"){$top.innerHTML=`<button class="back" data-act="recHome" aria-label="練習へ戻る">${ic("chevL")}</button><h1>音声収録</h1>`;$main.innerHTML=recordingHTML()}
     else if(view==="quiz"){$top.innerHTML=`<h1>聞き分け</h1>`;$main.innerHTML=quizHTML()}
     else{$top.innerHTML=`<h1>設定</h1>`;$main.innerHTML=setHTML()}
   }
@@ -1243,6 +2237,7 @@ function centerStrip(smooth){const s=document.getElementById("strip"),on=s&&s.qu
 /* map */
 function mapHTML(){
   let h=`<section class="learn-guide"><strong>迷ったら、この順番で</strong><p>① 母音 → ② 子音 → ③ 聞き分け<br>口の形を見る → 聞く → まねる。好きな音からでもOKです。</p><div class="btnrow"><button class="btn-line" data-act="open" data-id="${order()[0]}">① 母音から始める</button><button class="btn-line" data-act="open" data-id="${order().find(id=>byId(id).cat==="cons")}">② 子音から始める</button><button class="btn-line" data-act="tab" data-tab="quiz">③ 聞き分け</button></div></section>`;
+  h+=`<p class="intro">単語 ${VOCAB_HEADWORDS.length.toLocaleString()}語（重複なし） · 音別の練習 ${P.reduce((a,p)=>a+totalN(p),0).toLocaleString()}件<br>ElevenLabs ${RECORDED_COUNT}語 · 収録待ち ${REC_ENTRIES.length}語</p><div class="btnrow"><button class="btn-line" data-act="recOpen">音声収録リストを開く</button></div>`;
   const lp=S.last&&byId(S.last);
   if(lp)h+=`<button class="resume" data-act="open" data-id="${lp.id}" style="--c:${CATC[lp.cat]}"><span class="resume-l"><span class="resume-k">前回の続き</span><span class="resume-w"><span class="ph resume-ipa">${sl(lp.ipa)}</span><span class="ph">${lp.key}</span></span></span><span class="resume-n">${doneList(lp.id).length} / ${totalN(lp)}</span>${ic("chevR")}</button>`;
   else h+=`<p class="intro">練習したい音をタップします。単語ごとに聞く、まねて録音、判定の順に進めます。</p>`;
@@ -1426,7 +2421,7 @@ function setHTML(){
   const gv={},gc={};PAIRS.forEach((p,i)=>{const g=i<VPN?gv:gc;(g[p[4]]=g[p[4]]||[]).push(i)});
   const pgr=gs=>`<div class="pgrps">${Object.entries(gs).map(([g,ids])=>`<div class="pgrp"><span class="pgl ph">${g.split(" / ").map(x=>"/"+x+"/").join(" ")}</span><div class="pills">${ids.map(i=>`<button class="pill ${sel.has(i)?"on":""}" data-act="pair" data-i="${i}" aria-pressed="${sel.has(i)}">${PAIRS[i][0]} / ${PAIRS[i][2]}</button>`).join("")}</div></div>`).join("")}</div>`;
   const sel=new Set(qSel());
-  return `<h2 class="set-h">再生</h2><div class="card">
+  return `<h2 class="set-h">単語と音声収録</h2><div class="card"><div class="srow"><span class="lab">重複なし ${VOCAB_HEADWORDS.length.toLocaleString()}語<span class="desc">同じ単語を複数の音で練習するため、音ごとの件数の合計とは異なります。中学・高校・TOEICの区分は学習用の目安です。</span></span><div class="btnrow"><button class="btn-line" data-act="recOpen">音声収録リストを開く（残り${REC_ENTRIES.length}語）</button></div></div></div><h2 class="set-h">再生</h2><div class="card">
 ${rng("rate","再生速度",0.5,1.5,0.05,"×","お手本と連続再生の速さ")}
 ${rng("slow","ゆっくりボタンの速度",0.4,0.9,0.05,"×")}
 ${rng("gap","連続再生の間隔",0.3,2,0.1,"秒")}
@@ -1499,6 +2494,12 @@ function armed(b,msg){
   b._t=setTimeout(()=>{b.dataset.armed="";b.textContent=b.dataset.label},4000);return false;
 }
 const ACT={
+  recOpen(){openRecording()},recHome(){goMap()},
+  recPrev(){S.recordingBatch=Math.max(0,S.recordingBatch-1);save();render()},
+  recNext(){S.recordingBatch=Math.min(recordingBatches().length-1,S.recordingBatch+1);save();render()},
+  recMark(){const b=recordingBatch(),d=new Set(S.recordingDone),all=b.every(x=>d.has(x[0]));b.forEach(x=>all?d.delete(x[0]):d.add(x[0]));S.recordingDone=[...d];save();render()},
+  async recCopy(){const text=recordingText();try{if(!navigator.clipboard||!navigator.clipboard.writeText)throw Error();await navigator.clipboard.writeText(text);toast("英語の原稿をコピーしました")}catch(e){const t=document.getElementById("recordingText");t.focus();t.select();try{if(document.execCommand("copy")){toast("英語の原稿をコピーしました");return}}catch(e){}toast("原稿を選択しました。長押ししてコピーしてください")}},
+  recDownload(){recordingDownload(false)},recDownloadAll(){recordingDownload(true)},
   go(b){goPhon(b.dataset.id)},
   open(b){if(view==="phon"){goPhon(b.dataset.id);return}openPhon(b.dataset.id,true)},
   back(){if(history.state&&history.state.v==="phon")history.back();else goMap()},
@@ -1571,6 +2572,7 @@ document.addEventListener("input",e=>{
 });
 document.addEventListener("change",e=>{
   const t=e.target;
+  if(t.id==="recordingSize"){const offset=(S.recordingBatch||0)*(S.recordingSize||10);S.recordingSize=[1,5,10,20].includes(+t.value)?+t.value:10;S.recordingBatch=Math.floor(offset/S.recordingSize);save();render()}
   if(t.dataset.play){const k=t.dataset.play;S.set[k]=k==="repeat"?+t.value:k==="followPlay"?t.checked:t.value;save();if(k==="followPlay"&&t.checked&&playAll)showPlaying();renderToolbar()}
   if(t.id==="rateRange"){save();if(curW)speak(curW.text,false)}
   if(t.dataset.set){save();if(t.dataset.set==="rate")speak("This is the new speed.",false);if(t.dataset.set==="slow")speak("This is the slow speed.",true)}

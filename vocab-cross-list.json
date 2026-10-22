@@ -1,0 +1,58 @@
+[
+ {
+  "word": "childhood",
+  "marked": "childh[oo]d",
+  "ipa": "ˈtʃaɪldhʊd",
+  "ja": "子ども時代",
+  "level": 2,
+  "phonId": "v_u"
+ },
+ {
+  "word": "neighborhood",
+  "marked": "neighborh[oo]d",
+  "ipa": "ˈneɪbɚhʊd",
+  "ja": "近所",
+  "level": 2,
+  "phonId": "v_u"
+ },
+ {
+  "word": "books",
+  "marked": "b[oo]ks",
+  "ipa": "bʊks",
+  "ja": "本（複数）",
+  "level": 1,
+  "phonId": "v_u"
+ },
+ {
+  "word": "looked",
+  "marked": "l[oo]ked",
+  "ipa": "lʊkt",
+  "ja": "見た",
+  "level": 1,
+  "phonId": "v_u"
+ },
+ {
+  "word": "invoice",
+  "marked": "inv[oi]ce",
+  "ipa": "ˈɪnvɔɪs",
+  "ja": "請求書",
+  "level": 3,
+  "phonId": "v_oi"
+ },
+ {
+  "word": "employee",
+  "marked": "empl[oy]ee",
+  "ipa": "ɪmˈplɔɪiː",
+  "ja": "従業員",
+  "level": 3,
+  "phonId": "v_oi"
+ },
+ {
+  "word": "version",
+  "marked": "ver[si]on",
+  "ipa": "ˈvɝːʒən",
+  "ja": "版・バージョン",
+  "level": 2,
+  "phonId": "c_zh"
+ }
+]
