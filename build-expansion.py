@@ -47,11 +47,14 @@ for p in data:
 rows=[w for p in data for w in wordrows(p)];unique={}
 for w in rows:unique.setdefault(w['word'].lower(),w)
 assert len(unique)==1500,len(unique)
-recorded=json.loads((D/'audio/jessica-map.json').read_text())['clips']
+audio_map=json.loads((D/'audio/jessica-map.json').read_text())
+recorded=audio_map['clips']
+recorded_sentences={k:v['utterance'] for k,v in audio_map.get('clipMetadata',{}).items() if v.get('clipKind')=='sentence'}
 recordedkeys={k.lower() for k in recorded}
-assert len(set(unique)&recordedkeys)==810
+recorded_count=len(set(unique)&recordedkeys)
+assert recorded_count<=len(unique)
 pending=[w for k,w in unique.items() if k not in recordedkeys]
-assert len(pending)==690,len(pending)
+assert len(pending)==len(unique)-recorded_count,len(pending)
 contexts={
 'live':'I live here.','present':'A birthday present.','read':'I read books every day.','increase':'Prices will increase.','project':'My school project.','contract':'Sign a contract.','close':'Please close the door.','tear':'She shed a tear.','record':'A world record.','minute':'One minute.','lead':'Please lead the way.','use':'Please use this.',
 'address':'My home address.','adult':'An adult.','advocate':'An advocate.','alternate':'An alternate route.','attribute':'A useful attribute.','bow':'Tie a bow.','compound':'A chemical compound.','content':'The content of this book.','conflict':'A conflict between friends.','conduct':'Please conduct the test.','contest':'A singing contest.','convert':'Please convert this file.','desert':'A hot desert.','digest':'Please digest the food.','entrance':'The main entrance.','excuse':'Please excuse me.','export':'Please export the file.','import':'Please import the file.','insult':'That was an insult.','object':'A small object.','permit':'A parking permit.','produce':'Please produce a report.','progress':'We made progress.','refuse':'I refuse to go.','resume':'Please resume the lesson.','row':'A row of chairs.','subject':'My favorite subject.','suspect':'The main suspect.','wind':'A strong wind.','wound':'A deep wound.','separate':'Please separate these items.','estimate':'Please estimate the cost.','discount':'A special discount.','rebel':'A rebel.','perfect':'A perfect day.','polish':'Please polish the shoes.','second':'One second.','total':'The total amount.','transfer':'Please transfer the money.','transport':'Please transport the goods.','document':'A useful document.'}
@@ -59,19 +62,20 @@ entries=[]
 for w in pending:
     k=w['word'].lower();entries.append({'id':k,'word':w['word'],'target':w['word'],'ipa':w['ipa'],'ja':w['ja'],'phonId':w['phonId'],'utterance':contexts.get(k,w.get('prompt') or w['word']+'.')})
 batches=[{'id':f'batch-{i//10+1:03}','entries':entries[i:i+10],'text':'\n'.join(w['utterance'] for w in entries[i:i+10])} for i in range(0,len(entries),10)]
-manifest={'version':1,'vocabularyUnique':1500,'practiceEntries':len(rows),'recordedUnique':810,'pendingUnique':690,'defaultBatchSize':10,'batchSizeOptions':[1,5,10,20],'voice':'Jessica','accent':'en-US','format':'plain text; no pause tags or spoken numbering','entries':entries,'batches':batches}
+manifest={'version':1,'vocabularyUnique':1500,'practiceEntries':len(rows),'recordedUnique':recorded_count,'pendingUnique':len(pending),'defaultBatchSize':10,'batchSizeOptions':[1,5,10,20],'voice':'Jessica','accent':'en-US','format':'plain text; no pause tags or spoken numbering','entries':entries,'batches':batches}
 (D/'audio/recording-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=1)+'\n')
 (D/'audio/recording-all.txt').write_text('\n'.join(w['utterance'] for w in entries)+'\n')
 scriptsdir=D/'audio/recording-batches';scriptsdir.mkdir(exist_ok=True)
+for stale in scriptsdir.glob('batch-*.txt'):stale.unlink()
 for b in batches:(scriptsdir/(b['id']+'.txt')).write_text(b['text']+'\n')
 counts={p['id']:sum(1 for _ in wordrows(p)) for p in data}
-(D/'vocabulary-report.json').write_text(json.dumps({'unique':len(unique),'practiceEntries':len(rows),'new':len(selected),'recorded':810,'pending':690,'counts':[{'id':p['id'],'ipa':p['ipa'],'count':counts[p['id']]} for p in data],'under30':[{'id':p['id'],'ipa':p['ipa'],'count':counts[p['id']]} for p in data if counts[p['id']]<30],'omittedCandidates':[w['word'] for w in remaining]},ensure_ascii=False,indent=1)+'\n')
+(D/'vocabulary-report.json').write_text(json.dumps({'unique':len(unique),'practiceEntries':len(rows),'new':len(selected),'recorded':recorded_count,'pending':len(pending),'audioCoverage':audio_map.get('coverage',{}),'counts':[{'id':p['id'],'ipa':p['ipa'],'count':counts[p['id']]} for p in data],'under30':[{'id':p['id'],'ipa':p['ipa'],'count':counts[p['id']]} for p in data if counts[p['id']]<30],'omittedCandidates':[w['word'] for w in remaining]},ensure_ascii=False,indent=1)+'\n')
 # Serialize the data constants as JSON so all words have one canonical source.
 vowels=[p for p in data if p['cat']!='cons'];cons=[p for p in data if p['cat']=='cons']
 s=base
 s=s[:s.index('const P=')]+'const P='+json.dumps(vowels,ensure_ascii=False,indent=1)+';\n'+s[s.index('const PAIRS='):]
 s=s[:s.index('const PC=')]+'const PC='+json.dumps(cons,ensure_ascii=False,indent=1)+';\n'+s[s.index('const CPAIRS='):]
-embed='\n/* VOCABULARY AND RECORDING PLAN */\nconst VOCAB_HEADWORDS='+json.dumps([w['word'] for w in unique.values()],ensure_ascii=False)+';\nconst VOCAB_LOOKUP='+json.dumps({k:{'ja':w['ja']} for k,w in unique.items()},ensure_ascii=False)+';\nconst RECORDED_COUNT=810;\nconst REC_ENTRIES='+json.dumps([[w['word'],w['utterance']] for w in entries],ensure_ascii=False)+';\n'
+embed='\n/* VOCABULARY AND RECORDING PLAN */\nconst VOCAB_HEADWORDS='+json.dumps([w['word'] for w in unique.values()],ensure_ascii=False)+';\nconst VOCAB_LOOKUP='+json.dumps({k:{'ja':w['ja']} for k,w in unique.items()},ensure_ascii=False)+';\nconst RECORDED_COUNT='+str(recorded_count)+';\nconst REC_SENTENCES='+json.dumps(recorded_sentences,ensure_ascii=False)+';\nconst REC_ENTRIES='+json.dumps([[w['word'],w['utterance']] for w in entries],ensure_ascii=False)+';\n'
 s=s.replace('/*END*/',embed+'/*END*/',1)
 s=s.replace('const o={last:null,done:{},quizBest:0,set:{}};','const o={last:null,done:{},quizBest:0,set:{},recordingSize:10,recordingBatch:0,recordingDone:[]};',1)
 s=s.replace('  return o;\n}\ntry{S=normalizeState', '  if(s&&typeof s==="object"){o.recordingSize=[1,5,10,20].includes(s.recordingSize)?s.recordingSize:10;o.recordingBatch=Math.max(0,Math.min(Math.ceil(REC_ENTRIES.length/o.recordingSize)-1,Math.floor(Number(s.recordingBatch)||0)));o.recordingDone=Array.isArray(s.recordingDone)?s.recordingDone.filter(x=>typeof x==="string"&&REC_ENTRIES.some(w=>w[0]===x)):[]}\n  return o;\n}\ntry{S=normalizeState',1)

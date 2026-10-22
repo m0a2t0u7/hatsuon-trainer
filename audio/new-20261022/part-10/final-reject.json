@@ -1,0 +1,32 @@
+[
+  {
+    "id": "writer",
+    "word": "writer",
+    "target": "writer",
+    "ipa": "ˈraɪtɚ",
+    "ja": "作家",
+    "phonId": "c_r",
+    "utterance": "writer.",
+    "reason": "Saved ASR recognizes rider; writer/rider are not guaranteed identical. Needs listening or secondary ASR.",
+    "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_14_15_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 37.5909,
+    "end": 38.531,
+    "waveform": {
+      "i": 36,
+      "word": "writer",
+      "start": 37.5909,
+      "end": 38.531,
+      "speechStart": 37.8056,
+      "speechEnd": 38.3305,
+      "expected": "writer.",
+      "asr": [
+        {
+          "word": " rider,",
+          "start": 37.76,
+          "end": 38.14,
+          "probability": 0.6987823247909546
+        }
+      ]
+    }
+  }
+]

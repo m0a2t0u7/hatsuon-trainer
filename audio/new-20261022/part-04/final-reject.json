@@ -1,0 +1,36 @@
+[
+ {
+  "id": "pier",
+  "word": "pier",
+  "target": "pier",
+  "ipa": "pɪr",
+  "ja": "桟橋",
+  "phonId": "v_ir",
+  "utterance": "pier.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_06_22_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_06_22_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 4,
+  "start": 54.4207,
+  "end": 55.0187,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " pure,",
+    "start": 54.34,
+    "end": 54.82,
+    "probability": 0.8660984635353088
+   }
+  ],
+  "confidence": 0.8660984635353088,
+  "evidence": {
+   "utteranceIndex": 47,
+   "utteranceCount": 69,
+   "speechStart": 54.5007,
+   "speechEnd": 54.9387,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " pure,"
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ }
+]

@@ -1,0 +1,124 @@
+[
+ {
+  "id": "deep",
+  "word": "deep",
+  "target": "deep",
+  "ipa": "diːp",
+  "ja": "深い",
+  "phonId": "v_ii",
+  "utterance": "deep.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 3,
+  "start": 4.60358,
+  "end": 5.24889,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Deek.",
+    "start": 4.92,
+    "end": 5.14,
+    "probability": 0.6308325678110123
+   }
+  ],
+  "confidence": 0.6308325678110123,
+  "evidence": {
+   "utteranceIndex": 4,
+   "utteranceCount": 69,
+   "speechStart": 4.68358,
+   "speechEnd": 5.16889,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Deek."
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ },
+ {
+  "id": "chew",
+  "word": "chew",
+  "target": "chew",
+  "ipa": "tʃuː",
+  "ja": "かむ",
+  "phonId": "v_uu",
+  "utterance": "chew.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 3,
+  "start": 17.795,
+  "end": 18.4553,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Two.",
+    "start": 18.06,
+    "end": 18.2,
+    "probability": 0.4857492744922638
+   }
+  ],
+  "confidence": 0.4857492744922638,
+  "evidence": {
+   "utteranceIndex": 16,
+   "utteranceCount": 69,
+   "speechStart": 17.875,
+   "speechEnd": 18.3753,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Two."
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ },
+ {
+  "id": "cafe",
+  "word": "cafe",
+  "target": "cafe",
+  "ipa": "kəˈfeɪ",
+  "ja": "カフェ",
+  "phonId": "v_ei",
+  "utterance": "cafe.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 3,
+  "start": 46.9417,
+  "end": 47.7301,
+  "clipKind": "word",
+  "asr": [],
+  "confidence": 0,
+  "evidence": {
+   "utteranceIndex": 42,
+   "utteranceCount": 69,
+   "speechStart": 47.0217,
+   "speechEnd": 47.6501,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": ""
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ },
+ {
+  "id": "site",
+  "word": "site",
+  "target": "site",
+  "ipa": "saɪt",
+  "ja": "用地、サイト",
+  "phonId": "v_ai",
+  "utterance": "site.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_01_24_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 3,
+  "start": 62.4979,
+  "end": 63.2184,
+  "clipKind": "word",
+  "asr": [],
+  "confidence": 0,
+  "evidence": {
+   "utteranceIndex": 56,
+   "utteranceCount": 69,
+   "speechStart": 62.5779,
+   "speechEnd": 63.1384,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": ""
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ }
+]

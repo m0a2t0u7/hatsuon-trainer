@@ -2,8 +2,8 @@
  "unique": 1500,
  "practiceEntries": 1900,
  "new": 562,
- "recorded": 810,
- "pending": 690,
+ "recorded": 1489,
+ "pending": 11,
  "counts": [
   {
    "id": "v_i",
@@ -358,5 +358,12 @@
   "within",
   "youth",
   "zoom"
- ]
+ ],
+ "audioCoverage": {
+  "original": 810,
+  "new": 679,
+  "newWord": 660,
+  "newSentence": 19,
+  "pending": 11
+ }
 }

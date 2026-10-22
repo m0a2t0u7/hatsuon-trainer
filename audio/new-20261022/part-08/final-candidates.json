@@ -1,0 +1,2216 @@
+{
+  "skirt": {
+    "word": "skirt",
+    "target": "skirt",
+    "ipa": "skɝːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 0,
+    "end": 0.971608,
+    "clipKind": "word",
+    "utterance": "skirt.",
+    "asr": [
+      {
+        "word": " Skirt,",
+        "start": 0.0,
+        "end": 0.72,
+        "probability": 0.865020364522934
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 0,
+      "speechEnd": 0.702676,
+      "leftSilence": null,
+      "rightSilence": [
+        0.702676,
+        1.24054
+      ]
+    },
+    "confidence": 0.865020364522934
+  },
+  "sky": {
+    "word": "sky",
+    "target": "sky",
+    "ipa": "skaɪ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 0.971608,
+    "end": 2.185975,
+    "clipKind": "word",
+    "utterance": "sky.",
+    "asr": [
+      {
+        "word": " sky,",
+        "start": 1.12,
+        "end": 1.72,
+        "probability": 0.8308724761009216
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 1.24054,
+      "speechEnd": 1.93603,
+      "leftSilence": [
+        0.702676,
+        1.24054
+      ],
+      "rightSilence": [
+        1.93603,
+        2.43592
+      ]
+    },
+    "confidence": 0.8308724761009216
+  },
+  "slide": {
+    "word": "slide",
+    "target": "slide",
+    "ipa": "slaɪd",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 2.185975,
+    "end": 3.37397,
+    "clipKind": "word",
+    "utterance": "slide.",
+    "asr": [
+      {
+        "word": " slide,",
+        "start": 3.02,
+        "end": 3.02,
+        "probability": 0.9940767288208008
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 2.43592,
+      "speechEnd": 3.1349,
+      "leftSilence": [
+        1.93603,
+        2.43592
+      ],
+      "rightSilence": [
+        3.1349,
+        3.61304
+      ]
+    },
+    "confidence": 0.9940767288208008
+  },
+  "smile": {
+    "word": "smile",
+    "target": "smile",
+    "ipa": "smaɪl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 3.37397,
+    "end": 4.589535,
+    "clipKind": "word",
+    "utterance": "smile.",
+    "asr": [
+      {
+        "word": " smile,",
+        "start": 3.5,
+        "end": 4.22,
+        "probability": 0.9981977343559265
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 3.61304,
+      "speechEnd": 4.34261,
+      "leftSilence": [
+        3.1349,
+        3.61304
+      ],
+      "rightSilence": [
+        4.34261,
+        4.83646
+      ]
+    },
+    "confidence": 0.9981977343559265
+  },
+  "smoke": {
+    "word": "smoke",
+    "target": "smoke",
+    "ipa": "smoʊk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 4.589535,
+    "end": 5.72314,
+    "clipKind": "word",
+    "utterance": "smoke.",
+    "asr": [
+      {
+        "word": " smoke,",
+        "start": 4.78,
+        "end": 5.32,
+        "probability": 0.9979466795921326
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 4.83646,
+      "speechEnd": 5.49322,
+      "leftSilence": [
+        4.34261,
+        4.83646
+      ],
+      "rightSilence": [
+        5.49322,
+        5.95306
+      ]
+    },
+    "confidence": 0.9979466795921326
+  },
+  "snake": {
+    "word": "snake",
+    "target": "snake",
+    "ipa": "sneɪk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 5.72314,
+    "end": 6.88788,
+    "clipKind": "word",
+    "utterance": "snake.",
+    "asr": [
+      {
+        "word": " snake,",
+        "start": 5.96,
+        "end": 6.42,
+        "probability": 0.9982972741127014
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 5.95306,
+      "speechEnd": 6.65161,
+      "leftSilence": [
+        5.49322,
+        5.95306
+      ],
+      "rightSilence": [
+        6.65161,
+        7.12415
+      ]
+    },
+    "confidence": 0.9982972741127014
+  },
+  "sock": {
+    "word": "sock",
+    "target": "sock",
+    "ipa": "sɑːk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 6.88788,
+    "end": 7.9595,
+    "clipKind": "word",
+    "utterance": "sock.",
+    "asr": [
+      {
+        "word": " sock,",
+        "start": 7.06,
+        "end": 7.48,
+        "probability": 0.983593761920929
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 7.12415,
+      "speechEnd": 7.73127,
+      "leftSilence": [
+        6.65161,
+        7.12415
+      ],
+      "rightSilence": [
+        7.73127,
+        8.18773
+      ]
+    },
+    "confidence": 0.983593761920929
+  },
+  "soft": {
+    "word": "soft",
+    "target": "soft",
+    "ipa": "sɔːft",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 7.9595,
+    "end": 9.109365,
+    "clipKind": "word",
+    "utterance": "soft.",
+    "asr": [
+      {
+        "word": " soft,",
+        "start": 8.08,
+        "end": 8.64,
+        "probability": 0.9972872734069824
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 8.18773,
+      "speechEnd": 8.88567,
+      "leftSilence": [
+        7.73127,
+        8.18773
+      ],
+      "rightSilence": [
+        8.88567,
+        9.33306
+      ]
+    },
+    "confidence": 0.9972872734069824
+  },
+  "someone": {
+    "word": "someone",
+    "target": "someone",
+    "ipa": "ˈsʌmwʌn",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 9.109365,
+    "end": 10.2365,
+    "clipKind": "word",
+    "utterance": "someone.",
+    "asr": [
+      {
+        "word": " someone,",
+        "start": 9.82,
+        "end": 9.82,
+        "probability": 0.9876292943954468
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 9.33306,
+      "speechEnd": 10.0181,
+      "leftSilence": [
+        8.88567,
+        9.33306
+      ],
+      "rightSilence": [
+        10.0181,
+        10.4549
+      ]
+    },
+    "confidence": 0.9876292943954468
+  },
+  "sometimes": {
+    "word": "sometimes",
+    "target": "sometimes",
+    "ipa": "ˈsʌmtaɪmz",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 10.2365,
+    "end": 11.55205,
+    "clipKind": "word",
+    "utterance": "sometimes.",
+    "asr": [
+      {
+        "word": " sometimes,",
+        "start": 10.44,
+        "end": 11.08,
+        "probability": 0.9978899359703064
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 10.4549,
+      "speechEnd": 11.3543,
+      "leftSilence": [
+        10.0181,
+        10.4549
+      ],
+      "rightSilence": [
+        11.3543,
+        11.7498
+      ]
+    },
+    "confidence": 0.9978899359703064
+  },
+  "somewhere": {
+    "word": "somewhere",
+    "target": "somewhere",
+    "ipa": "ˈsʌmwer",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 11.55205,
+    "end": 12.67855,
+    "clipKind": "word",
+    "utterance": "somewhere.",
+    "asr": [
+      {
+        "word": " somewhere,",
+        "start": 11.66,
+        "end": 12.28,
+        "probability": 0.9983997941017151
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 11.7498,
+      "speechEnd": 12.4475,
+      "leftSilence": [
+        11.3543,
+        11.7498
+      ],
+      "rightSilence": [
+        12.4475,
+        12.9096
+      ]
+    },
+    "confidence": 0.9983997941017151
+  },
+  "speed": {
+    "word": "speed",
+    "target": "speed",
+    "ipa": "spiːd",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 12.67855,
+    "end": 13.8309,
+    "clipKind": "word",
+    "utterance": "speed.",
+    "asr": [
+      {
+        "word": " speed,",
+        "start": 13.04,
+        "end": 13.44,
+        "probability": 0.991508960723877
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 12.9096,
+      "speechEnd": 13.6227,
+      "leftSilence": [
+        12.4475,
+        12.9096
+      ],
+      "rightSilence": [
+        13.6227,
+        14.0391
+      ]
+    },
+    "confidence": 0.991508960723877
+  },
+  "spell": {
+    "word": "spell",
+    "target": "spell",
+    "ipa": "spel",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 13.8309,
+    "end": 14.87995,
+    "clipKind": "word",
+    "utterance": "spell.",
+    "asr": [
+      {
+        "word": " spell,",
+        "start": 14.2,
+        "end": 14.46,
+        "probability": 0.997800886631012
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 14.0391,
+      "speechEnd": 14.6547,
+      "leftSilence": [
+        13.6227,
+        14.0391
+      ],
+      "rightSilence": [
+        14.6547,
+        15.1052
+      ]
+    },
+    "confidence": 0.997800886631012
+  },
+  "spend": {
+    "word": "spend",
+    "target": "spend",
+    "ipa": "spend",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 14.87995,
+    "end": 15.9927,
+    "clipKind": "word",
+    "utterance": "spend.",
+    "asr": [
+      {
+        "word": " spend,",
+        "start": 15.08,
+        "end": 15.64,
+        "probability": 0.9826834201812744
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 15.1052,
+      "speechEnd": 15.7791,
+      "leftSilence": [
+        14.6547,
+        15.1052
+      ],
+      "rightSilence": [
+        15.7791,
+        16.2063
+      ]
+    },
+    "confidence": 0.9826834201812744
+  },
+  "spoon": {
+    "word": "spoon",
+    "target": "spoon",
+    "ipa": "spuːn",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 15.9927,
+    "end": 17.09165,
+    "clipKind": "word",
+    "utterance": "spoon.",
+    "asr": [
+      {
+        "word": " spoon,",
+        "start": 16.58,
+        "end": 16.7,
+        "probability": 0.997602641582489
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 16.2063,
+      "speechEnd": 16.8771,
+      "leftSilence": [
+        15.7791,
+        16.2063
+      ],
+      "rightSilence": [
+        16.8771,
+        17.3062
+      ]
+    },
+    "confidence": 0.997602641582489
+  },
+  "spring": {
+    "word": "spring",
+    "target": "spring",
+    "ipa": "sprɪŋ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 17.09165,
+    "end": 18.21955,
+    "clipKind": "word",
+    "utterance": "spring.",
+    "asr": [
+      {
+        "word": " spring,",
+        "start": 17.26,
+        "end": 17.8,
+        "probability": 0.9941927790641785
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 17.3062,
+      "speechEnd": 18.0034,
+      "leftSilence": [
+        16.8771,
+        17.3062
+      ],
+      "rightSilence": [
+        18.0034,
+        18.4357
+      ]
+    },
+    "confidence": 0.9941927790641785
+  },
+  "stamp": {
+    "word": "stamp",
+    "target": "stamp",
+    "ipa": "stæmp",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 18.21955,
+    "end": 19.28785,
+    "clipKind": "word",
+    "utterance": "stamp.",
+    "asr": [
+      {
+        "word": " stamp,",
+        "start": 18.4,
+        "end": 18.9,
+        "probability": 0.9974380731582642
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 18.4357,
+      "speechEnd": 19.0732,
+      "leftSilence": [
+        18.0034,
+        18.4357
+      ],
+      "rightSilence": [
+        19.0732,
+        19.5025
+      ]
+    },
+    "confidence": 0.9974380731582642
+  },
+  "stand": {
+    "word": "stand",
+    "target": "stand",
+    "ipa": "stænd",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 19.28785,
+    "end": 20.38335,
+    "clipKind": "word",
+    "utterance": "stand.",
+    "asr": [
+      {
+        "word": " stand,",
+        "start": 19.46,
+        "end": 19.98,
+        "probability": 0.9985443353652954
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 19.5025,
+      "speechEnd": 20.1754,
+      "leftSilence": [
+        19.0732,
+        19.5025
+      ],
+      "rightSilence": [
+        20.1754,
+        20.5913
+      ]
+    },
+    "confidence": 0.9985443353652954
+  },
+  "stay": {
+    "word": "stay",
+    "target": "stay",
+    "ipa": "steɪ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 20.38335,
+    "end": 21.4259,
+    "clipKind": "word",
+    "utterance": "stay.",
+    "asr": [
+      {
+        "word": " stay,",
+        "start": 20.5,
+        "end": 21.06,
+        "probability": 0.9985509514808655
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 20.5913,
+      "speechEnd": 21.2179,
+      "leftSilence": [
+        20.1754,
+        20.5913
+      ],
+      "rightSilence": [
+        21.2179,
+        21.6339
+      ]
+    },
+    "confidence": 0.9985509514808655
+  },
+  "steal": {
+    "word": "steal",
+    "target": "steal",
+    "ipa": "stiːl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 21.4259,
+    "end": 22.4727,
+    "clipKind": "word",
+    "utterance": "steal.",
+    "asr": [
+      {
+        "word": " steal,",
+        "start": 22.16,
+        "end": 22.16,
+        "probability": 0.8157135248184204
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 21.6339,
+      "speechEnd": 22.2792,
+      "leftSilence": [
+        21.2179,
+        21.6339
+      ],
+      "rightSilence": [
+        22.2792,
+        22.6662
+      ]
+    },
+    "confidence": 0.8157135248184204
+  },
+  "stick": {
+    "word": "stick",
+    "target": "stick",
+    "ipa": "stɪk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 22.4727,
+    "end": 23.43055,
+    "clipKind": "word",
+    "utterance": "stick.",
+    "asr": [
+      {
+        "word": " stick,",
+        "start": 22.8,
+        "end": 23.08,
+        "probability": 0.9976689219474792
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 22.6662,
+      "speechEnd": 23.228,
+      "leftSilence": [
+        22.2792,
+        22.6662
+      ],
+      "rightSilence": [
+        23.228,
+        23.6331
+      ]
+    },
+    "confidence": 0.9976689219474792
+  },
+  "still": {
+    "word": "still",
+    "target": "still",
+    "ipa": "stɪl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 23.43055,
+    "end": 24.4681,
+    "clipKind": "word",
+    "utterance": "still.",
+    "asr": [
+      {
+        "word": " still,",
+        "start": 23.62,
+        "end": 24.06,
+        "probability": 0.9990102052688599
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 23.6331,
+      "speechEnd": 24.2562,
+      "leftSilence": [
+        23.228,
+        23.6331
+      ],
+      "rightSilence": [
+        24.2562,
+        24.68
+      ]
+    },
+    "confidence": 0.9990102052688599
+  },
+  "stone": {
+    "word": "stone",
+    "target": "stone",
+    "ipa": "stoʊn",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 24.4681,
+    "end": 25.54915,
+    "clipKind": "word",
+    "utterance": "stone.",
+    "asr": [
+      {
+        "word": " stone,",
+        "start": 24.86,
+        "end": 25.16,
+        "probability": 0.9968764781951904
+      },
+      {
+        "word": " straight,",
+        "start": 25.16,
+        "end": 26.14,
+        "probability": 0.05301661789417267
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 24.68,
+      "speechEnd": 25.3531,
+      "leftSilence": [
+        24.2562,
+        24.68
+      ],
+      "rightSilence": [
+        25.3531,
+        25.7452
+      ]
+    },
+    "confidence": 0.05301661789417267
+  },
+  "straight": {
+    "word": "straight",
+    "target": "straight",
+    "ipa": "streɪt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 25.54915,
+    "end": 26.5863,
+    "clipKind": "word",
+    "utterance": "straight.",
+    "asr": [
+      {
+        "word": " straight,",
+        "start": 25.16,
+        "end": 26.14,
+        "probability": 0.05301661789417267
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 25.7452,
+      "speechEnd": 26.3895,
+      "leftSilence": [
+        25.3531,
+        25.7452
+      ],
+      "rightSilence": [
+        26.3895,
+        26.7831
+      ]
+    },
+    "confidence": 0.05301661789417267
+  },
+  "strange": {
+    "word": "strange",
+    "target": "strange",
+    "ipa": "streɪndʒ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 26.5863,
+    "end": 27.79465,
+    "clipKind": "word",
+    "utterance": "strange.",
+    "asr": [
+      {
+        "word": " strange,",
+        "start": 27.48,
+        "end": 27.48,
+        "probability": 0.9865579009056091
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 26.7831,
+      "speechEnd": 27.6068,
+      "leftSilence": [
+        26.3895,
+        26.7831
+      ],
+      "rightSilence": [
+        27.6068,
+        27.9825
+      ]
+    },
+    "confidence": 0.9865579009056091
+  },
+  "street": {
+    "word": "street",
+    "target": "street",
+    "ipa": "striːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 27.79465,
+    "end": 28.7936,
+    "clipKind": "word",
+    "utterance": "street.",
+    "asr": [
+      {
+        "word": " street,",
+        "start": 27.94,
+        "end": 28.36,
+        "probability": 0.7853766679763794
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 27.9825,
+      "speechEnd": 28.5847,
+      "leftSilence": [
+        27.6068,
+        27.9825
+      ],
+      "rightSilence": [
+        28.5847,
+        29.0025
+      ]
+    },
+    "confidence": 0.7853766679763794
+  },
+  "study": {
+    "word": "study",
+    "target": "study",
+    "ipa": "ˈstʌdi",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 28.7936,
+    "end": 29.82055,
+    "clipKind": "word",
+    "utterance": "study.",
+    "asr": [
+      {
+        "word": " study,",
+        "start": 28.94,
+        "end": 29.48,
+        "probability": 0.9835386276245117
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 29.0025,
+      "speechEnd": 29.6021,
+      "leftSilence": [
+        28.5847,
+        29.0025
+      ],
+      "rightSilence": [
+        29.6021,
+        30.039
+      ]
+    },
+    "confidence": 0.9835386276245117
+  },
+  "subway": {
+    "word": "subway",
+    "target": "subway",
+    "ipa": "ˈsʌbweɪ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 29.82055,
+    "end": 30.9099,
+    "clipKind": "word",
+    "utterance": "subway.",
+    "asr": [
+      {
+        "word": " subway,",
+        "start": 30.04,
+        "end": 30.58,
+        "probability": 0.9744095206260681
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 30.039,
+      "speechEnd": 30.6976,
+      "leftSilence": [
+        29.6021,
+        30.039
+      ],
+      "rightSilence": [
+        30.6976,
+        31.1222
+      ]
+    },
+    "confidence": 0.9744095206260681
+  },
+  "such": {
+    "word": "such",
+    "target": "such",
+    "ipa": "sʌtʃ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 30.9099,
+    "end": 31.929,
+    "clipKind": "word",
+    "utterance": "such.",
+    "asr": [
+      {
+        "word": " such,",
+        "start": 31.1,
+        "end": 31.5,
+        "probability": 0.9476476311683655
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 31.1222,
+      "speechEnd": 31.7297,
+      "leftSilence": [
+        30.6976,
+        31.1222
+      ],
+      "rightSilence": [
+        31.7297,
+        32.1283
+      ]
+    },
+    "confidence": 0.9476476311683655
+  },
+  "suit": {
+    "word": "suit",
+    "target": "suit",
+    "ipa": "suːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 31.929,
+    "end": 32.84525,
+    "clipKind": "word",
+    "utterance": "suit.",
+    "asr": [
+      {
+        "word": " suit,",
+        "start": 32.04,
+        "end": 32.5,
+        "probability": 0.9855258464813232
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 32.1283,
+      "speechEnd": 32.6458,
+      "leftSilence": [
+        31.7297,
+        32.1283
+      ],
+      "rightSilence": [
+        32.6458,
+        33.0447
+      ]
+    },
+    "confidence": 0.9855258464813232
+  },
+  "suitcase": {
+    "word": "suitcase",
+    "target": "suitcase",
+    "ipa": "ˈsuːtkeɪs",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 32.84525,
+    "end": 34.0513,
+    "clipKind": "word",
+    "utterance": "suitcase.",
+    "asr": [
+      {
+        "word": " suitcase,",
+        "start": 33.08,
+        "end": 33.46,
+        "probability": 0.995075523853302
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 33.0447,
+      "speechEnd": 33.8609,
+      "leftSilence": [
+        32.6458,
+        33.0447
+      ],
+      "rightSilence": [
+        33.8609,
+        34.2417
+      ]
+    },
+    "confidence": 0.995075523853302
+  },
+  "surprise": {
+    "word": "surprise",
+    "target": "surprise",
+    "ipa": "sɚˈpraɪz",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 34.0513,
+    "end": 35.24195,
+    "clipKind": "word",
+    "utterance": "surprise.",
+    "asr": [
+      {
+        "word": " surprise,",
+        "start": 34.24,
+        "end": 34.76,
+        "probability": 0.9962301850318909
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 34.2417,
+      "speechEnd": 35.0578,
+      "leftSilence": [
+        33.8609,
+        34.2417
+      ],
+      "rightSilence": [
+        35.0578,
+        35.4261
+      ]
+    },
+    "confidence": 0.9962301850318909
+  },
+  "sweet": {
+    "word": "sweet",
+    "target": "sweet",
+    "ipa": "swiːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 35.24195,
+    "end": 36.2273,
+    "clipKind": "word",
+    "utterance": "sweet.",
+    "asr": [
+      {
+        "word": " sweet,",
+        "start": 35.42,
+        "end": 35.84,
+        "probability": 0.6012182831764221
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 35.4261,
+      "speechEnd": 36.0145,
+      "leftSilence": [
+        35.0578,
+        35.4261
+      ],
+      "rightSilence": [
+        36.0145,
+        36.4401
+      ]
+    },
+    "confidence": 0.6012182831764221
+  },
+  "magazine": {
+    "word": "magazine",
+    "target": "magazine",
+    "ipa": "ˌmæɡəˈziːn",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 36.2273,
+    "end": 37.38945,
+    "clipKind": "word",
+    "utterance": "magazine.",
+    "asr": [
+      {
+        "word": " magazine,",
+        "start": 36.38,
+        "end": 36.96,
+        "probability": 0.9976688027381897
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 36.4401,
+      "speechEnd": 37.1779,
+      "leftSilence": [
+        36.0145,
+        36.4401
+      ],
+      "rightSilence": [
+        37.1779,
+        37.601
+      ]
+    },
+    "confidence": 0.9976688027381897
+  },
+  "zipper": {
+    "word": "zipper",
+    "target": "zipper",
+    "ipa": "ˈzɪpɚ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 37.38945,
+    "end": 38.33895,
+    "clipKind": "word",
+    "utterance": "zipper.",
+    "asr": [
+      {
+        "word": " zipper,",
+        "start": 37.56,
+        "end": 37.96,
+        "probability": 0.9834592938423157
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 37.601,
+      "speechEnd": 38.1407,
+      "leftSilence": [
+        37.1779,
+        37.601
+      ],
+      "rightSilence": [
+        38.1407,
+        38.5372
+      ]
+    },
+    "confidence": 0.9834592938423157
+  },
+  "shape": {
+    "word": "shape",
+    "target": "shape",
+    "ipa": "ʃeɪp",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 38.33895,
+    "end": 39.25245,
+    "clipKind": "word",
+    "utterance": "shape.",
+    "asr": [
+      {
+        "word": " shape,",
+        "start": 38.54,
+        "end": 38.9,
+        "probability": 0.9961677193641663
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 38.5372,
+      "speechEnd": 39.0529,
+      "leftSilence": [
+        38.1407,
+        38.5372
+      ],
+      "rightSilence": [
+        39.0529,
+        39.452
+      ]
+    },
+    "confidence": 0.9961677193641663
+  },
+  "sheet": {
+    "word": "sheet",
+    "target": "sheet",
+    "ipa": "ʃiːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 39.25245,
+    "end": 40.21285,
+    "clipKind": "word",
+    "utterance": "sheet.",
+    "asr": [
+      {
+        "word": " sheet,",
+        "start": 39.42,
+        "end": 39.8,
+        "probability": 0.9947397112846375
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 39.452,
+      "speechEnd": 39.9918,
+      "leftSilence": [
+        39.0529,
+        39.452
+      ],
+      "rightSilence": [
+        39.9918,
+        40.4339
+      ]
+    },
+    "confidence": 0.9947397112846375
+  },
+  "shelf": {
+    "word": "shelf",
+    "target": "shelf",
+    "ipa": "ʃelf",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 40.21285,
+    "end": 41.2546,
+    "clipKind": "word",
+    "utterance": "shelf.",
+    "asr": [
+      {
+        "word": " shelf,",
+        "start": 40.38,
+        "end": 40.8,
+        "probability": 0.9946485161781311
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 40.4339,
+      "speechEnd": 41.0406,
+      "leftSilence": [
+        39.9918,
+        40.4339
+      ],
+      "rightSilence": [
+        41.0406,
+        41.4686
+      ]
+    },
+    "confidence": 0.9946485161781311
+  },
+  "shine": {
+    "word": "shine",
+    "target": "shine",
+    "ipa": "ʃaɪn",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 41.2546,
+    "end": 42.2908,
+    "clipKind": "word",
+    "utterance": "shine.",
+    "asr": [
+      {
+        "word": " shine,",
+        "start": 41.46,
+        "end": 41.9,
+        "probability": 0.9984032511711121
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 41.4686,
+      "speechEnd": 42.0969,
+      "leftSilence": [
+        41.0406,
+        41.4686
+      ],
+      "rightSilence": [
+        42.0969,
+        42.4847
+      ]
+    },
+    "confidence": 0.9984032511711121
+  },
+  "shoot": {
+    "word": "shoot",
+    "target": "shoot",
+    "ipa": "ʃuːt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 42.2908,
+    "end": 43.23385,
+    "clipKind": "word",
+    "utterance": "shoot.",
+    "asr": [
+      {
+        "word": " shoot,",
+        "start": 42.46,
+        "end": 42.82,
+        "probability": 0.9596700072288513
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 42.4847,
+      "speechEnd": 43.0116,
+      "leftSilence": [
+        42.0969,
+        42.4847
+      ],
+      "rightSilence": [
+        43.0116,
+        43.4561
+      ]
+    },
+    "confidence": 0.9596700072288513
+  },
+  "television": {
+    "word": "television",
+    "target": "television",
+    "ipa": "ˈteləvɪʒən",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 43.23385,
+    "end": 44.3609,
+    "clipKind": "word",
+    "utterance": "television.",
+    "asr": [
+      {
+        "word": " television,",
+        "start": 43.42,
+        "end": 43.9,
+        "probability": 0.9975357055664062
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 43.4561,
+      "speechEnd": 44.162,
+      "leftSilence": [
+        43.0116,
+        43.4561
+      ],
+      "rightSilence": [
+        44.162,
+        44.5598
+      ]
+    },
+    "confidence": 0.9975357055664062
+  },
+  "unusual": {
+    "word": "unusual",
+    "target": "unusual",
+    "ipa": "ənˈjuːʒuəl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 44.3609,
+    "end": 45.5971,
+    "clipKind": "word",
+    "utterance": "unusual.",
+    "asr": [
+      {
+        "word": " unusual,",
+        "start": 44.58,
+        "end": 44.96,
+        "probability": 0.9989905953407288
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 44.5598,
+      "speechEnd": 45.3757,
+      "leftSilence": [
+        44.162,
+        44.5598
+      ],
+      "rightSilence": [
+        45.3757,
+        45.8185
+      ]
+    },
+    "confidence": 0.9989905953407288
+  },
+  "visual": {
+    "word": "visual",
+    "target": "visual",
+    "ipa": "ˈvɪʒuəl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 45.5971,
+    "end": 46.67355,
+    "clipKind": "word",
+    "utterance": "visual.",
+    "asr": [
+      {
+        "word": " visual,",
+        "start": 45.78,
+        "end": 46.22,
+        "probability": 0.9976913928985596
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 45.8185,
+      "speechEnd": 46.4501,
+      "leftSilence": [
+        45.3757,
+        45.8185
+      ],
+      "rightSilence": [
+        46.4501,
+        46.897
+      ]
+    },
+    "confidence": 0.9976913928985596
+  },
+  "habit": {
+    "word": "habit",
+    "target": "habit",
+    "ipa": "ˈhæbət",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 46.67355,
+    "end": 47.6674,
+    "clipKind": "word",
+    "utterance": "habit.",
+    "asr": [
+      {
+        "word": " habit,",
+        "start": 46.78,
+        "end": 47.28,
+        "probability": 0.997649610042572
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 46.897,
+      "speechEnd": 47.4549,
+      "leftSilence": [
+        46.4501,
+        46.897
+      ],
+      "rightSilence": [
+        47.4549,
+        47.8799
+      ]
+    },
+    "confidence": 0.997649610042572
+  },
+  "hallway": {
+    "word": "hallway",
+    "target": "hallway",
+    "ipa": "ˈhɔːlweɪ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 47.6674,
+    "end": 48.7012,
+    "clipKind": "word",
+    "utterance": "hallway.",
+    "asr": [
+      {
+        "word": " hallway,",
+        "start": 47.8,
+        "end": 48.2,
+        "probability": 0.9994447827339172
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 47.8799,
+      "speechEnd": 48.4738,
+      "leftSilence": [
+        47.4549,
+        47.8799
+      ],
+      "rightSilence": [
+        48.4738,
+        48.9286
+      ]
+    },
+    "confidence": 0.9994447827339172
+  },
+  "handsome": {
+    "word": "handsome",
+    "target": "handsome",
+    "ipa": "ˈhænsəm",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 48.7012,
+    "end": 49.774,
+    "clipKind": "word",
+    "utterance": "handsome.",
+    "asr": [
+      {
+        "word": " handsome,",
+        "start": 48.9,
+        "end": 49.36,
+        "probability": 0.9945829510688782
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 48.9286,
+      "speechEnd": 49.5489,
+      "leftSilence": [
+        48.4738,
+        48.9286
+      ],
+      "rightSilence": [
+        49.5489,
+        49.9991
+      ]
+    },
+    "confidence": 0.9945829510688782
+  },
+  "happen": {
+    "word": "happen",
+    "target": "happen",
+    "ipa": "ˈhæpən",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 49.774,
+    "end": 50.74745,
+    "clipKind": "word",
+    "utterance": "happen.",
+    "asr": [
+      {
+        "word": " happen,",
+        "start": 49.96,
+        "end": 50.32,
+        "probability": 0.9574325084686279
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 49.9991,
+      "speechEnd": 50.5331,
+      "leftSilence": [
+        49.5489,
+        49.9991
+      ],
+      "rightSilence": [
+        50.5331,
+        50.9618
+      ]
+    },
+    "confidence": 0.9574325084686279
+  },
+  "headache": {
+    "word": "headache",
+    "target": "headache",
+    "ipa": "ˈhedeɪk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 50.74745,
+    "end": 51.7264,
+    "clipKind": "word",
+    "utterance": "headache.",
+    "asr": [
+      {
+        "word": " headache,",
+        "start": 50.92,
+        "end": 51.3,
+        "probability": 0.9907225370407104
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 50.9618,
+      "speechEnd": 51.5158,
+      "leftSilence": [
+        50.5331,
+        50.9618
+      ],
+      "rightSilence": [
+        51.5158,
+        51.937
+      ]
+    },
+    "confidence": 0.9907225370407104
+  },
+  "height": {
+    "word": "height",
+    "target": "height",
+    "ipa": "haɪt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 51.7264,
+    "end": 52.6108,
+    "clipKind": "word",
+    "utterance": "height.",
+    "asr": [
+      {
+        "word": " height,",
+        "start": 51.88,
+        "end": 52.18,
+        "probability": 0.9971565008163452
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 51.937,
+      "speechEnd": 52.4025,
+      "leftSilence": [
+        51.5158,
+        51.937
+      ],
+      "rightSilence": [
+        52.4025,
+        52.8191
+      ]
+    },
+    "confidence": 0.9971565008163452
+  },
+  "helpful": {
+    "word": "helpful",
+    "target": "helpful",
+    "ipa": "ˈhelpfəl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 52.6108,
+    "end": 53.6124,
+    "clipKind": "word",
+    "utterance": "helpful.",
+    "asr": [
+      {
+        "word": " helpful,",
+        "start": 52.76,
+        "end": 53.18,
+        "probability": 0.9976334571838379
+      },
+      {
+        "word": " hers,",
+        "start": 53.18,
+        "end": 54.2,
+        "probability": 0.17647938430309296
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 52.8191,
+      "speechEnd": 53.3815,
+      "leftSilence": [
+        52.4025,
+        52.8191
+      ],
+      "rightSilence": [
+        53.3815,
+        53.8433
+      ]
+    },
+    "confidence": 0.17647938430309296
+  },
+  "hers": {
+    "word": "hers",
+    "target": "hers",
+    "ipa": "hɝːz",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 53.6124,
+    "end": 54.59865,
+    "clipKind": "word",
+    "utterance": "hers.",
+    "asr": [
+      {
+        "word": " hers,",
+        "start": 53.18,
+        "end": 54.2,
+        "probability": 0.17647938430309296
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 53.8433,
+      "speechEnd": 54.405,
+      "leftSilence": [
+        53.3815,
+        53.8433
+      ],
+      "rightSilence": [
+        54.405,
+        54.7923
+      ]
+    },
+    "confidence": 0.17647938430309296
+  },
+  "herself": {
+    "word": "herself",
+    "target": "herself",
+    "ipa": "hɚˈself",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 54.59865,
+    "end": 55.6685,
+    "clipKind": "word",
+    "utterance": "herself.",
+    "asr": [
+      {
+        "word": " herself,",
+        "start": 54.82,
+        "end": 55.22,
+        "probability": 0.9775405526161194
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 54.7923,
+      "speechEnd": 55.4449,
+      "leftSilence": [
+        54.405,
+        54.7923
+      ],
+      "rightSilence": [
+        55.4449,
+        55.8921
+      ]
+    },
+    "confidence": 0.9775405526161194
+  },
+  "hide": {
+    "word": "hide",
+    "target": "hide",
+    "ipa": "haɪd",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 55.6685,
+    "end": 56.65785,
+    "clipKind": "word",
+    "utterance": "hide.",
+    "asr": [
+      {
+        "word": " hide,",
+        "start": 55.76,
+        "end": 56.24,
+        "probability": 0.9150936007499695
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 55.8921,
+      "speechEnd": 56.4255,
+      "leftSilence": [
+        55.4449,
+        55.8921
+      ],
+      "rightSilence": [
+        56.4255,
+        56.8902
+      ]
+    },
+    "confidence": 0.9150936007499695
+  },
+  "hill": {
+    "word": "hill",
+    "target": "hill",
+    "ipa": "hɪl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 56.65785,
+    "end": 57.55425,
+    "clipKind": "word",
+    "utterance": "hill.",
+    "asr": [
+      {
+        "word": " hill,",
+        "start": 57.08,
+        "end": 57.16,
+        "probability": 0.6895946264266968
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 56.8902,
+      "speechEnd": 57.3043,
+      "leftSilence": [
+        56.4255,
+        56.8902
+      ],
+      "rightSilence": [
+        57.3043,
+        57.8042
+      ]
+    },
+    "confidence": 0.6895946264266968
+  },
+  "him": {
+    "word": "him",
+    "target": "him",
+    "ipa": "hɪm",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 57.55425,
+    "end": 58.4167,
+    "clipKind": "word",
+    "utterance": "him.",
+    "asr": [
+      {
+        "word": " him,",
+        "start": 57.72,
+        "end": 58.1,
+        "probability": 0.9701727032661438
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 57.8042,
+      "speechEnd": 58.2041,
+      "leftSilence": [
+        57.3043,
+        57.8042
+      ],
+      "rightSilence": [
+        58.2041,
+        58.6293
+      ]
+    },
+    "confidence": 0.9701727032661438
+  },
+  "himself": {
+    "word": "himself",
+    "target": "himself",
+    "ipa": "hɪmˈself",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 58.4167,
+    "end": 59.55365,
+    "clipKind": "word",
+    "utterance": "himself.",
+    "asr": [
+      {
+        "word": " himself,",
+        "start": 58.56,
+        "end": 59.08,
+        "probability": 0.9980760812759399
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 58.6293,
+      "speechEnd": 59.3334,
+      "leftSilence": [
+        58.2041,
+        58.6293
+      ],
+      "rightSilence": [
+        59.3334,
+        59.7739
+      ]
+    },
+    "confidence": 0.9980760812759399
+  },
+  "history": {
+    "word": "history",
+    "target": "history",
+    "ipa": "ˈhɪstɚi",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 59.55365,
+    "end": 60.60265,
+    "clipKind": "word",
+    "utterance": "history.",
+    "asr": [
+      {
+        "word": " history,",
+        "start": 59.68,
+        "end": 60.2,
+        "probability": 0.995685338973999
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 59.7739,
+      "speechEnd": 60.3878,
+      "leftSilence": [
+        59.3334,
+        59.7739
+      ],
+      "rightSilence": [
+        60.3878,
+        60.8175
+      ]
+    },
+    "confidence": 0.995685338973999
+  },
+  "hit": {
+    "word": "hit",
+    "target": "hit",
+    "ipa": "hɪt",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 60.60265,
+    "end": 61.44055,
+    "clipKind": "word",
+    "utterance": "hit.",
+    "asr": [
+      {
+        "word": " hit,",
+        "start": 60.72,
+        "end": 61.02,
+        "probability": 0.9891648888587952
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 60.8175,
+      "speechEnd": 61.2181,
+      "leftSilence": [
+        60.3878,
+        60.8175
+      ],
+      "rightSilence": [
+        61.2181,
+        61.663
+      ]
+    },
+    "confidence": 0.9891648888587952
+  },
+  "hold": {
+    "word": "hold",
+    "target": "hold",
+    "ipa": "hoʊld",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 61.44055,
+    "end": 62.41715,
+    "clipKind": "word",
+    "utterance": "hold.",
+    "asr": [
+      {
+        "word": " hold,",
+        "start": 61.56,
+        "end": 62.02,
+        "probability": 0.9927752017974854
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 61.663,
+      "speechEnd": 62.1968,
+      "leftSilence": [
+        61.2181,
+        61.663
+      ],
+      "rightSilence": [
+        62.1968,
+        62.6375
+      ]
+    },
+    "confidence": 0.9927752017974854
+  },
+  "hole": {
+    "word": "hole",
+    "target": "hole",
+    "ipa": "hoʊl",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 62.41715,
+    "end": 63.36615,
+    "clipKind": "word",
+    "utterance": "hole.",
+    "asr": [
+      {
+        "word": " whole,",
+        "start": 62.58,
+        "end": 62.96,
+        "probability": 0.7472169995307922
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 62.6375,
+      "speechEnd": 63.1351,
+      "leftSilence": [
+        62.1968,
+        62.6375
+      ],
+      "rightSilence": [
+        63.1351,
+        63.5972
+      ]
+    },
+    "confidence": 0.7472169995307922
+  },
+  "homework": {
+    "word": "homework",
+    "target": "homework",
+    "ipa": "ˈhoʊmwɝːk",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 63.36615,
+    "end": 64.4278,
+    "clipKind": "word",
+    "utterance": "homework.",
+    "asr": [
+      {
+        "word": " homework,",
+        "start": 63.54,
+        "end": 63.98,
+        "probability": 0.9965207576751709
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 63.5972,
+      "speechEnd": 64.2178,
+      "leftSilence": [
+        63.1351,
+        63.5972
+      ],
+      "rightSilence": [
+        64.2178,
+        64.6378
+      ]
+    },
+    "confidence": 0.9965207576751709
+  },
+  "honey": {
+    "word": "honey",
+    "target": "honey",
+    "ipa": "ˈhʌni",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 64.4278,
+    "end": 65.2769,
+    "clipKind": "word",
+    "utterance": "honey.",
+    "asr": [
+      {
+        "word": " honey.",
+        "start": 64.52,
+        "end": 64.88,
+        "probability": 0.9915961623191833
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 64.6378,
+      "speechEnd": 65.052,
+      "leftSilence": [
+        64.2178,
+        64.6378
+      ],
+      "rightSilence": [
+        65.052,
+        65.5018
+      ]
+    },
+    "confidence": 0.9915961623191833
+  },
+  "however": {
+    "word": "however",
+    "target": "however",
+    "ipa": "haʊˈevɚ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 65.2769,
+    "end": 66.30835,
+    "clipKind": "word",
+    "utterance": "however.",
+    "asr": [
+      {
+        "word": " However,",
+        "start": 65.54,
+        "end": 65.88,
+        "probability": 0.9909233450889587
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 65.5018,
+      "speechEnd": 66.0849,
+      "leftSilence": [
+        65.052,
+        65.5018
+      ],
+      "rightSilence": [
+        66.0849,
+        66.5318
+      ]
+    },
+    "confidence": 0.9909233450889587
+  },
+  "husband": {
+    "word": "husband",
+    "target": "husband",
+    "ipa": "ˈhʌzbənd",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 66.30835,
+    "end": 67.38255,
+    "clipKind": "word",
+    "utterance": "husband.",
+    "asr": [
+      {
+        "word": " husband,",
+        "start": 66.48,
+        "end": 66.96,
+        "probability": 0.9817591905593872
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 66.5318,
+      "speechEnd": 67.1701,
+      "leftSilence": [
+        66.0849,
+        66.5318
+      ],
+      "rightSilence": [
+        67.1701,
+        67.595
+      ]
+    },
+    "confidence": 0.9817591905593872
+  },
+  "whose": {
+    "word": "whose",
+    "target": "whose",
+    "ipa": "huːz",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 67.38255,
+    "end": 68.38745,
+    "clipKind": "word",
+    "utterance": "whose.",
+    "asr": [
+      {
+        "word": " who's,",
+        "start": 67.5,
+        "end": 68.28,
+        "probability": 0.7368454784154892
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 67.595,
+      "speechEnd": 68.1628,
+      "leftSilence": [
+        67.1701,
+        67.595
+      ],
+      "rightSilence": [
+        68.1628,
+        68.6121
+      ]
+    },
+    "confidence": 0.7368454784154892
+  },
+  "much": {
+    "word": "much",
+    "target": "much",
+    "ipa": "mʌtʃ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 68.38745,
+    "end": 69.36785,
+    "clipKind": "word",
+    "utterance": "much.",
+    "asr": [
+      {
+        "word": " much,",
+        "start": 68.52,
+        "end": 68.9,
+        "probability": 0.9894832968711853
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 68.6121,
+      "speechEnd": 69.169,
+      "leftSilence": [
+        68.1628,
+        68.6121
+      ],
+      "rightSilence": [
+        69.169,
+        69.5667
+      ]
+    },
+    "confidence": 0.9894832968711853
+  },
+  "which": {
+    "word": "which",
+    "target": "which",
+    "ipa": "wɪtʃ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 69.36785,
+    "end": 70.26465,
+    "clipKind": "word",
+    "utterance": "which.",
+    "asr": [
+      {
+        "word": " which,",
+        "start": 69.46,
+        "end": 69.82,
+        "probability": 0.898733913898468
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 69.5667,
+      "speechEnd": 70.0482,
+      "leftSilence": [
+        69.169,
+        69.5667
+      ],
+      "rightSilence": [
+        70.0482,
+        70.4811
+      ]
+    },
+    "confidence": 0.898733913898468
+  },
+  "teach": {
+    "word": "teach",
+    "target": "teach",
+    "ipa": "tiːtʃ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 70.26465,
+    "end": 71.18935,
+    "clipKind": "word",
+    "utterance": "teach.",
+    "asr": [
+      {
+        "word": " teach,",
+        "start": 70.38,
+        "end": 70.82,
+        "probability": 0.9977178573608398
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 70.4811,
+      "speechEnd": 70.9796,
+      "leftSilence": [
+        70.0482,
+        70.4811
+      ],
+      "rightSilence": [
+        70.9796,
+        71.3991
+      ]
+    },
+    "confidence": 0.9977178573608398
+  },
+  "switch": {
+    "word": "switch",
+    "target": "switch",
+    "ipa": "swɪtʃ",
+    "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_13_18_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+    "start": 71.18935,
+    "end": 72.202438,
+    "clipKind": "word",
+    "utterance": "switch.",
+    "asr": [
+      {
+        "word": " switch.",
+        "start": 71.44,
+        "end": 71.74,
+        "probability": 0.9960720539093018
+      }
+    ],
+    "reason": "69 script-ordered waveform utterances; saved ASR with neighboring exact anchors; boundaries at midpoint of >=220ms silence (-43dB). Zero ASR duration ignored in favor of waveform. Homophone spelling normalized where applicable.",
+    "boundaryEvidence": {
+      "speechStart": 71.3991,
+      "speechEnd": 72.202438,
+      "leftSilence": [
+        70.9796,
+        71.3991
+      ],
+      "rightSilence": null
+    },
+    "confidence": 0.9960720539093018
+  }
+}

@@ -1,0 +1,2376 @@
+[
+ {
+  "id": "end",
+  "word": "end",
+  "target": "end",
+  "ipa": "end",
+  "ja": "終わり",
+  "phonId": "v_e",
+  "utterance": "end.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 0,
+  "end": 0.622449,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " End.",
+    "start": 0.0,
+    "end": 0.46,
+    "probability": 0.8242189884185791
+   }
+  ],
+  "confidence": 0.8242189884185791,
+  "evidence": {
+   "utteranceIndex": 0,
+   "utteranceCount": 69,
+   "speechStart": 0,
+   "speechEnd": 0.542449,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " End."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "enemy",
+  "word": "enemy",
+  "target": "enemy",
+  "ipa": "ˈenəmi",
+  "ja": "敵",
+  "phonId": "v_e",
+  "utterance": "enemy.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 1.00619,
+  "end": 1.71726,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Enemy.",
+    "start": 0.96,
+    "end": 1.36,
+    "probability": 0.9681683778762817
+   }
+  ],
+  "confidence": 0.9681683778762817,
+  "evidence": {
+   "utteranceIndex": 1,
+   "utteranceCount": 69,
+   "speechStart": 1.08619,
+   "speechEnd": 1.63726,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Enemy."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "engine",
+  "word": "engine",
+  "target": "engine",
+  "ipa": "ˈendʒən",
+  "ja": "エンジン",
+  "phonId": "v_e",
+  "utterance": "engine.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 2.11039,
+  "end": 2.89283,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Engine.",
+    "start": 2.08,
+    "end": 2.5,
+    "probability": 0.9916681051254272
+   }
+  ],
+  "confidence": 0.9916681051254272,
+  "evidence": {
+   "utteranceIndex": 2,
+   "utteranceCount": 69,
+   "speechStart": 2.19039,
+   "speechEnd": 2.81283,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Engine."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "enter",
+  "word": "enter",
+  "target": "enter",
+  "ipa": "ˈentɚ",
+  "ja": "入る",
+  "phonId": "v_e",
+  "utterance": "enter.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 3.32764,
+  "end": 4.02535,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Enter.",
+    "start": 3.32,
+    "end": 3.78,
+    "probability": 0.9926457405090332
+   }
+  ],
+  "confidence": 0.9926457405090332,
+  "evidence": {
+   "utteranceIndex": 3,
+   "utteranceCount": 69,
+   "speechStart": 3.40764,
+   "speechEnd": 3.94535,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Enter."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "fence",
+  "word": "fence",
+  "target": "fence",
+  "ipa": "fens",
+  "ja": "フェンス",
+  "phonId": "v_e",
+  "utterance": "fence.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 4.41755,
+  "end": 5.24694,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Fence.",
+    "start": 4.68,
+    "end": 4.92,
+    "probability": 0.9864170849323273
+   }
+  ],
+  "confidence": 0.9864170849323273,
+  "evidence": {
+   "utteranceIndex": 4,
+   "utteranceCount": 69,
+   "speechStart": 4.49755,
+   "speechEnd": 5.16694,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Fence."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "festival",
+  "word": "festival",
+  "target": "festival",
+  "ipa": "ˈfestəvəl",
+  "ja": "祭り",
+  "phonId": "v_e",
+  "utterance": "festival.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 5.61531,
+  "end": 6.47621,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Festival.",
+    "start": 5.66,
+    "end": 6.1,
+    "probability": 0.9914903044700623
+   }
+  ],
+  "confidence": 0.9914903044700623,
+  "evidence": {
+   "utteranceIndex": 5,
+   "utteranceCount": 69,
+   "speechStart": 5.69531,
+   "speechEnd": 6.39621,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Festival."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "capital",
+  "word": "capital",
+  "target": "capital",
+  "ipa": "ˈkæpɪtəl",
+  "ja": "首都、資本",
+  "phonId": "v_ae",
+  "utterance": "capital.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 6.83279,
+  "end": 7.57281,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Capital.",
+    "start": 7.04,
+    "end": 7.26,
+    "probability": 0.8829668760299683
+   }
+  ],
+  "confidence": 0.8829668760299683,
+  "evidence": {
+   "utteranceIndex": 6,
+   "utteranceCount": 69,
+   "speechStart": 6.91279,
+   "speechEnd": 7.49281,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Capital."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "absent",
+  "word": "absent",
+  "target": "absent",
+  "ipa": "ˈæbsənt",
+  "ja": "欠席している",
+  "phonId": "v_ae",
+  "utterance": "absent.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 7.9502,
+  "end": 8.76887,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Absent.",
+    "start": 8.16,
+    "end": 8.4,
+    "probability": 0.9543952941894531
+   }
+  ],
+  "confidence": 0.9543952941894531,
+  "evidence": {
+   "utteranceIndex": 7,
+   "utteranceCount": 69,
+   "speechStart": 8.0302,
+   "speechEnd": 8.68887,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Absent."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "accident",
+  "word": "accident",
+  "target": "accident",
+  "ipa": "ˈæksədənt",
+  "ja": "事故",
+  "phonId": "v_ae",
+  "utterance": "accident.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 9.08639,
+  "end": 9.94467,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Accident.",
+    "start": 9.24,
+    "end": 9.76,
+    "probability": 0.9907152950763702
+   }
+  ],
+  "confidence": 0.9907152950763702,
+  "evidence": {
+   "utteranceIndex": 8,
+   "utteranceCount": 69,
+   "speechStart": 9.16639,
+   "speechEnd": 9.86467,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Accident."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "act",
+  "word": "act",
+  "target": "act",
+  "ipa": "ækt",
+  "ja": "行動する",
+  "phonId": "v_ae",
+  "utterance": "act.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 10.287,
+  "end": 10.9351,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Act.",
+    "start": 10.48,
+    "end": 10.62,
+    "probability": 0.9683411717414856
+   }
+  ],
+  "confidence": 0.9683411717414856,
+  "evidence": {
+   "utteranceIndex": 9,
+   "utteranceCount": 69,
+   "speechStart": 10.367,
+   "speechEnd": 10.8551,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Act."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "action",
+  "word": "action",
+  "target": "action",
+  "ipa": "ˈækʃən",
+  "ja": "行動",
+  "phonId": "v_ae",
+  "utterance": "action.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 11.2776,
+  "end": 12.0359,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Action.",
+    "start": 11.32,
+    "end": 11.78,
+    "probability": 0.9917104840278625
+   }
+  ],
+  "confidence": 0.9917104840278625,
+  "evidence": {
+   "utteranceIndex": 10,
+   "utteranceCount": 69,
+   "speechStart": 11.3576,
+   "speechEnd": 11.9559,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Action."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "active",
+  "word": "active",
+  "target": "active",
+  "ipa": "ˈæktɪv",
+  "ja": "活動的な",
+  "phonId": "v_ae",
+  "utterance": "active.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 12.3496,
+  "end": 13.1326,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Active.",
+    "start": 12.5,
+    "end": 12.82,
+    "probability": 0.9311124682426453
+   }
+  ],
+  "confidence": 0.9311124682426453,
+  "evidence": {
+   "utteranceIndex": 11,
+   "utteranceCount": 69,
+   "speechStart": 12.4296,
+   "speechEnd": 13.0526,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Active."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "add",
+  "word": "add",
+  "target": "add",
+  "ipa": "æd",
+  "ja": "加える",
+  "phonId": "v_ae",
+  "utterance": "add.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 13.4699,
+  "end": 14.0747,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Add.",
+    "start": 13.7,
+    "end": 13.88,
+    "probability": 0.6809630990028381
+   }
+  ],
+  "confidence": 0.6809630990028381,
+  "evidence": {
+   "utteranceIndex": 12,
+   "utteranceCount": 69,
+   "speechStart": 13.5499,
+   "speechEnd": 13.9947,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Add."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "advance",
+  "word": "advance",
+  "target": "advance",
+  "ipa": "ədˈvæns",
+  "ja": "進歩",
+  "phonId": "v_ae",
+  "utterance": "advance.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 14.3973,
+  "end": 15.2926,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Advance.",
+    "start": 14.44,
+    "end": 14.98,
+    "probability": 0.9175822138786316
+   }
+  ],
+  "confidence": 0.9175822138786316,
+  "evidence": {
+   "utteranceIndex": 13,
+   "utteranceCount": 69,
+   "speechStart": 14.4773,
+   "speechEnd": 15.2126,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Advance."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "advantage",
+  "word": "advantage",
+  "target": "advantage",
+  "ipa": "ədˈvæntɪdʒ",
+  "ja": "利点",
+  "phonId": "v_ae",
+  "utterance": "advantage.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 15.5212,
+  "end": 16.5019,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Advantage.",
+    "start": 15.6,
+    "end": 16.1,
+    "probability": 0.9538480639457703
+   }
+  ],
+  "confidence": 0.9538480639457703,
+  "evidence": {
+   "utteranceIndex": 14,
+   "utteranceCount": 69,
+   "speechStart": 15.6012,
+   "speechEnd": 16.4219,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Advantage."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "advertise",
+  "word": "advertise",
+  "target": "advertise",
+  "ipa": "ˈædvɚtaɪz",
+  "ja": "広告を出す",
+  "phonId": "v_ae",
+  "utterance": "advertise.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 16.7533,
+  "end": 17.7664,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Advertise.",
+    "start": 16.92,
+    "end": 17.6,
+    "probability": 0.8827873865763346
+   }
+  ],
+  "confidence": 0.8827873865763346,
+  "evidence": {
+   "utteranceIndex": 15,
+   "utteranceCount": 69,
+   "speechStart": 16.8333,
+   "speechEnd": 17.6864,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Advertise."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "album",
+  "word": "album",
+  "target": "album",
+  "ipa": "ˈælbəm",
+  "ja": "アルバム",
+  "phonId": "v_ae",
+  "utterance": "album.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 18.1101,
+  "end": 18.8095,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Album.",
+    "start": 18.28,
+    "end": 18.44,
+    "probability": 0.9764968752861023
+   }
+  ],
+  "confidence": 0.9764968752861023,
+  "evidence": {
+   "utteranceIndex": 16,
+   "utteranceCount": 69,
+   "speechStart": 18.1901,
+   "speechEnd": 18.7295,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Album."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "ankle",
+  "word": "ankle",
+  "target": "ankle",
+  "ipa": "ˈæŋkəl",
+  "ja": "足首",
+  "phonId": "v_ae",
+  "utterance": "ankle.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 19.1192,
+  "end": 19.788,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Ankle.",
+    "start": 19.24,
+    "end": 19.66,
+    "probability": 0.974138617515564
+   }
+  ],
+  "confidence": 0.974138617515564,
+  "evidence": {
+   "utteranceIndex": 17,
+   "utteranceCount": 69,
+   "speechStart": 19.1992,
+   "speechEnd": 19.708,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Ankle."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "band",
+  "word": "band",
+  "target": "band",
+  "ipa": "bænd",
+  "ja": "バンド",
+  "phonId": "v_ae",
+  "utterance": "band.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 20.1272,
+  "end": 20.7902,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Band.",
+    "start": 20.32,
+    "end": 20.46,
+    "probability": 0.9670414924621582
+   }
+  ],
+  "confidence": 0.9670414924621582,
+  "evidence": {
+   "utteranceIndex": 18,
+   "utteranceCount": 69,
+   "speechStart": 20.2072,
+   "speechEnd": 20.7102,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Band."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "battery",
+  "word": "battery",
+  "target": "battery",
+  "ipa": "ˈbætɚi",
+  "ja": "電池",
+  "phonId": "v_ae",
+  "utterance": "battery.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 21.0859,
+  "end": 21.7602,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Battery.",
+    "start": 21.44,
+    "end": 21.44,
+    "probability": 0.995719850063324
+   }
+  ],
+  "confidence": 0.995719850063324,
+  "evidence": {
+   "utteranceIndex": 19,
+   "utteranceCount": 69,
+   "speechStart": 21.1659,
+   "speechEnd": 21.6802,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Battery."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "blanket",
+  "word": "blanket",
+  "target": "blanket",
+  "ipa": "ˈblæŋkət",
+  "ja": "毛布",
+  "phonId": "v_ae",
+  "utterance": "blanket.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 22.0497,
+  "end": 22.8137,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Blanket.",
+    "start": 22.18,
+    "end": 22.62,
+    "probability": 0.996131032705307
+   }
+  ],
+  "confidence": 0.996131032705307,
+  "evidence": {
+   "utteranceIndex": 20,
+   "utteranceCount": 69,
+   "speechStart": 22.1297,
+   "speechEnd": 22.7337,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Blanket."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "cabbage",
+  "word": "cabbage",
+  "target": "cabbage",
+  "ipa": "ˈkæbɪdʒ",
+  "ja": "キャベツ",
+  "phonId": "v_ae",
+  "utterance": "cabbage.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 23.0707,
+  "end": 23.8602,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Cabbage.",
+    "start": 23.28,
+    "end": 23.54,
+    "probability": 0.9753641784191132
+   }
+  ],
+  "confidence": 0.9753641784191132,
+  "evidence": {
+   "utteranceIndex": 21,
+   "utteranceCount": 69,
+   "speechStart": 23.1507,
+   "speechEnd": 23.7802,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Cabbage."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "camp",
+  "word": "camp",
+  "target": "camp",
+  "ipa": "kæmp",
+  "ja": "キャンプ",
+  "phonId": "v_ae",
+  "utterance": "camp.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 24.1122,
+  "end": 24.6961,
+  "clipKind": "word",
+  "asr": [],
+  "confidence": 0,
+  "evidence": {
+   "utteranceIndex": 22,
+   "utteranceCount": 69,
+   "speechStart": 24.1922,
+   "speechEnd": 24.6161,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": ""
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "candle",
+  "word": "candle",
+  "target": "candle",
+  "ipa": "ˈkændəl",
+  "ja": "ろうそく",
+  "phonId": "v_ae",
+  "utterance": "candle.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 24.9936,
+  "end": 25.6951,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Candle.",
+    "start": 25.5,
+    "end": 25.5,
+    "probability": 0.9265984892845154
+   }
+  ],
+  "confidence": 0.9265984892845154,
+  "evidence": {
+   "utteranceIndex": 23,
+   "utteranceCount": 69,
+   "speechStart": 25.0736,
+   "speechEnd": 25.6151,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Candle."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "candy",
+  "word": "candy",
+  "target": "candy",
+  "ipa": "ˈkændi",
+  "ja": "あめ",
+  "phonId": "v_ae",
+  "utterance": "candy.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 25.9537,
+  "end": 26.6375,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Candy.",
+    "start": 26.22,
+    "end": 26.42,
+    "probability": 0.9837357401847839
+   }
+  ],
+  "confidence": 0.9837357401847839,
+  "evidence": {
+   "utteranceIndex": 24,
+   "utteranceCount": 69,
+   "speechStart": 26.0337,
+   "speechEnd": 26.5575,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Candy."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "carrot",
+  "word": "carrot",
+  "target": "carrot",
+  "ipa": "ˈkærət",
+  "ja": "にんじん",
+  "phonId": "v_ae",
+  "utterance": "carrot.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 26.9129,
+  "end": 27.6129,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Carrot.",
+    "start": 27.16,
+    "end": 27.44,
+    "probability": 0.958333820104599
+   }
+  ],
+  "confidence": 0.958333820104599,
+  "evidence": {
+   "utteranceIndex": 25,
+   "utteranceCount": 69,
+   "speechStart": 26.9929,
+   "speechEnd": 27.5329,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Carrot."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "castle",
+  "word": "castle",
+  "target": "castle",
+  "ipa": "ˈkæsəl",
+  "ja": "城",
+  "phonId": "v_ae",
+  "utterance": "castle.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 27.8741,
+  "end": 28.5559,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Castle.",
+    "start": 28.32,
+    "end": 28.32,
+    "probability": 0.9599088430404663
+   }
+  ],
+  "confidence": 0.9599088430404663,
+  "evidence": {
+   "utteranceIndex": 26,
+   "utteranceCount": 69,
+   "speechStart": 27.9541,
+   "speechEnd": 28.4759,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Castle."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "contact",
+  "word": "contact",
+  "target": "contact",
+  "ipa": "ˈkɑːntækt",
+  "ja": "連絡する",
+  "phonId": "v_ae",
+  "utterance": "contact.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 28.83,
+  "end": 29.697,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Contact.",
+    "start": 29.08,
+    "end": 29.36,
+    "probability": 0.986510694026947
+   }
+  ],
+  "confidence": 0.986510694026947,
+  "evidence": {
+   "utteranceIndex": 27,
+   "utteranceCount": 69,
+   "speechStart": 28.91,
+   "speechEnd": 29.617,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Contact."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "damage",
+  "word": "damage",
+  "target": "damage",
+  "ipa": "ˈdæmɪdʒ",
+  "ja": "損害",
+  "phonId": "v_ae",
+  "utterance": "damage.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 29.9552,
+  "end": 30.726,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Damage.",
+    "start": 30.06,
+    "end": 30.44,
+    "probability": 0.9780514240264893
+   }
+  ],
+  "confidence": 0.9780514240264893,
+  "evidence": {
+   "utteranceIndex": 28,
+   "utteranceCount": 69,
+   "speechStart": 30.0352,
+   "speechEnd": 30.646,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Damage."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "fact",
+  "word": "fact",
+  "target": "fact",
+  "ipa": "fækt",
+  "ja": "事実",
+  "phonId": "v_ae",
+  "utterance": "fact.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 30.9753,
+  "end": 31.7001,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Fact.",
+    "start": 31.26,
+    "end": 31.38,
+    "probability": 0.97808837890625
+   }
+  ],
+  "confidence": 0.97808837890625,
+  "evidence": {
+   "utteranceIndex": 29,
+   "utteranceCount": 69,
+   "speechStart": 31.0553,
+   "speechEnd": 31.6201,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Fact."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "factory",
+  "word": "factory",
+  "target": "factory",
+  "ipa": "ˈfæktɚi",
+  "ja": "工場",
+  "phonId": "v_ae",
+  "utterance": "factory.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 31.9588,
+  "end": 32.7837,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Factory.",
+    "start": 32.02,
+    "end": 32.52,
+    "probability": 0.9837162494659424
+   }
+  ],
+  "confidence": 0.9837162494659424,
+  "evidence": {
+   "utteranceIndex": 30,
+   "utteranceCount": 69,
+   "speechStart": 32.0388,
+   "speechEnd": 32.7037,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Factory."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "fan",
+  "word": "fan",
+  "target": "fan",
+  "ipa": "fæn",
+  "ja": "扇風機・ファン",
+  "phonId": "v_ae",
+  "utterance": "fan.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 33.0448,
+  "end": 33.7576,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Fan.",
+    "start": 33.34,
+    "end": 33.48,
+    "probability": 0.9845691323280334
+   }
+  ],
+  "confidence": 0.9845691323280334,
+  "evidence": {
+   "utteranceIndex": 31,
+   "utteranceCount": 69,
+   "speechStart": 33.1248,
+   "speechEnd": 33.6776,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Fan."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "fast",
+  "word": "fast",
+  "target": "fast",
+  "ipa": "fæst",
+  "ja": "速い",
+  "phonId": "v_ae",
+  "utterance": "fast.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 34.0183,
+  "end": 34.8042,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Fast.",
+    "start": 34.16,
+    "end": 34.48,
+    "probability": 0.991414487361908
+   }
+  ],
+  "confidence": 0.991414487361908,
+  "evidence": {
+   "utteranceIndex": 32,
+   "utteranceCount": 69,
+   "speechStart": 34.0983,
+   "speechEnd": 34.7242,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Fast."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "fat",
+  "word": "fat",
+  "target": "fat",
+  "ipa": "fæt",
+  "ja": "太った",
+  "phonId": "v_ae",
+  "utterance": "fat.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 35.0538,
+  "end": 35.7444,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Fat.",
+    "start": 35.22,
+    "end": 35.44,
+    "probability": 0.9837493896484375
+   }
+  ],
+  "confidence": 0.9837493896484375,
+  "evidence": {
+   "utteranceIndex": 33,
+   "utteranceCount": 69,
+   "speechStart": 35.1338,
+   "speechEnd": 35.6644,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Fat."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "flat",
+  "word": "flat",
+  "target": "flat",
+  "ipa": "flæt",
+  "ja": "平らな",
+  "phonId": "v_ae",
+  "utterance": "flat.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 35.9938,
+  "end": 36.7328,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Flat.",
+    "start": 36.04,
+    "end": 36.42,
+    "probability": 0.9479170441627502
+   }
+  ],
+  "confidence": 0.9479170441627502,
+  "evidence": {
+   "utteranceIndex": 34,
+   "utteranceCount": 69,
+   "speechStart": 36.0738,
+   "speechEnd": 36.6528,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Flat."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "sunday",
+  "word": "Sunday",
+  "target": "Sunday",
+  "ipa": "ˈsʌndeɪ",
+  "ja": "日曜日",
+  "phonId": "v_uh",
+  "utterance": "Sunday.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 37.0262,
+  "end": 37.8293,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Sunday.",
+    "start": 37.6,
+    "end": 37.6,
+    "probability": 0.8567270636558533
+   }
+  ],
+  "confidence": 0.8567270636558533,
+  "evidence": {
+   "utteranceIndex": 35,
+   "utteranceCount": 69,
+   "speechStart": 37.1062,
+   "speechEnd": 37.7493,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Sunday."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "son",
+  "word": "son",
+  "target": "son",
+  "ipa": "sʌn",
+  "ja": "息子",
+  "phonId": "v_uh",
+  "utterance": "son.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 38.0931,
+  "end": 38.7745,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Sun.",
+    "start": 38.24,
+    "end": 38.5,
+    "probability": 0.9551351070404053
+   }
+  ],
+  "confidence": 0.9551351070404053,
+  "evidence": {
+   "utteranceIndex": 36,
+   "utteranceCount": 69,
+   "speechStart": 38.1731,
+   "speechEnd": 38.6945,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Sun."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "come",
+  "word": "come",
+  "target": "come",
+  "ipa": "kʌm",
+  "ja": "来る",
+  "phonId": "v_uh",
+  "utterance": "come.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 39.0551,
+  "end": 39.6787,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Come.",
+    "start": 39.3,
+    "end": 39.38,
+    "probability": 0.4965720772743225
+   }
+  ],
+  "confidence": 0.4965720772743225,
+  "evidence": {
+   "utteranceIndex": 37,
+   "utteranceCount": 69,
+   "speechStart": 39.1351,
+   "speechEnd": 39.5987,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Come."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "adult",
+  "word": "adult",
+  "target": "adult",
+  "ipa": "əˈdʌlt",
+  "ja": "大人",
+  "phonId": "v_uh",
+  "utterance": "An adult.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 39.9505,
+  "end": 40.7635,
+  "clipKind": "sentence",
+  "asr": [
+   {
+    "word": " An",
+    "start": 39.94,
+    "end": 40.16,
+    "probability": 0.9788323640823364
+   },
+   {
+    "word": " adult.",
+    "start": 40.16,
+    "end": 40.48,
+    "probability": 0.9247602224349976
+   }
+  ],
+  "confidence": 0.9788323640823364,
+  "evidence": {
+   "utteranceIndex": 38,
+   "utteranceCount": 69,
+   "speechStart": 40.0305,
+   "speechEnd": 40.6835,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " An adult."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "among",
+  "word": "among",
+  "target": "among",
+  "ipa": "əˈmʌŋ",
+  "ja": "〜の間に",
+  "phonId": "v_uh",
+  "utterance": "among.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 41.053,
+  "end": 41.7515,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Among.",
+    "start": 41.06,
+    "end": 41.44,
+    "probability": 0.9905096292495728
+   }
+  ],
+  "confidence": 0.9905096292495728,
+  "evidence": {
+   "utteranceIndex": 39,
+   "utteranceCount": 69,
+   "speechStart": 41.133,
+   "speechEnd": 41.6715,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Among."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "become",
+  "word": "become",
+  "target": "become",
+  "ipa": "bɪˈkʌm",
+  "ja": "〜になる",
+  "phonId": "v_uh",
+  "utterance": "become.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 41.9987,
+  "end": 42.7473,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Become.",
+    "start": 42.12,
+    "end": 42.42,
+    "probability": 0.973225474357605
+   }
+  ],
+  "confidence": 0.973225474357605,
+  "evidence": {
+   "utteranceIndex": 40,
+   "utteranceCount": 69,
+   "speechStart": 42.0787,
+   "speechEnd": 42.6673,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Become."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "button",
+  "word": "button",
+  "target": "button",
+  "ipa": "ˈbʌtən",
+  "ja": "ボタン",
+  "phonId": "v_uh",
+  "utterance": "button.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 43.0246,
+  "end": 43.6887,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Button.",
+    "start": 43.12,
+    "end": 43.32,
+    "probability": 0.9531078338623047
+   }
+  ],
+  "confidence": 0.9531078338623047,
+  "evidence": {
+   "utteranceIndex": 41,
+   "utteranceCount": 69,
+   "speechStart": 43.1046,
+   "speechEnd": 43.6087,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Button."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "comfort",
+  "word": "comfort",
+  "target": "comfort",
+  "ipa": "ˈkʌmfɚt",
+  "ja": "心地よさ",
+  "phonId": "v_uh",
+  "utterance": "comfort.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 43.948,
+  "end": 44.7217,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Comfort.",
+    "start": 44.04,
+    "end": 44.32,
+    "probability": 0.9921497106552124
+   }
+  ],
+  "confidence": 0.9921497106552124,
+  "evidence": {
+   "utteranceIndex": 42,
+   "utteranceCount": 69,
+   "speechStart": 44.028,
+   "speechEnd": 44.6417,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Comfort."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "discuss",
+  "word": "discuss",
+  "target": "discuss",
+  "ipa": "dɪˈskʌs",
+  "ja": "話し合う",
+  "phonId": "v_uh",
+  "utterance": "discuss.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 44.9874,
+  "end": 45.8254,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Discuss.",
+    "start": 45.12,
+    "end": 45.4,
+    "probability": 0.9422447681427002
+   }
+  ],
+  "confidence": 0.9422447681427002,
+  "evidence": {
+   "utteranceIndex": 43,
+   "utteranceCount": 69,
+   "speechStart": 45.0674,
+   "speechEnd": 45.7454,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Discuss."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "dozen",
+  "word": "dozen",
+  "target": "dozen",
+  "ipa": "ˈdʌzən",
+  "ja": "12個",
+  "phonId": "v_uh",
+  "utterance": "dozen.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 46.0843,
+  "end": 46.7939,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Dozen.",
+    "start": 46.3,
+    "end": 46.6,
+    "probability": 0.8895173668861389
+   }
+  ],
+  "confidence": 0.8895173668861389,
+  "evidence": {
+   "utteranceIndex": 44,
+   "utteranceCount": 69,
+   "speechStart": 46.1643,
+   "speechEnd": 46.7139,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Dozen."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "duck",
+  "word": "duck",
+  "target": "duck",
+  "ipa": "dʌk",
+  "ja": "アヒル",
+  "phonId": "v_uh",
+  "utterance": "duck.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 47.0256,
+  "end": 47.6343,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Duck.",
+    "start": 47.42,
+    "end": 47.42,
+    "probability": 0.9496649503707886
+   }
+  ],
+  "confidence": 0.9496649503707886,
+  "evidence": {
+   "utteranceIndex": 45,
+   "utteranceCount": 69,
+   "speechStart": 47.1056,
+   "speechEnd": 47.5543,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Duck."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "dust",
+  "word": "dust",
+  "target": "dust",
+  "ipa": "dʌst",
+  "ja": "ほこり",
+  "phonId": "v_uh",
+  "utterance": "dust.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 47.9035,
+  "end": 48.6105,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " Dust.",
+    "start": 48.02,
+    "end": 48.28,
+    "probability": 0.9881759881973267
+   }
+  ],
+  "confidence": 0.9881759881973267,
+  "evidence": {
+   "utteranceIndex": 46,
+   "utteranceCount": 69,
+   "speechStart": 47.9835,
+   "speechEnd": 48.5305,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " Dust."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "oven",
+  "word": "oven",
+  "target": "oven",
+  "ipa": "ˈʌvən",
+  "ja": "オーブン",
+  "phonId": "v_uh",
+  "utterance": "oven.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 48.8967,
+  "end": 49.507,
+  "clipKind": "word",
+  "asr": [],
+  "confidence": 0,
+  "evidence": {
+   "utteranceIndex": 47,
+   "utteranceCount": 69,
+   "speechStart": 48.9767,
+   "speechEnd": 49.427,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": ""
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "ugly",
+  "word": "ugly",
+  "target": "ugly",
+  "ipa": "ˈʌɡli",
+  "ja": "醜い",
+  "phonId": "v_uh",
+  "utterance": "ugly.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 49.7907,
+  "end": 50.428,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " ugly,",
+    "start": 49.8,
+    "end": 50.2,
+    "probability": 0.9598896503448486
+   }
+  ],
+  "confidence": 0.9598896503448486,
+  "evidence": {
+   "utteranceIndex": 48,
+   "utteranceCount": 69,
+   "speechStart": 49.8707,
+   "speechEnd": 50.348,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " ugly,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "understand",
+  "word": "understand",
+  "target": "understand",
+  "ipa": "ˌʌndɚˈstænd",
+  "ja": "理解する",
+  "phonId": "v_uh",
+  "utterance": "understand.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 50.6884,
+  "end": 51.651,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " understand,",
+    "start": 50.76,
+    "end": 51.38,
+    "probability": 0.9877001047134399
+   }
+  ],
+  "confidence": 0.9877001047134399,
+  "evidence": {
+   "utteranceIndex": 49,
+   "utteranceCount": 69,
+   "speechStart": 50.7684,
+   "speechEnd": 51.571,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " understand,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "up",
+  "word": "up",
+  "target": "up",
+  "ipa": "ʌp",
+  "ja": "上へ",
+  "phonId": "v_uh",
+  "utterance": "up.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 51.9208,
+  "end": 52.3759,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " up,",
+    "start": 51.92,
+    "end": 52.18,
+    "probability": 0.9919156432151794
+   }
+  ],
+  "confidence": 0.9919156432151794,
+  "evidence": {
+   "utteranceIndex": 50,
+   "utteranceCount": 69,
+   "speechStart": 52.0008,
+   "speechEnd": 52.2959,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " up,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "good",
+  "word": "good",
+  "target": "good",
+  "ipa": "ɡʊd",
+  "ja": "よい",
+  "phonId": "v_u",
+  "utterance": "good.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 52.6848,
+  "end": 53.2518,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " good,",
+    "start": 52.72,
+    "end": 53.08,
+    "probability": 0.9967271089553833
+   }
+  ],
+  "confidence": 0.9967271089553833,
+  "evidence": {
+   "utteranceIndex": 51,
+   "utteranceCount": 69,
+   "speechStart": 52.7648,
+   "speechEnd": 53.1718,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " good,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "sugar",
+  "word": "sugar",
+  "target": "sugar",
+  "ipa": "ˈʃʊɡɚ",
+  "ja": "砂糖",
+  "phonId": "v_u",
+  "utterance": "sugar.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 53.5327,
+  "end": 54.2034,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " sugar,",
+    "start": 53.5,
+    "end": 54.02,
+    "probability": 0.999025821685791
+   }
+  ],
+  "confidence": 0.999025821685791,
+  "evidence": {
+   "utteranceIndex": 52,
+   "utteranceCount": 69,
+   "speechStart": 53.6127,
+   "speechEnd": 54.1234,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " sugar,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "pudding",
+  "word": "pudding",
+  "target": "pudding",
+  "ipa": "ˈpʊdɪŋ",
+  "ja": "プリン",
+  "phonId": "v_u",
+  "utterance": "pudding.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 54.4848,
+  "end": 55.0903,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " pudding,",
+    "start": 54.48,
+    "end": 54.84,
+    "probability": 0.9928764700889587
+   }
+  ],
+  "confidence": 0.9928764700889587,
+  "evidence": {
+   "utteranceIndex": 53,
+   "utteranceCount": 69,
+   "speechStart": 54.5648,
+   "speechEnd": 55.0103,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " pudding,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "bush",
+  "word": "bush",
+  "target": "bush",
+  "ipa": "bʊʃ",
+  "ja": "茂み",
+  "phonId": "v_u",
+  "utterance": "bush.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 55.3586,
+  "end": 56.0355,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " bush,",
+    "start": 55.42,
+    "end": 55.74,
+    "probability": 0.7899512052536011
+   }
+  ],
+  "confidence": 0.7899512052536011,
+  "evidence": {
+   "utteranceIndex": 54,
+   "utteranceCount": 69,
+   "speechStart": 55.4386,
+   "speechEnd": 55.9555,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " bush,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "goodbye",
+  "word": "goodbye",
+  "target": "goodbye",
+  "ipa": "ˌɡʊdˈbaɪ",
+  "ja": "さようなら",
+  "phonId": "v_u",
+  "utterance": "goodbye.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 56.2781,
+  "end": 56.9501,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " goodbye,",
+    "start": 56.36,
+    "end": 56.66,
+    "probability": 0.9383893609046936
+   }
+  ],
+  "confidence": 0.9383893609046936,
+  "evidence": {
+   "utteranceIndex": 55,
+   "utteranceCount": 69,
+   "speechStart": 56.3581,
+   "speechEnd": 56.8701,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " goodbye,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "hoodie",
+  "word": "hoodie",
+  "target": "hoodie",
+  "ipa": "ˈhʊdi",
+  "ja": "パーカー",
+  "phonId": "v_u",
+  "utterance": "hoodie.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 57.2157,
+  "end": 57.7717,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " hoodie,",
+    "start": 57.42,
+    "end": 57.74,
+    "probability": 0.9913210868835449
+   }
+  ],
+  "confidence": 0.9913210868835449,
+  "evidence": {
+   "utteranceIndex": 56,
+   "utteranceCount": 69,
+   "speechStart": 57.2957,
+   "speechEnd": 57.6917,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " hoodie,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "input",
+  "word": "input",
+  "target": "input",
+  "ipa": "ˈɪnpʊt",
+  "ja": "入力",
+  "phonId": "v_u",
+  "utterance": "input.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 58.0482,
+  "end": 58.7737,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " input,",
+    "start": 58.12,
+    "end": 58.5,
+    "probability": 0.9991974234580994
+   }
+  ],
+  "confidence": 0.9991974234580994,
+  "evidence": {
+   "utteranceIndex": 57,
+   "utteranceCount": 69,
+   "speechStart": 58.1282,
+   "speechEnd": 58.6937,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " input,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "attend",
+  "word": "attend",
+  "target": "attend",
+  "ipa": "əˈtend",
+  "ja": "出席する",
+  "phonId": "v_schwa",
+  "utterance": "attend.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 59.0237,
+  "end": 59.7878,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " attend,",
+    "start": 59.1,
+    "end": 59.5,
+    "probability": 0.9968420267105103
+   }
+  ],
+  "confidence": 0.9968420267105103,
+  "evidence": {
+   "utteranceIndex": 58,
+   "utteranceCount": 69,
+   "speechStart": 59.1037,
+   "speechEnd": 59.7078,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " attend,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "opinion",
+  "word": "opinion",
+  "target": "opinion",
+  "ipa": "əˈpɪnjən",
+  "ja": "意見",
+  "phonId": "v_schwa",
+  "utterance": "opinion.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 60.032,
+  "end": 60.7947,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " opinion,",
+    "start": 60.12,
+    "end": 60.58,
+    "probability": 0.9986900687217712
+   }
+  ],
+  "confidence": 0.9986900687217712,
+  "evidence": {
+   "utteranceIndex": 59,
+   "utteranceCount": 69,
+   "speechStart": 60.112,
+   "speechEnd": 60.7147,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " opinion,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "umbrella",
+  "word": "umbrella",
+  "target": "umbrella",
+  "ipa": "əmˈbrelə",
+  "ja": "傘",
+  "phonId": "v_schwa",
+  "utterance": "umbrella.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 61.0526,
+  "end": 61.8116,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " umbrella,",
+    "start": 61.12,
+    "end": 61.5,
+    "probability": 0.9996786117553711
+   }
+  ],
+  "confidence": 0.9996786117553711,
+  "evidence": {
+   "utteranceIndex": 60,
+   "utteranceCount": 69,
+   "speechStart": 61.1326,
+   "speechEnd": 61.7316,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " umbrella,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "until",
+  "word": "until",
+  "target": "until",
+  "ipa": "ənˈtɪl",
+  "ja": "〜まで",
+  "phonId": "v_schwa",
+  "utterance": "until.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 62.0816,
+  "end": 62.8115,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " until,",
+    "start": 62.12,
+    "end": 62.6,
+    "probability": 0.9888716340065002
+   }
+  ],
+  "confidence": 0.9888716340065002,
+  "evidence": {
+   "utteranceIndex": 61,
+   "utteranceCount": 69,
+   "speechStart": 62.1616,
+   "speechEnd": 62.7315,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " until,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "mother",
+  "word": "mother",
+  "target": "mother",
+  "ipa": "ˈmʌðɚ",
+  "ja": "母",
+  "phonId": "v_er_weak",
+  "utterance": "mother.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 63.0946,
+  "end": 63.7276,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " mother,",
+    "start": 63.04,
+    "end": 63.4,
+    "probability": 0.9843718409538269
+   }
+  ],
+  "confidence": 0.9843718409538269,
+  "evidence": {
+   "utteranceIndex": 62,
+   "utteranceCount": 69,
+   "speechStart": 63.1746,
+   "speechEnd": 63.6476,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " mother,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "three",
+  "word": "three",
+  "target": "three",
+  "ipa": "θriː",
+  "ja": "3",
+  "phonId": "v_ii",
+  "utterance": "three.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 64.005,
+  "end": 64.6599,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " three,",
+    "start": 64.04,
+    "end": 64.44,
+    "probability": 0.9619191288948059
+   }
+  ],
+  "confidence": 0.9619191288948059,
+  "evidence": {
+   "utteranceIndex": 63,
+   "utteranceCount": 69,
+   "speechStart": 64.085,
+   "speechEnd": 64.5799,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " three,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "feel",
+  "word": "feel",
+  "target": "feel",
+  "ipa": "fiːl",
+  "ja": "感じる",
+  "phonId": "v_ii",
+  "utterance": "feel.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 64.938,
+  "end": 65.6272,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " feel.",
+    "start": 64.94,
+    "end": 65.36,
+    "probability": 0.9961708188056946
+   }
+  ],
+  "confidence": 0.9961708188056946,
+  "evidence": {
+   "utteranceIndex": 64,
+   "utteranceCount": 69,
+   "speechStart": 65.018,
+   "speechEnd": 65.5472,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " feel."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "read",
+  "word": "read",
+  "target": "read",
+  "ipa": "riːd",
+  "ja": "読む",
+  "phonId": "v_ii",
+  "utterance": "I read books every day.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 65.9187,
+  "end": 67.6165,
+  "clipKind": "sentence",
+  "asr": [
+   {
+    "word": " I",
+    "start": 66.1,
+    "end": 66.14,
+    "probability": 0.9948337078094482
+   },
+   {
+    "word": " read",
+    "start": 66.14,
+    "end": 66.32,
+    "probability": 0.9978296160697937
+   },
+   {
+    "word": " books",
+    "start": 66.32,
+    "end": 66.68,
+    "probability": 0.999001681804657
+   },
+   {
+    "word": " every",
+    "start": 66.68,
+    "end": 67.14,
+    "probability": 0.8179977536201477
+   },
+   {
+    "word": " day,",
+    "start": 67.14,
+    "end": 67.48,
+    "probability": 0.9997237324714661
+   }
+  ],
+  "confidence": 0.9997237324714661,
+  "evidence": {
+   "utteranceIndex": 65,
+   "utteranceCount": 69,
+   "speechStart": 65.9987,
+   "speechEnd": 67.5365,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " I read books every day,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "increase",
+  "word": "increase",
+  "target": "increase",
+  "ipa": "ɪnˈkriːs",
+  "ja": "増える",
+  "phonId": "v_ii",
+  "utterance": "Prices will increase.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 67.9026,
+  "end": 69.4867,
+  "clipKind": "sentence",
+  "asr": [
+   {
+    "word": " prices",
+    "start": 68.04,
+    "end": 68.26,
+    "probability": 0.9957126379013062
+   },
+   {
+    "word": " will",
+    "start": 68.26,
+    "end": 68.68,
+    "probability": 0.9992040991783142
+   },
+   {
+    "word": " increase,",
+    "start": 68.68,
+    "end": 69.18,
+    "probability": 0.9987760186195374
+   }
+  ],
+  "confidence": 0.9992040991783142,
+  "evidence": {
+   "utteranceIndex": 66,
+   "utteranceCount": 69,
+   "speechStart": 67.9826,
+   "speechEnd": 69.4067,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " prices will increase,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "agree",
+  "word": "agree",
+  "target": "agree",
+  "ipa": "əˈɡriː",
+  "ja": "賛成する",
+  "phonId": "v_ii",
+  "utterance": "agree.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 69.7634,
+  "end": 70.4641,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " agree,",
+    "start": 69.84,
+    "end": 70.2,
+    "probability": 0.9953551292419434
+   }
+  ],
+  "confidence": 0.9953551292419434,
+  "evidence": {
+   "utteranceIndex": 67,
+   "utteranceCount": 69,
+   "speechStart": 69.8434,
+   "speechEnd": 70.3841,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " agree,"
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ },
+ {
+  "id": "agreement",
+  "word": "agreement",
+  "target": "agreement",
+  "ipa": "əˈɡriːmənt",
+  "ja": "合意",
+  "phonId": "v_ii",
+  "utterance": "agreement.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T21_00_57_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 2,
+  "start": 70.7222,
+  "end": 71.5958,
+  "clipKind": "word",
+  "asr": [
+   {
+    "word": " agreement.",
+    "start": 70.78,
+    "end": 71.2,
+    "probability": 0.9983617663383484
+   }
+  ],
+  "confidence": 0.9983617663383484,
+  "evidence": {
+   "utteranceIndex": 68,
+   "utteranceCount": 69,
+   "speechStart": 70.8022,
+   "speechEnd": 71.5158,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": " agreement."
+  },
+  "reason": "Energy utterance boundaries, script order and ASR word/homophone anchors; zero-duration timestamps ignored for cuts."
+ }
+]

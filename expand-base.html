@@ -366,6 +366,7 @@ input[type=range]{accent-color:var(--ink);height:1.75rem}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .learn-guide{padding:1rem;background:var(--surface);border:1px solid var(--line);border-radius:1rem;margin:.6rem 0 1rem}.learn-guide p{font-size:.875rem;line-height:1.7;color:var(--ink2);margin:.5rem 0}.learn-guide .btnrow{flex-wrap:wrap}.lesson-step{font-size:.8rem;color:var(--ink2);padding:.5rem 0}.lesson-step span{display:block;margin-top:.2rem}.play-summary{padding:.35rem 0}.play-summary .linkbtn{font-size:.8rem;text-align:left;min-height:2.5rem}.play-options{padding:.75rem;background:var(--surface);border:1px solid var(--line);border-radius:.8rem;max-height:45vh;overflow:auto}.play-options label{display:block;font-size:.85rem;margin-bottom:.7rem}.play-options select{display:block;width:100%;min-height:2.8rem;padding:.5rem;margin-top:.3rem;background:var(--bg);border:1px solid var(--line);border-radius:.5rem}.play-options .follow-label{display:flex;gap:.5rem;align-items:center;min-height:2.5rem}.follow-label input{width:1.2rem;height:1.2rem;flex:none}.play-options p{font-size:.75rem;line-height:1.6;color:var(--ink2);margin:0}.now-playing{display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-size:.75rem;padding:.25rem 0 .5rem}.now-playing b{font-family:var(--f-ph);font-size:1rem}.now-playing .linkbtn{white-space:nowrap;font-size:.75rem;min-height:2.5rem}
+.audio-sentence{display:block;font-family:var(--f-ui);font-size:.78rem;line-height:1.5;color:var(--ink2);margin-top:.2rem}.audio-sentence small{font-size:.7rem;border:1px solid var(--line);border-radius:.25rem;padding:.05rem .2rem;margin-right:.2rem}
 </style>
 <style>
 /*SOUND CHANGES*/
@@ -1004,22 +1005,26 @@ function pickVoice(){
 }
 function jaVoice(){const j=allVoices.filter(v=>vlang(v).startsWith("ja"));return j.find(v=>/google/i.test(v.name))||j[0]||null}
 let speechGeneration=0;
-let recordedAudio=null,recordedMapPromise=null,recordedCancel=null,lastAudioSource="";
+const REC_AUDIO_SOURCES=["audio/jessica-padded.mp3", "audio/jessica-extra-20261022.mp3"];
+let recordedAudio=null,recordedMapPromise=null,recordedCancel=null,lastAudioSource="",lastAudioUtterance="";
+const recordedAudioPool=new Map();
 function stopRecordedAudio(){
   const cancel=recordedCancel;recordedCancel=null;if(cancel)cancel();
-  if(recordedAudio){try{recordedAudio.pause()}catch(e){}}
+  for(const a of recordedAudioPool.values()){try{a.pause()}catch(e){}}
 }
 function recordedMap(){
   if(!recordedMapPromise)recordedMapPromise=(async()=>{
     const c=new AbortController(),timer=setTimeout(()=>c.abort(),8000);
-    try{const r=await fetch("audio/jessica-map.json?v=2",{signal:c.signal});if(!r.ok)throw Error("map");const m=await r.json();if(!m.clips||m.audio!=="audio/jessica-padded.mp3")throw Error("map");return m}
+    try{const r=await fetch("audio/jessica-map.json?v=20261022-2",{signal:c.signal});if(!r.ok)throw Error("map");const m=await r.json();if(!m.clips||m.audio!==REC_AUDIO_SOURCES[0])throw Error("map");m.sources=m.sources||[m.audio];if(!Array.isArray(m.sources)||m.sources.some(x=>!REC_AUDIO_SOURCES.includes(x)))throw Error("sources");return m}
     finally{clearTimeout(timer)}
   })().catch(e=>{recordedMapPromise=null;throw e});
   return recordedMapPromise;
 }
-function recordedReady(generation){
-  if(!recordedAudio){recordedAudio=new Audio("audio/jessica-padded.mp3");recordedAudio.preload="auto";recordedAudio.preservesPitch=true;recordedAudio.load()}
-  const a=recordedAudio;
+function recordedReady(generation,source){
+  if(!REC_AUDIO_SOURCES.includes(source))return Promise.reject(Error("source"));
+  if(recordedAudioPool.has(source)&&recordedAudioPool.get(source).error){try{recordedAudioPool.get(source).pause()}catch(e){}recordedAudioPool.delete(source)}
+  if(!recordedAudioPool.has(source)){const a=new Audio(source);a.preload="auto";a.preservesPitch=true;recordedAudioPool.set(source,a);a.load()}
+  const a=recordedAudioPool.get(source);recordedAudio=a;
   if(a.readyState>=1)return Promise.resolve(a);
   return new Promise((resolve,reject)=>{
     let timer;const clean=()=>{clearTimeout(timer);a.removeEventListener("loadedmetadata",ready);a.removeEventListener("error",error);if(recordedCancel===cancel)recordedCancel=null};
@@ -1032,8 +1037,10 @@ async function speakRecorded(text,rate,generation,done,fallback){
   try{
     const map=await recordedMap();if(generation!==speechGeneration)return;
     const clip=map.clips[text.trim().toLowerCase()];
-    if(!Array.isArray(clip)||clip.length!==2||!Number.isFinite(clip[0])||!Number.isFinite(clip[1])||clip[0]<0||clip[1]<=clip[0]){fallback();return}
-    const a=await recordedReady(generation);if(generation!==speechGeneration)return;
+    if(!Array.isArray(clip)||(clip.length!==2&&clip.length!==3)||!Number.isFinite(clip[0])||!Number.isFinite(clip[1])||clip[0]<0||clip[1]<=clip[0]){fallback();return}
+    const sourceIndex=clip.length===3?clip[2]:0;if(!Number.isInteger(sourceIndex)||sourceIndex<0||sourceIndex>=map.sources.length){fallback();return}
+    const a=await recordedReady(generation,map.sources[sourceIndex]);if(generation!==speechGeneration)return;
+    if(Number.isFinite(a.duration)&&clip[1]>a.duration+.05){fallback();return}
     a.playbackRate=rate;a.preservesPitch=true;
     let stopped=false,timer=null,seekTimer=null,played=false,lastTime=clip[0],progressAt=Date.now();
     const clean=()=>{if(stopped)return;stopped=true;clearTimeout(timer);clearTimeout(seekTimer);a.removeEventListener("seeked",seeked);a.removeEventListener("error",failed);a.removeEventListener("ended",ended);a.removeEventListener("playing",playing);a.pause();if(recordedCancel===cancel)recordedCancel=null};
@@ -1042,7 +1049,7 @@ async function speakRecorded(text,rate,generation,done,fallback){
     const failed=()=>{if(stopped)return;clean();if(generation===speechGeneration)fallback()};
     const ended=()=>finish();
     const check=()=>{if(stopped)return;if(generation!==speechGeneration){clean();return}if(a.currentTime>lastTime+.01){lastTime=a.currentTime;progressAt=Date.now()}else if(Date.now()-progressAt>15000){failed();return}if(a.currentTime>=clip[1]-.008){finish();return}timer=setTimeout(check,15)};
-    const playing=()=>{clearTimeout(seekTimer);clearTimeout(timer);lastAudioSource="ElevenLabs";if(playAll)renderToolbar();check()};
+    const playing=()=>{clearTimeout(seekTimer);clearTimeout(timer);const meta=map.clipMetadata&&map.clipMetadata[text.trim().toLowerCase()];lastAudioUtterance=meta&&meta.clipKind==="sentence"?meta.utterance:"";lastAudioSource=lastAudioUtterance?"ElevenLabs · 例文音声":"ElevenLabs";if(playAll)renderToolbar();check()};
     const play=()=>{if(stopped||played||generation!==speechGeneration)return;played=true;a.removeEventListener("seeked",seeked);clearTimeout(seekTimer);seekTimer=setTimeout(failed,10000);try{const result=a.play();if(result&&result.catch)result.catch(failed)}catch(e){failed()}};
     const seeked=()=>play();
     recordedCancel=cancel;a.addEventListener("error",failed);a.addEventListener("ended",ended);a.addEventListener("playing",playing);a.addEventListener("seeked",seeked);
@@ -1051,7 +1058,7 @@ async function speakRecorded(text,rate,generation,done,fallback){
   }catch(e){if(generation===speechGeneration)fallback()}
 }
 function speak(text,slow,onend,opt){
-  const generation=++speechGeneration;opt=opt||{};stopRecordedAudio();lastAudioSource="";if(playAll)renderToolbar();
+  const generation=++speechGeneration;opt=opt||{};stopRecordedAudio();lastAudioSource="";lastAudioUtterance="";if(playAll)renderToolbar();
   try{if("speechSynthesis" in window)speechSynthesis.cancel()}catch(e){}
   let finished=false;const done=()=>{if(finished||generation!==speechGeneration)return;finished=true;if(onend)onend()};
   const rate=opt.rate||(opt.ja?1.05:(slow?S.set.slow:S.set.rate));
@@ -1346,7 +1353,7 @@ function toolbarInner(){
 <button class="tb-tog ${S.set.showIpa?"":"off"}" data-act="togIpa" aria-pressed="${S.set.showIpa}"><span class="lbl">記号</span></button>
 <button class="tb-tog ${S.set.showJa?"":"off"}" data-act="togJa" aria-pressed="${S.set.showJa}"><span class="lbl">意味</span></button></div>`;
   h+=`<div class="play-summary"><button class="linkbtn" data-act="playOptions" aria-expanded="${playOptionsOpen}">${S.set.audioSource==="eleven"?"ElevenLabs優先":"端末音声"} · 再生設定 · 各${S.set.repeat}回 · ${{once:"この音で停止",sound:"この音をループ",next:"次の音へ",all:"全てループ"}[S.set.playMode]} ▾</button></div>`;
-  if(playAll&&playAll.phon)h+=`<div class="now-playing" role="status"><span>再生中 <b>${esc(playAll.word||"準備中")}</b> <span>${esc(lastAudioSource||"読み込み中")}</span> ${playAll.i+1}/${playAll.total||"–"}語 · ${playAll.rep}/${S.set.repeat}回</span><button class="linkbtn" data-act="playing">再生中へ</button></div>`;
+  if(playAll&&playAll.phon)h+=`<div class="now-playing" role="status"><span>再生中 <b>${esc(playAll.word||"準備中")}</b> <span>${esc(lastAudioSource||"読み込み中")}</span>${lastAudioUtterance?`<span class="audio-sentence">${esc(lastAudioUtterance)}</span>`:""} ${playAll.i+1}/${playAll.total||"–"}語 · ${playAll.rep}/${S.set.repeat}回</span><button class="linkbtn" data-act="playing">再生中へ</button></div>`;
   if(playOptionsOpen)h+=`<div class="play-options"><label>各単語の回数<select data-play="repeat">${[1,2,3,5].map(n=>`<option value="${n}" ${S.set.repeat==n?"selected":""}>${n}回ずつ</option>`).join("")}</select></label><label>この音を再生したら<select data-play="playMode">${[["once","この音で停止"],["sound","この音だけエンドレス"],["next","次の音へ進む（最後で停止）"],["all","次の音へ進む（全体ループ）"]].map(([v,l])=>`<option value="${v}" ${S.set.playMode===v?"selected":""}>${l}</option>`).join("")}</select></label><label class="follow-label"><input type="checkbox" data-play="followPlay" ${S.set.followPlay?"checked":""}> 再生中の単語へ画面を自動移動</label><p>OFFなら口の形や説明を見たまま聞けます。次の音に進むと説明も切り替わります。</p></div>`;
   if(speedOpen)h+=`<div class="speedpanel"><div class="sp-row"><input type="range" id="rateRange" min="0.5" max="1.5" step="0.05" value="${r}" aria-label="再生速度"><span class="sp-val" id="spval">${fmtRate(r)}×</span></div><div class="sp-pre">${[0.6,0.8,1,1.2].map(v=>`<button class="${Math.abs(r-v)<.001?"on":""}" data-act="rate" data-v="${v}">${fmtRate(v)}×</button>`).join("")}</div></div>`;
   return h;
@@ -1354,7 +1361,8 @@ function toolbarInner(){
 function renderToolbar(){const el=document.getElementById("toolbar");if(el)el.innerHTML=toolbarInner()}
 function rowHTML(pid,w){
   const d=isDone(pid,w.text),sel=curW&&curW.text===w.text;
-  return `<div class="wrow ${sel?"sel":""}" data-act="pick" data-w="${esc(w.text)}"><div class="wl"><div class="wt"><span>${hl(w.raw)}</span>${d?`<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア済み"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</div><div class="wi">${S.set.showIpa?"/"+w.ipa+"/":'<span class="mask"></span>'}</div></div><div class="wr"><div class="wja">${S.set.showJa?esc(w.ja):'<span class="mask"></span>'}</div>${lvF?"":`<div class="lv">${LV[w.lv]}</div>`}</div><button class="play" data-act="play" data-w="${esc(w.text)}" aria-label="${esc(w.text)}を再生">${ic("play")}</button></div>`;
+  const sentence=typeof REC_SENTENCES!=="undefined"&&REC_SENTENCES[w.text.toLowerCase()];
+  return `<div class="wrow ${sel?"sel":""}" data-act="pick" data-w="${esc(w.text)}"><div class="wl"><div class="wt"><span>${hl(w.raw)}</span>${d?`<svg class="ck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-label="クリア済み"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`:""}</div>${sentence?`<div class="audio-sentence"><small>例文音声</small> ${esc(sentence)}</div>`:""}<div class="wi">${S.set.showIpa?"/"+w.ipa+"/":'<span class="mask"></span>'}</div></div><div class="wr"><div class="wja">${S.set.showJa?esc(w.ja):'<span class="mask"></span>'}</div>${lvF?"":`<div class="lv">${LV[w.lv]}</div>`}</div><button class="play" data-act="play" data-w="${esc(w.text)}" aria-label="${esc(w.text)}を再生">${ic("play")}</button></div>`;
 }
 function refreshRow(text){
   const p=byId(curP);if(!p||view!=="phon")return;const w=findWord(p,text);if(!w)return;
@@ -1435,7 +1443,7 @@ ${sw("followPlay","再生中の単語へ画面を自動移動","OFFなら説明�
 ${sw("readJa","連続再生で日本語の意味も読む",ja?"":"日本語の音声が見つからないため、端末の既定の声で読みます")}
 </div>
 <h2 class="set-h">お手本の声</h2><div class="card">
-<div class="srow"><span class="lab">音声の種類<span class="desc">ElevenLabsはアメリカ英語の810語に対応。未対応の単語・英文・イギリス英語は端末音声で読みます。初回は音声の読み込みに少し時間がかかります。</span></span>${seg("audioSource",[["eleven","ElevenLabs優先"],["device","端末音声"]])}</div>
+<div class="srow"><span class="lab">音声の種類<span class="desc">ElevenLabsはアメリカ英語の${RECORDED_COUNT}語に対応。例文音声と表示した単語は、文全体を再生します。未対応の単語・英文・イギリス英語は端末音声で読みます。初回は音声の読み込みに少し時間がかかります。</span></span>${seg("audioSource",[["eleven","ElevenLabs優先"],["device","端末音声"]])}</div>
 <div class="srow"><span class="desc" style="margin:0">画面OFF・別タブへの移動中は再生を停止します。</span></div>
 <div class="srow"><span class="lab">発音</span>${seg("accent",[["us","アメリカ"],["gb","イギリス"],["all","すべて"]])}</div>
 <div class="srow"><span class="lab">声</span>${ev.length?`<select id="vsel" aria-label="声">${ev.map(v=>`<option value="${esc(v.voiceURI)}" ${cur&&cur.voiceURI===v.voiceURI?"selected":""}>${esc(v.name)}（${esc(v.lang)}）</option>`).join("")}</select>`:`<span class="desc">この発音の声が見つかりません。端末の設定（テキスト読み上げ）で英語の音声データを追加してください。</span>`}<div class="btnrow"><button class="btn-line" data-act="vtest">${"試しに聞く"}</button></div></div>

@@ -1,0 +1,29 @@
+[
+ {
+  "id": "cherry",
+  "word": "cherry",
+  "target": "cherry",
+  "ipa": "ˈtʃeri",
+  "ja": "さくらんぼ",
+  "phonId": "v_e",
+  "utterance": "cherry.",
+  "file": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T20_59_55_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "source": "/workspace/scratch/8b5a8e3d1bf6/upload/ElevenLabs_2026-10-22T20_59_55_Jessica - Playful, Bright, Warm_eleven_v4.mp3",
+  "part": 1,
+  "start": 51.2081,
+  "end": 51.8892,
+  "clipKind": "word",
+  "asr": [],
+  "confidence": 0,
+  "evidence": {
+   "utteranceIndex": 50,
+   "utteranceCount": 69,
+   "speechStart": 51.2881,
+   "speechEnd": 51.8092,
+   "boundary": "-38 dB silence >= 0.17 s, padded 0.08 s",
+   "alignment": "ordered 69 script utterances and surrounding recognized anchors",
+   "recognized": ""
+  },
+  "reason": "short-segment verification pending: absent or non-homophone ASR"
+ }
+]
