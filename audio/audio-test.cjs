@@ -1,3 +1,12 @@
+// Node.js 2026-10-21 security release minimums; fail before running QA on an unpatched runtime.
+(() => {
+  const [major, minor, patch] = process.versions.node.split('.').map(Number);
+  const minimum = {22: [23, 4], 24: [22, 1], 26: [12, 1]}[major];
+  if (!minimum || minor < minimum[0] || (minor === minimum[0] && patch < minimum[1])) {
+    throw new Error('Use patched Node.js 22.23.4, 24.22.1, or 26.12.1 (or newer in those release lines). Current: ' + process.versions.node);
+  }
+})();
+
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const src=fs.readFileSync('hatsuon-work/index.html','utf8');const block=src.slice(src.indexOf('let allVoices=[];'),src.indexOf('function startPlayAll('));
 const map=JSON.parse(fs.readFileSync('hatsuon-work/audio/jessica-map.json'));
